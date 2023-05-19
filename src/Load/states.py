@@ -40,4 +40,4 @@ def load_states(ms: Dict, json: Dict) -> None:
 
     ms["State"] = {}
     for key in json["State"]:
-        ms["State"][key] = json["State"][key]
+        ms["State"][key] = convert_state(json["State"][key])
