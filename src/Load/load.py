@@ -1,6 +1,7 @@
 from typing import Dict
 from ..Classes import MathSpec
 from .general import check_json_keys
+from .states import load_states
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -14,12 +15,12 @@ def load_from_json(json: Dict) -> MathSpec:
     """
 
     # Assert the keys are correct in the json
-    check_json_keys(json)
+    check_json_keys(json, "Math Spec")
 
     ms = {}
 
     # Do loading one by one to transfer the json
-    #load_states(ms, json)
+    load_states(ms, json)
 
     ms = MathSpec(ms, json)
     return ms
