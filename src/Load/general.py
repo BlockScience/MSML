@@ -25,7 +25,8 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                                 'Stateful Metrics'],
                   "State": ['name', 'notes', 'variables'],
                   "State Variable": ['type', 'name', 'description', 'symbol', 'domain'],
-                  "Entity": ['name', 'notes', 'state']}
+                  "Entity": ['name', 'notes', 'state'],
+                  "Boundary Action": ['name', 'description', 'constraints', 'boundary_action_options', 'called_by', 'codomain', 'parameters_used']}
 
     check_set = check_sets[check_set_key]
 
