@@ -1,5 +1,5 @@
 from typing import Dict
-from ..Classes import BoundaryAction
+from ..Classes import BoundaryAction, BoundaryActionOption
 from .general import check_json_keys
 
 
@@ -18,6 +18,13 @@ def convert_boundary_action(data: Dict) -> BoundaryAction:
 
     # Copy
     data = data.copy()
+
+    # Convert the boundary action options
+    new_bao = []
+    for ba in data["boundary_action_options"]:
+        check_json_keys(ba, "Boundary Action Option")
+        new_bao.append(BoundaryActionOption(ba))
+    data["boundary_action_options"] = new_bao
 
     # Build the boundary action object
     return BoundaryAction(data)
