@@ -4,6 +4,7 @@ from .general import check_json_keys
 from .states import load_states
 from .entities import load_entities
 from .boundary_actions import load_boundary_actions
+from .action_transmission_channel import load_action_transmission_channels
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -25,6 +26,8 @@ def load_from_json(json: Dict) -> MathSpec:
     load_states(ms, json)
     load_entities(ms, json)
     load_boundary_actions(ms, json)
+
+    load_action_transmission_channels(ms, json)
 
     ms = MathSpec(ms, json)
     return ms
