@@ -40,5 +40,8 @@ def load_from_json(json: Dict) -> MathSpec:
     load_spaces(ms, json)
     load_stateful_metrics(ms, json)
 
+    # Assert all keys are correct for the ms version
+    check_json_keys(ms, "Math Spec")
+
     ms = MathSpec(ms, json)
     return ms
