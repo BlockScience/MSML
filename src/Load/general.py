@@ -29,7 +29,8 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                   "Boundary Action": ['name', 'description', 'constraints', 'boundary_action_options', 'called_by', 'codomain', 'parameters_used'],
                   "Action Transmission Channel": ['origin', 'target', 'space', 'optional'],
                   "Mechanism": ["name", "description", "constraints", "logic", "domain", "parameters_used"],
-                  "State Update Transmission Channel": ['origin', 'entity', 'variable', 'optional']}
+                  "State Update Transmission Channel": ['origin', 'entity', 'variable', 'optional'],
+                  "Policy": ['name', 'description', 'constraints', 'policy_options', 'domain', 'codomain', 'parameters_used']}
 
     check_set = check_sets[check_set_key]
 
