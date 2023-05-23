@@ -9,6 +9,8 @@ from .mechanism import load_mechanisms
 from .state_update_transmission_channels import load_state_update_transmission_channels
 from .parameters import load_parameters
 from .policy import load_policies
+from .spaces import load_spaces
+from .stateful_metrics import load_stateful_metrics
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -35,6 +37,8 @@ def load_from_json(json: Dict) -> MathSpec:
     load_state_update_transmission_channels(ms, json)
     load_parameters(ms, json)
     load_policies(ms, json)
+    load_spaces(ms, json)
+    load_stateful_metrics(ms, json)
 
     ms = MathSpec(ms, json)
     return ms

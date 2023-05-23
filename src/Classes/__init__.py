@@ -7,4 +7,4 @@ from .Mechanism import Mechanism
 from .Parameter import Parameter, ParameterSet, ParameterContainer
 from .Policy import Policy
 from .StateUpdateTransmissionChannel import StateUpdateTransmissionChannel
-from .StatefulMetric import StatefulMetric
+from .StatefulMetric import StatefulMetric, StatefulMetricSet
