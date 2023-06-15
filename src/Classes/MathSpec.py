@@ -13,7 +13,6 @@ class MathSpec:
         self.entities = ms_dict['Entities']
         self.mechanisms = ms_dict['Mechanisms']
         self.parameters = ms_dict['Parameters']
-        self.policies = ms_dict['Parameters']
         self.policies = ms_dict['Policies']
         self.spaces = ms_dict["Spaces"]
         self.state = ms_dict["State"]

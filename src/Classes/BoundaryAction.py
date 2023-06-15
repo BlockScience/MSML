@@ -11,6 +11,7 @@ class BoundaryAction:
         self.called_by = data["called_by"]
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
+        self.calls = []
 
 
 class BoundaryActionOption:

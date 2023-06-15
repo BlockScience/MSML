@@ -11,3 +11,5 @@ class Policy:
         self.domain = data["domain"]
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
+        self.called_by = []
+        self.calls = []

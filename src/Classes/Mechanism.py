@@ -10,3 +10,4 @@ class Mechanism:
         self.logic = data["logic"]
         self.domain = data["domain"]
         self.parameters_used = data["parameters_used"]
+        self.called_by = []
