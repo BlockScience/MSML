@@ -77,7 +77,6 @@ class MathSpec:
                     continue
                 else:
                     out["Mechanisms"].append(curr)
-                    q.extend(curr.calls)
             else:
                 assert False, "Unknown type in queue"
 
