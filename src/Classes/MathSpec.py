@@ -54,7 +54,7 @@ class MathSpec:
         """
         out = {}
         out["Entities"] = self.find_relevant_entities(action_keys)
-        out["Boundary Actions"] = action_keys
+        out["Boundary Actions"] = []
         out["Policies"] = []
         out["Mechanisms"] = []
         q = []
@@ -63,6 +63,7 @@ class MathSpec:
             assert key in self.boundary_actions, "{} not a valid boundary action".format(
                 key)
             q.extend(self.boundary_actions[key].calls)
+            out["Boundary Actions"].append(self.boundary_actions[key])
 
         while len(q) > 0:
             curr = q.pop(0)
