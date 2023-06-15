@@ -1,5 +1,7 @@
 from typing import Dict, List
 from .Entity import Entity
+from .Policy import Policy
+from .Mechanism import Mechanism
 
 
 class MathSpec:
@@ -38,5 +40,45 @@ class MathSpec:
 
         # Get unique records
         out = list(set(out))
+
+        return out
+
+    def crawl_action_chains(self, action_keys: List[str]) -> dict:
+        """Crawl the graph of the actions to find all policies, entities, edges, etc.
+
+        Args:
+            action_keys (List[str]): List of keys for behavioral actions
+
+        Returns:
+            dict: A dictionary of all nodes and edges
+        """
+        out = {}
+        out["Entities"] = self.find_relevant_entities(action_keys)
+        out["Boundary Actions"] = action_keys
+        out["Policies"] = []
+        out["Mechanisms"] = []
+        q = []
+        # Iterate through and add all calls
+        for key in action_keys:
+            assert key in self.boundary_actions, "{} not a valid boundary action".format(
+                key)
+            q.extend(self.boundary_actions[key].calls)
+
+        while len(q) > 0:
+            curr = q.pop(0)
+            if type(curr) == Policy:
+                if curr in out["Policies"]:
+                    continue
+                else:
+                    out["Policies"].append(curr)
+                    q.extend(curr.calls)
+            elif type(curr) == Mechanism:
+                if curr in out["Mechanisms"]:
+                    continue
+                else:
+                    out["Mechanisms"].append(curr)
+                    q.extend(curr.calls)
+            else:
+                assert False, "Unknown type in queue"
 
         return out
