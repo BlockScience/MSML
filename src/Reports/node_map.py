@@ -8,18 +8,18 @@ def create_action_chains_graph(ms, action_keys):
 
     # Add entities
     for entity in all_nodes["Entities"]:
-        graph.node(entity.name, entity.name, shape="cylinder", color="black")
+        graph.node(entity.name, entity.label, shape="cylinder", color="black")
 
     for ba in all_nodes["Boundary Actions"]:
-        graph.node(ba.name, ba.name, shape="diamond",
+        graph.node(ba.name, ba.label, shape="diamond",
                    color="orange", style='filled')
 
     for p in all_nodes["Policies"]:
-        graph.node(p.name, p.name, shape="rectangle",
+        graph.node(p.name, p.label, shape="rectangle",
                    color="red", style='filled')
 
     for m in all_nodes["Mechanisms"]:
-        graph.node(m.name, m.name, shape="oval",
+        graph.node(m.name, m.label, shape="oval",
                    color="blue", style='filled')
 
     for ba in all_nodes["Boundary Actions"]:
