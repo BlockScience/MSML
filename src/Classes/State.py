@@ -7,6 +7,10 @@ class State:
         self.name = data["name"]
         self.notes = data["notes"]
         self.variables = data["variables"]
+        if "label" in data:
+            self.label = data["label"]
+        else:
+            self.label = self.name
         self._write_variable_map()
 
     def _write_variable_map(self) -> None:

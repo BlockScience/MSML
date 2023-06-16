@@ -10,4 +10,8 @@ class Mechanism:
         self.logic = data["logic"]
         self.domain = data["domain"]
         self.parameters_used = data["parameters_used"]
+        if "label" in data:
+            self.label = data["label"]
+        else:
+            self.label = self.name
         self.called_by = []

@@ -8,6 +8,11 @@ class Entity:
         self.notes = data["notes"]
         self.state = data["state"]
 
+        if "label" in data:
+            self.label = data["label"]
+        else:
+            self.label = self.name
+
         # Boundary actions are added during parsing
         self.boundary_actions = []
 

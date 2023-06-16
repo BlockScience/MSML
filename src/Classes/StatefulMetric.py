@@ -11,6 +11,10 @@ class StatefulMetric:
         self.parameters_used = data["parameters_used"]
         self.symbol = data["symbol"]
         self.domain = data["domain"]
+        if "label" in data:
+            self.label = data["label"]
+        else:
+            self.label = self.name
 
 
 class StatefulMetricSet:
