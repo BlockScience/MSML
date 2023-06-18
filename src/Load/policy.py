@@ -21,7 +21,7 @@ def convert_policy(data: Dict) -> Policy:
     # Copy
     data = data.copy()
 
-    # Build the action transmission channel object
+    # Build the policy object
     return Policy(data)
 
 
