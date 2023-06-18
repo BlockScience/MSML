@@ -34,6 +34,12 @@ def convert_state_update_transmission_channel(data: Dict, ms: Dict) -> StateUpda
     assert variable in entity.state.variable_map
     data["variable"] = entity.state.variable_map[variable]
 
+    # Add in the updates logic
+    data["origin"].updates.append((data["entity"],
+                                   data["variable"]))
+    data["entity"].state.updated_by.append(data["origin"])
+    data["variable"].updated_by.append(data["origin"])
+
     # Copy
     data = data.copy()
 

@@ -15,3 +15,4 @@ class Mechanism:
         else:
             self.label = self.name
         self.called_by = []
+        self.updates = []

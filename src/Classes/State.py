@@ -12,6 +12,7 @@ class State:
         else:
             self.label = self.name
         self._write_variable_map()
+        self.updated_by = []
 
     def _write_variable_map(self) -> None:
         """
@@ -39,3 +40,4 @@ class StateVariable:
         self.description = data["description"]
         self.symbol = data["symbol"]
         self.domain = data["domain"]
+        self.updated_by = []
