@@ -58,6 +58,7 @@ class MathSpec:
         out["Policies"] = []
         out["Mechanisms"] = []
         out["State Updates"] = []
+        out["Entities2"] = []
         q = []
         # Iterate through and add all calls
         for key in action_keys:
@@ -82,6 +83,8 @@ class MathSpec:
                     for x in curr.updates:
                         if x not in out["State Updates"]:
                             out["State Updates"].append(x)
+                        if x[0] not in out["Entities2"]:
+                            out["Entities2"].append(x[0])
             else:
                 assert False, "Unknown type in queue"
 
