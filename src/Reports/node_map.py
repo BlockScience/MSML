@@ -20,7 +20,7 @@ def create_action_chains_graph(ms, action_keys):
 
     for m in all_nodes["Mechanisms"]:
         graph.node(m.name, m.label, shape="oval",
-                   color="blue", style='filled')
+                   color="azure2", style='filled')
 
     for entity in all_nodes["Entities2"]:
         graph.node(entity.name+"_2", entity.label,
