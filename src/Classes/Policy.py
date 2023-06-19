@@ -17,3 +17,11 @@ class Policy:
             self.label = self.name
         self.called_by = []
         self.calls = []
+
+
+class PolicyOption:
+
+    def __init__(self, data: Dict):
+        self.name = data["name"]
+        self.description = data["description"]
+        self.logic = data["logic"]

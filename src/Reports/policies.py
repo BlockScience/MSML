@@ -20,7 +20,7 @@ def write_out_policy(policy: Policy) -> str:
     out += "<h4>Domain Spaces:</h4>\n"
     for i, x in enumerate(policy.domain):
         out += "<p>"
-        out += "{}. {}".format(i+1, x)
+        out += "{}. {}".format(i+1, x.__name__)
         out += "</p>"
 
     out += "<h4>Followed By:</h4>\n"
@@ -32,7 +32,7 @@ def write_out_policy(policy: Policy) -> str:
     out += "<h4>Codomain Spaces:</h4>\n"
     for i, x in enumerate(policy.codomain):
         out += "<p>"
-        out += "{}. {}".format(i+1, x)
+        out += "{}. {}".format(i+1, x.__name__)
         out += "</p>"
 
     out += "<h4>Constraints:</h4>\n"
@@ -45,7 +45,7 @@ def write_out_policy(policy: Policy) -> str:
         out += "<h4>Policy Options:</h4>\n"
         for i, x in enumerate(policy.policy_options):
             out += "<details>"
-            out += "<summary><b>{}. {}</b></summary>".format(i+1, x.label)
+            out += "<summary><b>{}. {}</b></summary>".format(i+1, x.name)
             out += "<p>"
             out += x.description
             out += "</p>"

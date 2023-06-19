@@ -5,6 +5,6 @@ from .BoundaryAction import BoundaryAction, BoundaryActionOption
 from .ActionTransmissionChannel import ActionTransmissionChannel
 from .Mechanism import Mechanism
 from .Parameter import Parameter, ParameterSet, ParameterContainer
-from .Policy import Policy
+from .Policy import Policy, PolicyOption
 from .StateUpdateTransmissionChannel import StateUpdateTransmissionChannel
 from .StatefulMetric import StatefulMetric, StatefulMetricSet

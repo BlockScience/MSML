@@ -31,6 +31,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                   "Mechanism": ["name", 'label', "description", "constraints", "logic", "domain", "parameters_used"],
                   "State Update Transmission Channel": ['origin', 'entity', 'variable', 'optional'],
                   "Policy": ['name', 'label', 'description', 'constraints', 'policy_options', 'domain', 'codomain', 'parameters_used'],
+                  "Policy Option": ["name", "description", "logic"],
                   "Stateful Metric Set": ['name', 'label', 'notes', 'metrics'],
                   "Stateful Metric": ['type', 'name', 'label', 'description', 'variables_used', 'parameters_used', 'symbol', 'domain']}
 
