@@ -1,10 +1,10 @@
 import graphviz
 
 
-def create_action_chains_graph(ms, action_keys):
+def create_action_chains_graph(ms, action_keys, name):
     all_nodes = ms.crawl_action_chains(action_keys)
 
-    graph = graphviz.Digraph()
+    graph = graphviz.Digraph(name)
 
     # Add nodes
     for entity in all_nodes["Entities"]:
