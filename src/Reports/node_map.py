@@ -1,4 +1,5 @@
 import graphviz
+from textwrap import wrap
 
 
 def create_action_chains_graph(ms, action_keys, name):
@@ -42,10 +43,14 @@ def create_action_chains_graph(ms, action_keys, name):
     for p in all_nodes["Policies"]:
         for call in p.calls:
             space = call[2].__name__
+            space = wrap(space, 12)
+            space = "\n".join(space)
+            #space = "\n".join(space.split(" "))
             optional_flag = call[1]
             call = call[0]
             if optional_flag:
-                graph.edge(p.name, call.name, style="dashed", label=space)
+                graph.edge(p.name, call.name, style="dashed",
+                           label=space)
             else:
                 graph.edge(p.name, call.name, label=space)
 
