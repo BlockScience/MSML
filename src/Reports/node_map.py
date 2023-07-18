@@ -41,12 +41,13 @@ def create_action_chains_graph(ms, action_keys, name):
 
     for p in all_nodes["Policies"]:
         for call in p.calls:
+            space = call[2].__name__
             optional_flag = call[1]
             call = call[0]
             if optional_flag:
-                graph.edge(p.name, call.name, style="dashed")
+                graph.edge(p.name, call.name, style="dashed", label=space)
             else:
-                graph.edge(p.name, call.name)
+                graph.edge(p.name, call.name, label=space)
 
     for m in all_nodes["Mechanisms"]:
         for u in m.updates:
