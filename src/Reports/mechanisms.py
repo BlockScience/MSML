@@ -13,6 +13,7 @@ def write_out_mechanism(mechanism: Mechanism) -> str:
 
     out += "<h4>Preceded By:</h4>\n"
     for i, x in enumerate(mechanism.called_by):
+        x = x[0]
         out += "<p>"
         out += "{}. {}".format(i+1, x.name)
         out += "</p>"

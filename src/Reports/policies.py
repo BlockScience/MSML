@@ -13,6 +13,7 @@ def write_out_policy(policy: Policy) -> str:
 
     out += "<h4>Preceded By:</h4>\n"
     for i, x in enumerate(policy.called_by):
+        x = x[0]
         out += "<p>"
         out += "{}. {}".format(i+1, x.name)
         out += "</p>"
@@ -25,6 +26,7 @@ def write_out_policy(policy: Policy) -> str:
 
     out += "<h4>Followed By:</h4>\n"
     for i, x in enumerate(policy.calls):
+        x = x[0]
         out += "<p>"
         out += "{}. {}".format(i+1, x.name)
         out += "</p>"
