@@ -69,6 +69,8 @@ class MathSpec:
 
         while len(q) > 0:
             curr = q.pop(0)
+            optional_flag = curr[1]
+            curr = curr[0]
             if type(curr) == Policy:
                 if curr in out["Policies"]:
                     continue

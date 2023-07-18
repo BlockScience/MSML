@@ -1,4 +1,5 @@
 import graphviz
+from textwrap import wrap
 
 
 def create_action_chains_graph(ms, action_keys, name):
@@ -35,11 +36,23 @@ def create_action_chains_graph(ms, action_keys, name):
         for entity in ba.called_by:
             graph.edge(entity.name, ba.name)
         for call in ba.calls:
+            optional_flag = call[1]
+            call = call[0]
             graph.edge(ba.name, call.name)
 
     for p in all_nodes["Policies"]:
         for call in p.calls:
-            graph.edge(p.name, call.name)
+            space = call[2].__name__
+            space = wrap(space, 12)
+            space = "\n".join(space)
+            #space = "\n".join(space.split(" "))
+            optional_flag = call[1]
+            call = call[0]
+            if optional_flag:
+                graph.edge(p.name, call.name, style="dashed",
+                           label=space)
+            else:
+                graph.edge(p.name, call.name, label=space)
 
     for m in all_nodes["Mechanisms"]:
         for u in m.updates:
