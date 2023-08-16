@@ -1,4 +1,4 @@
-from .Dummy import dummy_policy, dummy_policy_option
+from .Dummy import dummy_policy
 policies = {
-
+    "Dummy Policy": dummy_policy
 }
