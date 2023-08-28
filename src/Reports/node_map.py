@@ -41,14 +41,20 @@ def create_action_chains_graph(ms, action_keys, name):
             graph.edge(entity.name, ba.name)
         for call in ba.calls:
             optional_flag = call[1]
+            space = call[2].__name__
+            space = wrap(space, 12)
+            space = "\n".join(space)
             call = call[0]
-            graph.edge(ba.name, call.name)
+            graph.edge(ba.name, call.name, label=space)
 
     for ca in all_nodes["Control Actions"]:
         for call in ca.calls:
             optional_flag = call[1]
+            space = call[2].__name__
+            space = wrap(space, 12)
+            space = "\n".join(space)
             call = call[0]
-            graph.edge(ca.name, call.name)
+            graph.edge(ca.name, call.name, label=space)
 
     for p in all_nodes["Policies"]:
         for call in p.calls:
