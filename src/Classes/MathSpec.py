@@ -70,7 +70,9 @@ class MathSpec:
                 q.extend(self.boundary_actions[key].calls)
                 out["Boundary Actions"].append(self.boundary_actions[key])
             else:
+                q.extend(self.control_actions[key].calls)
                 out["Control Actions"].append(self.control_actions[key])
+                
         
         out["Entities"] = self.find_relevant_entities([x.name for x in out["Boundary Actions"]])
 
