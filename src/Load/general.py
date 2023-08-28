@@ -34,7 +34,8 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                   "Policy": ['name', 'label', 'description', 'constraints', 'policy_options', 'domain', 'codomain', 'parameters_used'],
                   "Policy Option": ["name", "description", "logic"],
                   "Stateful Metric Set": ['name', 'label', 'notes', 'metrics'],
-                  "Stateful Metric": ['type', 'name', 'label', 'description', 'variables_used', 'parameters_used', 'symbol', 'domain']}
+                  "Stateful Metric": ['type', 'name', 'label', 'description', 'variables_used', 'parameters_used', 'symbol', 'domain'],
+                  "Control Action": ['name', 'label', 'description', 'constraints', 'control_action_options', 'codomain', 'parameters_used'],}
 
     check_set = check_sets[check_set_key]
 
