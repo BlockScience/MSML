@@ -14,6 +14,10 @@ def create_action_chains_graph(ms, action_keys, name):
     for ba in all_nodes["Boundary Actions"]:
         graph.node(ba.name, ba.label, shape="diamond",
                    color="orange", style='filled')
+    
+    for ca in all_nodes["Control Actions"]:
+        graph.node(ca.name, ca.label, shape="diamond",
+                   color="yellow", style='filled')
 
     for p in all_nodes["Policies"]:
         graph.node(p.name, p.label, shape="rectangle",
@@ -39,6 +43,12 @@ def create_action_chains_graph(ms, action_keys, name):
             optional_flag = call[1]
             call = call[0]
             graph.edge(ba.name, call.name)
+
+    for ca in all_nodes["Control Actions"]:
+        for call in ca.calls:
+            optional_flag = call[1]
+            call = call[0]
+            graph.edge(ca.name, call.name)
 
     for p in all_nodes["Policies"]:
         for call in p.calls:
