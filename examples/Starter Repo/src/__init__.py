@@ -8,6 +8,7 @@ from .Mechanisms import mechanism
 from .Entities import entities
 from .BoundaryActions import boundary_actions
 from .ActionTransmissionChannels import action_transmission_channels
+from .ControlActions import control_actions
 
 math_spec_json = {"Policies": policies,
                   "Spaces": spaces,
@@ -18,4 +19,5 @@ math_spec_json = {"Policies": policies,
                   "Mechanisms": mechanism,
                   "Entities": entities,
                   "Boundary Actions": boundary_actions,
-                  "Action Transmission Channels": action_transmission_channels}
+                  "Action Transmission Channels": action_transmission_channels,
+                  "Control Actions": control_actions}
