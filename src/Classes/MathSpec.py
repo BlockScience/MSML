@@ -12,6 +12,7 @@ class MathSpec:
         self._json = json
         self.action_transmission_channels = ms_dict["Action Transmission Channels"]
         self.boundary_actions = ms_dict['Boundary Actions']
+        self.control_actions = ms_dict['Control Actions']
         self.entities = ms_dict['Entities']
         self.mechanisms = ms_dict['Mechanisms']
         self.parameters = ms_dict['Parameters']
@@ -53,8 +54,9 @@ class MathSpec:
             dict: A dictionary of all nodes and edges
         """
         out = {}
-        out["Entities"] = self.find_relevant_entities(action_keys)
+        
         out["Boundary Actions"] = []
+        out["Control Actions"] = []
         out["Policies"] = []
         out["Mechanisms"] = []
         out["State Updates"] = []
@@ -62,10 +64,17 @@ class MathSpec:
         q = []
         # Iterate through and add all calls
         for key in action_keys:
-            assert key in self.boundary_actions, "{} not a valid boundary action".format(
+            assert key in self.boundary_actions or key in self.control_actions, "{} not a valid boundary or control action".format(
                 key)
-            q.extend(self.boundary_actions[key].calls)
-            out["Boundary Actions"].append(self.boundary_actions[key])
+            if key in self.boundary_actions:
+                q.extend(self.boundary_actions[key].calls)
+                out["Boundary Actions"].append(self.boundary_actions[key])
+            else:
+                q.extend(self.control_actions[key].calls)
+                out["Control Actions"].append(self.control_actions[key])
+                
+        
+        out["Entities"] = self.find_relevant_entities([x.name for x in out["Boundary Actions"]])
 
         while len(q) > 0:
             curr = q.pop(0)

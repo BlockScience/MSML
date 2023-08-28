@@ -24,12 +24,15 @@ def convert_action_transmission_channel(data: Dict, ms: Dict) -> ActionTransmiss
     origin = data["origin"]
     is_boundary = origin in ms["Boundary Actions"]
     is_policy = origin in ms["Policies"]
-    assert is_boundary + is_policy > 0, "Can't find the origin"
-    assert is_boundary + is_policy == 1, "Multiple versions of the origin"
+    is_control = origin in ms["Control Actions"]
+    assert is_boundary + is_policy + is_control > 0, "Can't find the origin"
+    assert is_boundary + is_policy + is_control == 1, "Multiple versions of the origin"
     if is_boundary:
         data["origin"] = ms["Boundary Actions"][origin]
     if is_policy:
         data["origin"] = ms["Policies"][origin]
+    if is_control:
+        data["origin"] = ms["Control Actions"][origin]
 
     # Assert that the target is in the math spec and only once then convert
     target = data["target"]

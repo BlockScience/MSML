@@ -4,6 +4,7 @@ from .general import check_json_keys
 from .states import load_states
 from .entities import load_entities
 from .boundary_actions import load_boundary_actions
+from .control_actions import load_control_actions
 from .action_transmission_channel import load_action_transmission_channels
 from .mechanism import load_mechanisms
 from .state_update_transmission_channels import load_state_update_transmission_channels
@@ -32,6 +33,7 @@ def load_from_json(json: Dict) -> MathSpec:
     load_states(ms, json)
     load_entities(ms, json)
     load_boundary_actions(ms, json)
+    load_control_actions(ms, json)
     load_mechanisms(ms, json)
     load_parameters(ms, json)
     load_policies(ms, json)

@@ -8,3 +8,4 @@ from .Parameter import Parameter, ParameterSet, ParameterContainer
 from .Policy import Policy, PolicyOption
 from .StateUpdateTransmissionChannel import StateUpdateTransmissionChannel
 from .StatefulMetric import StatefulMetric, StatefulMetricSet
+from .ControlAction import ControlAction, ControlActionOption
