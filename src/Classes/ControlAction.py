@@ -7,7 +7,7 @@ class ControlAction:
         self.name = data['name']
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.boundary_action_options = data["boundary_action_options"]
+        self.control_action_options = data["control_action_options"]
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
         if "label" in data:
