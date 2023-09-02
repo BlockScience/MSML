@@ -16,3 +16,13 @@ As well, there are times when you want a fully zoomed out view, and other times 
 - **Standardization**: Ensure standardization across teams working to spec out a system
 - **Flexibility**: Allow for creating views on the fly and in multiple ways depending on what stakeholders find important
 - **Trackable**: Keep a repository of a JSON file to track changes to the spec with the same enhancements git provides for projects already
+
+## How does MSML work?
+
+
+```mermaid
+graph LR
+A[JSON Object] -->B[MSML Object]
+    B --> C[Report Outputs]
+
+```
