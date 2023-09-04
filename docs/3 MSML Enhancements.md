@@ -17,4 +17,35 @@ C-->C
 C-->D[Mechanisms]
 C-->E[KPIs]
 D-->V2[(Entity\nState)]
+linkStyle 0 stroke:blue
+linkStyle 6 stroke:red
 ```
+
+### Control Actions
+
+- Are meant to represent actions in the system not triggered by any specific entity such as time passing or any actions not associated with an entity
+- Domain is always none
+- Is one block that starts action chains
+
+### Boundary Actions
+
+- Represents specific actions associated with an entity or entities that can call it such as buying an item, joining a group, etc.
+- Domain is always none
+- Is the other block that starts action chains
+
+### Policy
+
+- Uses both domain and codomain
+- Handles all the logic within the specification such as policies for determing the price of an item bought
+- Can call other policies or move into calling KPIs or mechanisms
+
+### KPIs
+
+- No codomain and is a terminating block
+- Used to keep track of important system KPIs and compute the representation
+
+### Mechanisms
+
+- No codomain and is a terminating block
+- Handles all updates to state
+- Meant to be a way to standardize variable updates
