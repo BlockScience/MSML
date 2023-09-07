@@ -31,4 +31,17 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
         directory (str): Directory to put reports into
         actions (List[str]): List of actions to create reports on
     """
-    pass
+
+    for action in actions:
+        all_nodes = ms.crawl_action_chains([action])
+        out = ""
+        out += "<h2>Action Map</h2>"
+        out += load_svg_graphviz(create_action_chains_graph(ms,
+                                                                [action], action))
+
+        out += write_out_boundary_actions(ms, [x.name for x in all_nodes["Boundary Actions"]])
+        out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
+        out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
+
+        with open("{}/{}.html".format(directory, action), "w") as f:
+            f.write(out)
