@@ -4,6 +4,7 @@ from .policies import write_out_policies
 from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz
 from .node_map import create_action_chains_graph
+from typing import List
 
 
 def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
@@ -20,3 +21,14 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
 
     with open("{}/{}.html".format(directory, name), "w") as f:
         f.write(out)
+
+
+def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str]) -> None:
+    """Function to write reports on each action chain specified
+
+    Args:
+        ms (MathSpec): The mathematical specification object
+        directory (str): Directory to put reports into
+        actions (List[str]): List of actions to create reports on
+    """
+    pass
