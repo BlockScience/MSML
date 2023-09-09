@@ -61,6 +61,7 @@ class MathSpec:
         out["Mechanisms"] = []
         out["State Updates"] = []
         out["Entities2"] = []
+        out["Spaces"] = set()
         q = []
         # Iterate through and add all calls
         for key in action_keys:
@@ -69,9 +70,11 @@ class MathSpec:
             if key in self.boundary_actions:
                 q.extend(self.boundary_actions[key].calls)
                 out["Boundary Actions"].append(self.boundary_actions[key])
+                out["Spaces"].update(self.boundary_actions[key].codomain)
             else:
                 q.extend(self.control_actions[key].calls)
                 out["Control Actions"].append(self.control_actions[key])
+                out["Spaces"].update(self.control_actions[key].codomain)
                 
         
         out["Entities"] = self.find_relevant_entities([x.name for x in out["Boundary Actions"]])
@@ -86,6 +89,7 @@ class MathSpec:
                 else:
                     out["Policies"].append(curr)
                     q.extend(curr.calls)
+                    out["Spaces"].update(curr.codomain)
             elif type(curr) == Mechanism:
                 if curr in out["Mechanisms"]:
                     continue
@@ -98,5 +102,5 @@ class MathSpec:
                             out["Entities2"].append(x[0])
             else:
                 assert False, "Unknown type in queue"
-
+        out["Spaces"] = list(out["Spaces"])
         return out
