@@ -15,4 +15,4 @@ dummy_policy = {"name": "Dummy Policy",
                         "policy_options": [dummy_policy_option],
                         "domain": [dummy_space1],
                         "codomain": [dummy_space2],
-                        "parameters_used": []}
+                        "parameters_used": ["dummy_parameter"]}
