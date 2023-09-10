@@ -82,6 +82,9 @@ class MathSpec:
         
         out["Entities"] = self.find_relevant_entities([x.name for x in out["Boundary Actions"]])
 
+        out["State"] = [x.state for x in out["Entities"]]
+        out["State"] = list(set(out["State"]))
+
         while len(q) > 0:
             curr = q.pop(0)
             optional_flag = curr[1]
