@@ -5,4 +5,4 @@ dummy_mechanism = {"name": "Dummy Mechanism",
                            "constraints": ["Constaint 1"],
                            "logic": "Logic for update",
                            "domain": [dummy_space2],
-                           "parameters_used": None}
+                           "parameters_used": []}
