@@ -34,3 +34,13 @@ def load_svg_graphviz(graph: Digraph, overwrite: bool = False) -> str:
     os.remove("./{}.gv".format(graph.name))
 
     return svg
+
+def write_header() -> str:
+    out = '<p>For explanations of generalized dynamical systems as well as how the mathematical specification library works in detail, please consult the documentation <a href="https://github.com/BlockScience/MSML/tree/main/docs">here</a></p>'
+    out += "Graph Legend:<br/>"
+    out += "Cylinder: Entity<br/>"
+    out += "Orange Diamond: Boundary Action<br/>"
+    out += "Red Square: Policy<br/>"
+    out += "Blue Circle: Mechanism<br/>"
+    out += "Transparent Circle: State Variable"
+    return out
