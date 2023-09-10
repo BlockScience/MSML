@@ -6,7 +6,14 @@ from typing import Dict
 class ParameterContainer:
 
     def __init__(self, data: Dict):
-        pass
+        self.data = data
+
+        # TODO: Get rid of this when params are fully built out
+        self.all_parameters = []
+        for x in self.data.values():
+            x = x["parameters"]
+            x = [y["name"] for y in x]
+            self.all_parameters.extend(x)
 
 # A set of parameters
 
