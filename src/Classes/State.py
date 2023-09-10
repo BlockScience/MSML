@@ -1,4 +1,5 @@
-from typing import Dict
+from typing import Dict, List, TypedDict
+from enum import Enum
 
 
 class State:
@@ -41,3 +42,11 @@ class StateVariable:
         self.symbol = data["symbol"]
         self.domain = data["domain"]
         self.updated_by = []
+
+
+
+        # Add check for type of List
+        if hasattr(self.type, "_name"):
+            if self.type._name == "List":
+                self.type.__name__ = self.type.__repr__().replace("typing.","")
+
