@@ -48,6 +48,5 @@ class StateVariable:
         # Add check for type of List
         if hasattr(self.type, "_name"):
             if self.type._name == "List":
-                self.type.__name__ = "List[{}]".format("X")
-                print("A")
+                self.type.__name__ = self.type.__repr__().replace("typing.","")
 
