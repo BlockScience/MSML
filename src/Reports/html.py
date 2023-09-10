@@ -6,6 +6,7 @@ from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz
 from .node_map import create_action_chains_graph
 from .parameters import write_out_params
+from .state import write_local_state_variable_tables
 from typing import List
 
 
@@ -16,6 +17,10 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
     for behavior in behaviors:
         out += load_svg_graphviz(create_action_chains_graph(ms,
                                                             [behavior], behavior))
+        
+    out += "<h2>State</h2>"
+    out += write_local_state_variable_tables(ms.state.values())
+    
     out += write_out_spaces(ms, list(ms.spaces.keys()))
     out += write_out_boundary_actions(ms, behaviors)
     out += write_out_policies(ms, list(ms.policies.keys()))
@@ -41,6 +46,10 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
         out += "<h2>Action Map</h2>"
         out += load_svg_graphviz(create_action_chains_graph(ms,
                                                                 [action], action))
+        
+        out += "<h2>State</h2>"
+        out += write_local_state_variable_tables(all_nodes["State"])
+
         out += write_out_spaces(ms, [x.__name__ for x in all_nodes["Spaces"]])
         out += write_out_boundary_actions(ms, [x.name for x in all_nodes["Boundary Actions"]])
         out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
