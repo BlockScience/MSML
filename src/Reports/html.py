@@ -60,3 +60,56 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
 
         with open("{}/{}.html".format(directory, action), "w") as f:
             f.write(out)
+
+
+def write_spec_tree(ms: MathSpec) -> str:
+    """Write the tree of the specification structure
+
+    Args:
+        ms (MathSpec): The mathematical specification object
+
+    Returns:
+        str: The string representation of the tree
+    """
+
+    symbol1 = "├──"
+    symbol2 = "│   ├──"
+    symbol3 = "│   │   ├──"
+
+    out = ""
+    out += symbol1 + "Entities\n"
+    for name in ms.entities.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "State\n"
+    for name in ms.state.keys():
+        out += symbol2 + name + "\n"
+        for var in ms.state[name].variable_map.keys():
+            out += symbol3 + var + "\n"
+
+    out += symbol1 + "Spaces\n"
+    for name in ms.spaces.keys():
+        out += symbol2 + name + "\n"
+    out += symbol1 + "Parameters\n"
+    for name in ms.parameters.data.keys():
+        out += symbol2 + name + "\n"
+        for param in [x['name'] for x in ms.parameters.data[name]['parameters']]:
+            out += symbol3 + param + "\n"
+
+    out += symbol1 + "Boundary Actions\n"
+    for name in ms.boundary_actions.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Control Actions\n"
+    for name in ms.control_actions.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Policies\n"
+    for name in ms.policies.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Mechanisms\n"
+    for name in ms.mechanisms.keys():
+        out += symbol2 + name + "\n"
+
+    return out
