@@ -96,4 +96,20 @@ def write_spec_tree(ms: MathSpec) -> str:
         for param in [x['name'] for x in ms.parameters.data[name]['parameters']]:
             out += symbol3 + param + "\n"
 
+    out += symbol1 + "Boundary Actions\n"
+    for name in ms.boundary_actions.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Control Actions\n"
+    for name in ms.control_actions.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Policies\n"
+    for name in ms.policies.keys():
+        out += symbol2 + name + "\n"
+
+    out += symbol1 + "Mechanisms\n"
+    for name in ms.mechanisms.keys():
+        out += symbol2 + name + "\n"
+
     return out
