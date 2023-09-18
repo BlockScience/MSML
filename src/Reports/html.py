@@ -80,10 +80,20 @@ def write_spec_tree(ms: MathSpec) -> str:
     out += symbol1 + "Entities\n"
     for name in ms.entities.keys():
         out += symbol2 + name + "\n"
+
     out += symbol1 + "State\n"
     for name in ms.state.keys():
         out += symbol2 + name + "\n"
         for var in ms.state[name].variable_map.keys():
             out += symbol3 + var + "\n"
+
+    out += symbol1 + "Spaces\n"
+    for name in ms.spaces.keys():
+        out += symbol2 + name + "\n"
+    out += symbol1 + "Parameters\n"
+    for name in ms.parameters.data.keys():
+        out += symbol2 + name + "\n"
+        for param in [x['name'] for x in ms.parameters.data[name]['parameters']]:
+            out += symbol3 + param + "\n"
 
     return out
