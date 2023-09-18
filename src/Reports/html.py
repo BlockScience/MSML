@@ -72,5 +72,18 @@ def write_spec_tree(ms: MathSpec) -> str:
         str: The string representation of the tree
     """
 
+    symbol1 = "├──"
+    symbol2 = "│   ├──"
+    symbol3 = "│   │   ├──"
+
     out = ""
+    out += symbol1 + "Entities\n"
+    for name in ms.entities.keys():
+        out += symbol2 + name + "\n"
+    out += symbol1 + "State\n"
+    for name in ms.state.keys():
+        out += symbol2 + name + "\n"
+        for var in ms.state[name].variable_map.keys():
+            out += symbol3 + var + "\n"
+
     return out
