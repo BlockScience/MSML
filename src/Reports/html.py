@@ -60,3 +60,17 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
 
         with open("{}/{}.html".format(directory, action), "w") as f:
             f.write(out)
+
+
+def write_spec_tree(ms: MathSpec) -> str:
+    """Write the tree of the specification structure
+
+    Args:
+        ms (MathSpec): The mathematical specification object
+
+    Returns:
+        str: The string representation of the tree
+    """
+
+    out = ""
+    return out
