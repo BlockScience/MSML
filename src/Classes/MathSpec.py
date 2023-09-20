@@ -2,7 +2,8 @@ from typing import Dict, List
 from .Entity import Entity
 from .Policy import Policy
 from .Mechanism import Mechanism
-
+from .ControlAction import ControlAction
+from .BoundaryAction import BoundaryAction
 
 class MathSpec:
 
@@ -23,6 +24,7 @@ class MathSpec:
         self.stateful_metrics = ms_dict['Stateful Metrics']
 
         self._crawl_parameters()
+        self._crawl_parameters_exploded()
 
     def _crawl_parameters(self):
         param_links = {}
@@ -50,6 +52,74 @@ class MathSpec:
                 param_links[param]["Mechanisms"].append(m)
         
         self.param_links = param_links
+
+    def _crawl_parameters_exploded(self):
+        param_links_exploded = {}
+
+        for key in self.param_links:
+            param_links_exploded[key] = {}
+            for key2 in self.param_links[key]:
+                param_links_exploded[key][key2] =  self.param_links[key][key2][:]
+
+        for param in param_links_exploded:
+            q = []
+            d = param_links_exploded[param]
+            d["Entities"] = []
+            for key in d:
+                q.extend(d[key])
+                
+            q1 = q.copy()
+            q2 = q.copy()
+
+            # Look for downstream
+            while len(q1) > 0:
+                cur = q1.pop()
+                if type(cur) == ControlAction:
+                    if cur not in d["Control Actions"]:
+                        d["Control Actions"].append(cur)
+                elif type(cur) == BoundaryAction:
+                    if cur not in d["Boundary Actions"]:
+                        d["Boundary Actions"].append(cur)
+                    for entity in cur.called_by:
+                        if entity not in d["Entities"]:
+                            d["Entities"].append(entity)
+                elif type(cur) == Policy:
+                    if cur not in d["Policies"]:
+                        d["Policies"].append(cur)
+                    q1.extend([x[0] for x in cur.called_by])
+                elif type(cur) == Mechanism:
+                    if cur not in d["Mechanisms"]:
+                        d["Mechanisms"].append(cur)
+                    q1.extend([x[0] for x in cur.called_by])
+                else:
+                    assert False
+
+            # Look for upstream
+            while len(q2) > 0:
+
+                cur = q2.pop()
+                if type(cur) == ControlAction:
+                    if cur not in d["Control Actions"]:
+                        d["Control Actions"].append(cur)
+                    q2.extend([x[0] for x in cur.calls])
+                elif type(cur) == BoundaryAction:
+                    if cur not in d["Boundary Actions"]:
+                        d["Boundary Actions"].append(cur)
+                    q2.extend([x[0] for x in cur.calls])
+                elif type(cur) == Policy:
+                    if cur not in d["Policies"]:
+                        d["Policies"].append(cur)
+                    q2.extend([x[0] for x in cur.calls])
+                elif type(cur) == Mechanism:
+                    if cur not in d["Mechanisms"]:
+                        d["Mechanisms"].append(cur)
+                    for entity in [x[0] for x in cur.updates]:
+                        if entity not in d["Entities"]:
+                            d["Entities"].append(entity)
+                else:
+                    assert False
+
+            self.param_links_exploded = param_links_exploded
 
     def find_relevant_entities(self, action_keys: List[str]) -> List[Entity]:
         """Function to find all entities that can call any of the actions
