@@ -22,6 +22,35 @@ class MathSpec:
         self.state_update_transmission_channels = ms_dict['State Update Transmission Channels']
         self.stateful_metrics = ms_dict['Stateful Metrics']
 
+        self._crawl_parameters()
+
+    def _crawl_parameters(self):
+        param_links = {}
+
+        for param in self.parameters.all_parameters:
+            param_links[param] = {"Boundary Actions": [],
+                                "Control Actions": [],
+                                "Policies": [],
+                                "Mechanisms": []}
+            
+        for ba in self.boundary_actions.values():
+            for param in ba.parameters_used:
+                param_links[param]["Boundary Actions"].append(ba)
+                
+        for ca in self.control_actions.values():
+            for param in ca.parameters_used:
+                param_links[param]["Control Actions"].append(ca)
+                
+        for p in self.policies.values():
+            for param in p.parameters_used:
+                param_links[param]["Policies"].append(ca)
+                
+        for m in self.mechanisms.values():
+            for param in m.parameters_used:
+                param_links[param]["Mechanisms"].append(ca)
+        
+        self.param_links = param_links
+
     def find_relevant_entities(self, action_keys: List[str]) -> List[Entity]:
         """Function to find all entities that can call any of the actions
 
