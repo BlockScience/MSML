@@ -19,6 +19,7 @@ def create_parameter_impact_table(param_links: dict, orientation: str = "Paramet
         table = pd.DataFrame(param_links).T
         if names:
             table = table.applymap(lambda x: [y.name for y in x])
+        return table
     elif orientation == "Blocks":
         d = {}
         for param in param_links:
@@ -32,5 +33,6 @@ def create_parameter_impact_table(param_links: dict, orientation: str = "Paramet
         table = pd.Series(d)
         if names:
             table.index = [x.name for x in table.index]
+        return table
     else:
         assert False
