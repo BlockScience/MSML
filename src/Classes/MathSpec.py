@@ -43,11 +43,11 @@ class MathSpec:
                 
         for p in self.policies.values():
             for param in p.parameters_used:
-                param_links[param]["Policies"].append(ca)
+                param_links[param]["Policies"].append(p)
                 
         for m in self.mechanisms.values():
             for param in m.parameters_used:
-                param_links[param]["Mechanisms"].append(ca)
+                param_links[param]["Mechanisms"].append(m)
         
         self.param_links = param_links
 
