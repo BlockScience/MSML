@@ -61,6 +61,37 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
         with open("{}/{}.html".format(directory, action), "w") as f:
             f.write(out)
 
+def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> None:
+    """Function to write reports on each entity specified
+
+    Args:
+        ms (MathSpec): The mathematical specification object
+        directory (str): Directory to put reports into
+        entities (List[str]): List of entities to create reports on
+    """
+
+    for entity in entities:
+        entity_obj = ms.entities[entity]
+        actions = list(set(entity_obj.boundary_actions + entity_obj.impacted_by_actions))
+        actions = [x.name for x in actions]
+        all_nodes = ms.crawl_action_chains(actions)
+        out = ""
+        out += write_header()
+        out += "<h2>Action Map</h2>"
+        out += load_svg_graphviz(create_action_chains_graph(ms,
+                                                                actions, entity))
+        
+        out += "<h2>State</h2>"
+        out += write_local_state_variable_tables(all_nodes["State"])
+
+        out += write_out_spaces(ms, [x.__name__ for x in all_nodes["Spaces"]])
+        out += write_out_boundary_actions(ms, [x.name for x in all_nodes["Boundary Actions"]])
+        out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
+        out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
+        out += write_out_params(ms, all_nodes["Parameters"])
+
+        with open("{}/{}.html".format(directory, entity), "w") as f:
+            f.write(out)
 
 def write_spec_tree(ms: MathSpec) -> str:
     """Write the tree of the specification structure
