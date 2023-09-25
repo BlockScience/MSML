@@ -38,6 +38,7 @@ def convert_state_update_transmission_channel(data: Dict, ms: Dict) -> StateUpda
     data["origin"].updates.append((data["entity"],
                                    data["variable"]))
     data["entity"].state.updated_by.append(data["origin"])
+    data["entity"].add_impacted_by_mechanism(data["origin"])
     data["variable"].updated_by.append(data["origin"])
 
     # Copy
