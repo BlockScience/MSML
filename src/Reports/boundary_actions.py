@@ -20,6 +20,21 @@ def write_out_boundary_action(boundary_action: BoundaryAction) -> str:
         out += "<p>"
         out += "{}. {}".format(i+1, x)
         out += "</p>"
+    if boundary_action.boundary_action_options:
+        out += "<h4>Boundary Action Options:</h4>\n"
+        for i, x in enumerate(boundary_action.boundary_action_options):
+            out += "<details>"
+            out += "<summary><b>{}. {}</b></summary>".format(i+1, x.name)
+            out += "<p>"
+            out += x.description
+            out += "</p>"
+
+            out += "<p>"
+            out += "Logic: {}".format(x.logic)
+            out += "</p>"
+
+            out += "</details>"
+        out += "<br/>"
     return out
 
 
