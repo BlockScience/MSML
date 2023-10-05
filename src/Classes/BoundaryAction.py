@@ -21,4 +21,6 @@ class BoundaryAction:
 class BoundaryActionOption:
 
     def __init__(self, data: Dict):
-        pass
+        self.name = data["name"]
+        self.description = data["description"]
+        self.logic = data["logic"]
