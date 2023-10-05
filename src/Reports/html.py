@@ -1,6 +1,7 @@
 from ..Classes import MathSpec
 from .spaces import write_out_spaces
 from .boundary_actions import write_out_boundary_actions
+from .control_actions import write_out_control_actions
 from .policies import write_out_policies
 from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz, write_header
@@ -24,6 +25,7 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
     
     out += write_out_spaces(ms, list(ms.spaces.keys()))
     out += write_out_boundary_actions(ms, list(ms.boundary_actions.keys()))
+    out += write_out_control_actions(ms, list(ms.control_actions.keys()))
     out += write_out_policies(ms, list(ms.policies.keys()))
     out += write_out_mechanisms(ms, list(ms.mechanisms.keys()))
     out += write_out_params(ms, list(ms.parameters.all_parameters))
@@ -54,6 +56,7 @@ def write_action_chain_reports(ms: MathSpec, directory: str, actions: List[str])
 
         out += write_out_spaces(ms, [x.__name__ for x in all_nodes["Spaces"]])
         out += write_out_boundary_actions(ms, [x.name for x in all_nodes["Boundary Actions"]])
+        out += write_out_control_actions(ms, [x.name for x in all_nodes["Control Actions"]])
         out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
         out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
         out += write_out_params(ms, all_nodes["Parameters"])
@@ -86,6 +89,7 @@ def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> N
 
         out += write_out_spaces(ms, [x.__name__ for x in all_nodes["Spaces"]])
         out += write_out_boundary_actions(ms, [x.name for x in all_nodes["Boundary Actions"]])
+        out += write_out_control_actions(ms, [x.name for x in all_nodes["Control Actions"]])
         out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
         out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
         out += write_out_params(ms, all_nodes["Parameters"])
