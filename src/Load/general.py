@@ -27,7 +27,8 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                   "State": ['name', 'label', 'notes', 'variables'],
                   "State Variable": ['type', 'name', 'description', 'symbol', 'domain'],
                   "Entity": ['name', 'notes', 'state'],
-                  "Boundary Action": ['name', 'label', 'description', 'constraints', 'boundary_action_options', 'called_by', 'codomain', 'parameters_used'],
+                  "Boundary Action": ['name', 'label', 'description', 'constraints', 'boundary_action_options', 'called_by', 'codomain', 'parameters_used',
+                                      ],
                   "Action Transmission Channel": ['origin', 'target', 'space', 'optional'],
                   "Mechanism": ["name", 'label', "description", "constraints", "logic", "domain", "parameters_used"],
                   "State Update Transmission Channel": ['origin', 'entity', 'variable', 'optional'],
@@ -35,7 +36,8 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
                   "Policy Option": ["name", "description", "logic"],
                   "Stateful Metric Set": ['name', 'label', 'notes', 'metrics'],
                   "Stateful Metric": ['type', 'name', 'label', 'description', 'variables_used', 'parameters_used', 'symbol', 'domain'],
-                  "Control Action": ['name', 'label', 'description', 'constraints', 'control_action_options', 'codomain', 'parameters_used'],}
+                  "Control Action": ['name', 'label', 'description', 'constraints', 'control_action_options', 'codomain', 'parameters_used'],
+                  "Boundary Action Option": ["name", "description", "logic"]}
 
     check_set = check_sets[check_set_key]
 
