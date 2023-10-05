@@ -14,7 +14,7 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
     out = ""
     out += write_header()
     out += "<h2>Action Maps</h2>"
-    behaviors = list(ms.boundary_actions.keys())
+    behaviors = list(ms.boundary_actions.keys()) + list(ms.control_actions.keys())
     for behavior in behaviors:
         out += load_svg_graphviz(create_action_chains_graph(ms,
                                                             [behavior], behavior))
@@ -23,7 +23,7 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
     out += write_local_state_variable_tables(ms.state.values())
     
     out += write_out_spaces(ms, list(ms.spaces.keys()))
-    out += write_out_boundary_actions(ms, behaviors)
+    out += write_out_boundary_actions(ms, list(ms.boundary_actions.keys()))
     out += write_out_policies(ms, list(ms.policies.keys()))
     out += write_out_mechanisms(ms, list(ms.mechanisms.keys()))
     out += write_out_params(ms, list(ms.parameters.all_parameters))
