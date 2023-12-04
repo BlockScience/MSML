@@ -5,23 +5,25 @@ from .Mechanism import Mechanism
 from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
 
-class MathSpec:
 
+class MathSpec:
     def __init__(self, ms_dict: Dict, json: Dict):
         # Internal variables to keep track
         self._ms_dict = ms_dict
         self._json = json
         self.action_transmission_channels = ms_dict["Action Transmission Channels"]
-        self.boundary_actions = ms_dict['Boundary Actions']
-        self.control_actions = ms_dict['Control Actions']
-        self.entities = ms_dict['Entities']
-        self.mechanisms = ms_dict['Mechanisms']
-        self.parameters = ms_dict['Parameters']
-        self.policies = ms_dict['Policies']
+        self.boundary_actions = ms_dict["Boundary Actions"]
+        self.control_actions = ms_dict["Control Actions"]
+        self.entities = ms_dict["Entities"]
+        self.mechanisms = ms_dict["Mechanisms"]
+        self.parameters = ms_dict["Parameters"]
+        self.policies = ms_dict["Policies"]
         self.spaces = ms_dict["Spaces"]
         self.state = ms_dict["State"]
-        self.state_update_transmission_channels = ms_dict['State Update Transmission Channels']
-        self.stateful_metrics = ms_dict['Stateful Metrics']
+        self.state_update_transmission_channels = ms_dict[
+            "State Update Transmission Channels"
+        ]
+        self.stateful_metrics = ms_dict["Stateful Metrics"]
 
         self._crawl_parameters()
         self._crawl_parameters_exploded()
@@ -30,27 +32,29 @@ class MathSpec:
         param_links = {}
 
         for param in self.parameters.all_parameters:
-            param_links[param] = {"Boundary Actions": [],
-                                "Control Actions": [],
-                                "Policies": [],
-                                "Mechanisms": []}
-            
+            param_links[param] = {
+                "Boundary Actions": [],
+                "Control Actions": [],
+                "Policies": [],
+                "Mechanisms": [],
+            }
+
         for ba in self.boundary_actions.values():
             for param in ba.parameters_used:
                 param_links[param]["Boundary Actions"].append(ba)
-                
+
         for ca in self.control_actions.values():
             for param in ca.parameters_used:
                 param_links[param]["Control Actions"].append(ca)
-                
+
         for p in self.policies.values():
             for param in p.parameters_used:
                 param_links[param]["Policies"].append(p)
-                
+
         for m in self.mechanisms.values():
             for param in m.parameters_used:
                 param_links[param]["Mechanisms"].append(m)
-        
+
         self.param_links = param_links
 
     def _crawl_parameters_exploded(self):
@@ -59,7 +63,7 @@ class MathSpec:
         for key in self.param_links:
             param_links_exploded[key] = {}
             for key2 in self.param_links[key]:
-                param_links_exploded[key][key2] =  self.param_links[key][key2][:]
+                param_links_exploded[key][key2] = self.param_links[key][key2][:]
 
         for param in param_links_exploded:
             q = []
@@ -67,7 +71,7 @@ class MathSpec:
             d["Entities"] = []
             for key in d:
                 q.extend(d[key])
-                
+
             q1 = q.copy()
             q2 = q.copy()
 
@@ -86,17 +90,16 @@ class MathSpec:
                 elif type(cur) == Policy:
                     if cur not in d["Policies"]:
                         d["Policies"].append(cur)
-                    q1.extend([x[0] for x in cur.called_by])
+                        q1.extend([x[0] for x in cur.called_by])
                 elif type(cur) == Mechanism:
                     if cur not in d["Mechanisms"]:
                         d["Mechanisms"].append(cur)
-                    q1.extend([x[0] for x in cur.called_by])
+                        q1.extend([x[0] for x in cur.called_by])
                 else:
                     assert False
 
             # Look for upstream
             while len(q2) > 0:
-
                 cur = q2.pop()
                 if type(cur) == ControlAction:
                     if cur not in d["Control Actions"]:
@@ -105,11 +108,11 @@ class MathSpec:
                 elif type(cur) == BoundaryAction:
                     if cur not in d["Boundary Actions"]:
                         d["Boundary Actions"].append(cur)
-                    q2.extend([x[0] for x in cur.calls])
+                        q2.extend([x[0] for x in cur.calls])
                 elif type(cur) == Policy:
                     if cur not in d["Policies"]:
                         d["Policies"].append(cur)
-                    q2.extend([x[0] for x in cur.calls])
+                        q2.extend([x[0] for x in cur.calls])
                 elif type(cur) == Mechanism:
                     if cur not in d["Mechanisms"]:
                         d["Mechanisms"].append(cur)
@@ -134,8 +137,9 @@ class MathSpec:
         out = []
         # Iterate through and add all entities
         for key in action_keys:
-            assert key in self.boundary_actions, "{} not a valid boundary action".format(
-                key)
+            assert (
+                key in self.boundary_actions
+            ), "{} not a valid boundary action".format(key)
             out.extend(self.boundary_actions[key].called_by)
 
         # Get unique records
@@ -153,7 +157,7 @@ class MathSpec:
             dict: A dictionary of all nodes and edges
         """
         out = {}
-        
+
         out["Boundary Actions"] = []
         out["Control Actions"] = []
         out["Policies"] = []
@@ -165,8 +169,9 @@ class MathSpec:
         q = []
         # Iterate through and add all calls
         for key in action_keys:
-            assert key in self.boundary_actions or key in self.control_actions, "{} not a valid boundary or control action".format(
-                key)
+            assert (
+                key in self.boundary_actions or key in self.control_actions
+            ), "{} not a valid boundary or control action".format(key)
             if key in self.boundary_actions:
                 q.extend(self.boundary_actions[key].calls)
                 out["Boundary Actions"].append(self.boundary_actions[key])
@@ -177,9 +182,10 @@ class MathSpec:
                 out["Control Actions"].append(self.control_actions[key])
                 out["Spaces"].update(self.control_actions[key].codomain)
                 out["Parameters"].update(self.control_actions[key].parameters_used)
-                
-        
-        out["Entities"] = self.find_relevant_entities([x.name for x in out["Boundary Actions"]])
+
+        out["Entities"] = self.find_relevant_entities(
+            [x.name for x in out["Boundary Actions"]]
+        )
 
         out["State"] = [x.state for x in out["Entities"]]
         out["State"] = list(set(out["State"]))
