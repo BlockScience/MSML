@@ -1,5 +1,5 @@
 ```mermaid
-graph
+graph TD
 subgraph X4[Simulation 1]
 X1[A]
 X2[B]
@@ -21,7 +21,7 @@ end
 ```
 
 ```mermaid
-graph
+graph TD
 subgraph X8[Simulation 3]
 subgraph X3[Parallel Block]
 X1[A]
