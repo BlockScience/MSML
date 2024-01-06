@@ -145,7 +145,7 @@ def write_spec_tree(ms: MathSpec) -> str:
     out += symbol1 + "Parameters\n"
     for name in ms.parameters.data.keys():
         out += symbol2 + name + "\n"
-        for param in [x["name"] for x in ms.parameters.data[name]["parameters"]]:
+        for param in [x.name for x in ms.parameters.data[name].parameters]:
             out += symbol3 + param + "\n"
 
     out += symbol1 + "Boundary Actions\n"
