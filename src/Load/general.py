@@ -89,7 +89,14 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
         ],
         "Boundary Action Option": ["name", "description", "logic"],
         "Parameter Set": ["name", "notes", "parameters"],
-        "Parameter": ["variable_type", "name", "description", "symbol", "domain"],
+        "Parameter": [
+            "variable_type",
+            "name",
+            "description",
+            "symbol",
+            "domain",
+            "parameter_class",
+        ],
     }
 
     check_set = check_sets[check_set_key]
