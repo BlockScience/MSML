@@ -10,5 +10,11 @@ def load_parameters(ms: Dict, json: Dict) -> None:
         json (Dict): JSON version of MathSpec to load
     """
 
+    ms["Parameters"] = {}
+
+    # Convert parameter sets
+    for key in json["Parameters"]:
+        ms["Parameters"][key] = json["Parameters"][key]
+
     # Placeholder for now
-    ms["Parameters"] = ParameterContainer(json["Parameters"])
+    ms["Parameters"] = ParameterContainer(ms["Parameters"])
