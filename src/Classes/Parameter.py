@@ -37,3 +37,6 @@ class Parameter:
         self.description = data["description"]
         self.symbol = data["symbol"]
         self.domain = data["domain"]
+        self.parameter_class = data[
+            "parameter_class"
+        ]  # I.e. behavioral, functional, system

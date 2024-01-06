@@ -13,7 +13,6 @@ def convert_parameter_set(data: Dict) -> ParameterSet:
     # Convert the parameters
     new_parameters = []
     for param in data["parameters"]:
-        print(param)
         check_json_keys(param, "Parameter")
         new_parameters.append(Parameter(param))
     data["parameters"] = new_parameters
