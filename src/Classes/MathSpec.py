@@ -25,8 +25,34 @@ class MathSpec:
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
 
+        self._check_parameters()
         self._crawl_parameters()
         self._crawl_parameters_exploded()
+
+    def _check_parameters(self):
+        for ba in self.boundary_actions.values():
+            for param in ba.parameters_used:
+                assert param in self.parameters.all_parameters, "{} not found".format(
+                    param
+                )
+
+        for ca in self.control_actions.values():
+            for param in ca.parameters_used:
+                assert param in self.parameters.all_parameters, "{} not found".format(
+                    param
+                )
+
+        for p in self.policies.values():
+            for param in p.parameters_used:
+                assert param in self.parameters.all_parameters, "{} not found".format(
+                    param
+                )
+
+        for m in self.mechanisms.values():
+            for param in m.parameters_used:
+                assert param in self.parameters.all_parameters, "{} not found".format(
+                    param
+                )
 
     def _crawl_parameters(self):
         param_links = {}
