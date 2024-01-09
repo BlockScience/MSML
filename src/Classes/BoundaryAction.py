@@ -1,25 +1,15 @@
 from typing import Dict
+from .Block import Block
 
 
-class BoundaryAction:
-
+class BoundaryAction(Block):
     def __init__(self, data: Dict):
-        self.name = data['name']
-        self.description = data["description"]
-        self.constraints = data["constraints"]
+        data["domain"] = None
+        super().__init__(data)
         self.boundary_action_options = data["boundary_action_options"]
-        self.called_by = data["called_by"]
-        self.codomain = data["codomain"]
-        self.parameters_used = data["parameters_used"]
-        if "label" in data:
-            self.label = data["label"]
-        else:
-            self.label = self.name
-        self.calls = []
 
 
 class BoundaryActionOption:
-
     def __init__(self, data: Dict):
         self.name = data["name"]
         self.description = data["description"]
