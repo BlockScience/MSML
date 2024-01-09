@@ -87,6 +87,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "codomain",
             "parameters_used",
         ],
+        "Control Action Option": ["name", "description", "logic"],
         "Boundary Action Option": ["name", "description", "logic"],
         "Parameter Set": ["name", "notes", "parameters"],
         "Parameter": [
