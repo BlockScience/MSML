@@ -28,6 +28,19 @@ class MathSpec:
         self._check_parameters()
         self._crawl_parameters()
         self._crawl_parameters_exploded()
+        self._check_dictionary_names()
+
+    def _check_dictionary_names(self):
+        for key in self.boundary_actions:
+            assert key == self.boundary_actions[key].name
+        for key in self.control_actions:
+            assert key == self.control_actions[key].name
+        for key in self.entities:
+            assert key == self.entities[key].name
+        for key in self.mechanisms:
+            assert key == self.mechanisms[key].name
+        for key in self.policies:
+            assert key == self.policies[key].name
 
     def _check_parameters(self):
         for ba in self.boundary_actions.values():
