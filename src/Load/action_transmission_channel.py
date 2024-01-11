@@ -3,7 +3,9 @@ from ..Classes import ActionTransmissionChannel
 from .general import check_json_keys
 
 
-def convert_action_transmission_channel(data: Dict, ms: Dict) -> ActionTransmissionChannel:
+def convert_action_transmission_channel(
+    data: Dict, ms: Dict
+) -> ActionTransmissionChannel:
     """Function to convert dictionary to action transmission channel
 
     Args:
@@ -19,6 +21,8 @@ def convert_action_transmission_channel(data: Dict, ms: Dict) -> ActionTransmiss
 
     # Copy
     data = data.copy()
+
+    data["space"] = ms["Spaces"][data["space"]]
 
     # Assert that the origin is in the math spec and only once then convert
     origin = data["origin"]
@@ -46,10 +50,8 @@ def convert_action_transmission_channel(data: Dict, ms: Dict) -> ActionTransmiss
         data["target"] = ms["Mechanisms"][target]
 
     # Add in called by and called here with origin and target
-    data["origin"].calls.append(
-        (data["target"], data["optional"], data["space"]))
-    data["target"].called_by.append(
-        (data["origin"], data["optional"],  data["space"]))
+    data["origin"].calls.append((data["target"], data["optional"], data["space"]))
+    data["target"].called_by.append((data["origin"], data["optional"], data["space"]))
 
     # Build the action transmission channel object
     return ActionTransmissionChannel(data)
