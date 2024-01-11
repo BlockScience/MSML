@@ -1,4 +1,17 @@
 from typing import Dict
+from ..Classes import Space
+from .general import check_json_keys
+
+
+def convert_space(data: Dict) -> Space:
+    # Check the keys are correct
+    check_json_keys(data, "Space")
+
+    # Copy
+    data = data.copy()
+
+    # Build the space object
+    return Space(data)
 
 
 def load_spaces(ms: Dict, json: Dict) -> None:
@@ -10,4 +23,7 @@ def load_spaces(ms: Dict, json: Dict) -> None:
     """
 
     # Placeholder for now
-    ms["Spaces"] = json["Spaces"]
+    ms["Spaces"] = {}
+
+    for space in json["Spaces"]:
+        ms["Spaces"][space["name"]] = convert_space(space)
