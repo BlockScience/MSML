@@ -12,24 +12,19 @@ def create_action_chains_graph(ms, action_keys, name):
         graph.node(entity.name, entity.label, shape="cylinder", color="black")
 
     for ba in all_nodes["Boundary Actions"]:
-        graph.node(ba.name, ba.label, shape="diamond",
-                   color="orange", style='filled')
-    
+        graph.node(ba.name, ba.label, shape="diamond", color="orange", style="filled")
+
     for ca in all_nodes["Control Actions"]:
-        graph.node(ca.name, ca.label, shape="diamond",
-                   color="yellow", style='filled')
+        graph.node(ca.name, ca.label, shape="diamond", color="yellow", style="filled")
 
     for p in all_nodes["Policies"]:
-        graph.node(p.name, p.label, shape="rectangle",
-                   color="red", style='filled')
+        graph.node(p.name, p.label, shape="rectangle", color="red", style="filled")
 
     for m in all_nodes["Mechanisms"]:
-        graph.node(m.name, m.label, shape="oval",
-                   color="azure2", style='filled')
+        graph.node(m.name, m.label, shape="oval", color="azure2", style="filled")
 
     for entity in all_nodes["Entities2"]:
-        graph.node(entity.name+"_2", entity.label,
-                   shape="cylinder", color="black")
+        graph.node(entity.name + "_2", entity.label, shape="cylinder", color="black")
 
     for su in all_nodes["State Updates"]:
         label = "{}.{}".format(su[0].name, su[1].name)
@@ -41,7 +36,7 @@ def create_action_chains_graph(ms, action_keys, name):
             graph.edge(entity.name, ba.name)
         for call in ba.calls:
             optional_flag = call[1]
-            space = call[2].__name__
+            space = call[2].name
             space = wrap(space, 12)
             space = "\n".join(space)
             call = call[0]
@@ -50,7 +45,7 @@ def create_action_chains_graph(ms, action_keys, name):
     for ca in all_nodes["Control Actions"]:
         for call in ca.calls:
             optional_flag = call[1]
-            space = call[2].__name__
+            space = call[2].name
             space = wrap(space, 12)
             space = "\n".join(space)
             call = call[0]
@@ -58,15 +53,14 @@ def create_action_chains_graph(ms, action_keys, name):
 
     for p in all_nodes["Policies"]:
         for call in p.calls:
-            space = call[2].__name__
+            space = call[2].name
             space = wrap(space, 12)
             space = "\n".join(space)
-            #space = "\n".join(space.split(" "))
+            # space = "\n".join(space.split(" "))
             optional_flag = call[1]
             call = call[0]
             if optional_flag:
-                graph.edge(p.name, call.name, style="dashed",
-                           label=space)
+                graph.edge(p.name, call.name, style="dashed", label=space)
             else:
                 graph.edge(p.name, call.name, label=space)
 
@@ -78,7 +72,7 @@ def create_action_chains_graph(ms, action_keys, name):
 
     for su in all_nodes["State Updates"]:
         label1 = "{}.{}".format(su[0].name, su[1].name)
-        label2 = su[0].name+"_2"
+        label2 = su[0].name + "_2"
         graph.edge(label1, label2)
 
     return graph
