@@ -12,6 +12,6 @@ dummy_boundary_action = {
     "constraints": [],
     "boundary_action_options": [dummy_boundary_action_v1_option],
     "called_by": ["Dummy"],
-    "codomain": [dummy_space1],
+    "codomain": (dummy_space1,),
     "parameters_used": [],
 }
