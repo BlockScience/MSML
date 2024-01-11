@@ -1,5 +1,3 @@
-from ..Spaces import dummy_space1, dummy_space2
-
 dummy_policy_option = {
     "name": "Dummy Policy V1",
     "description": "V1 Dummy Policy",
@@ -15,7 +13,7 @@ dummy_policy = {
     "description": "Dummy Policy",
     "constraints": [],
     "policy_options": [dummy_policy_option],
-    "domain": (dummy_space1,),
-    "codomain": (dummy_space2,),
+    "domain": ("Dummy Space 1",),
+    "codomain": ("Dummy Space 2",),
     "parameters_used": ["dummy_parameter"],
 }
