@@ -8,9 +8,9 @@ def write_out_space(space: TypedDict) -> str:
     out += space.name
     out += "</h3>"
 
-    d = space.__annotations__
+    d = space.schema
     d = ",<br/>".join(
-        ["{}: {}".format(a, b.name) for a, b in zip(d.keys(), d.values())]
+        ["{}: {}".format(a, b.__name__) for a, b in zip(d.keys(), d.values())]
     )
     d = "{" + d + "}"
 

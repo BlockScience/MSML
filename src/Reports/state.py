@@ -9,7 +9,13 @@ def write_state_variable_table(target_state):
       </tr>"""
 
     for var in target_state.variables:
-        table_vars = [var.name, var.description, var.type.name, var.symbol, var.domain]
+        table_vars = [
+            var.name,
+            var.description,
+            var.type.__name__,
+            var.symbol,
+            var.domain,
+        ]
         table += "<tr>"
         for tv in table_vars:
             table += "<td>"
