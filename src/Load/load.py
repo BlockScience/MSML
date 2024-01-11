@@ -30,6 +30,7 @@ def load_from_json(json: Dict) -> MathSpec:
     ms = {}
 
     # Do loading one by one to transfer the json
+    load_spaces(ms, json)
     load_states(ms, json)
     load_entities(ms, json)
     load_boundary_actions(ms, json)
@@ -37,7 +38,6 @@ def load_from_json(json: Dict) -> MathSpec:
     load_mechanisms(ms, json)
     load_parameters(ms, json)
     load_policies(ms, json)
-    load_spaces(ms, json)
     load_stateful_metrics(ms, json)
     load_action_transmission_channels(ms, json)
     load_state_update_transmission_channels(ms, json)

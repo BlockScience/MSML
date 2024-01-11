@@ -3,7 +3,7 @@ from ..Classes import Mechanism
 from .general import check_json_keys
 
 
-def convert_mechanism(data: Dict) -> Mechanism:
+def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
     """Function to convert dictionary to mechanism object
 
     Args:
@@ -19,6 +19,8 @@ def convert_mechanism(data: Dict) -> Mechanism:
     # Copy
     data = data.copy()
 
+    data["domain"] = (ms["Spaces"][x] for x in data["domain"])
+
     # Build the action transmission channel object
     return Mechanism(data)
 
@@ -33,4 +35,4 @@ def load_mechanisms(ms: Dict, json: Dict) -> None:
 
     ms["Mechanisms"] = {}
     for key in json["Mechanisms"]:
-        ms["Mechanisms"][key] = convert_mechanism(json["Mechanisms"][key])
+        ms["Mechanisms"][key] = convert_mechanism(json["Mechanisms"][key], ms)

@@ -98,6 +98,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "domain",
             "parameter_class",
         ],
+        "Space": ["name", "schema"],
     }
 
     check_set = check_sets[check_set_key]

@@ -5,11 +5,13 @@ from typing import List, TypedDict
 def write_out_space(space: TypedDict) -> str:
     out = ""
     out += "<h3>"
-    out += space.__name__
+    out += space.name
     out += "</h3>"
 
-    d = space.__annotations__
-    d = ",<br/>".join(["{}: {}".format(a, b.__name__) for a,b in zip(d.keys(), d.values())])
+    d = space.schema
+    d = ",<br/>".join(
+        ["{}: {}".format(a, b.__name__) for a, b in zip(d.keys(), d.values())]
+    )
     d = "{" + d + "}"
 
     out += "<p>"
