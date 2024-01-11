@@ -123,7 +123,7 @@ Specific assumptions of how the boundary action might be represented such as dif
 - constraints: List[str], any constraints on the boundary action
 - boundary_action_options: List[BoundaryActionOption], possible implementations of the boundary action
 - called_by: List[Entity], the entities which are allowed to call this action
-- codomain: List[Space] (optional), list of outputs that come out of this block
+- codomain: Tuple[Space] (optional), list of outputs that come out of this block
 - parameters_used: List[str] (optional), the string keys of parameters which have an effect on the boundary action
 
 ## Control Actions
@@ -144,7 +144,7 @@ Specific assumptions of how the control action might be represented such as a fu
 - description: str, the description of the control action
 - constraints: List[str], any constraints on the control action
 - control_action_options: List[ControlActionOption], possible implementations of the control action
-- codomain: List[Space] (optional), list of outputs that come out of this block
+- codomain: Tuple[Space], list of outputs that come out of this block
 - parameters_used: List[str] (optional), the string keys of parameters which have an effect on the control action
 
 
@@ -166,8 +166,8 @@ A definition of the policies that handle all logical things. This could be, for 
 - description: str, the description of the policy
 - constraints: List[str], any constraints on the policy
 - policy_options: List[PolicyOption], possible implementations of the policy
-- domain: List[Space] (optional), list of inputs that are passed in
-- codomain: List[Space] (optional), list of outputs that come out of the policy
+- domain: Tuple[Space], list of inputs that are passed in
+- codomain: Tuple[Space], list of outputs that come out of the policy
 - parameters_used: List[str] (optional), the string keys of parameters which have an effect on the policy
 
 The domain and codomain can be populated from the transmission channels if none are passed, but it will be best practice to define it here as well to check that the transmission channels align with the domain/codomain.
@@ -181,7 +181,7 @@ Anything that updates state in the system, usually policies will call these with
 - description: str, the description of the mechanism
 - constraints: List[str], any constraints on the mechanism
 - logic: str, the logic of how the mechanism should work
-- domain: List[Space] (optional), list of inputs that are passed in
+- domain: Tuple[Space] (optional), list of inputs that are passed in
 - parameters_used: List[str] (optional), the string keys of parameters which have an effect on the mechanism
 
 Attributes imputed
