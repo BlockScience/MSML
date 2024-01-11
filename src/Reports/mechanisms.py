@@ -15,25 +15,25 @@ def write_out_mechanism(mechanism: Mechanism) -> str:
     for i, x in enumerate(mechanism.called_by):
         x = x[0]
         out += "<p>"
-        out += "{}. {}".format(i+1, x.name)
+        out += "{}. {}".format(i + 1, x.name)
         out += "</p>"
 
     out += "<h4>Domain Spaces:</h4>\n"
     for i, x in enumerate(mechanism.domain):
         out += "<p>"
-        out += "{}. {}".format(i+1, x.__name__)
+        out += "{}. {}".format(i + 1, x.name)
         out += "</p>"
 
     out += "<h4>State Updates:</h4>\n"
     for i, x in enumerate(mechanism.updates):
         out += "<p>"
-        out += "{}. {}.{}".format(i+1, x[0].name, x[1].name)
+        out += "{}. {}.{}".format(i + 1, x[0].name, x[1].name)
         out += "</p>"
 
     out += "<h4>Constraints:</h4>\n"
     for i, x in enumerate(mechanism.constraints):
         out += "<p>"
-        out += "{}. {}\n".format(i+1, x)
+        out += "{}. {}\n".format(i + 1, x)
         out += "</p>"
 
     out += "<h4>Logic:</h4>\n"

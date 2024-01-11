@@ -22,7 +22,7 @@ def convert_action_transmission_channel(
     # Copy
     data = data.copy()
 
-    data["space"] = (ms["Spaces"][x] for x in data["space"])
+    data["space"] = ms["Spaces"][data["space"]]
 
     # Assert that the origin is in the math spec and only once then convert
     origin = data["origin"]
