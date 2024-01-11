@@ -25,7 +25,7 @@ def convert_policy_options(data: Dict) -> PolicyOption:
     return PolicyOption(data)
 
 
-def convert_policy(data: Dict) -> Policy:
+def convert_policy(data: Dict, ms: Dict) -> Policy:
     """Function to convert dictionary to policy object
 
     Args:
@@ -47,6 +47,9 @@ def convert_policy(data: Dict) -> Policy:
         policy_options.append(convert_policy_options(po))
     data["policy_options"] = policy_options
 
+    data["codomain"] = (ms["Spaces"][x] for x in data["codomain"])
+    data["domain"] = (ms["Spaces"][x] for x in data["domain"])
+
     # Build the policy object
     return Policy(data)
 
@@ -61,4 +64,4 @@ def load_policies(ms: Dict, json: Dict) -> None:
 
     ms["Policies"] = {}
     for key in json["Policies"]:
-        ms["Policies"][key] = convert_policy(json["Policies"][key])
+        ms["Policies"][key] = convert_policy(json["Policies"][key], ms)

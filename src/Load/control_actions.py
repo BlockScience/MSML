@@ -27,6 +27,8 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
         new_cao.append(ControlActionOption(ca))
     data["control_action_options"] = new_cao
 
+    data["codomain"] = (ms["Spaces"][x] for x in data["codomain"])
+
     # Build the control action object
     return ControlAction(data)
 
@@ -42,4 +44,5 @@ def load_control_actions(ms: Dict, json: Dict) -> None:
     ms["Control Actions"] = {}
     for key in json["Control Actions"]:
         ms["Control Actions"][key] = convert_control_action(
-            json["Control Actions"][key], ms)
+            json["Control Actions"][key], ms
+        )

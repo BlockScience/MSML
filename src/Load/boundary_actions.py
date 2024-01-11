@@ -30,9 +30,12 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
     # Assert that the entities in called_by are in math spec
     if data["called_by"]:
         for name in data["called_by"]:
-            assert name in ms["Entities"], "{} entity not in entities dictionary".format(
-                name)
+            assert (
+                name in ms["Entities"]
+            ), "{} entity not in entities dictionary".format(name)
         data["called_by"] = [ms["Entities"][x] for x in data["called_by"]]
+
+    data["codomain"] = (ms["Spaces"][x] for x in data["codomain"])
 
     # Build the boundary action object
     return BoundaryAction(data)
@@ -49,6 +52,7 @@ def load_boundary_actions(ms: Dict, json: Dict) -> None:
     ms["Boundary Actions"] = {}
     for key in json["Boundary Actions"]:
         ms["Boundary Actions"][key] = convert_boundary_action(
-            json["Boundary Actions"][key], ms)
+            json["Boundary Actions"][key], ms
+        )
         for entity in ms["Boundary Actions"][key].called_by:
             entity.add_boundary_action(ms["Boundary Actions"][key])
