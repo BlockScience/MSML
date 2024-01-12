@@ -47,8 +47,8 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
         policy_options.append(convert_policy_options(po))
     data["policy_options"] = policy_options
 
-    data["codomain"] = (ms["Spaces"][x] for x in data["codomain"])
-    data["domain"] = (ms["Spaces"][x] for x in data["domain"])
+    data["codomain"] = tuple(ms["Spaces"][x] for x in data["codomain"])
+    data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
 
     # Build the policy object
     return Policy(data)
