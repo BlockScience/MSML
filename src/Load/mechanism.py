@@ -19,7 +19,7 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
     # Copy
     data = data.copy()
 
-    data["domain"] = (ms["Spaces"][x] for x in data["domain"])
+    data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
 
     # Build the action transmission channel object
     return Mechanism(data)
