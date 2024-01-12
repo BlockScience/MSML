@@ -69,3 +69,52 @@ class ParallelBlock(Block):
         out += "end"
 
         return out, i
+
+
+class StackBlock(Block):
+    def __init__(self, data: Dict):
+        self.name = data["name"]
+        self.components = data["components"]
+        self.description = data["description"]
+        self.constraints = data["constraints"]
+        self._check_domain_mapping()
+        self.domain = self.components[0].domain
+        self.codomain = self.components[-1].codomain
+        self.parameters_used = list(
+            set([i for x in self.components for i in x.parameters_used])
+        )
+
+        self.called_by = []
+        self.calls = []
+
+    def _check_domain_mapping(self):
+        for a, b in zip(self.components[:-1], self.components[1:]):
+            assert (
+                a.codomain == b.domain
+            ), "{} codomain does not match {} domain".format(a.name, b.name)
+
+    def render_mermaid(self, i):
+        start_i = i
+        out = ""
+
+        nodes = []
+
+        # Render components
+        for component in self.components:
+            component, i = component.render_mermaid(i)
+            out += component
+            out += "\n"
+            nodes.append(i)
+        end_i = i
+
+        # Render connections
+        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+            out += "X{}-->X{}".format(ix1, ix2)
+            out += "\n"
+
+        # Subgraph it
+        i += 1
+        out = "subgraph X{}[{}]\ndirection TB\n".format(i, self.name) + out
+        out += "end"
+
+        return out, i
