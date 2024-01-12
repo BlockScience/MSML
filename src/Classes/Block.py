@@ -15,3 +15,50 @@ class Block:
             self.label = self.name
         self.called_by = []
         self.calls = []
+
+    def render_mermaid(self, i):
+        i += 1
+        return "X{}[{}]".format(i, self.name), i
+
+
+class ParallelBlock(Block):
+    def __init__(self, data: Dict):
+        self.name = data["name"]
+        self.components = data["components"]
+        self.description = data["description"]
+        self.constraints = data["constraints"]
+        self.domain = sum([x.domain for x in self.components])
+        self.codomain = sum([x.domain for x in self.components])
+        self.parameters_used = list(
+            set(sum([x.parameters_used for x in self.components]))
+        )
+
+        self.called_by = []
+        self.calls = []
+
+    def render_mermaid(self, i):
+        start_i = i
+        out = ""
+
+        nodes = []
+
+        # Render components
+        for component in self.components:
+            component, i = component.render_mermaid(i)
+            out += component
+            out += "\n"
+            nodes.append(i)
+        end_i = i
+
+        # Render invisible connections
+        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+            out += "X{} ~~~ X{}".format(ix1, ix2)
+            out += "\n"
+
+        # Subgraph it
+        i += 1
+        out = "subgraph X{}[{}]\ndirection LR\n".format(i, self.name) + out
+
+        out += "end"
+
+        return out, i
