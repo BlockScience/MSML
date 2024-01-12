@@ -33,10 +33,11 @@ class ParallelBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.domain = sum([x.domain for x in self.components])
-        self.codomain = sum([x.domain for x in self.components])
+        self.domain = tuple([i for x in self.components for i in x.domain])
+
+        self.codomain = tuple([i for x in self.components for i in x.codomain])
         self.parameters_used = list(
-            set(sum([x.parameters_used for x in self.components]))
+            set([i for x in self.components for i in x.parameters_used])
         )
 
         self.called_by = []
