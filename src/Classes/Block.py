@@ -20,6 +20,12 @@ class Block:
         i += 1
         return "X{}[{}]".format(i, self.name), i
 
+    def render_mermaid_root(self):
+        out = """```mermaid\ngraph TB\n"""
+        out += self.render_mermaid(0)[0]
+        out += "\n```"
+        return out
+
 
 class ParallelBlock(Block):
     def __init__(self, data: Dict):
