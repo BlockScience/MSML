@@ -44,6 +44,10 @@ class ParallelBlock(Block):
         self.calls = []
 
     def render_mermaid(self, i):
+        multi = None
+        if type(i) == list:
+            multi = i
+            i = i[-1]
         start_i = i
         out = ""
 
@@ -94,6 +98,10 @@ class StackBlock(Block):
             ), "{} codomain does not match {} domain".format(a.name, b.name)
 
     def render_mermaid(self, i):
+        multi = None
+        if type(i) == list:
+            multi = i
+            i = i[-1]
         start_i = i
         out = ""
 
@@ -105,12 +113,20 @@ class StackBlock(Block):
             out += component
             out += "\n"
             nodes.append(i)
+            if type(i) == list:
+                i = i[-1]
         end_i = i
 
         # Render connections
         for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{}-->X{}".format(ix1, ix2)
-            out += "\n"
+            if type(ix1) != list:
+                ix1 = [ix1]
+            if type(ix2) != list:
+                ix2 = [ix2]
+            for ix3 in ix1:
+                for ix4 in ix2:
+                    out += "X{}-->X{}".format(ix3, ix4)
+                    out += "\n"
 
         # Subgraph it
         i += 1
@@ -136,6 +152,10 @@ class SplitBlock(Block):
         self.calls = []
 
     def render_mermaid(self, i):
+        multi = None
+        if type(i) == list:
+            multi = i
+            i = i[-1]
         start_i = i
         out = ""
 
