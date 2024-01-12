@@ -4,7 +4,7 @@ from .Block import Block
 
 class Mechanism(Block):
     def __init__(self, data: Dict):
-        data["codomain"] = None
+        data["codomain"] = tuple()
         super().__init__(data)
         self.logic = data["logic"]
         self.updates = []

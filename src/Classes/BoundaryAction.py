@@ -4,7 +4,7 @@ from .Block import Block
 
 class BoundaryAction(Block):
     def __init__(self, data: Dict):
-        data["domain"] = None
+        data["domain"] = tuple()
         super().__init__(data)
         self.boundary_action_options = data["boundary_action_options"]
 
