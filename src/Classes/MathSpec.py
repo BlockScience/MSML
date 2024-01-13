@@ -24,7 +24,7 @@ class MathSpec:
             "State Update Transmission Channels"
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
-        self.wiring = ms_dict["wiring"]
+        self.wiring = ms_dict["Wiring"]
 
         self._check_parameters()
         self._crawl_parameters()
