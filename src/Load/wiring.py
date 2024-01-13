@@ -13,6 +13,9 @@ def load_single_wiring(data, ms):
         "Split",
     ], "{} not a valid block type".format(block_type)
 
+    # Map components
+    data["components"] = [ms["Blocks"][x] for x in data["components"]]
+
     # Map to the correct block
     if block_type == "Stack":
         block = StackBlock(data)
@@ -27,10 +30,14 @@ def load_single_wiring(data, ms):
 
 
 def load_wiring(ms, json):
+    ms["Blocks"] = {}
+    ms["Blocks"].update(ms["Boundary Actions"])
+    ms["Blocks"].update(ms["Control Actions"])
+    ms["Blocks"].update(ms["Policies"])
+    ms["Blocks"].update(ms["Mechanisms"])
+
     ms["Wiring"] = {}
     for w in json["Wiring"]:
         w = load_single_wiring(w, ms)
         ms["Wiring"][w.name] = w
-
-    # Go through each block's components and map them
-    assert False
+        ms["Blocks"][w.name] = w
