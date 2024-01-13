@@ -16,6 +16,9 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
 
     # Check the keys are correct
     check_json_keys(data, "Boundary Action")
+    assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(
+        data["name"]
+    )
 
     # Copy
     data = data.copy()

@@ -15,6 +15,9 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
 
     # Check the keys are correct
     check_json_keys(data, "Mechanism")
+    assert type(data["domain"]) == tuple, "{} domain is not a tuple".format(
+        data["name"]
+    )
 
     # Copy
     data = data.copy()
