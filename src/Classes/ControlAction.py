@@ -7,6 +7,7 @@ class ControlAction(Block):
         data["domain"] = tuple()
         super().__init__(data)
         self.control_action_options = data["control_action_options"]
+        self.block_type = "Control Action"
 
 
 class ControlActionOption:
