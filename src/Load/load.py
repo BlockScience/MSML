@@ -12,6 +12,7 @@ from .parameters import load_parameters
 from .policy import load_policies
 from .spaces import load_spaces
 from .stateful_metrics import load_stateful_metrics
+from .wiring import load_wiring
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -25,7 +26,7 @@ def load_from_json(json: Dict) -> MathSpec:
     """
 
     # Assert the keys are correct in the json
-    check_json_keys(json, "Math Spec")
+    check_json_keys(json, "JSON")
 
     ms = {}
 
@@ -39,6 +40,7 @@ def load_from_json(json: Dict) -> MathSpec:
     load_parameters(ms, json)
     load_policies(ms, json)
     load_stateful_metrics(ms, json)
+    load_wiring(ms, json)
     load_action_transmission_channels(ms, json)
     load_state_update_transmission_channels(ms, json)
 

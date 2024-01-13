@@ -26,6 +26,22 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "State Update Transmission Channels",
             "Stateful Metrics",
             "Control Actions",
+            "Wiring",
+            "Blocks",
+        ],
+        "JSON": [
+            "Action Transmission Channels",
+            "Boundary Actions",
+            "Entities",
+            "Mechanisms",
+            "Parameters",
+            "Policies",
+            "Spaces",
+            "State",
+            "State Update Transmission Channels",
+            "Stateful Metrics",
+            "Control Actions",
+            "Wiring",
         ],
         "State": ["name", "label", "notes", "variables"],
         "State Variable": ["type", "name", "description", "symbol", "domain"],
@@ -99,6 +115,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "parameter_class",
         ],
         "Space": ["name", "schema"],
+        "Block": ["name", "components", "description", "constraints"],
     }
 
     check_set = check_sets[check_set_key]
