@@ -14,7 +14,16 @@ def load_single_wiring(data, ms):
     ], "{} not a valid block type".format(block_type)
 
     # Map to the correct block
-    assert False
+    if block_type == "Stack":
+        block = StackBlock(data)
+    elif block_type == "Parallel":
+        block = ParallelBlock(data)
+    elif block_type == "Split":
+        block = SplitBlock(data)
+    else:
+        assert False
+
+    return block
 
 
 def load_wiring(ms, json):
