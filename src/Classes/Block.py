@@ -15,6 +15,7 @@ class Block:
             self.label = self.name
         self.called_by = []
         self.calls = []
+        self.block_type = "Block"
 
     def render_mermaid(self, i):
         i += 1
@@ -42,6 +43,7 @@ class ParallelBlock(Block):
 
         self.called_by = []
         self.calls = []
+        self.block_type = "Paralell Block"
 
     def render_mermaid(self, i):
         multi = None
@@ -90,6 +92,8 @@ class StackBlock(Block):
 
         self.called_by = []
         self.calls = []
+
+        self.block_type = "Stack Block"
 
     def _check_domain_mapping(self):
         for a, b in zip(self.components[:-1], self.components[1:]):
@@ -150,6 +154,8 @@ class SplitBlock(Block):
 
         self.called_by = []
         self.calls = []
+
+        self.block_type = "Split Block"
 
     def render_mermaid(self, i):
         multi = None

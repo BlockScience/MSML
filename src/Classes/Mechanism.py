@@ -8,3 +8,4 @@ class Mechanism(Block):
         super().__init__(data)
         self.logic = data["logic"]
         self.updates = []
+        self.block_type = "Mechanism"
