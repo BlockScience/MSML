@@ -37,6 +37,12 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
 
     # Check the keys are correct
     check_json_keys(data, "Policy")
+    assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(
+        data["name"]
+    )
+    assert type(data["domain"]) == tuple, "{} domain is not a tuple".format(
+        data["name"]
+    )
 
     # Copy
     data = data.copy()
