@@ -26,7 +26,7 @@ def load_from_json(json: Dict) -> MathSpec:
     """
 
     # Assert the keys are correct in the json
-    check_json_keys(json, "Math Spec")
+    check_json_keys(json, "JSON")
 
     ms = {}
 
