@@ -46,13 +46,13 @@ class Block:
                 )
             ]
         )
-        self.domain_blocks_empty = (
+        self.domain_blocks_empty = tuple(
             self for _ in range(len([x for x in self.domain if x == EmptySpace]))
         )
-        self.codomain_blocks_empty = (
+        self.codomain_blocks_empty = tuple(
             self for _ in range(len([x for x in self.codomain if x == EmptySpace]))
         )
-        self.codomain_blocks_terminating = (
+        self.codomain_blocks_terminating = tuple(
             self
             for _ in range(len([x for x in self.codomain if x == TerminatingSpace]))
         )
