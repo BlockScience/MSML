@@ -6,6 +6,9 @@ class Space:
         self.name = data["name"]
         self.schema = data["schema"]
 
+    def __repr__(self):
+        return self.name
+
 
 TerminatingSpace = Space({"name": "Terminating Space", "schema": {}})
 EmptySpace = Space({"name": "Empty Space", "schema": {}})

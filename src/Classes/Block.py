@@ -47,7 +47,7 @@ class ParallelBlock(Block):
             ]
         )
         if len(self.domain) == 0:
-            self.domain = [EmptySpace]
+            self.domain = (EmptySpace,)
 
         self.codomain = tuple(
             [
@@ -58,7 +58,7 @@ class ParallelBlock(Block):
             ]
         )
         if len(self.codomain) == 0:
-            self.domain = [EmptySpace]
+            self.codomain = (EmptySpace,)
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
         )
@@ -129,9 +129,13 @@ class StackBlock(Block):
 
     def _check_domain_mapping(self):
         for a, b in zip(self.components[:-1], self.components[1:]):
-            assert (
-                a.codomain == b.domain
-            ), "{} codomain does not match {} domain".format(a.name, b.name)
+            assert [
+                x for x in a.codomain if x not in [EmptySpace, TerminatingSpace]
+            ] == [
+                x for x in b.domain if x not in [EmptySpace, TerminatingSpace]
+            ], "{} codomain does not match {} domain, {} != {}".format(
+                a.name, b.name, a.codomain, b.domain
+            )
 
     def render_mermaid(self, i):
         multi = None
@@ -187,7 +191,7 @@ class SplitBlock(Block):
             ]
         )
         if len(self.domain) == 0:
-            self.domain = [EmptySpace]
+            self.domain = (EmptySpace,)
 
         self.codomain = tuple(
             [
@@ -198,7 +202,7 @@ class SplitBlock(Block):
             ]
         )
         if len(self.codomain) == 0:
-            self.domain = [EmptySpace]
+            self.codomain = (EmptySpace,)
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
         )
