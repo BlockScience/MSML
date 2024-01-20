@@ -1,4 +1,5 @@
 from typing import Dict
+from .Space import TerminatingSpace, EmptySpace
 
 
 class Block:
@@ -37,9 +38,27 @@ class ParallelBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.domain = tuple([i for x in self.components for i in x.domain])
+        self.domain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.domain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.domain) == 0:
+            self.domain = [EmptySpace]
 
-        self.codomain = tuple([i for x in self.components for i in x.codomain])
+        self.codomain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.codomain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.codomain) == 0:
+            self.domain = [EmptySpace]
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
         )
@@ -159,8 +178,27 @@ class SplitBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.domain = tuple([i for x in self.components for i in x.domain])
-        self.codomain = tuple([i for x in self.components for i in x.codomain])
+        self.domain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.domain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.domain) == 0:
+            self.domain = [EmptySpace]
+
+        self.codomain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.codomain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.codomain) == 0:
+            self.domain = [EmptySpace]
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
         )
