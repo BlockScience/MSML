@@ -29,15 +29,25 @@ def load_single_wiring(data, ms):
     return block
 
 
+def check_repeat(d, blocks):
+    for x in blocks:
+        assert x not in d, "{} was a repeated block".format(x)
+
+
 def load_wiring(ms, json):
     ms["Blocks"] = {}
+    check_repeat(ms["Blocks"], ms["Boundary Actions"])
     ms["Blocks"].update(ms["Boundary Actions"])
+    check_repeat(ms["Blocks"], ms["Control Actions"])
     ms["Blocks"].update(ms["Control Actions"])
+    check_repeat(ms["Blocks"], ms["Policies"])
     ms["Blocks"].update(ms["Policies"])
+    check_repeat(ms["Blocks"], ms["Mechanisms"])
     ms["Blocks"].update(ms["Mechanisms"])
 
     ms["Wiring"] = {}
     for w in json["Wiring"]:
         w = load_single_wiring(w, ms)
+        assert w.name not in ms["Blocks"], "{} was a repeated block".format(w.name)
         ms["Wiring"][w.name] = w
         ms["Blocks"][w.name] = w
