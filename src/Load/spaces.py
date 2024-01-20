@@ -1,5 +1,5 @@
 from typing import Dict
-from ..Classes import Space
+from ..Classes import Space, TerminatingSpace, EmptySpace
 from .general import check_json_keys
 
 
@@ -24,6 +24,9 @@ def load_spaces(ms: Dict, json: Dict) -> None:
 
     # Placeholder for now
     ms["Spaces"] = {}
+    ms["Spaces"]["Terminating Space"] = TerminatingSpace
+    ms["Spaces"]["Terminating Space"] = EmptySpace
 
     for space in json["Spaces"]:
+        assert space["name"] not in ms["Spaces"], "{} repeated"
         ms["Spaces"][space["name"]] = convert_space(space)

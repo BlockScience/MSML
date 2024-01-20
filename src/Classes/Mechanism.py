@@ -1,10 +1,11 @@
 from typing import Dict
 from .Block import Block
+from .Space import TerminatingSpace
 
 
 class Mechanism(Block):
     def __init__(self, data: Dict):
-        data["codomain"] = tuple()
+        data["codomain"] = (TerminatingSpace,)
         super().__init__(data)
         self.logic = data["logic"]
         self.updates = []
