@@ -189,10 +189,35 @@ class StackBlock(Block):
             )
 
     def build_action_transmission_channels(self):
+        channels = []
         for a, b in zip(self.components[:-1], self.components[1:]):
-            assert len(a.codomain_blocks) == len(b.domain_blocks)
-            print(a.codomain_blocks, b.domain_blocks)
-            print(a.codomain_blocks_empty, b.domain_blocks_empty)
+            assert len(a.codomain_blocks) == len(b.domain_blocks) and len(
+                b.domain_blocks
+            ) == len([x for x in b.domain if x not in [EmptySpace, TerminatingSpace]])
+            for x, y, z in zip(
+                a.codomain_blocks,
+                b.domain_blocks,
+                [x for x in b.domain if x not in [EmptySpace, TerminatingSpace]],
+            ):
+                channels.append(
+                    {
+                        "origin": x.name,
+                        "target": y.name,
+                        "space": z.name,
+                        "optional": False,
+                    }
+                )
+            for x in a.codomain_blocks_empty:
+                for y in b.domain_blocks_empty:
+                    channels.append(
+                        {
+                            "origin": x.name,
+                            "target": y.name,
+                            "space": "Empty Space",
+                            "optional": False,
+                        }
+                    )
+        return channels
 
     def render_mermaid(self, i):
         multi = None
