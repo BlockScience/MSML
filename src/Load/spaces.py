@@ -25,7 +25,7 @@ def load_spaces(ms: Dict, json: Dict) -> None:
     # Placeholder for now
     ms["Spaces"] = {}
     ms["Spaces"]["Terminating Space"] = TerminatingSpace
-    ms["Spaces"]["Terminating Space"] = EmptySpace
+    ms["Spaces"]["Empty Space"] = EmptySpace
 
     for space in json["Spaces"]:
         assert space["name"] not in ms["Spaces"], "{} repeated"
