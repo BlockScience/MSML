@@ -30,7 +30,6 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Blocks",
         ],
         "JSON": [
-            "Action Transmission Channels",
             "Boundary Actions",
             "Entities",
             "Mechanisms",
