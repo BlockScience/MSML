@@ -34,6 +34,17 @@ def check_repeat(d, blocks):
         assert x not in d, "{} was a repeated block".format(x)
 
 
+def filter_atc(action_transmission_channels):
+    seen = []
+    out = []
+    for x in action_transmission_channels:
+        key = frozenset(x.items())
+        if key not in seen:
+            seen.append(key)
+            out.append(x)
+    return out
+
+
 def load_wiring(ms, json):
     ms["Blocks"] = {}
     check_repeat(ms["Blocks"], ms["Boundary Actions"])
@@ -54,5 +65,6 @@ def load_wiring(ms, json):
         ms["Blocks"][w.name] = w
         if w.block_type == "Stack Block":
             action_transmission_channels.extend(w.build_action_transmission_channels())
-    action_transmission_channels = list(set(action_transmission_channels))
+    action_transmission_channels = filter_atc(action_transmission_channels)
+
     return action_transmission_channels
