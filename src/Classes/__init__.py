@@ -9,5 +9,5 @@ from .Policy import Policy, PolicyOption
 from .StateUpdateTransmissionChannel import StateUpdateTransmissionChannel
 from .StatefulMetric import StatefulMetric, StatefulMetricSet
 from .ControlAction import ControlAction, ControlActionOption
-from .Space import Space
+from .Space import Space, TerminatingSpace, EmptySpace
 from .Block import ParallelBlock, Block, StackBlock, SplitBlock
