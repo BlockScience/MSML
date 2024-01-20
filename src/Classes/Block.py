@@ -188,6 +188,12 @@ class StackBlock(Block):
                 a.name, b.name, a.codomain, b.domain
             )
 
+    def build_action_transmission_channels(self):
+        for a, b in zip(self.components[:-1], self.components[1:]):
+            assert len(a.codomain_blocks) == len(b.domain_blocks)
+            print(a.codomain_blocks, b.domain_blocks)
+            print(a.codomain_blocks_empty, b.domain_blocks_empty)
+
     def render_mermaid(self, i):
         multi = None
         if type(i) == list:
