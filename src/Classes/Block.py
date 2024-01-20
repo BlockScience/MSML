@@ -18,8 +18,44 @@ class Block:
         self.calls = []
         self.block_type = "Block"
         # Will be overwritten in composite blocks to represent individual components
-        self.domain_blocks = tuple([self for _ in range(len(self.domain))])
-        self.codomain_blocks = tuple([self for _ in range(len(self.codomain))])
+        self.domain_blocks = tuple(
+            [
+                self
+                for _ in range(
+                    len(
+                        [
+                            x
+                            for x in self.domain
+                            if x not in [TerminatingSpace, EmptySpace]
+                        ]
+                    )
+                )
+            ]
+        )
+        self.codomain_blocks = tuple(
+            [
+                self
+                for _ in range(
+                    len(
+                        [
+                            x
+                            for x in self.codomain
+                            if x not in [TerminatingSpace, EmptySpace]
+                        ]
+                    )
+                )
+            ]
+        )
+        self.domain_blocks_empty = (
+            self for _ in range(len([x for x in self.domain if x == EmptySpace]))
+        )
+        self.codomain_blocks_empty = (
+            self for _ in range(len([x for x in self.codomain if x == EmptySpace]))
+        )
+        self.codomain_blocks_terminating = (
+            self
+            for _ in range(len([x for x in self.codomain if x == TerminatingSpace]))
+        )
 
     def render_mermaid(self, i):
         i += 1
@@ -68,6 +104,16 @@ class ParallelBlock(Block):
         )
         self.codomain_blocks = tuple(
             [i for x in self.components for i in x.codomain_blocks]
+        )
+
+        self.domain_blocks_empty = tuple(
+            [i for x in self.components for i in x.domain_blocks_empty]
+        )
+        self.codomain_blocks_empty = tuple(
+            [i for x in self.components for i in x.codomain_blocks_empty]
+        )
+        self.codomain_blocks_terminating = tuple(
+            [i for x in self.components for i in x.codomain_blocks_terminating]
         )
 
         self.called_by = []
@@ -121,6 +167,11 @@ class StackBlock(Block):
 
         self.domain_blocks = self.components[0].domain_blocks
         self.codomain_blocks = self.components[-1].codomain_blocks
+        self.domain_blocks_empty = self.components[0].domain_blocks_empty
+        self.codomain_blocks_empty = self.components[-1].codomain_blocks_empty
+        self.codomain_blocks_terminating = self.components[
+            -1
+        ].codomain_blocks_terminating
 
         self.called_by = []
         self.calls = []
@@ -212,6 +263,16 @@ class SplitBlock(Block):
         )
         self.codomain_blocks = tuple(
             [i for x in self.components for i in x.codomain_blocks]
+        )
+
+        self.domain_blocks_empty = tuple(
+            [i for x in self.components for i in x.domain_blocks_empty]
+        )
+        self.codomain_blocks_empty = tuple(
+            [i for x in self.components for i in x.codomain_blocks_empty]
+        )
+        self.codomain_blocks_terminating = tuple(
+            [i for x in self.components for i in x.codomain_blocks_terminating]
         )
 
         self.called_by = []
