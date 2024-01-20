@@ -46,10 +46,13 @@ def load_wiring(ms, json):
     ms["Blocks"].update(ms["Mechanisms"])
 
     ms["Wiring"] = {}
+    action_transmission_channels = []
     for w in json["Wiring"]:
         w = load_single_wiring(w, ms)
         assert w.name not in ms["Blocks"], "{} was a repeated block".format(w.name)
         ms["Wiring"][w.name] = w
         ms["Blocks"][w.name] = w
         if w.block_type == "Stack Block":
-            print(w.build_action_transmission_channels())
+            action_transmission_channels.extend(w.build_action_transmission_channels())
+    action_transmission_channels = list(set(action_transmission_channels))
+    return action_transmission_channels
