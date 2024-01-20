@@ -44,6 +44,13 @@ class ParallelBlock(Block):
             set([i for x in self.components for i in x.parameters_used])
         )
 
+        self.domain_blocks = tuple(
+            [i for x in self.components for i in x.domain_blocks]
+        )
+        self.codomain_blocks = tuple(
+            [i for x in self.components for i in x.codomain_blocks]
+        )
+
         self.called_by = []
         self.calls = []
         self.block_type = "Paralell Block"
@@ -92,6 +99,9 @@ class StackBlock(Block):
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
         )
+
+        self.domain_blocks = self.components[0].domain_blocks
+        self.codomain_blocks = self.components[-1].codomain_blocks
 
         self.called_by = []
         self.calls = []
@@ -153,6 +163,13 @@ class SplitBlock(Block):
         self.codomain = tuple([i for x in self.components for i in x.codomain])
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
+        )
+
+        self.domain_blocks = tuple(
+            [i for x in self.components for i in x.domain_blocks]
+        )
+        self.codomain_blocks = tuple(
+            [i for x in self.components for i in x.codomain_blocks]
         )
 
         self.called_by = []
