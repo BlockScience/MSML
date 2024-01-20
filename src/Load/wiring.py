@@ -29,15 +29,42 @@ def load_single_wiring(data, ms):
     return block
 
 
+def check_repeat(d, blocks):
+    for x in blocks:
+        assert x not in d, "{} was a repeated block".format(x)
+
+
+def filter_atc(action_transmission_channels):
+    seen = []
+    out = []
+    for x in action_transmission_channels:
+        key = frozenset(x.items())
+        if key not in seen:
+            seen.append(key)
+            out.append(x)
+    return out
+
+
 def load_wiring(ms, json):
     ms["Blocks"] = {}
+    check_repeat(ms["Blocks"], ms["Boundary Actions"])
     ms["Blocks"].update(ms["Boundary Actions"])
+    check_repeat(ms["Blocks"], ms["Control Actions"])
     ms["Blocks"].update(ms["Control Actions"])
+    check_repeat(ms["Blocks"], ms["Policies"])
     ms["Blocks"].update(ms["Policies"])
+    check_repeat(ms["Blocks"], ms["Mechanisms"])
     ms["Blocks"].update(ms["Mechanisms"])
 
     ms["Wiring"] = {}
+    action_transmission_channels = []
     for w in json["Wiring"]:
         w = load_single_wiring(w, ms)
+        assert w.name not in ms["Blocks"], "{} was a repeated block".format(w.name)
         ms["Wiring"][w.name] = w
         ms["Blocks"][w.name] = w
+        if w.block_type == "Stack Block":
+            action_transmission_channels.extend(w.build_action_transmission_channels())
+    action_transmission_channels = filter_atc(action_transmission_channels)
+
+    return action_transmission_channels

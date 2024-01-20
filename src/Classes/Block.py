@@ -1,4 +1,5 @@
 from typing import Dict
+from .Space import TerminatingSpace, EmptySpace
 
 
 class Block:
@@ -16,6 +17,45 @@ class Block:
         self.called_by = []
         self.calls = []
         self.block_type = "Block"
+        # Will be overwritten in composite blocks to represent individual components
+        self.domain_blocks = tuple(
+            [
+                self
+                for _ in range(
+                    len(
+                        [
+                            x
+                            for x in self.domain
+                            if x not in [TerminatingSpace, EmptySpace]
+                        ]
+                    )
+                )
+            ]
+        )
+        self.codomain_blocks = tuple(
+            [
+                self
+                for _ in range(
+                    len(
+                        [
+                            x
+                            for x in self.codomain
+                            if x not in [TerminatingSpace, EmptySpace]
+                        ]
+                    )
+                )
+            ]
+        )
+        self.domain_blocks_empty = tuple(
+            self for _ in range(len([x for x in self.domain if x == EmptySpace]))
+        )
+        self.codomain_blocks_empty = tuple(
+            self for _ in range(len([x for x in self.codomain if x == EmptySpace]))
+        )
+        self.codomain_blocks_terminating = tuple(
+            self
+            for _ in range(len([x for x in self.codomain if x == TerminatingSpace]))
+        )
 
     def render_mermaid(self, i):
         i += 1
@@ -34,11 +74,46 @@ class ParallelBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.domain = tuple([i for x in self.components for i in x.domain])
+        self.domain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.domain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.domain) == 0:
+            self.domain = (EmptySpace,)
 
-        self.codomain = tuple([i for x in self.components for i in x.codomain])
+        self.codomain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.codomain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.codomain) == 0:
+            self.codomain = (EmptySpace,)
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
+        )
+
+        self.domain_blocks = tuple(
+            [i for x in self.components for i in x.domain_blocks]
+        )
+        self.codomain_blocks = tuple(
+            [i for x in self.components for i in x.codomain_blocks]
+        )
+
+        self.domain_blocks_empty = tuple(
+            [i for x in self.components for i in x.domain_blocks_empty]
+        )
+        self.codomain_blocks_empty = tuple(
+            [i for x in self.components for i in x.codomain_blocks_empty]
+        )
+        self.codomain_blocks_terminating = tuple(
+            [i for x in self.components for i in x.codomain_blocks_terminating]
         )
 
         self.called_by = []
@@ -90,6 +165,14 @@ class StackBlock(Block):
             set([i for x in self.components for i in x.parameters_used])
         )
 
+        self.domain_blocks = self.components[0].domain_blocks
+        self.codomain_blocks = self.components[-1].codomain_blocks
+        self.domain_blocks_empty = self.components[0].domain_blocks_empty
+        self.codomain_blocks_empty = self.components[-1].codomain_blocks_empty
+        self.codomain_blocks_terminating = self.components[
+            -1
+        ].codomain_blocks_terminating
+
         self.called_by = []
         self.calls = []
 
@@ -97,9 +180,44 @@ class StackBlock(Block):
 
     def _check_domain_mapping(self):
         for a, b in zip(self.components[:-1], self.components[1:]):
-            assert (
-                a.codomain == b.domain
-            ), "{} codomain does not match {} domain".format(a.name, b.name)
+            assert [
+                x for x in a.codomain if x not in [EmptySpace, TerminatingSpace]
+            ] == [
+                x for x in b.domain if x not in [EmptySpace, TerminatingSpace]
+            ], "{} codomain does not match {} domain, {} != {}".format(
+                a.name, b.name, a.codomain, b.domain
+            )
+
+    def build_action_transmission_channels(self):
+        channels = []
+        for a, b in zip(self.components[:-1], self.components[1:]):
+            assert len(a.codomain_blocks) == len(b.domain_blocks) and len(
+                b.domain_blocks
+            ) == len([x for x in b.domain if x not in [EmptySpace, TerminatingSpace]])
+            for x, y, z in zip(
+                a.codomain_blocks,
+                b.domain_blocks,
+                [x for x in b.domain if x not in [EmptySpace, TerminatingSpace]],
+            ):
+                channels.append(
+                    {
+                        "origin": x.name,
+                        "target": y.name,
+                        "space": z.name,
+                        "optional": False,
+                    }
+                )
+            for x in a.codomain_blocks_empty:
+                for y in b.domain_blocks_empty:
+                    channels.append(
+                        {
+                            "origin": x.name,
+                            "target": y.name,
+                            "space": "Empty Space",
+                            "optional": False,
+                        }
+                    )
+        return channels
 
     def render_mermaid(self, i):
         multi = None
@@ -146,10 +264,46 @@ class SplitBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
-        self.domain = tuple([i for x in self.components for i in x.domain])
-        self.codomain = tuple([i for x in self.components for i in x.codomain])
+        self.domain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.domain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.domain) == 0:
+            self.domain = (EmptySpace,)
+
+        self.codomain = tuple(
+            [
+                i
+                for x in self.components
+                for i in x.codomain
+                if i not in [TerminatingSpace, EmptySpace]
+            ]
+        )
+        if len(self.codomain) == 0:
+            self.codomain = (EmptySpace,)
         self.parameters_used = list(
             set([i for x in self.components for i in x.parameters_used])
+        )
+
+        self.domain_blocks = tuple(
+            [i for x in self.components for i in x.domain_blocks]
+        )
+        self.codomain_blocks = tuple(
+            [i for x in self.components for i in x.codomain_blocks]
+        )
+
+        self.domain_blocks_empty = tuple(
+            [i for x in self.components for i in x.domain_blocks_empty]
+        )
+        self.codomain_blocks_empty = tuple(
+            [i for x in self.components for i in x.codomain_blocks_empty]
+        )
+        self.codomain_blocks_terminating = tuple(
+            [i for x in self.components for i in x.codomain_blocks_terminating]
         )
 
         self.called_by = []

@@ -57,15 +57,17 @@ def convert_action_transmission_channel(
     return ActionTransmissionChannel(data)
 
 
-def load_action_transmission_channels(ms: Dict, json: Dict) -> None:
+def load_action_transmission_channels(
+    ms: Dict, action_transmission_channels: list
+) -> None:
     """Function to load states into the new dictionary
 
     Args:
         ms (Dict): MathSpec dictionary
-        json (Dict): JSON version of MathSpec to load
+        action_transmission_channels (list): List of action transmission channels
     """
 
     ms["Action Transmission Channels"] = []
-    for atc in json["Action Transmission Channels"]:
+    for atc in action_transmission_channels:
         atc = convert_action_transmission_channel(atc, ms)
         ms["Action Transmission Channels"].append(atc)
