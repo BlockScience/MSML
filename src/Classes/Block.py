@@ -16,6 +16,9 @@ class Block:
         self.called_by = []
         self.calls = []
         self.block_type = "Block"
+        # Will be overwritten in composite blocks to represent individual components
+        self.domain_blocks = tuple([self for _ in range(len(self.domain))])
+        self.codomain_blocks = tuple([self for _ in range(len(self.codomain))])
 
     def render_mermaid(self, i):
         i += 1
