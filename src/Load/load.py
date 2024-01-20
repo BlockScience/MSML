@@ -40,8 +40,8 @@ def load_from_json(json: Dict) -> MathSpec:
     load_parameters(ms, json)
     load_policies(ms, json)
     load_stateful_metrics(ms, json)
-    load_wiring(ms, json)
-    load_action_transmission_channels(ms, json)
+    action_transmission_channels = load_wiring(ms, json)
+    load_action_transmission_channels(ms, action_transmission_channels)
     load_state_update_transmission_channels(ms, json)
 
     # Assert all keys are correct for the ms version

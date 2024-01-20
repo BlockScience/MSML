@@ -25,6 +25,7 @@ class MathSpec:
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
         self.wiring = ms_dict["Wiring"]
+        self.blocks = ms_dict["Blocks"]
 
         self._check_parameters()
         self._crawl_parameters()
