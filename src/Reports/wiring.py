@@ -13,12 +13,21 @@ from typing import List
 
 def write_wiring_report(ms: MathSpec, directory: str, wiring_name) -> None:
     all_nodes = ms.crawl_wiring(wiring_name)
-    print(all_nodes)
+    wiring = ms.wiring[wiring_name]
+    out = ""
+    # out += write_header()
+    # out += "\n"
+    # out += "\n"
+    out += "## Wiring Diagram"
+    out += "\n"
+    out += "\n"
+    out += wiring.render_mermaid_root()
+
+    with open("{}/{}.md".format(directory, wiring_name), "w") as f:
+        f.write(out)
 
     """
-        out = ""
-        out += write_header()
-        out += "<h2>Action Map</h2>"
+        
         out += load_svg_graphviz(create_action_chains_graph(ms, [action], action))
 
         out += "<h2>State</h2>"
@@ -35,5 +44,4 @@ def write_wiring_report(ms: MathSpec, directory: str, wiring_name) -> None:
         out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
         out += write_out_params(ms, all_nodes["Parameters"])
 
-        with open("{}/{}.html".format(directory, action), "w") as f:
-            f.write(out)"""
+"""
