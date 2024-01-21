@@ -281,15 +281,49 @@ class MathSpec:
                     x = self.wiring[x]
                     out["Wiring"].append(x)
                     q.extend([y.name for y in x.components])
+                else:
+                    x = None
             elif x in self.boundary_actions:
                 if x not in out["Boundary Actions"]:
                     x = self.boundary_actions[x]
                     out["Boundary Actions"].append(x)
+                else:
+                    x = None
+            elif x in self.control_actions:
+                if x not in out["Control Actions"]:
+                    x = self.control_actions[x]
+                    out["Control Actions"].append(x)
+                else:
+                    x = None
+            elif x in self.policies:
+                if x not in out["Policies"]:
+                    x = self.policies[x]
+                    out["Policies"].append(x)
+                else:
+                    x = None
+            elif x in self.mechanisms:
+                if x not in out["Mechanisms"]:
+                    x = self.mechanisms[x]
+                    out["Mechanisms"].append(x)
+                    for y in x.updates:
+                        if y not in out["State Updates"]:
+                            out["State Updates"].append(y)
+                        if y[0] not in out["Entities2"]:
+                            out["Entities2"].append(y[0])
+                else:
+                    x = None
+            else:
+                assert False
 
-            out["Spaces"].update(x.codomain)
-            out["Spaces"].update(x.domain)
-            out["Parameters"].update(x.parameters_used)
+            if x:
+                out["Spaces"].update(x.codomain)
+                out["Spaces"].update(x.domain)
+                out["Parameters"].update(x.parameters_used)
 
         out["Entities"] = self.find_relevant_entities(
             [x.name for x in out["Boundary Actions"]]
         )
+
+        out["State"] = [x.state for x in out["Entities"]]
+        out["State"] = list(set(out["State"]))
+        return out
