@@ -22,26 +22,18 @@ def write_wiring_report(ms: MathSpec, directory: str, wiring_name) -> None:
     out += "\n"
     out += "\n"
     out += wiring.render_mermaid_root()
+    out += "\n"
+    out += "\n"
+    out += "## State"
+    out += write_local_state_variable_tables(all_nodes["State"])
+    out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
+    out += write_out_boundary_actions(
+        ms, [x.name for x in all_nodes["Boundary Actions"]]
+    )
+    out += write_out_control_actions(ms, [x.name for x in all_nodes["Control Actions"]])
+    out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
+    out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
+    out += write_out_params(ms, all_nodes["Parameters"])
 
     with open("{}/{}.md".format(directory, wiring_name), "w") as f:
         f.write(out)
-
-    """
-        
-        out += load_svg_graphviz(create_action_chains_graph(ms, [action], action))
-
-        out += "<h2>State</h2>"
-        out += write_local_state_variable_tables(all_nodes["State"])
-
-        out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
-        out += write_out_boundary_actions(
-            ms, [x.name for x in all_nodes["Boundary Actions"]]
-        )
-        out += write_out_control_actions(
-            ms, [x.name for x in all_nodes["Control Actions"]]
-        )
-        out += write_out_policies(ms, [x.name for x in all_nodes["Policies"]])
-        out += write_out_mechanisms(ms, [x.name for x in all_nodes["Mechanisms"]])
-        out += write_out_params(ms, all_nodes["Parameters"])
-
-"""
