@@ -259,3 +259,37 @@ class MathSpec:
         out["Spaces"] = list(out["Spaces"])
         out["Parameters"] = list(out["Parameters"])
         return out
+
+    def crawl_wiring(self, wiring_name) -> dict:
+        wiring = self.wiring[wiring_name]
+        out = {}
+
+        out["Boundary Actions"] = []
+        out["Control Actions"] = []
+        out["Policies"] = []
+        out["Mechanisms"] = []
+        out["State Updates"] = []
+        out["Entities2"] = []
+        out["Spaces"] = set()
+        out["Parameters"] = set()
+        out["Wiring"] = []
+        q = [wiring.name]
+        while len(q) > 0:
+            x = q.pop()
+            if x in self.wiring:
+                if x not in out["Wiring"]:
+                    x = self.wiring[x]
+                    out["Wiring"].append(x)
+                    q.extend([y.name for y in x.components])
+            elif x in self.boundary_actions:
+                if x not in out["Boundary Actions"]:
+                    x = self.boundary_actions[x]
+                    out["Boundary Actions"].append(x)
+
+            out["Spaces"].update(x.codomain)
+            out["Spaces"].update(x.domain)
+            out["Parameters"].update(x.parameters_used)
+
+        out["Entities"] = self.find_relevant_entities(
+            [x.name for x in out["Boundary Actions"]]
+        )
