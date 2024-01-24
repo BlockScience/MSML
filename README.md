@@ -27,7 +27,10 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ```
 
+## Canonical Examples
 
+[Root Finding Simulation](https://github.com/SeanMcOwen/Root-Finding-Simulation)
 
+##  Other Related Repositories
 
-
+[GDS-MSML-cadCAD Repository](https://github.com/BlockScience/GDS-MSML-cadCAD)
