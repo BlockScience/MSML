@@ -74,6 +74,7 @@ class ParallelBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
+        self.mermaid_show_name = data["mermaid_show_name"]
         self.domain = tuple(
             [
                 i
@@ -144,8 +145,12 @@ class ParallelBlock(Block):
             out += "\n"
 
         # Subgraph it
+        if self.mermaid_show_name:
+            name = self.name
+        else:
+            name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection LR\n".format(i, self.name) + out
+        out = "subgraph X{}[{}]\ndirection LR\n".format(i, name) + out
 
         out += "end"
 
@@ -158,6 +163,7 @@ class StackBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
+        self.mermaid_show_name = data["mermaid_show_name"]
         self._check_domain_mapping()
         self.domain = self.components[0].domain
         self.codomain = self.components[-1].codomain
@@ -251,8 +257,12 @@ class StackBlock(Block):
                     out += "\n"
 
         # Subgraph it
+        if self.mermaid_show_name:
+            name = self.name
+        else:
+            name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection TB\n".format(i, self.name) + out
+        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
         out += "end"
 
         return out, i
@@ -264,6 +274,7 @@ class SplitBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
+        self.mermaid_show_name = data["mermaid_show_name"]
         self.domain = tuple(
             [
                 i
