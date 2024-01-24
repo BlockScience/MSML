@@ -20,6 +20,9 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
         data["name"]
     )
 
+    if len(data["codomain"]) == 0:
+        data["codomain"] = ("Empty Space",)
+
     # Copy
     data = data.copy()
 

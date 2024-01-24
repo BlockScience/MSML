@@ -18,6 +18,8 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
     assert type(data["domain"]) == tuple, "{} domain is not a tuple".format(
         data["name"]
     )
+    if len(data["domain"]) == 0:
+        data["domain"] = ("Empty Space",)
 
     # Copy
     data = data.copy()

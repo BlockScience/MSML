@@ -5,6 +5,8 @@ from .general import check_json_keys
 
 def load_single_wiring(data, ms):
     block_type = data.pop("type")
+    if "mermaid_show_name" not in data:
+        data["mermaid_show_name"] = True
     # Check the keys are correct
     check_json_keys(data, "Block")
     assert block_type in [
@@ -58,13 +60,29 @@ def load_wiring(ms, json):
 
     ms["Wiring"] = {}
     action_transmission_channels = []
-    for w in json["Wiring"]:
-        w = load_single_wiring(w, ms)
-        assert w.name not in ms["Blocks"], "{} was a repeated block".format(w.name)
-        ms["Wiring"][w.name] = w
-        ms["Blocks"][w.name] = w
-        if w.block_type == "Stack Block":
-            action_transmission_channels.extend(w.build_action_transmission_channels())
+    wiring = json["Wiring"]
+
+    i = 1
+    while i > 0:
+        i = 0
+        hold = []
+        for w in wiring:
+            if all([x in ms["Blocks"] for x in w["components"]]):
+                i += 1
+                w = load_single_wiring(w, ms)
+                assert w.name not in ms["Blocks"], "{} was a repeated block".format(
+                    w.name
+                )
+                ms["Wiring"][w.name] = w
+                ms["Blocks"][w.name] = w
+                if w.block_type == "Stack Block":
+                    action_transmission_channels.extend(
+                        w.build_action_transmission_channels()
+                    )
+            else:
+                hold.append(w)
+        wiring = hold
+    assert len(wiring) == 0, "There are circular references"
     action_transmission_channels = filter_atc(action_transmission_channels)
 
     return action_transmission_channels

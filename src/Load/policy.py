@@ -44,6 +44,12 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
         data["name"]
     )
 
+    if len(data["codomain"]) == 0:
+        data["codomain"] = ("Empty Space",)
+
+    if len(data["domain"]) == 0:
+        data["domain"] = ("Empty Space",)
+
     # Copy
     data = data.copy()
 
