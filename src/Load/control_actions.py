@@ -16,6 +16,12 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
 
     # Check the keys are correct
     check_json_keys(data, "Control Action")
+    assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(
+        data["name"]
+    )
+
+    if len(data["codomain"]) == 0:
+        data["codomain"] = ("Empty Space",)
 
     # Copy
     data = data.copy()
