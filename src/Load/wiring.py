@@ -6,7 +6,7 @@ from .general import check_json_keys
 def load_single_wiring(data, ms):
     block_type = data.pop("type")
     if "mermaid_show_name" not in data:
-        data["mermaid_show_name"] = False
+        data["mermaid_show_name"] = True
     # Check the keys are correct
     check_json_keys(data, "Block")
     assert block_type in [
