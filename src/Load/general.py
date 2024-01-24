@@ -114,7 +114,13 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "parameter_class",
         ],
         "Space": ["name", "schema"],
-        "Block": ["name", "components", "description", "constraints"],
+        "Block": [
+            "name",
+            "components",
+            "description",
+            "constraints",
+            "mermaid_show_name",
+        ],
     }
 
     check_set = check_sets[check_set_key]
