@@ -132,16 +132,52 @@ class ParallelBlock(Block):
         nodes = []
 
         # Render components
+        domain_map = {}
+        codomain_map = {}
         for component in self.components:
+            domain = component.domain
+            codomain = component.codomain
+            domain = [
+                x.name
+                for x in domain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
+            codomain = [
+                x.name
+                for x in codomain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
+
             component, i = component.render_mermaid(i)
             out += component
             out += "\n"
+            domain_map[i] = domain
+            codomain_map[i] = codomain
             nodes.append(i)
-        end_i = i
+
+        # Add domain and codomain
+        i += 1
+        out += "X{}[Domain]".format(i)
+        out += "\n"
+        domain_i = i
+        i += 1
+        out += "X{}[Codomain]".format(i)
+        out += "\n"
+        codomain_i = i
 
         # Render invisible connections
         for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
             out += "X{} ~~~ X{}".format(ix1, ix2)
+            out += "\n"
+
+        for ix1 in nodes:
+            d = domain_map[ix1]
+            if len(d) > 0:
+                d = "\n".join(d)
+                d = '"{}"'.format(d)
+                out += "X{} --{}--> X{}".format(domain_i, d, ix1)
+            else:
+                out += "X{} --> X{}".format(domain_i, ix1)
             out += "\n"
 
         # Subgraph it
