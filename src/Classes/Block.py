@@ -235,9 +235,17 @@ class StackBlock(Block):
 
         nodes = []
 
+        domain_map = {}
         # Render components
         for component in self.components:
+            domain = component.domain
+            domain = [
+                x.name
+                for x in domain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
             component, i = component.render_mermaid(i)
+            domain_map[i] = domain
             out += component
             out += "\n"
             nodes.append(i)
@@ -253,7 +261,13 @@ class StackBlock(Block):
                 ix2 = [ix2]
             for ix3 in ix1:
                 for ix4 in ix2:
-                    out += "X{}-->X{}".format(ix3, ix4)
+                    d = domain_map[ix4]
+                    if len(d) > 0:
+                        d = "\n".join(d)
+                        d = '"{}"'.format(d)
+                        out += "X{}--{}-->X{}".format(ix3, d, ix4)
+                    else:
+                        out += "X{}-->X{}".format(ix3, ix4)
                     out += "\n"
 
         # Subgraph it
