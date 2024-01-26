@@ -180,6 +180,16 @@ class ParallelBlock(Block):
                 out += "X{} --> X{}".format(domain_i, ix1)
             out += "\n"
 
+        for ix1 in nodes:
+            d = codomain_map[ix1]
+            if len(d) > 0:
+                d = "\n".join(d)
+                d = '"{}"'.format(d)
+                out += "X{} --{}--> X{}".format(ix1, d, codomain_i)
+            else:
+                out += "X{} --> X{}".format(ix1, codomain_i)
+            out += "\n"
+
         # Subgraph it
         if self.mermaid_show_name:
             name = self.name
