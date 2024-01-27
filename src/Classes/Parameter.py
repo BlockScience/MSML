@@ -8,8 +8,11 @@ class ParameterContainer:
         self.data = data
 
         self.all_parameters = []
+        self.parameter_map = {}
         for x in self.data.values():
             x = x.parameters
+            for y in x:
+                self.parameter_map[y.name] = y
             x = [y.name for y in x]
             self.all_parameters.extend(x)
         assert len(set(self.all_parameters)) == len(
