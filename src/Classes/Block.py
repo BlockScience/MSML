@@ -168,9 +168,9 @@ class ParallelBlock(Block):
         out += "direction LR\n"
 
         # Render invisible connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{} ~~~~ X{}".format(ix1, ix2)
-            out += "\n"
+        # for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        #    out += "X{} ~~~~ X{}".format(ix1, ix2)
+        #    out += "\n"
 
         out += "direction TB\n"
 
@@ -405,9 +405,9 @@ class SplitBlock(Block):
         end_i = i
 
         # Render invisible connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{} ~~~ X{}".format(ix1, ix2)
-            out += "\n"
+        # for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        #    out += "X{} ~~~ X{}".format(ix1, ix2)
+        #    out += "\n"
         out = out[:-1]
 
         return out, nodes
