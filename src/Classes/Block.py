@@ -236,7 +236,12 @@ class StackBlock(Block):
         self.block_type = "Stack Block"
 
     def _check_domain_mapping(self):
-        for a, b in zip(self.components[:-1], self.components[1:]):
+        x = self.components[:-1]
+        y = self.components[1:]
+        if self.loop:
+            x.append(self.components[-1])
+            y.append(self.components[0])
+        for a, b in zip(x, y):
             assert [
                 x for x in a.codomain if x not in [EmptySpace, TerminatingSpace]
             ] == [
@@ -247,7 +252,12 @@ class StackBlock(Block):
 
     def build_action_transmission_channels(self):
         channels = []
-        for a, b in zip(self.components[:-1], self.components[1:]):
+        x = self.components[:-1]
+        y = self.components[1:]
+        if self.loop:
+            x.append(self.components[-1])
+            y.append(self.components[0])
+        for a, b in zip(x, y):
             assert len(a.codomain_blocks) == len(b.domain_blocks) and len(
                 b.domain_blocks
             ) == len([x for x in b.domain if x not in [EmptySpace, TerminatingSpace]])
