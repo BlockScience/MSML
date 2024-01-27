@@ -258,10 +258,12 @@ class StackBlock(Block):
         if self.loop:
             x.append(self.components[-1])
             y.append(self.components[0])
-        for a, b in zip(x, y):
+        for a, b, c in zip(x, y, range(len(x))):
             assert len(a.codomain_blocks) == len(b.domain_blocks) and len(
                 b.domain_blocks
             ) == len([x for x in b.domain if x not in [EmptySpace, TerminatingSpace]])
+            global_optional = c in self.optional_indices
+
             for x, y, z in zip(
                 a.codomain_blocks,
                 b.domain_blocks,
@@ -272,7 +274,7 @@ class StackBlock(Block):
                         "origin": x.name,
                         "target": y.name,
                         "space": z.name,
-                        "optional": False,
+                        "optional": global_optional,
                     }
                 )
             for x in a.codomain_blocks_empty:
@@ -282,7 +284,7 @@ class StackBlock(Block):
                             "origin": x.name,
                             "target": y.name,
                             "space": "Empty Space",
-                            "optional": False,
+                            "optional": global_optional,
                         }
                     )
         return channels
