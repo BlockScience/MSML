@@ -315,7 +315,12 @@ class StackBlock(Block):
         end_i = i
 
         # Render connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        x = nodes[:-1]
+        y = nodes[1:]
+        if self.loop:
+            x.append(nodes[-1])
+            y.append(nodes[0])
+        for ix1, ix2 in zip(x, y):
             if type(ix1) != list:
                 ix1 = [ix1]
             if type(ix2) != list:
