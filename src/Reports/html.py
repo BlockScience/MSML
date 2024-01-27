@@ -165,3 +165,14 @@ def write_spec_tree(ms: MathSpec) -> str:
         out += symbol2 + name + "\n"
 
     return out
+
+
+def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None):
+    out = "<h1>{}</h1>".format(name)
+    if summary:
+        out += "<h2>Summary</h2>"
+        out += "<p>{}</p>".format(summary)
+    out += "<h2>Specification Tree</h2>"
+    out += write_spec_tree(ms)
+    with open(file_path, "w") as f:
+        f.write(out)
