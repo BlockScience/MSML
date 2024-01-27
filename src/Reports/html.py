@@ -7,7 +7,7 @@ from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz, write_header
 from .node_map import create_action_chains_graph
 from .parameters import write_out_params
-from .state import write_local_state_variable_tables
+from .state import write_local_state_variable_tables, write_global_state_variable_table
 from typing import List
 
 
@@ -20,6 +20,7 @@ def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
         out += load_svg_graphviz(create_action_chains_graph(ms, [behavior], behavior))
 
     out += "<h2>State</h2>"
+    out += write_global_state_variable_table(ms.state["Global"])
     out += write_local_state_variable_tables(ms.state.values())
 
     out += write_out_spaces(ms, list(ms.spaces.keys()))
@@ -52,6 +53,7 @@ def write_action_chain_reports(
         out += load_svg_graphviz(create_action_chains_graph(ms, [action], action))
 
         out += "<h2>State</h2>"
+        out += write_global_state_variable_table(ms.state["Global"])
         out += write_local_state_variable_tables(all_nodes["State"])
 
         out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
@@ -91,6 +93,7 @@ def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> N
         out += load_svg_graphviz(create_action_chains_graph(ms, actions, entity))
 
         out += "<h2>State</h2>"
+        out += write_global_state_variable_table(ms.state["Global"])
         out += write_local_state_variable_tables(all_nodes["State"])
 
         out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
@@ -165,3 +168,14 @@ def write_spec_tree(ms: MathSpec) -> str:
         out += symbol2 + name + "\n"
 
     return out
+
+
+def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None):
+    out = "<h1>{}</h1>".format(name)
+    if summary:
+        out += "<h2>Summary</h2>"
+        out += "<p>{}</p>".format(summary)
+    out += "<h2>Specification Tree</h2>"
+    out += write_spec_tree(ms)
+    with open(file_path, "w") as f:
+        f.write(out)

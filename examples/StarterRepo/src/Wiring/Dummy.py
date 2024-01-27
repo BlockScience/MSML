@@ -17,5 +17,6 @@ dummy_wiring.append(
         "description": "Dummy Control Block",
         "constraints": [],
         "type": "Stack",
+        "optional_indices": [1],
     }
 )
