@@ -7,12 +7,12 @@ direction TB
 X1[Dummy Boundary Action]
 X2[Dummy Policy]
 X3[Dummy Mechanism]
-X1-->X2
-X2-->X3
+X1--"Dummy Space 1"-->X2
+X2--"Dummy Space 2"-->X3
 end
 ```
 
-## State<h3>Local States</h3><h2>Spaces</h2><h3>Dummy Space 2</h3><p>{a: Dummy Type 1,<br/>b: Dummy Type 1,<br/>c: Dummy Type 2}</p><h3>Terminating Space</h3><p>{}</p><h3>Dummy Space 1</h3><p>{a: Dummy Type 1}</p><h2>Behavioral Action Space</h2><h3>Dummy Boundary Action</h3><p>Dummy</p><h4>Called By:</h4>
+## State<h3>Local States</h3><h2>Spaces</h2><h3>Terminating Space</h3><p>{}</p><h3>Dummy Space 1</h3><p>{a: Dummy Type 1}</p><h3>Dummy Space 2</h3><p>{a: Dummy Type 1,<br/>b: Dummy Type 1,<br/>c: Dummy Type 2}</p><h2>Behavioral Action Space</h2><h3>Dummy Boundary Action</h3><p>Dummy</p><h4>Called By:</h4>
 <h4>Constraints:</h4>
 <h4>Boundary Action Options:</h4>
 <details><summary><b>1. V1 Dummy Boundary</b></summary><p>Description</p><p>Logic: A+B=C</p></details><br/><h2>Control Action Space</h2><h2>Policies</h2><h3>Dummy Policy</h3><p>Dummy Policy</p><h4>Preceded By:</h4>
