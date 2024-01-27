@@ -9,6 +9,8 @@ def load_single_wiring(data, ms):
         data["mermaid_show_name"] = True
     if "loop" not in data:
         data["loop"] = False
+    if "optional_indices" not in data:
+        data["optional_indices"] = []
     # Check the keys are correct
     check_json_keys(data, "Block")
     assert block_type in [
