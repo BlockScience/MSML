@@ -323,7 +323,8 @@ class StackBlock(Block):
         if self.loop:
             x.append(nodes[-1])
             y.append(nodes[0])
-        for ix1, ix2 in zip(x, y):
+        for ix1, ix2, c in zip(x, y, range(len(x))):
+            global_optional = c in self.optional_indices
             if type(ix1) != list:
                 ix1 = [ix1]
             if type(ix2) != list:
@@ -331,12 +332,19 @@ class StackBlock(Block):
             for ix3 in ix1:
                 for ix4 in ix2:
                     d = domain_map[ix4]
+                    optional = global_optional
                     if len(d) > 0:
                         d = "\n".join(d)
                         d = '"{}"'.format(d)
-                        out += "X{}--{}-->X{}".format(ix3, d, ix4)
+                        if optional:
+                            out += "X{}-.{}.->X{}".format(ix3, d, ix4)
+                        else:
+                            out += "X{}--{}-->X{}".format(ix3, d, ix4)
                     else:
-                        out += "X{}-->X{}".format(ix3, ix4)
+                        if optional:
+                            out += "X{}-.->X{}".format(ix3, ix4)
+                        else:
+                            out += "X{}--->X{}".format(ix3, ix4)
                     out += "\n"
 
         # Subgraph it
