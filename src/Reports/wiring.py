@@ -7,7 +7,7 @@ from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz, write_header
 from .node_map import create_action_chains_graph
 from .parameters import write_out_params
-from .state import write_local_state_variable_tables
+from .state import write_local_state_variable_tables, write_global_state_variable_table
 from typing import List
 
 
@@ -24,7 +24,8 @@ def write_wiring_report(ms: MathSpec, directory: str, wiring_name) -> None:
     out += wiring.render_mermaid_root()
     out += "\n"
     out += "\n"
-    out += "## State"
+    out += "## State\n"
+    out += write_global_state_variable_table(ms.state["Global"])
     out += write_local_state_variable_tables(all_nodes["State"])
     out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
     out += write_out_boundary_actions(
