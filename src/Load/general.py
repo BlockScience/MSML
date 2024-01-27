@@ -120,6 +120,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "description",
             "constraints",
             "mermaid_show_name",
+            "loop",
         ],
     }
 

@@ -214,6 +214,7 @@ class StackBlock(Block):
         self.description = data["description"]
         self.constraints = data["constraints"]
         self.mermaid_show_name = data["mermaid_show_name"]
+        self.loop = data["loop"]
         self._check_domain_mapping()
         self.domain = self.components[0].domain
         self.codomain = self.components[-1].codomain
