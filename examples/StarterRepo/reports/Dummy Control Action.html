@@ -78,13 +78,29 @@
 
 <title>Dummy Policy&#45;&gt;Dummy Mechanism</title>
 
-<path fill="none" stroke="black" d="M136.95,-247.58C136.95,-232.38 136.95,-210.07 136.95,-192.46"/>
+<path fill="none" stroke="black" d="M101.22,-247.86C94.68,-243.03 88.74,-237.11 84.95,-230 78.69,-218.23 78.69,-211.77 84.95,-200 87.58,-195.08 91.23,-190.72 95.4,-186.91"/>
 
-<polygon fill="black" stroke="black" points="140.45,-192.22 136.95,-182.22 133.45,-192.22 140.45,-192.22"/>
+<polygon fill="black" stroke="black" points="97.69,-189.56 103.35,-180.61 93.34,-184.07 97.69,-189.56"/>
 
-<text text-anchor="middle" x="178.45" y="-218.8" font-family="Times,serif" font-size="14.00">Dummy Space</text>
+<text text-anchor="middle" x="126.45" y="-218.8" font-family="Times,serif" font-size="14.00">Dummy Space</text>
 
-<text text-anchor="middle" x="178.45" y="-203.8" font-family="Times,serif" font-size="14.00">2</text>
+<text text-anchor="middle" x="126.45" y="-203.8" font-family="Times,serif" font-size="14.00">2</text>
+
+</g>
+
+<!-- Dummy Policy&#45;&gt;Dummy Mechanism -->
+
+<g id="edge3" class="edge">
+
+<title>Dummy Policy&#45;&gt;Dummy Mechanism</title>
+
+<path fill="none" stroke="black" stroke-dasharray="5,2" d="M156.54,-247.83C161.17,-242.62 165.48,-236.53 167.95,-230 172.68,-217.53 172.68,-212.47 167.95,-200 166.61,-196.45 164.72,-193.03 162.53,-189.81"/>
+
+<polygon fill="black" stroke="black" points="165.16,-187.49 156.21,-181.81 159.66,-191.82 165.16,-187.49"/>
+
+<text text-anchor="middle" x="212.45" y="-218.8" font-family="Times,serif" font-size="14.00">Dummy Space</text>
+
+<text text-anchor="middle" x="212.45" y="-203.8" font-family="Times,serif" font-size="14.00">2</text>
 
 </g>
 
@@ -102,7 +118,7 @@
 
 <!-- Dummy Mechanism&#45;&gt;Dummy.Variable A -->
 
-<g id="edge3" class="edge">
+<g id="edge4" class="edge">
 
 <title>Dummy Mechanism&#45;&gt;Dummy.Variable A</title>
 
@@ -128,7 +144,7 @@
 
 <!-- Dummy.Variable A&#45;&gt;Dummy_2 -->
 
-<g id="edge4" class="edge">
+<g id="edge5" class="edge">
 
 <title>Dummy.Variable A&#45;&gt;Dummy_2</title>
 
@@ -141,12 +157,19 @@
 </g>
 
 </svg>
-<h2>State</h2><h3>Local States</h3><h2>Spaces</h2><h3>Dummy Space 2</h3><p>{a: Dummy Type 1,<br/>b: Dummy Type 1,<br/>c: Dummy Type 2}</p><h3>Dummy Space 1</h3><p>{a: Dummy Type 1}</p><h2>Behavioral Action Space</h2><h2>Control Action Space</h2><h3>Dummy Control Action</h3><p>Dummy</p><h4>Constraints:</h4>
+<h2>State</h2><h3>Global State</h3><table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Symbol</th>
+        <th>Domain</th>
+      </tr></table><h3>Local States</h3><h2>Spaces</h2><h3>Dummy Space 2</h3><p>{a: Dummy Type 1,<br/>b: Dummy Type 1,<br/>c: Dummy Type 2}</p><h3>Dummy Space 1</h3><p>{a: Dummy Type 1}</p><h2>Behavioral Action Space</h2><h2>Control Action Space</h2><h3>Dummy Control Action</h3><p>Dummy</p><h4>Constraints:</h4>
 <h4>Control Action Options:</h4>
 <details><summary><b>1. V1 Dummy Control</b></summary><p>Description</p><p>Logic: A+B=C</p></details><br/><h2>Policies</h2><h3>Dummy Policy</h3><p>Dummy Policy</p><h4>Preceded By:</h4>
 <p>1. Dummy Boundary Action</p><p>2. Dummy Control Action</p><h4>Domain Spaces:</h4>
 <p>1. Dummy Space 1</p><h4>Followed By:</h4>
-<p>1. Dummy Mechanism</p><h4>Codomain Spaces:</h4>
+<p>1. Dummy Mechanism</p><p>2. Dummy Mechanism</p><h4>Codomain Spaces:</h4>
 <p>1. Dummy Space 2</p><h4>Constraints:</h4>
 <h4>Policy Options:</h4>
 <details><summary><b>1. Dummy Policy V1</b></summary><p>V1 Dummy Policy</p><p>Logic: 
@@ -154,9 +177,9 @@ Dummy
 Dummy
 Dummy
 </p></details><br/><h2>Mechanisms</h2><h3>Dummy Mechanism</h3><p>Dummy Mechanism</p><h4>Preceded By:</h4>
-<p>1. Dummy Policy</p><h4>Domain Spaces:</h4>
+<p>1. Dummy Policy</p><p>2. Dummy Policy</p><h4>Domain Spaces:</h4>
 <p>1. Dummy Space 2</p><h4>State Updates:</h4>
 <p>1. Dummy.Variable A</p><h4>Constraints:</h4>
 <p>1. Constaint 1
 </p><h4>Logic:</h4>
-<p>Logic for update</p><h2>Parameters</h2><p>dummy_parameter</p>
+<p>Logic for update</p><h2>Parameters</h2><h3>dummy_parameter</h3><p>Description: </p><p>Symbol: None</p><p>Domain: None</p><p>Parameter Class: Behavioral</p>

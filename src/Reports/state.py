@@ -29,6 +29,13 @@ def write_state_variable_table(target_state):
     return table
 
 
+def write_global_state_variable_table(state):
+    out = ""
+    out += "<h3>Global State</h3>"
+    out += write_state_variable_table(state)
+    return out
+
+
 def write_local_state_variable_tables(states):
     out = ""
     out += "<h3>Local States</h3>"

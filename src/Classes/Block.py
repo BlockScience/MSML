@@ -132,16 +132,66 @@ class ParallelBlock(Block):
         nodes = []
 
         # Render components
+        domain_map = {}
+        codomain_map = {}
         for component in self.components:
+            domain = component.domain
+            codomain = component.codomain
+            domain = [
+                x.name
+                for x in domain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
+            codomain = [
+                x.name
+                for x in codomain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
+
             component, i = component.render_mermaid(i)
             out += component
             out += "\n"
+            domain_map[i] = domain
+            codomain_map[i] = codomain
             nodes.append(i)
-        end_i = i
+
+        # Add domain and codomain
+        i += 1
+        out += "X{}[Domain]".format(i)
+        out += "\n"
+        domain_i = i
+        i += 1
+        out += "X{}[Codomain]".format(i)
+        out += "\n"
+        codomain_i = i
+
+        out += "direction LR\n"
 
         # Render invisible connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{} ~~~ X{}".format(ix1, ix2)
+        # for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        #    out += "X{} ~~~~ X{}".format(ix1, ix2)
+        #    out += "\n"
+
+        out += "direction TB\n"
+
+        for ix1 in nodes:
+            d = domain_map[ix1]
+            if len(d) > 0:
+                d = "\n".join(d)
+                d = '"{}"'.format(d)
+                out += "X{} --{}--> X{}".format(domain_i, d, ix1)
+            else:
+                out += "X{} --> X{}".format(domain_i, ix1)
+            out += "\n"
+
+        for ix1 in nodes:
+            d = codomain_map[ix1]
+            if len(d) > 0:
+                d = "\n".join(d)
+                d = '"{}"'.format(d)
+                out += "X{} --{}--> X{}".format(ix1, d, codomain_i)
+            else:
+                out += "X{} --> X{}".format(ix1, codomain_i)
             out += "\n"
 
         # Subgraph it
@@ -150,7 +200,7 @@ class ParallelBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection LR\n".format(i, name) + out
+        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
 
         out += "end"
 
@@ -164,6 +214,8 @@ class StackBlock(Block):
         self.description = data["description"]
         self.constraints = data["constraints"]
         self.mermaid_show_name = data["mermaid_show_name"]
+        self.optional_indices = data["optional_indices"]
+        self.loop = data["loop"]
         self._check_domain_mapping()
         self.domain = self.components[0].domain
         self.codomain = self.components[-1].codomain
@@ -185,7 +237,12 @@ class StackBlock(Block):
         self.block_type = "Stack Block"
 
     def _check_domain_mapping(self):
-        for a, b in zip(self.components[:-1], self.components[1:]):
+        x = self.components[:-1]
+        y = self.components[1:]
+        if self.loop:
+            x.append(self.components[-1])
+            y.append(self.components[0])
+        for a, b in zip(x, y):
             assert [
                 x for x in a.codomain if x not in [EmptySpace, TerminatingSpace]
             ] == [
@@ -196,10 +253,17 @@ class StackBlock(Block):
 
     def build_action_transmission_channels(self):
         channels = []
-        for a, b in zip(self.components[:-1], self.components[1:]):
+        x = self.components[:-1]
+        y = self.components[1:]
+        if self.loop:
+            x.append(self.components[-1])
+            y.append(self.components[0])
+        for a, b, c in zip(x, y, range(len(x))):
             assert len(a.codomain_blocks) == len(b.domain_blocks) and len(
                 b.domain_blocks
             ) == len([x for x in b.domain if x not in [EmptySpace, TerminatingSpace]])
+            global_optional = c in self.optional_indices
+
             for x, y, z in zip(
                 a.codomain_blocks,
                 b.domain_blocks,
@@ -210,7 +274,7 @@ class StackBlock(Block):
                         "origin": x.name,
                         "target": y.name,
                         "space": z.name,
-                        "optional": False,
+                        "optional": global_optional,
                     }
                 )
             for x in a.codomain_blocks_empty:
@@ -220,7 +284,7 @@ class StackBlock(Block):
                             "origin": x.name,
                             "target": y.name,
                             "space": "Empty Space",
-                            "optional": False,
+                            "optional": global_optional,
                         }
                     )
         return channels
@@ -235,9 +299,17 @@ class StackBlock(Block):
 
         nodes = []
 
+        domain_map = {}
         # Render components
         for component in self.components:
+            domain = component.domain
+            domain = [
+                x.name
+                for x in domain
+                if x.name not in ["Empty Space", "Terminating Space"]
+            ]
             component, i = component.render_mermaid(i)
+            domain_map[i] = domain
             out += component
             out += "\n"
             nodes.append(i)
@@ -246,14 +318,33 @@ class StackBlock(Block):
         end_i = i
 
         # Render connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        x = nodes[:-1]
+        y = nodes[1:]
+        if self.loop:
+            x.append(nodes[-1])
+            y.append(nodes[0])
+        for ix1, ix2, c in zip(x, y, range(len(x))):
+            global_optional = c in self.optional_indices
             if type(ix1) != list:
                 ix1 = [ix1]
             if type(ix2) != list:
                 ix2 = [ix2]
             for ix3 in ix1:
                 for ix4 in ix2:
-                    out += "X{}-->X{}".format(ix3, ix4)
+                    d = domain_map[ix4]
+                    optional = global_optional
+                    if len(d) > 0:
+                        d = "\n".join(d)
+                        d = '"{}"'.format(d)
+                        if optional:
+                            out += "X{}-.{}.->X{}".format(ix3, d, ix4)
+                        else:
+                            out += "X{}--{}-->X{}".format(ix3, d, ix4)
+                    else:
+                        if optional:
+                            out += "X{}-.->X{}".format(ix3, ix4)
+                        else:
+                            out += "X{}--->X{}".format(ix3, ix4)
                     out += "\n"
 
         # Subgraph it
@@ -341,9 +432,9 @@ class SplitBlock(Block):
         end_i = i
 
         # Render invisible connections
-        for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{} ~~~ X{}".format(ix1, ix2)
-            out += "\n"
+        # for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
+        #    out += "X{} ~~~ X{}".format(ix1, ix2)
+        #    out += "\n"
         out = out[:-1]
 
         return out, nodes

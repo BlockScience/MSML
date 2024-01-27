@@ -39,5 +39,6 @@ def load_states(ms: Dict, json: Dict) -> None:
     """
 
     ms["State"] = {}
+    assert "Global" in json["State"], "Global has to be in the state"
     for key in json["State"]:
         ms["State"][key] = convert_state(json["State"][key])
