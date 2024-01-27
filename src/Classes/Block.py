@@ -165,10 +165,14 @@ class ParallelBlock(Block):
         out += "\n"
         codomain_i = i
 
+        out += "direction LR\n"
+
         # Render invisible connections
         for ix1, ix2 in zip(nodes[:-1], nodes[1:]):
-            out += "X{} ~~~ X{}".format(ix1, ix2)
+            out += "X{} ~~~~ X{}".format(ix1, ix2)
             out += "\n"
+
+        out += "direction TB\n"
 
         for ix1 in nodes:
             d = domain_map[ix1]
@@ -196,7 +200,7 @@ class ParallelBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection LR\n".format(i, name) + out
+        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
 
         out += "end"
 
