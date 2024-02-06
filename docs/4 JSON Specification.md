@@ -2,6 +2,18 @@
 
 The specification presented here is the schema that MSML uses for standardized specs.
 
+{'Policies': {},
+ 'Spaces': {},
+ 'State': {},
+ 'Stateful Metrics': {},
+ 'State Update Transmission Channels': {},
+ 'Parameters': {},
+ 'Mechanisms': {},
+ 'Entities': {},
+ 'Boundary Actions': {},
+ 'Control Actions': {},
+ 'Wiring': {}}
+ 
 ## Component Descriptions
 
 ### Types, States, Parameters & Entities
