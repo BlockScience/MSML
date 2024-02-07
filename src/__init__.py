@@ -15,4 +15,5 @@ from .Reports import (
     write_entity_markdown_report,
     write_state_markdown_report,
     write_types_markdown_report,
+    write_boundary_action_markdown_report,
 )

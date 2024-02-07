@@ -64,3 +64,49 @@ def write_types_markdown_report(ms, path, t):
 
     with open("{}/Types/{}.md".format(path, t.__name__), "w") as f:
         f.write(out)
+
+
+def write_boundary_action_markdown_report(ms, path, boundary_action):
+    boundary_action = ms.boundary_actions[boundary_action]
+    if "Boundary Actions" not in os.listdir(path):
+        os.makedirs(path + "/Boundary Actions")
+
+    out = ""
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += boundary_action.description
+    out += "\n"
+
+    out += "## Called By\n"
+    for i, x in enumerate(boundary_action.called_by):
+        out += "{}. [[{}]]".format(i + 1, x.label)
+        out += "\n"
+
+    with open(
+        "{}/Boundary Actions/{}.md".format(path, boundary_action.label), "w"
+    ) as f:
+        f.write(out)
+
+    """
+    out += "<h4>Constraints:</h4>\n"
+    for i, x in enumerate(boundary_action.constraints):
+        out += "<p>"
+        out += "{}. {}".format(i + 1, x)
+        out += "</p>"
+    if boundary_action.boundary_action_options:
+        out += "<h4>Boundary Action Options:</h4>\n"
+        for i, x in enumerate(boundary_action.boundary_action_options):
+            out += "<details>"
+            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
+            out += "<p>"
+            out += x.description
+            out += "</p>"
+
+            out += "<p>"
+            out += "Logic: {}".format(x.logic)
+            out += "</p>"
+
+            out += "</details>"
+        out += "<br/>"
+    """
