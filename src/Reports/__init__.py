@@ -12,3 +12,4 @@ from .html import (
 )
 from .tables import create_parameter_impact_table
 from .wiring import write_wiring_report
+from .markdown import write_entity_markdown_report
