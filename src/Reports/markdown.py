@@ -19,13 +19,16 @@ def write_entity_markdown_report(ms, path, entity):
     for ba in entity.boundary_actions:
         out += "### [[{}]]".format(ba.name)
         out += "\n"
+    out += "## Mechanisms Impacting the Entity"
+    out += "\n"
+    for mc in entity.impacted_by_mechanism:
+        out += "### [[{}]]".format(mc.name)
+        out += "\n"
+    out += "## Actions Impacting the Entity"
+    out += "\n"
+    for ac in entity.impacted_by_actions:
+        out += "### [[{}]]".format(ac.name)
+        out += "\n"
 
     with open("{}/Entities/{}.md".format(path, entity.name), "w") as f:
         f.write(out)
-
-    """
-
-        # Boundary actions are added during parsing
-        self.boundary_actions = []
-        self.impacted_by_mechanism = []
-        self.impacted_by_actions = []"""
