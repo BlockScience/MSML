@@ -1,4 +1,4 @@
-def write_state_variable_table(target_state):
+def write_state_variable_table(target_state, links=False):
     table = """<table>
       <tr>
         <th>Name</th>
@@ -17,10 +17,14 @@ def write_state_variable_table(target_state):
             var.domain,
         ]
         table += "<tr>"
-        for tv in table_vars:
+        for i, tv in enumerate(table_vars):
             table += "<td>"
             if tv:
-                table += "{}".format(tv).replace("<", "&lt").replace(">", "&gt")
+                if links and i == 2:
+                    table += "[[{}]]".format(tv).replace("<", "&lt").replace(">", "&gt")
+                else:
+                    table += "{}".format(tv).replace("<", "&lt").replace(">", "&gt")
+
             table += "</td>"
 
         table += "</tr>"
@@ -53,5 +57,5 @@ def write_state_section(state):
     out += "\n"
     out += "### Variable Table"
     out += "\n"
-    out += write_state_variable_table(state)
+    out += write_state_variable_table(state, links=True)
     return out
