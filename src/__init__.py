@@ -12,4 +12,5 @@ from .Reports import (
     write_entity_reports,
     write_wiring_report,
     write_overview,
+    write_entity_markdown_report,
 )
