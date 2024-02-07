@@ -59,7 +59,8 @@ def write_types_markdown_report(ms, path, t):
     if "Types" not in os.listdir(path):
         os.makedirs(path + "/Types")
     out = "## Type"
-    out += t.__repr__()
+    out += "\n"
+    out += str(t.__supertype__)
 
     with open("{}/Types/{}.md".format(path, t.__name__), "w") as f:
         f.write(out)
