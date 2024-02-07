@@ -49,7 +49,7 @@ def write_local_state_variable_tables(states):
     return out
 
 
-def write_state_section(state):
+def write_state_section(state, links=False):
     out = ""
     out += "### Notes"
     out += "\n"
@@ -57,5 +57,5 @@ def write_state_section(state):
     out += "\n"
     out += "### Variable Table"
     out += "\n"
-    out += write_state_variable_table(state, links=True)
+    out += write_state_variable_table(state, links=links)
     return out
