@@ -1,4 +1,5 @@
 import os
+from .state import write_state_section
 
 
 def write_entity_markdown_report(ms, path, entity):
@@ -12,7 +13,8 @@ def write_entity_markdown_report(ms, path, entity):
     out += "\n"
     out += "## State"
     out += "\n"
-    out += entity.state.name
+    out += write_state_section(entity.state)
+    out += "\n"
     out += "\n"
     out += "## Boundary Actions"
     out += "\n"

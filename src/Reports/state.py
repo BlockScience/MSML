@@ -43,3 +43,15 @@ def write_local_state_variable_tables(states):
         out += "<h4>{}</h4>".format(state.name)
         out += write_state_variable_table(state)
     return out
+
+
+def write_state_section(state):
+    out = ""
+    out += "### Notes"
+    out += "\n"
+    out += state.notes
+    out += "\n"
+    out += "### Variable Table"
+    out += "\n"
+    out += write_state_variable_table(state)
+    return out
