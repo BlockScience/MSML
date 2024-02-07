@@ -14,7 +14,10 @@ class Block:
             self.label = data["label"]
         else:
             self.label = self.name
-        self.called_by = []
+        if "called_by" in data:
+            self.called_by = data["called_by"]
+        else:
+            self.called_by = []
         self.calls = []
         self.block_type = "Block"
         # Will be overwritten in composite blocks to represent individual components
