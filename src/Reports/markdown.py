@@ -82,6 +82,28 @@ def write_boundary_action_markdown_report(ms, path, boundary_action):
     for i, x in enumerate(boundary_action.called_by):
         out += "{}. [[{}]]".format(i + 1, x.label)
         out += "\n"
+    out += "\n"
+
+    out += "## Constraints"
+    for i, x in enumerate(boundary_action.constraints):
+        out += "{}. {}".format(i + 1, x)
+        out += "\n"
+
+    if boundary_action.boundary_action_options:
+        out += "## Boundary Action Options:\n"
+        for i, x in enumerate(boundary_action.boundary_action_options):
+            out += "<details>"
+            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
+            out += "<p>"
+            out += x.description
+            out += "</p>"
+
+            out += "<p>"
+            out += "Logic: {}".format(x.logic)
+            out += "</p>"
+
+            out += "</details>"
+        out += "<br/>"
 
     with open(
         "{}/Boundary Actions/{}.md".format(path, boundary_action.label), "w"
@@ -89,11 +111,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action):
         f.write(out)
 
     """
-    out += "<h4>Constraints:</h4>\n"
-    for i, x in enumerate(boundary_action.constraints):
-        out += "<p>"
-        out += "{}. {}".format(i + 1, x)
-        out += "</p>"
+
     if boundary_action.boundary_action_options:
         out += "<h4>Boundary Action Options:</h4>\n"
         for i, x in enumerate(boundary_action.boundary_action_options):
