@@ -13,7 +13,7 @@ def write_entity_markdown_report(ms, path, entity):
     out += "\n"
     out += "## State"
     out += "\n"
-    out += write_state_section(entity.state)
+    out += write_state_section(entity.state, links=True)
     out += "\n"
     out += "\n"
     out += "## Boundary Actions"
@@ -33,4 +33,22 @@ def write_entity_markdown_report(ms, path, entity):
         out += "\n"
 
     with open("{}/Entities/{}.md".format(path, entity.name), "w") as f:
+        f.write(out)
+
+
+def write_state_markdown_report(ms, path, state):
+    state = ms.state[state]
+    if "States" not in os.listdir(path):
+        os.makedirs(path + "/States")
+    out = ""
+    out += write_state_section(state, links=True)
+    out += "\n"
+    out += "\n"
+    out += "## Updated By"
+    out += "\n"
+    for ba in state.updated_by:
+        out += "### [[{}]]".format(ba.name)
+        out += "\n"
+
+    with open("{}/States/{}.md".format(path, state.name), "w") as f:
         f.write(out)
