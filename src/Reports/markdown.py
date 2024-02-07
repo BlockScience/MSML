@@ -52,3 +52,14 @@ def write_state_markdown_report(ms, path, state):
 
     with open("{}/States/{}.md".format(path, state.name), "w") as f:
         f.write(out)
+
+
+def write_types_markdown_report(ms, path, t):
+    # t = ms.types[t]
+    if "Types" not in os.listdir(path):
+        os.makedirs(path + "/Types")
+    out = "## Type"
+    out += t.__repr__()
+
+    with open("{}/Types/{}.md".format(path, t.__name__), "w") as f:
+        f.write(out)
