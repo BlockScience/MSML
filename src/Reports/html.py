@@ -111,7 +111,7 @@ def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> N
             f.write(out)
 
 
-def write_spec_tree(ms: MathSpec) -> str:
+def write_spec_tree(ms: MathSpec, path=None, linking=False, add_tabbing=False) -> str:
     """Write the tree of the specification structure
 
     Args:
@@ -167,6 +167,14 @@ def write_spec_tree(ms: MathSpec) -> str:
     for name in ms.mechanisms.keys():
         out += symbol2 + name + "\n"
 
+    if add_tabbing:
+        out = out.split("\n")
+        out = ["\t" + x for x in out]
+        out = "\n".join(out)
+
+    if path:
+        with open("{}/Spec Tree.md".format(path), "w") as f:
+            f.write(out)
     return out
 
 
