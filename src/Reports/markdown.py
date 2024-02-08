@@ -134,5 +134,37 @@ def write_policy_markdown_report(ms, path, policy):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
 
+    out += "## Followed By\n"
+    for i, x in enumerate(policy.calls):
+        x = x[0]
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "## Codomain Spaces\n"
+    for i, x in enumerate(policy.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "## Constraints\n"
+    for i, x in enumerate(policy.constraints):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+
+    if policy.policy_options:
+        out += "## Policy Options\n"
+        for i, x in enumerate(policy.policy_options):
+            out += "<details>"
+            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
+            out += "<p>"
+            out += x.description
+            out += "</p>"
+
+            out += "<p>"
+            out += "Logic: {}".format(x.logic)
+            out += "</p>"
+
+            out += "</details>"
+        out += "<br/>"
+
     with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
         f.write(out)
