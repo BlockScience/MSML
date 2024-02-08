@@ -194,5 +194,13 @@ def write_mechanism_markdown_report(ms, path, mechanism):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
 
+    out += "## Constraints\n"
+    for i, x in enumerate(mechanism.constraints):
+        out += "{}. {}".format(i + 1, x)
+        out += "\n"
+
+    out += "## Logic\n"
+    out += mechanism.logic
+
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
         f.write(out)
