@@ -17,4 +17,5 @@ from .markdown import (
     write_state_markdown_report,
     write_types_markdown_report,
     write_boundary_action_markdown_report,
+    write_policy_markdown_report,
 )

@@ -110,21 +110,29 @@ def write_boundary_action_markdown_report(ms, path, boundary_action):
     ) as f:
         f.write(out)
 
-    """
 
-    if boundary_action.boundary_action_options:
-        out += "<h4>Boundary Action Options:</h4>\n"
-        for i, x in enumerate(boundary_action.boundary_action_options):
-            out += "<details>"
-            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
-            out += "<p>"
-            out += x.description
-            out += "</p>"
+def write_policy_markdown_report(ms, path, policy):
+    policy = ms.policies[policy]
+    if "Policies" not in os.listdir(path):
+        os.makedirs(path + "/Policies")
 
-            out += "<p>"
-            out += "Logic: {}".format(x.logic)
-            out += "</p>"
+    out = ""
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += policy.description
+    out += "\n"
 
-            out += "</details>"
-        out += "<br/>"
-    """
+    out += "## Called By\n"
+    for i, x in enumerate(policy.called_by):
+        x = x[0]
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "## Domain Spaces\n"
+    for i, x in enumerate(policy.domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
+        f.write(out)
