@@ -111,7 +111,7 @@ def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> N
             f.write(out)
 
 
-def write_spec_tree(ms: MathSpec) -> str:
+def write_spec_tree(ms: MathSpec, path=None, linking=False, add_tabbing=False) -> str:
     """Write the tree of the specification structure
 
     Args:
@@ -126,47 +126,82 @@ def write_spec_tree(ms: MathSpec) -> str:
     symbol3 = "│   │   ├──"
 
     out = ""
-    out += symbol1 + "Entities\n"
+    out += symbol1 + "**Entities**\n"
     for name in ms.entities.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
 
-    out += symbol1 + "State\n"
+    out += symbol1 + "**State**\n"
     for name in ms.state.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
         for var in ms.state[name].variable_map.keys():
             out += symbol3 + var + "\n"
 
-    out += symbol1 + "Stateful Metrics\n"
+    out += symbol1 + "**Stateful Metrics**\n"
     for name in ms.stateful_metrics.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
         for var in ms.stateful_metrics[name].metrics:
             out += symbol3 + var.name + "\n"
 
-    out += symbol1 + "Spaces\n"
+    out += symbol1 + "**Spaces**\n"
     for name in ms.spaces.keys():
-        out += symbol2 + name + "\n"
-    out += symbol1 + "Parameters\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
+    out += symbol1 + "**Parameters**\n"
     for name in ms.parameters.data.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
         for param in [x.name for x in ms.parameters.data[name].parameters]:
             out += symbol3 + param + "\n"
 
-    out += symbol1 + "Boundary Actions\n"
+    out += symbol1 + "**Boundary Actions**\n"
     for name in ms.boundary_actions.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
 
-    out += symbol1 + "Control Actions\n"
+    out += symbol1 + "**Control Actions**\n"
     for name in ms.control_actions.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
 
-    out += symbol1 + "Policies\n"
+    out += symbol1 + "**Policies**\n"
     for name in ms.policies.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
 
-    out += symbol1 + "Mechanisms\n"
+    out += symbol1 + "**Mechanisms**\n"
     for name in ms.mechanisms.keys():
-        out += symbol2 + name + "\n"
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
 
+    if add_tabbing:
+        out = out.split("\n")
+        out = ["\t" + x for x in out]
+        out = "\n".join(out)
+
+    if path:
+        with open("{}/Spec Tree.md".format(path), "w") as f:
+            f.write(out)
     return out
 
 
