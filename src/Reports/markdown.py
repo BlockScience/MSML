@@ -168,3 +168,31 @@ def write_policy_markdown_report(ms, path, policy):
 
     with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
         f.write(out)
+
+
+def write_mechanism_markdown_report(ms, path, mechanism):
+    mechanism = ms.mechanisms[mechanism]
+
+    out = ""
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += mechanism.description
+    out += "\n"
+
+    if "Mechanisms" not in os.listdir(path):
+        os.makedirs(path + "/Mechanisms")
+
+    out += "## Called By\n"
+    for i, x in enumerate(mechanism.called_by):
+        x = x[0]
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "## Domain Spaces\n"
+    for i, x in enumerate(mechanism.domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
+        f.write(out)
