@@ -42,9 +42,9 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Control Actions",
             "Wiring",
         ],
-        "State": ["name", "label", "notes", "variables"],
+        "State": ["name", "label", "notes", "variables", "metadata"],
         "State Variable": ["type", "name", "description", "symbol", "domain"],
-        "Entity": ["name", "notes", "state"],
+        "Entity": ["name", "notes", "state", "metadata"],
         "Boundary Action": [
             "name",
             "label",
@@ -54,6 +54,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "called_by",
             "codomain",
             "parameters_used",
+            "metadata",
         ],
         "Action Transmission Channel": ["origin", "target", "space", "optional"],
         "Mechanism": [
@@ -64,6 +65,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "logic",
             "domain",
             "parameters_used",
+            "metadata",
         ],
         "State Update Transmission Channel": [
             "origin",
@@ -80,9 +82,10 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "domain",
             "codomain",
             "parameters_used",
+            "metadata",
         ],
         "Policy Option": ["name", "description", "logic"],
-        "Stateful Metric Set": ["name", "label", "notes", "metrics"],
+        "Stateful Metric Set": ["name", "label", "notes", "metrics", "metadata"],
         "Stateful Metric": [
             "type",
             "name",
@@ -92,6 +95,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "parameters_used",
             "symbol",
             "domain",
+            "metadata",
         ],
         "Control Action": [
             "name",
@@ -101,10 +105,11 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "control_action_options",
             "codomain",
             "parameters_used",
+            "metadata",
         ],
         "Control Action Option": ["name", "description", "logic"],
         "Boundary Action Option": ["name", "description", "logic"],
-        "Parameter Set": ["name", "notes", "parameters"],
+        "Parameter Set": ["name", "notes", "parameters", "metadata"],
         "Parameter": [
             "variable_type",
             "name",
@@ -112,8 +117,9 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "symbol",
             "domain",
             "parameter_class",
+            "metadata",
         ],
-        "Space": ["name", "schema"],
+        "Space": ["name", "schema", "metadata"],
         "Block": [
             "name",
             "components",
@@ -122,6 +128,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "mermaid_show_name",
             "loop",
             "optional_indices",
+            "metadata",
         ],
     }
 
