@@ -25,7 +25,7 @@ def write_wiring_report(ms: MathSpec, directory: str, wiring_name) -> None:
     out += "\n"
     out += "\n"
     out += "## State\n"
-    out += write_global_state_variable_table(ms.state["Global"])
+    out += write_global_state_variable_table(ms.state["Global State"])
     out += write_local_state_variable_tables(all_nodes["State"])
     out += write_out_spaces(ms, [x.name for x in all_nodes["Spaces"]])
     out += write_out_boundary_actions(
