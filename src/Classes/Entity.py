@@ -9,6 +9,7 @@ class Entity:
         self.name = data["name"]
         self.notes = data["notes"]
         self.state = data["state"]
+        self.metadata = data["metadata"]
 
         if "label" in data:
             self.label = data["label"]
@@ -25,7 +26,7 @@ class Entity:
 
     def add_boundary_action(self, boundary_action) -> None:
         self.boundary_actions.append(boundary_action)
-    
+
     def add_impacted_by_mechanism(self, mechanism) -> None:
         self.impacted_by_mechanism.append(mechanism)
         q = [mechanism]
@@ -36,4 +37,3 @@ class Entity:
                     self.impacted_by_actions.append(cur)
             else:
                 q.extend([x[0] for x in cur.called_by])
-        

@@ -10,6 +10,7 @@ class Block:
         self.domain = data["domain"]
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
+        self.metadata = data["metadata"]
         if "label" in data:
             self.label = data["label"]
         else:
