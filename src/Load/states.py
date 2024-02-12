@@ -12,6 +12,8 @@ def convert_state(data: Dict) -> State:
     Returns:
         State: _description_
     """
+    if "metadata" not in data:
+        data["metadata"] = {}
 
     # Check the keys are correct
     check_json_keys(data, "State")

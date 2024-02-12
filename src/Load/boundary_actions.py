@@ -13,6 +13,8 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
     Returns:
         BoundaryAction: Boundary action object
     """
+    if "metadata" not in data:
+        data["metadata"] = {}
 
     # Check the keys are correct
     check_json_keys(data, "Boundary Action")

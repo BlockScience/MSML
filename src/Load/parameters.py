@@ -4,6 +4,8 @@ from .general import check_json_keys
 
 
 def convert_parameter_set(data: Dict) -> ParameterSet:
+    if "metadata" not in data:
+        data["metadata"] = {}
     # Check the keys are correct
     check_json_keys(data, "Parameter Set")
 
@@ -13,6 +15,8 @@ def convert_parameter_set(data: Dict) -> ParameterSet:
     # Convert the parameters
     new_parameters = []
     for param in data["parameters"]:
+        if "metadata" not in param:
+            param["metadata"] = {}
         check_json_keys(param, "Parameter")
         new_parameters.append(Parameter(param))
     data["parameters"] = new_parameters

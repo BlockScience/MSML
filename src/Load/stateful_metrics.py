@@ -12,6 +12,8 @@ def convert_stateful_metric(data: Dict) -> StatefulMetricSet:
     Returns:
         StatefulMetricSet: A stateful metric set
     """
+    if "metadata" not in data:
+        data["metadata"] = {}
 
     # Check the keys are correct
     check_json_keys(data, "Stateful Metric Set")
@@ -22,6 +24,8 @@ def convert_stateful_metric(data: Dict) -> StatefulMetricSet:
     # Convert the variables
     new_variables = []
     for var in data["metrics"]:
+        if "metadata" not in var:
+            var["metadata"] = {}
         check_json_keys(var, "Stateful Metric")
         new_variables.append(StatefulMetric(var))
     data["metrics"] = new_variables
@@ -41,4 +45,5 @@ def load_stateful_metrics(ms: Dict, json: Dict) -> None:
     ms["Stateful Metrics"] = {}
     for key in json["Stateful Metrics"]:
         ms["Stateful Metrics"][key] = convert_stateful_metric(
-            json["Stateful Metrics"][key])
+            json["Stateful Metrics"][key]
+        )
