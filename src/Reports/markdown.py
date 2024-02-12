@@ -252,3 +252,35 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
 
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
         f.write(out)
+
+
+def write_space_markdown_report(ms, path, space, add_metadata=True):
+    space = ms.spaces[space]
+
+    if "Spaces" not in os.listdir(path):
+        os.makedirs(path + "/Spaces")
+
+    out = ""
+    if add_metadata:
+        metadata = space.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+
+    out += "## Schema"
+    out += "\n"
+    out += "\n"
+    d = space.schema
+    d = ",\n".join(
+        ["{}: {}".format(a, b.__name__) for a, b in zip(d.keys(), d.values())]
+    )
+    d = "{" + d + "}"
+    out += d
+    out += "\n"
+
+    with open("{}/Spaces/{}.md".format(path, space.name), "w") as f:
+        f.write(out)
