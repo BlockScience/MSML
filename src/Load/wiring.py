@@ -11,6 +11,8 @@ def load_single_wiring(data, ms):
         data["loop"] = False
     if "optional_indices" not in data:
         data["optional_indices"] = []
+    if "metadata" not in data:
+        data["metadata"] = {}
     # Check the keys are correct
     check_json_keys(data, "Block")
     assert block_type in [

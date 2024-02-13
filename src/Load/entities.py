@@ -14,6 +14,8 @@ def convert_entity(data: Dict, ms: Dict) -> Entity:
         Entity: An entity object
     """
 
+    if "metadata" not in data:
+        data["metadata"] = {}
     # Check the keys are correct
     check_json_keys(data, "Entity")
 
@@ -23,8 +25,7 @@ def convert_entity(data: Dict, ms: Dict) -> Entity:
     # Assert that the state is in the math spec and assign it here
     if data["state"]:
         name = data["state"]
-        assert name in ms["State"], "{} state not in states dictionary".format(
-            name)
+        assert name in ms["State"], "{} state not in states dictionary".format(name)
         data["state"] = ms["State"][name]
 
     # Build the state object

@@ -35,6 +35,8 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
         Policy: Policy object
     """
 
+    if "metadata" not in data:
+        data["metadata"] = {}
     # Check the keys are correct
     check_json_keys(data, "Policy")
     assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(

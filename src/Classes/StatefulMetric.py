@@ -15,6 +15,7 @@ class StatefulMetric:
             self.label = data["label"]
         else:
             self.label = self.name
+        self.metadata = data["metadata"]
 
 
 class StatefulMetricSet:
@@ -23,3 +24,4 @@ class StatefulMetricSet:
         self.name = data["name"]
         self.notes = data["notes"]
         self.metrics = data["metrics"]
+        self.metadata = data["metadata"]

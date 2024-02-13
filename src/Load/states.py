@@ -12,6 +12,8 @@ def convert_state(data: Dict) -> State:
     Returns:
         State: _description_
     """
+    if "metadata" not in data:
+        data["metadata"] = {}
 
     # Check the keys are correct
     check_json_keys(data, "State")
@@ -39,6 +41,6 @@ def load_states(ms: Dict, json: Dict) -> None:
     """
 
     ms["State"] = {}
-    assert "Global" in json["State"], "Global has to be in the state"
+    assert "Global State" in json["State"], "Global State has to be in the state"
     for key in json["State"]:
         ms["State"][key] = convert_state(json["State"][key])

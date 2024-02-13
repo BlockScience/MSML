@@ -1,5 +1,5 @@
 global_state = {
-    "name": "Global",
+    "name": "Global State",
     "notes": "",
     "variables": [],
 }

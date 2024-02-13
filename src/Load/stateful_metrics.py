@@ -3,7 +3,7 @@ from ..Classes import StatefulMetric, StatefulMetricSet
 from .general import check_json_keys
 
 
-def convert_stateful_metric(data: Dict) -> StatefulMetricSet:
+def convert_stateful_metric(ms, data: Dict) -> StatefulMetricSet:
     """Function to convert stateful metric
 
     Args:
@@ -12,6 +12,8 @@ def convert_stateful_metric(data: Dict) -> StatefulMetricSet:
     Returns:
         StatefulMetricSet: A stateful metric set
     """
+    if "metadata" not in data:
+        data["metadata"] = {}
 
     # Check the keys are correct
     check_json_keys(data, "Stateful Metric Set")
@@ -22,7 +24,21 @@ def convert_stateful_metric(data: Dict) -> StatefulMetricSet:
     # Convert the variables
     new_variables = []
     for var in data["metrics"]:
+        if "metadata" not in var:
+            var["metadata"] = {}
         check_json_keys(var, "Stateful Metric")
+        for x in var["variables_used"]:
+            assert type(x) == tuple, "Variables used is not tuple"
+            assert len(x) == 2, "Length of variables used is not 2"
+            assert (
+                x[0] in ms["State"]
+            ), "State '{}' from variables used not in states".format(x[0])
+            vm = ms["State"][x[0]].variable_map
+            assert (
+                x[1] in vm
+            ), "Variable '{}' not in variable map for stateful metrics variables used".format(
+                x[1]
+            )
         new_variables.append(StatefulMetric(var))
     data["metrics"] = new_variables
 
@@ -41,4 +57,5 @@ def load_stateful_metrics(ms: Dict, json: Dict) -> None:
     ms["Stateful Metrics"] = {}
     for key in json["Stateful Metrics"]:
         ms["Stateful Metrics"][key] = convert_stateful_metric(
-            json["Stateful Metrics"][key])
+            ms, json["Stateful Metrics"][key]
+        )
