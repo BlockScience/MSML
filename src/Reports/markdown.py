@@ -412,3 +412,27 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     with open("{}/Wiring/{}.md".format(path, wiring.name), "w") as f:
         f.write(out)
+
+
+def write_parameter_markdown_report(ms, path, parameter, add_metadata=True):
+    param = ms.parameters.parameter_map[parameter]
+    out = ""
+    if "Parameters" not in os.listdir(path):
+        os.makedirs(path + "/Parameters")
+    if add_metadata:
+        metadata = param.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+
+    out += "Description: {}\n\n".format(param.description)
+    out += "Symbol: {}\n\n".format(param.symbol)
+    out += "Domain: {}\n\n".format(param.domain)
+    out += "Parameter Class: {}\n\n".format(param.parameter_class)
+
+    with open("{}/Parameters/{}.md".format(path, param.name), "w") as f:
+        f.write(out)
