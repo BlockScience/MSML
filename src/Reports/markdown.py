@@ -119,6 +119,13 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
     for i, x in enumerate(boundary_action.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
+    out += "\n"
+
+    out += "## Codomain Spaces\n"
+    for i, x in enumerate(boundary_action.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
 
     if boundary_action.boundary_action_options:
         out += "## Boundary Action Options:\n"
@@ -310,6 +317,13 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     for i, x in enumerate(control_action.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
+
+    out += "\n"
+    out += "## Codomain Spaces\n"
+    for i, x in enumerate(control_action.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
 
     if control_action.control_action_options:
         out += "## Control Action Options:\n"
