@@ -335,3 +335,9 @@ class MathSpec:
                     return y
         print("Metric not found")
         return None
+
+    def get_all_stateful_metric_names(self):
+        sm = []
+        for metrics in self.stateful_metrics.values():
+            sm.extend([x.name for x in metrics.metrics])
+        return sm
