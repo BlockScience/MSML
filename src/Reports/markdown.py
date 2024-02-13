@@ -297,6 +297,7 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     control_action = ms.control_actions[control_action]
     if "Control Actions" not in os.listdir(path):
         os.makedirs(path + "/Control Actions")
+    out = ""
     if add_metadata:
         metadata = control_action.metadata
         if len(metadata) > 0:
@@ -306,7 +307,7 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
-    out = ""
+
     out += "## Description"
     out += "\n"
     out += "\n"
@@ -342,4 +343,30 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
         out += "<br/>"
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
+        f.write(out)
+
+
+def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
+    wiring = ms.wiring[wiring]
+    out = ""
+    if "Wiring" not in os.listdir(path):
+        os.makedirs(path + "/Wiring")
+    if add_metadata:
+        metadata = wiring.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+
+    out += "## Wiring Diagram"
+    out += "\n"
+    out += "\n"
+    out += wiring.render_mermaid_root()
+    out += "\n"
+    out += "\n"
+
+    with open("{}/Wiring/{}.md".format(path, wiring.name), "w") as f:
         f.write(out)
