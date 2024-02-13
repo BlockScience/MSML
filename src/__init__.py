@@ -19,4 +19,5 @@ from .Reports import (
     write_policy_markdown_report,
     write_mechanism_markdown_report,
     write_space_markdown_report,
+    write_control_action_markdown_report,
 )

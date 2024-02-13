@@ -284,3 +284,48 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
 
     with open("{}/Spaces/{}.md".format(path, space.name), "w") as f:
         f.write(out)
+
+
+def write_control_action_markdown_report(ms, path, control_action, add_metadata=True):
+    control_action = ms.control_actions[control_action]
+    if "Control Actions" not in os.listdir(path):
+        os.makedirs(path + "/Control Actions")
+    if add_metadata:
+        metadata = control_action.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+    out = ""
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += control_action.description
+    out += "\n"
+
+    out += "## Constraints"
+    for i, x in enumerate(control_action.constraints):
+        out += "{}. {}".format(i + 1, x)
+        out += "\n"
+
+    if control_action.control_action_options:
+        out += "## Control Action Options:\n"
+        for i, x in enumerate(control_action.control_action_options):
+            out += "<details>"
+            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
+            out += "<p>"
+            out += x.description
+            out += "</p>"
+
+            out += "<p>"
+            out += "Logic: {}".format(x.logic)
+            out += "</p>"
+
+            out += "</details>"
+        out += "<br/>"
+
+    with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
+        f.write(out)
