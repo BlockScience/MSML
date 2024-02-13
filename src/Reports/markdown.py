@@ -439,7 +439,7 @@ def write_parameter_markdown_report(ms, path, parameter, add_metadata=True):
 
 
 def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
-    metric = ms.stateful_metrics[metric]
+    metric = ms.get_specific_stateful_metrics(metric)
     out = ""
     if "Stateful Metrics" not in os.listdir(path):
         os.makedirs(path + "/Stateful Metrics")
@@ -452,6 +452,23 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
+
+    out += "Description: {}\n\n".format(metric.description)
+    out += "Type: {}\n\n".format(metric.type)
+    out += "Symbol: {}\n\n".format(metric.symbol)
+    out += "Domain: {}\n\n".format(metric.domain)
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(metric.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(metric.variables_used):
+        out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        out += "\n"
+    out += "\n"
 
     with open("{}/Stateful Metrics/{}.md".format(path, metric.name), "w") as f:
         f.write(out)
