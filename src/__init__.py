@@ -20,4 +20,5 @@ from .Reports import (
     write_mechanism_markdown_report,
     write_space_markdown_report,
     write_control_action_markdown_report,
+    write_wiring_markdown_report,
 )
