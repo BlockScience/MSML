@@ -520,15 +520,15 @@ def write_all_markdown_reports(ms, path):
 
     # Write wiring
     wiring = list(ms.wiring.keys())
-    for x in control_actions:
-        write_control_action_markdown_report(ms, path, x)
+    for x in wiring:
+        write_wiring_markdown_report(ms, path, x)
 
     # Write parameters
     parameters = ms.parameters.all_parameters
-    for x in control_actions:
-        write_control_action_markdown_report(ms, path, x)
+    for x in parameters:
+        write_parameter_markdown_report(ms, path, x)
 
     # Write stateful metrics
-    control_actions = list(ms.control_actions.keys())
-    for x in control_actions:
-        write_control_action_markdown_report(ms, path, x)
+    stateful_metrics = ms.get_all_stateful_metric_names()
+    for x in stateful_metrics:
+        write_stateful_metrics_markdown_report(ms, path, x)
