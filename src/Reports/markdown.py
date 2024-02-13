@@ -367,6 +367,56 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += wiring.render_mermaid_root()
     out += "\n"
     out += "\n"
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += "Block Type: {}".format(wiring.block_type)
+    out += "\n"
+    out += wiring.description
+    out += "\n"
+
+    out += "## Components\n"
+    for i, x in enumerate(wiring.components):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "\n"
+
+    out += "## Constraints"
+    for i, x in enumerate(wiring.constraints):
+        out += "{}. {}".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    out += "## Domain Spaces\n"
+    for i, x in enumerate(wiring.domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Codomain Spaces\n"
+    for i, x in enumerate(wiring.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(wiring.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Called By\n"
+    for i, x in enumerate(wiring.called_by):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Calls\n"
+    for i, x in enumerate(wiring.calls):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
 
     with open("{}/Wiring/{}.md".format(path, wiring.name), "w") as f:
         f.write(out)
