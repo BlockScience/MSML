@@ -22,4 +22,5 @@ from .markdown import (
     write_space_markdown_report,
     write_control_action_markdown_report,
     write_wiring_markdown_report,
+    write_parameter_markdown_report,
 )
