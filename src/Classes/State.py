@@ -14,6 +14,7 @@ class State:
             self.label = self.name
         self._write_variable_map()
         self.updated_by = []
+        self.metadata = data["metadata"]
 
     def _write_variable_map(self) -> None:
         """
@@ -27,8 +28,9 @@ class State:
             key = var.name
 
             # Check variable name not repeated
-            assert var.name not in self.variable_map, "Variable name {} is already present in variables!".format(
-                key)
+            assert (
+                var.name not in self.variable_map
+            ), "Variable name {} is already present in variables!".format(key)
 
             self.variable_map[key] = var
 
@@ -43,10 +45,7 @@ class StateVariable:
         self.domain = data["domain"]
         self.updated_by = []
 
-
-
         # Add check for type of List
         if hasattr(self.type, "_name"):
             if self.type._name == "List":
-                self.type.__name__ = self.type.__repr__().replace("typing.","")
-
+                self.type.__name__ = self.type.__repr__().replace("typing.", "")

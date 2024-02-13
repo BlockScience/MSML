@@ -28,6 +28,7 @@ class ParameterSet:
         self.name = data["name"]
         self.notes = data["notes"]
         self.parameters = data["parameters"]
+        self.metadata = data["metadata"]
 
 
 # Individual Parameter
@@ -43,3 +44,4 @@ class Parameter:
         self.parameter_class = data[
             "parameter_class"
         ]  # I.e. behavioral, functional, system
+        self.metadata = data["metadata"]

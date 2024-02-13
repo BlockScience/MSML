@@ -10,6 +10,7 @@ class Block:
         self.domain = data["domain"]
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
+        self.metadata = data["metadata"]
         if "label" in data:
             self.label = data["label"]
         else:
@@ -123,6 +124,7 @@ class ParallelBlock(Block):
         self.called_by = []
         self.calls = []
         self.block_type = "Paralell Block"
+        self.metadata = data["metadata"]
 
     def render_mermaid(self, i):
         multi = None
@@ -238,6 +240,7 @@ class StackBlock(Block):
         self.calls = []
 
         self.block_type = "Stack Block"
+        self.metadata = data["metadata"]
 
     def _check_domain_mapping(self):
         x = self.components[:-1]
@@ -415,6 +418,7 @@ class SplitBlock(Block):
         self.calls = []
 
         self.block_type = "Split Block"
+        self.metadata = data["metadata"]
 
     def render_mermaid(self, i):
         multi = None

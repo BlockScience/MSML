@@ -4,6 +4,8 @@ from .general import check_json_keys
 
 
 def convert_space(data: Dict) -> Space:
+    if "metadata" not in data:
+        data["metadata"] = {}
     # Check the keys are correct
     check_json_keys(data, "Space")
 
