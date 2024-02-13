@@ -327,3 +327,11 @@ class MathSpec:
         out["State"] = [x.state for x in out["Entities"]]
         out["State"] = list(set(out["State"]))
         return out
+
+    def get_specific_stateful_metrics(self, metric):
+        for x in self.stateful_metrics.values():
+            for y in x.metrics:
+                if metric == y.name:
+                    return y
+        print("Metric not found")
+        return None
