@@ -472,3 +472,28 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     with open("{}/Stateful Metrics/{}.md".format(path, metric.name), "w") as f:
         f.write(out)
+
+
+def write_all_markdown_reports(ms, path):
+
+    # Write entities
+    entities = list(ms.entities.keys())
+    for x in entities:
+        write_entity_markdown_report(ms, path, x)
+
+    # Write states
+    states = list(ms.state.keys())
+    for x in states:
+        write_state_markdown_report(ms, path, x)
+
+    # Write types
+    ts = []
+    for s in ms.state.values():
+        ts.extend([x.type for x in s.variables])
+    for t in ts:
+        write_types_markdown_report(ms, path, t)
+
+    # Write boundary actions
+    boundary_actions = list(ms.boundary_actions.keys())
+    for x in boundary_actions:
+        write_boundary_action_markdown_report(ms, path, x)
