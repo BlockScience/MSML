@@ -512,3 +512,23 @@ def write_all_markdown_reports(ms, path):
     spaces = list(ms.spaces.keys())
     for x in spaces:
         write_space_markdown_report(ms, path, x)
+
+    # Write control actions
+    control_actions = list(ms.control_actions.keys())
+    for x in control_actions:
+        write_control_action_markdown_report(ms, path, x)
+
+    # Write wiring
+    wiring = list(ms.wiring.keys())
+    for x in control_actions:
+        write_control_action_markdown_report(ms, path, x)
+
+    # Write parameters
+    parameters = ms.parameters.all_parameters
+    for x in control_actions:
+        write_control_action_markdown_report(ms, path, x)
+
+    # Write stateful metrics
+    control_actions = list(ms.control_actions.keys())
+    for x in control_actions:
+        write_control_action_markdown_report(ms, path, x)
