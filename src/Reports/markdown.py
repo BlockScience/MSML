@@ -497,3 +497,18 @@ def write_all_markdown_reports(ms, path):
     boundary_actions = list(ms.boundary_actions.keys())
     for x in boundary_actions:
         write_boundary_action_markdown_report(ms, path, x)
+
+    # Write policies
+    policies = list(ms.policies.keys())
+    for x in policies:
+        write_policy_markdown_report(ms, path, x)
+
+    # Write mechanisms
+    mechanisms = list(ms.mechanisms.keys())
+    for x in mechanisms:
+        write_mechanism_markdown_report(ms, path, x)
+
+    # Write spaces
+    spaces = list(ms.spaces.keys())
+    for x in spaces:
+        write_space_markdown_report(ms, path, x)
