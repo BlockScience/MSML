@@ -83,9 +83,12 @@ def write_types_markdown_report(
         os.makedirs(path + "/Types")
     out = "## Type"
     out += "\n"
-    out += str(t.__supertype__)
+    out += str(t.type)
+    out += "\n\n"
+    out += "## Notes"
+    out += t.notes
 
-    with open("{}/Types/{}.md".format(path, t.__name__), "w") as f:
+    with open("{}/Types/{}.md".format(path, t.name), "w") as f:
         f.write(out)
 
 
