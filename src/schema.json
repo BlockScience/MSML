@@ -3,7 +3,51 @@
       "title": "MSML Spec",
       "description": "A specification for MSML",
       "type": "object",
-      "properties": {"Policies": {"type": "object"}, "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "State Update Transmission Channels": {"type": "array"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
+      "properties": {"Policies": {"type": "object",
+    "items": {"type": "object",
+    "properties": {
+      "name": {
+          "type": "string"
+      },
+      "description": {
+          "type": "string"
+      },
+      "constraints": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "policy_options": {
+          "type": "array",
+          "items": {"type": "object",
+        "properties": {"name": {"type": "string"},
+        "description": {"type": "string"},
+        "logic": {"type": "string"}},
+      "required": ["name", "description", "logic"]}
+      },
+      "domain": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "codomain": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "parameters_used": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "metadata": {"type": "object"}
+  },
+  "required": [
+      "codomain",
+      "constraints",
+      "description",
+      "domain",
+      "name",
+      "parameters_used",
+      "policy_options"
+  ]}},
+      "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "State Update Transmission Channels": {"type": "array"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
         "required": ["Policies", "Spaces", "State", "Stateful Metrics", "State Update Transmission Channels", "Parameters", "Mechanisms", "Entities", "Boundary Actions", "Control Actions", "Wiring", "Types"]
     }
     
