@@ -3,7 +3,7 @@
       "title": "MSML Spec",
       "description": "A specification for MSML",
       "type": "object",
-      "properties": {"Policies": {"type": "object"}, "Spaces": {"type": "object"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "State Update Transmission Channels": {"type": "object"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "object"}, "Types": {"type": "object"}},
+      "properties": {"Policies": {"type": "object"}, "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "State Update Transmission Channels": {"type": "array"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
         "required": ["Policies", "Spaces", "State", "Stateful Metrics", "State Update Transmission Channels", "Parameters", "Mechanisms", "Entities", "Boundary Actions", "Control Actions", "Wiring", "Types"]
     }
     
