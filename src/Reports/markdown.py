@@ -73,19 +73,27 @@ def write_state_markdown_report(ms, path, state, add_metadata=True):
         f.write(out)
 
 
-def write_types_markdown_report(
-    ms,
-    path,
-    t,
-):
+def write_types_markdown_report(ms, path, t, add_metadata=True):
     # t = ms.types[t]
     if "Types" not in os.listdir(path):
         os.makedirs(path + "/Types")
-    out = "## Type"
+    out = ""
+    if add_metadata:
+        metadata = t.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+
+    out += "## Type"
     out += "\n"
     out += str(t.type)
     out += "\n\n"
     out += "## Notes"
+    out += "\n\n"
     out += t.notes
 
     with open("{}/Types/{}.md".format(path, t.name), "w") as f:
@@ -96,6 +104,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
     boundary_action = ms.boundary_actions[boundary_action]
     if "Boundary Actions" not in os.listdir(path):
         os.makedirs(path + "/Boundary Actions")
+    out = ""
     if add_metadata:
         metadata = boundary_action.metadata
         if len(metadata) > 0:
@@ -105,7 +114,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
-    out = ""
+
     out += "## Description"
     out += "\n"
     out += "\n"
