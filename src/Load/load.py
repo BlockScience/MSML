@@ -13,6 +13,7 @@ from .policy import load_policies
 from .spaces import load_spaces
 from .stateful_metrics import load_stateful_metrics
 from .wiring import load_wiring
+from .type import load_types
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -31,6 +32,7 @@ def load_from_json(json: Dict) -> MathSpec:
     ms = {}
 
     # Do loading one by one to transfer the json
+    load_types(ms, json)
     load_spaces(ms, json)
     load_states(ms, json)
     load_entities(ms, json)
