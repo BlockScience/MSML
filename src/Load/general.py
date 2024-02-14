@@ -38,7 +38,6 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Policies",
             "Spaces",
             "State",
-            "State Update Transmission Channels",
             "Stateful Metrics",
             "Control Actions",
             "Wiring",
@@ -68,6 +67,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "domain",
             "parameters_used",
             "metadata",
+            "updates",
         ],
         "State Update Transmission Channel": [
             "origin",
