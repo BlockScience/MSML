@@ -12,7 +12,7 @@ def write_state_variable_table(target_state, links=False):
         table_vars = [
             var.name,
             var.description,
-            var.type.__name__,
+            var.type.name,
             var.symbol,
             var.domain,
         ]
@@ -42,7 +42,7 @@ def write_state_variable_table_markdown(target_state, links=False):
         table_vars = [
             var.name,
             var.description,
-            var.type.__name__,
+            var.type.name,
             var.symbol,
             var.domain,
         ]
