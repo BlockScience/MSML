@@ -3,7 +3,7 @@ from ..Classes import ParameterContainer, ParameterSet, Parameter
 from .general import check_json_keys
 
 
-def convert_parameter_set(data: Dict) -> ParameterSet:
+def convert_parameter_set(ms, data: Dict) -> ParameterSet:
     if "metadata" not in data:
         data["metadata"] = {}
     # Check the keys are correct
@@ -18,6 +18,8 @@ def convert_parameter_set(data: Dict) -> ParameterSet:
         if "metadata" not in param:
             param["metadata"] = {}
         check_json_keys(param, "Parameter")
+        assert param["variable_type"] in ms["Types"], "Type not in ms"
+        param["variable_type"] = ms["Types"][param["variable_type"]]
         new_parameters.append(Parameter(param))
     data["parameters"] = new_parameters
 
@@ -37,7 +39,7 @@ def load_parameters(ms: Dict, json: Dict) -> None:
 
     # Convert parameter sets
     for key in json["Parameters"]:
-        ms["Parameters"][key] = convert_parameter_set(json["Parameters"][key])
+        ms["Parameters"][key] = convert_parameter_set(ms, json["Parameters"][key])
 
     # Placeholder for now
     ms["Parameters"] = ParameterContainer(ms["Parameters"])
