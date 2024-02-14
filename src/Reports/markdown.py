@@ -490,10 +490,7 @@ def write_all_markdown_reports(ms, path):
         write_state_markdown_report(ms, path, x)
 
     # Write types
-    ts = []
-    for s in ms.state.values():
-        ts.extend([x.type for x in s.variables])
-    for t in ts:
+    for t in ms.types.values():
         write_types_markdown_report(ms, path, t)
 
     # Write boundary actions

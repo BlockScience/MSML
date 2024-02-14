@@ -47,7 +47,7 @@
       "parameters_used",
       "policy_options"
   ]}},
-      "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "State Update Transmission Channels": {"type": "array"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
-        "required": ["Policies", "Spaces", "State", "Stateful Metrics", "State Update Transmission Channels", "Parameters", "Mechanisms", "Entities", "Boundary Actions", "Control Actions", "Wiring", "Types"]
+      "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
+        "required": ["Policies", "Spaces", "State", "Stateful Metrics", "Parameters", "Mechanisms", "Entities", "Boundary Actions", "Control Actions", "Wiring", "Types"]
     }
     
