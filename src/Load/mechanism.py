@@ -26,10 +26,22 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
     # Copy
     data = data.copy()
 
+    new_channels = []
+    updates = data.pop("updates")
+    for x in updates:
+        new_channels.append(
+            {
+                "origin": data["name"],
+                "entity": x[0],
+                "variable": x[1],
+                "optional": x[2],
+            }
+        )
+
     data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
 
     # Build the action transmission channel object
-    return Mechanism(data)
+    return Mechanism(data), new_channels
 
 
 def load_mechanisms(ms: Dict, json: Dict) -> None:
@@ -41,5 +53,10 @@ def load_mechanisms(ms: Dict, json: Dict) -> None:
     """
 
     ms["Mechanisms"] = {}
+    state_update_transmission_channels = []
     for key in json["Mechanisms"]:
-        ms["Mechanisms"][key] = convert_mechanism(json["Mechanisms"][key], ms)
+        ms["Mechanisms"][key], new_channels = convert_mechanism(
+            json["Mechanisms"][key], ms
+        )
+        state_update_transmission_channels.extend(new_channels)
+    return state_update_transmission_channels
