@@ -51,7 +51,9 @@ def convert_state_update_transmission_channel(
     return StateUpdateTransmissionChannel(data)
 
 
-def load_state_update_transmission_channels(ms: Dict, json: Dict) -> None:
+def load_state_update_transmission_channels(
+    ms: Dict, state_update_transmission_channels
+) -> None:
     """Function to load state update transmission channels into the new dictionary
 
     Args:
@@ -60,7 +62,7 @@ def load_state_update_transmission_channels(ms: Dict, json: Dict) -> None:
     """
 
     ms["State Update Transmission Channels"] = []
-    for sutc in json["State Update Transmission Channels"]:
+    for sutc in state_update_transmission_channels:
         ms["State Update Transmission Channels"].append(
             convert_state_update_transmission_channel(sutc, ms)
         )
