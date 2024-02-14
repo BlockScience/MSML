@@ -8,12 +8,12 @@ def convert_type(data, ms):
         data["metadata"] = {}
 
     # Check the keys are correct
-    check_json_keys(data, "Policy")
+    check_json_keys(data, "Type")
 
     # Copy
     data = data.copy()
 
-    # Build the policy object
+    # Build the type object
     return Type(data)
 
 
