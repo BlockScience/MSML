@@ -1,11 +1,9 @@
-from ..Types import DummyType1
-
 dummy_parameter_set = {
     "name": "Dummy Parameter Set",
     "notes": "",
     "parameters": [
         {
-            "variable_type": DummyType1,
+            "variable_type": "Dummy Type 1",
             "name": "dummy_parameter",
             "description": "",
             "symbol": None,
