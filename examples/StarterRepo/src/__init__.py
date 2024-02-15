@@ -9,6 +9,7 @@ from .Entities import entities
 from .BoundaryActions import boundary_actions
 from .ControlActions import control_actions
 from .Wiring import wiring
+from .Types import types
 
 math_spec_json = {
     "Policies": policies,
@@ -22,4 +23,5 @@ math_spec_json = {
     "Boundary Actions": boundary_actions,
     "Control Actions": control_actions,
     "Wiring": wiring,
+    "Types": types,
 }
