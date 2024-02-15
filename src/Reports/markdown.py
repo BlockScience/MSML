@@ -410,7 +410,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "## Parameters Used\n"
     for i, x in enumerate(wiring.parameters_used):
-        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
 
