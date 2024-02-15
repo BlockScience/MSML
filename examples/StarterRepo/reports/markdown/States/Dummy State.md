@@ -1,6 +1,3 @@
-## Notes
-Notes on dummy
-## State
 ### Notes
 A dummy state
 ### Variable Table
@@ -11,10 +8,5 @@ A dummy state
 |Variable C|Variable C|[[Dummy Type 2]]|||
 
 
-## Boundary Actions
-### [[Dummy Boundary Action]]
-## Mechanisms Impacting the Entity
+## Updated By
 ### [[Dummy Mechanism]]
-## Actions Impacting the Entity
-### [[Dummy Control Action]]
-### [[Dummy Boundary Action]]

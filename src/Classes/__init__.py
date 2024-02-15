@@ -11,3 +11,4 @@ from .StatefulMetric import StatefulMetric, StatefulMetricSet
 from .ControlAction import ControlAction, ControlActionOption
 from .Space import Space, TerminatingSpace, EmptySpace
 from .Block import ParallelBlock, Block, StackBlock, SplitBlock
+from .Type import Type

@@ -1,7 +1,14 @@
 from typing import NewType, TypedDict
 
-DummyType1 = NewType("Dummy Type 1", str)
-DummyType2 = NewType("Dummy Type 2", int)
+DummyType1 = {"name": "Dummy Type 1", "type": str, "notes": ""}
 
-DummyCompoundType =  NewType("Dummy Compound Type", TypedDict("Dummy Compound Type", {"A": DummyType1,
-                                                                                      "B": DummyType2}))
+DummyType2 = {"name": "Dummy Type 2", "type": int, "notes": ""}
+
+
+DummyCompoundType = {
+    "name": "Dummy Compound Type",
+    "type": TypedDict(
+        "Dummy Compound Type", {"A": DummyType1["type"], "B": DummyType2["type"]}
+    ),
+    "notes": "",
+}

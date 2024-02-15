@@ -73,19 +73,30 @@ def write_state_markdown_report(ms, path, state, add_metadata=True):
         f.write(out)
 
 
-def write_types_markdown_report(
-    ms,
-    path,
-    t,
-):
+def write_types_markdown_report(ms, path, t, add_metadata=True):
     # t = ms.types[t]
     if "Types" not in os.listdir(path):
         os.makedirs(path + "/Types")
-    out = "## Type"
-    out += "\n"
-    out += str(t.__supertype__)
+    out = ""
+    if add_metadata:
+        metadata = t.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
 
-    with open("{}/Types/{}.md".format(path, t.__name__), "w") as f:
+    out += "## Type"
+    out += "\n"
+    out += str(t.type)
+    out += "\n\n"
+    out += "## Notes"
+    out += "\n\n"
+    out += t.notes
+
+    with open("{}/Types/{}.md".format(path, t.name), "w") as f:
         f.write(out)
 
 
@@ -93,6 +104,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
     boundary_action = ms.boundary_actions[boundary_action]
     if "Boundary Actions" not in os.listdir(path):
         os.makedirs(path + "/Boundary Actions")
+    out = ""
     if add_metadata:
         metadata = boundary_action.metadata
         if len(metadata) > 0:
@@ -102,7 +114,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
-    out = ""
+
     out += "## Description"
     out += "\n"
     out += "\n"
@@ -249,6 +261,12 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
     out += "## Logic\n"
     out += mechanism.logic
 
+    out += "\n\n"
+    out += "## Updates\n\n"
+    for i, x in enumerate(mechanism.updates):
+        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "\n"
+
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
         f.write(out)
 
@@ -274,9 +292,7 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
     out += "\n"
     out += "\n"
     d = space.schema
-    d = ",\n".join(
-        ["{}: {}".format(a, b.__name__) for a, b in zip(d.keys(), d.values())]
-    )
+    d = ",\n".join(["{}: {}".format(a, b.name) for a, b in zip(d.keys(), d.values())])
     d = "{" + d + "}"
     out += d
     out += "\n"
@@ -394,7 +410,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "## Parameters Used\n"
     for i, x in enumerate(wiring.parameters_used):
-        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
 
@@ -487,10 +503,7 @@ def write_all_markdown_reports(ms, path):
         write_state_markdown_report(ms, path, x)
 
     # Write types
-    ts = []
-    for s in ms.state.values():
-        ts.extend([x.type for x in s.variables])
-    for t in ts:
+    for t in ms.types.values():
         write_types_markdown_report(ms, path, t)
 
     # Write boundary actions
