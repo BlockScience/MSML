@@ -28,6 +28,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Control Actions",
             "Wiring",
             "Blocks",
+            "Types",
         ],
         "JSON": [
             "Boundary Actions",
@@ -37,10 +38,10 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Policies",
             "Spaces",
             "State",
-            "State Update Transmission Channels",
             "Stateful Metrics",
             "Control Actions",
             "Wiring",
+            "Types",
         ],
         "State": ["name", "label", "notes", "variables", "metadata"],
         "State Variable": ["type", "name", "description", "symbol", "domain"],
@@ -66,6 +67,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "domain",
             "parameters_used",
             "metadata",
+            "updates",
         ],
         "State Update Transmission Channel": [
             "origin",
@@ -130,6 +132,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "optional_indices",
             "metadata",
         ],
+        "Type": ["name", "notes", "metadata", "type"],
     }
 
     check_set = check_sets[check_set_key]

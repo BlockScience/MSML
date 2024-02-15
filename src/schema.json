@@ -1,0 +1,53 @@
+{"$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://github.com/BlockScience/MSML/tree/main/src/schema.json",
+      "title": "MSML Spec",
+      "description": "A specification for MSML",
+      "type": "object",
+      "properties": {"Policies": {"type": "object",
+    "items": {"type": "object",
+    "properties": {
+      "name": {
+          "type": "string"
+      },
+      "description": {
+          "type": "string"
+      },
+      "constraints": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "policy_options": {
+          "type": "array",
+          "items": {"type": "object",
+        "properties": {"name": {"type": "string"},
+        "description": {"type": "string"},
+        "logic": {"type": "string"}},
+      "required": ["name", "description", "logic"]}
+      },
+      "domain": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "codomain": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "parameters_used": {
+          "type": "array",
+          "items": {"type": "string"}
+      },
+      "metadata": {"type": "object"}
+  },
+  "required": [
+      "codomain",
+      "constraints",
+      "description",
+      "domain",
+      "name",
+      "parameters_used",
+      "policy_options"
+  ]}},
+      "Spaces": {"type": "array"}, "State": {"type": "object"}, "Stateful Metrics": {"type": "object"}, "Parameters": {"type": "object"}, "Mechanisms": {"type": "object"}, "Entities": {"type": "object"}, "Boundary Actions": {"type": "object"}, "Control Actions": {"type": "object"}, "Wiring": {"type": "array"}, "Types": {"type": "array"}},
+        "required": ["Policies", "Spaces", "State", "Stateful Metrics", "Parameters", "Mechanisms", "Entities", "Boundary Actions", "Control Actions", "Wiring", "Types"]
+    }
+    

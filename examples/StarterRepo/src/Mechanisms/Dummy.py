@@ -5,4 +5,5 @@ dummy_mechanism = {
     "logic": "Logic for update",
     "domain": ("Dummy Space 2",),
     "parameters_used": [],
+    "updates": [("Dummy", "Variable A", False)],
 }

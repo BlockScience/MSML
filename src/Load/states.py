@@ -3,7 +3,7 @@ from ..Classes import State, StateVariable
 from .general import check_json_keys
 
 
-def convert_state(data: Dict) -> State:
+def convert_state(ms, data: Dict) -> State:
     """_summary_
 
     Args:
@@ -25,6 +25,8 @@ def convert_state(data: Dict) -> State:
     new_variables = []
     for var in data["variables"]:
         check_json_keys(var, "State Variable")
+        assert var["type"] in ms["Types"], "Type not in ms"
+        var["type"] = ms["Types"][var["type"]]
         new_variables.append(StateVariable(var))
     data["variables"] = new_variables
 
@@ -43,4 +45,4 @@ def load_states(ms: Dict, json: Dict) -> None:
     ms["State"] = {}
     assert "Global State" in json["State"], "Global State has to be in the state"
     for key in json["State"]:
-        ms["State"][key] = convert_state(json["State"][key])
+        ms["State"][key] = convert_state(ms, json["State"][key])

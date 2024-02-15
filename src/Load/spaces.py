@@ -3,7 +3,7 @@ from ..Classes import Space, TerminatingSpace, EmptySpace
 from .general import check_json_keys
 
 
-def convert_space(data: Dict) -> Space:
+def convert_space(ms, data: Dict) -> Space:
     if "metadata" not in data:
         data["metadata"] = {}
     # Check the keys are correct
@@ -11,6 +11,12 @@ def convert_space(data: Dict) -> Space:
 
     # Copy
     data = data.copy()
+
+    for x in data["schema"]:
+        assert data["schema"][x] in ms["Types"], "Type {} not in ms".format(
+            data["schema"][x]
+        )
+        data["schema"][x] = ms["Types"][data["schema"][x]]
 
     # Build the space object
     return Space(data)
@@ -31,4 +37,4 @@ def load_spaces(ms: Dict, json: Dict) -> None:
 
     for space in json["Spaces"]:
         assert space["name"] not in ms["Spaces"], "{} repeated"
-        ms["Spaces"][space["name"]] = convert_space(space)
+        ms["Spaces"][space["name"]] = convert_space(ms, space)

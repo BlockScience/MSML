@@ -10,7 +10,7 @@ def write_out_space(space: TypedDict) -> str:
 
     d = space.schema
     d = ",<br/>".join(
-        ["{}: {}".format(a, b.__name__) for a, b in zip(d.keys(), d.values())]
+        ["{}: {}".format(a, b.name) for a, b in zip(d.keys(), d.values())]
     )
     d = "{" + d + "}"
 

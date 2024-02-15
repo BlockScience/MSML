@@ -13,6 +13,7 @@ from .policy import load_policies
 from .spaces import load_spaces
 from .stateful_metrics import load_stateful_metrics
 from .wiring import load_wiring
+from .type import load_types
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -31,18 +32,19 @@ def load_from_json(json: Dict) -> MathSpec:
     ms = {}
 
     # Do loading one by one to transfer the json
+    load_types(ms, json)
     load_spaces(ms, json)
     load_states(ms, json)
     load_entities(ms, json)
     load_boundary_actions(ms, json)
     load_control_actions(ms, json)
-    load_mechanisms(ms, json)
+    state_update_transmission_channels = load_mechanisms(ms, json)
     load_parameters(ms, json)
     load_policies(ms, json)
     load_stateful_metrics(ms, json)
     action_transmission_channels = load_wiring(ms, json)
     load_action_transmission_channels(ms, action_transmission_channels)
-    load_state_update_transmission_channels(ms, json)
+    load_state_update_transmission_channels(ms, state_update_transmission_channels)
 
     # Assert all keys are correct for the ms version
     check_json_keys(ms, "Math Spec")
