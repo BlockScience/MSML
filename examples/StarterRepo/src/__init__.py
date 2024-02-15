@@ -16,7 +16,6 @@ math_spec_json = {
     "Spaces": spaces,
     "State": state,
     "Stateful Metrics": stateful_metrics,
-    "State Update Transmission Channels": state_update_transmission_channels,
     "Parameters": parameters,
     "Mechanisms": mechanism,
     "Entities": entities,
