@@ -201,7 +201,7 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 
     out += "## Constraints\n"
     for i, x in enumerate(policy.constraints):
-        out += "{}. [[{}]]".format(i + 1, x)
+        out += "{}. {}".format(i + 1, x)
         out += "\n"
 
     if policy.policy_options:
