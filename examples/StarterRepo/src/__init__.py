@@ -1,6 +1,6 @@
 from .StateUpdateTransmissionChannels import state_update_transmission_channels
 from .StatefulMetrics import stateful_metrics
-from .State import state
+from .State import states
 from .Spaces import spaces
 from .Policies import policies
 from .Parameters import parameters
@@ -14,7 +14,7 @@ from .Types import types
 math_spec_json = {
     "Policies": policies,
     "Spaces": spaces,
-    "State": state,
+    "State": states,
     "Stateful Metrics": stateful_metrics,
     "Parameters": parameters,
     "Mechanisms": mechanism,
