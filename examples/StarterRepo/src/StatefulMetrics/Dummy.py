@@ -16,3 +16,5 @@ dummy_stateful_metric = {
         }
     ],
 }
+
+dummy_stateful_metrics = [dummy_stateful_metric]
