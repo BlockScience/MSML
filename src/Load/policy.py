@@ -77,5 +77,5 @@ def load_policies(ms: Dict, json: Dict) -> None:
     """
 
     ms["Policies"] = {}
-    for key in json["Policies"]:
-        ms["Policies"][key] = convert_policy(json["Policies"][key], ms)
+    for policy in json["Policies"]:
+        ms["Policies"][policy["name"]] = convert_policy(policy, ms)

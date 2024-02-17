@@ -17,3 +17,5 @@ dummy_policy = {
     "codomain": ("Dummy Space 2",),
     "parameters_used": ["dummy_parameter"],
 }
+
+dummy_policies = [dummy_policy]
