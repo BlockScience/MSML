@@ -339,30 +339,7 @@
         },
         "Schema": {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "x": {
-                    "type": "string"
-                },
-                "y": {
-                    "type": "string"
-                },
-                "y_prime": {
-                    "type": "string"
-                },
-                "simulation_time": {
-                    "type": "string"
-                },
-                "computation_time": {
-                    "type": "string"
-                },
-                "action_name": {
-                    "type": "string"
-                },
-                "iteration_step": {
-                    "type": "string"
-                }
-            },
+            "additionalProperties": true,
             "required": [],
             "title": "Schema"
         },
