@@ -1,4 +1,3 @@
-from .StateUpdateTransmissionChannels import state_update_transmission_channels
 from .StatefulMetrics import stateful_metrics
 from .State import states
 from .Spaces import spaces
