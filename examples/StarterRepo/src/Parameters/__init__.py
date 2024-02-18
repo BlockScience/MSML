@@ -1,4 +1,5 @@
-from .Dummy import dummy_parameter_set
+from .Dummy import dummy_parameter_sets
 
-parameters = {"Dummy": dummy_parameter_set}
 
+parameters = []
+parameters.extend(dummy_parameter_sets)

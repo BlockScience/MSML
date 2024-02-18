@@ -16,7 +16,7 @@
 │   ├──[[Dummy Space 1]]
 │   ├──[[Dummy Space 2]]
 ├──**Parameters**
-│   ├──[[Dummy]]
+│   ├──[[Dummy Parameter Set]]
 │   │   ├──dummy_parameter
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]
