@@ -17,6 +17,8 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
     if "metadata" not in data:
         data["metadata"] = {}
 
+    data["codomain"] = tuple(data["codomain"])
+
     # Check the keys are correct
     check_json_keys(data, "Control Action")
     assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(

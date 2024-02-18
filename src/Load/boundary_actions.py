@@ -16,6 +16,8 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
     if "metadata" not in data:
         data["metadata"] = {}
 
+    data["codomain"] = tuple(data["codomain"])
+
     # Check the keys are correct
     check_json_keys(data, "Boundary Action")
     assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(
