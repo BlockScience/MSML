@@ -54,9 +54,7 @@ def load_mechanisms(ms: Dict, json: Dict) -> None:
 
     ms["Mechanisms"] = {}
     state_update_transmission_channels = []
-    for key in json["Mechanisms"]:
-        ms["Mechanisms"][key], new_channels = convert_mechanism(
-            json["Mechanisms"][key], ms
-        )
+    for m in json["Mechanisms"]:
+        ms["Mechanisms"][m["name"]], new_channels = convert_mechanism(m, ms)
         state_update_transmission_channels.extend(new_channels)
     return state_update_transmission_channels

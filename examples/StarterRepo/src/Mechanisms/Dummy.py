@@ -7,3 +7,5 @@ dummy_mechanism = {
     "parameters_used": [],
     "updates": [("Dummy", "Variable A", False)],
 }
+
+dummy_mechanisms = [dummy_mechanism]
