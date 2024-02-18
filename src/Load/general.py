@@ -1,4 +1,6 @@
 from typing import Dict
+from jsonschema import validate
+from ..schema import schema
 
 
 def check_json_keys(json: Dict, check_set_key: str) -> None:
@@ -149,3 +151,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
 
     # Make sure there are no extra keys in the json
     assert len(keys) == 0, "There are extra keys in json: {}".format(", ".join(keys))
+
+
+def validate_json_schema(json):
+    validate(json, schema)
