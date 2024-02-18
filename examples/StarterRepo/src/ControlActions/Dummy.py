@@ -9,6 +9,8 @@ dummy_control_action = {
     "description": "Dummy",
     "constraints": [],
     "control_action_options": [dummy_control_action_v1_option],
-    "codomain": ("Dummy Space 1",),
+    "codomain": [
+        "Dummy Space 1",
+    ],
     "parameters_used": [],
 }
