@@ -58,9 +58,8 @@ def load_boundary_actions(ms: Dict, json: Dict) -> None:
     """
 
     ms["Boundary Actions"] = {}
-    for key in json["Boundary Actions"]:
-        ms["Boundary Actions"][key] = convert_boundary_action(
-            json["Boundary Actions"][key], ms
-        )
+    for ba in json["Boundary Actions"]:
+        key = ba["name"]
+        ms["Boundary Actions"][key] = convert_boundary_action(ba, ms)
         for entity in ms["Boundary Actions"][key].called_by:
             entity.add_boundary_action(ms["Boundary Actions"][key])
