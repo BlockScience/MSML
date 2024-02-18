@@ -51,7 +51,5 @@ def load_control_actions(ms: Dict, json: Dict) -> None:
     """
 
     ms["Control Actions"] = {}
-    for key in json["Control Actions"]:
-        ms["Control Actions"][key] = convert_control_action(
-            json["Control Actions"][key], ms
-        )
+    for ca in json["Control Actions"]:
+        ms["Control Actions"][ca["name"]] = convert_control_action(ca, ms)
