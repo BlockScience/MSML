@@ -174,7 +174,6 @@
                 "updates": {
                     "type": "array",
                     "items": {
-                        "type": "array",
                         "items": {
                             "$ref": "#/definitions/Update"
                         }
@@ -372,7 +371,6 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -381,10 +379,10 @@
                     "type": "string"
                 },
                 "symbol": {
-                    "type": "null"
+                    "type": "string"
                 },
                 "domain": {
-                    "type": "null"
+                    "type": "string"
                 }
             },
             "required": [
@@ -404,7 +402,6 @@
                     "type": "string"
                 },
                 "type": {
-                    "type": "string"
                 },
                 "notes": {
                     "type": "string"
@@ -463,14 +460,6 @@
             "title": "Wiring"
         },
         "Update": {
-            "anyOf": [
-                {
-                    "type": "boolean"
-                },
-                {
-                    "type": "string"
-                }
-            ],
             "title": "Update"
         },
         "TypeEnum": {
