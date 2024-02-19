@@ -25,6 +25,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechani
 | [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
 | [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
 | [updates](#updates)                  | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
+| [metadata](#metadata)                | `object` | Optional | cannot be null | [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")               |
 
 ## name
 
@@ -151,3 +152,21 @@ unknown\[]
 ### updates Type
 
 unknown\[]
+
+## metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-mechanism-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")
+
+### metadata Type
+
+`object` ([Details](schema-definitions-mechanism-properties-metadata.md))

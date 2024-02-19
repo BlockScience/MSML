@@ -369,11 +369,12 @@ Reference this group by using
 {"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity"}
 ```
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                               |
-| :---------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-1)   | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")   |
-| [notes](#notes)   | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes") |
-| [state](#state-1) | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state") |
+| Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                     |
+| :-------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-1)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")         |
+| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")       |
+| [state](#state-1)     | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state")       |
+| [metadata](#metadata) | `object` | Optional | cannot be null | [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata") |
 
 ### name
 
@@ -429,6 +430,24 @@ Reference this group by using
 
 `string`
 
+### metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-entity-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata")
+
+#### metadata Type
+
+`object` ([Details](schema-definitions-entity-properties-metadata.md))
+
 ## Definitions group Mechanism
 
 Reference this group by using
@@ -446,6 +465,7 @@ Reference this group by using
 | [domain](#domain)                      | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
 | [parameters\_used](#parameters_used-1) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
 | [updates](#updates)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
+| [metadata](#metadata-1)                | `object` | Optional | cannot be null | [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")               |
 
 ### name
 
@@ -572,6 +592,24 @@ unknown\[]
 #### updates Type
 
 unknown\[]
+
+### metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-mechanism-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")
+
+#### metadata Type
+
+`object` ([Details](schema-definitions-mechanism-properties-metadata.md))
 
 ## Definitions group Parameter
 
@@ -1225,11 +1263,12 @@ Reference this group by using
 {"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type"}
 ```
 
-| Property          | Type          | Required | Nullable       | Defined by                                                                                                                                           |
-| :---------------- | :------------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-10)  | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")   |
-| [type](#type-1)   | Not specified | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")   |
-| [notes](#notes-3) | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes") |
+| Property                | Type          | Required | Nullable       | Defined by                                                                                                                                                 |
+| :---------------------- | :------------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-10)        | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")         |
+| [type](#type-1)         | Not specified | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")         |
+| [notes](#notes-3)       | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes")       |
+| [metadata](#metadata-2) | `object`      | Optional | cannot be null | [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata") |
 
 ### name
 
@@ -1284,6 +1323,24 @@ unknown
 #### notes Type
 
 `string`
+
+### metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-type-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata")
+
+#### metadata Type
+
+`object` ([Details](schema-definitions-type-properties-metadata.md))
 
 ## Definitions group Wiring
 
