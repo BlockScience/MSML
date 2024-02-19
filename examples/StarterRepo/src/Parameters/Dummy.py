@@ -12,3 +12,6 @@ dummy_parameter_set = {
         }
     ],
 }
+
+
+dummy_parameter_sets = [dummy_parameter_set]

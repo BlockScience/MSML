@@ -1,3 +1,4 @@
-from .Dummy import dummy_mechanism
+from .Dummy import dummy_mechanisms
 
-mechanism = {"Dummy Mechanism": dummy_mechanism}
+mechanism = []
+mechanism.extend(dummy_mechanisms)

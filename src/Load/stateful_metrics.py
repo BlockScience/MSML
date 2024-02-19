@@ -55,7 +55,5 @@ def load_stateful_metrics(ms: Dict, json: Dict) -> None:
     """
 
     ms["Stateful Metrics"] = {}
-    for key in json["Stateful Metrics"]:
-        ms["Stateful Metrics"][key] = convert_stateful_metric(
-            ms, json["Stateful Metrics"][key]
-        )
+    for sm in json["Stateful Metrics"]:
+        ms["Stateful Metrics"][sm["name"]] = convert_stateful_metric(ms, sm)

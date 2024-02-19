@@ -38,8 +38,8 @@ def load_parameters(ms: Dict, json: Dict) -> None:
     ms["Parameters"] = {}
 
     # Convert parameter sets
-    for key in json["Parameters"]:
-        ms["Parameters"][key] = convert_parameter_set(ms, json["Parameters"][key])
+    for param in json["Parameters"]:
+        ms["Parameters"][param["name"]] = convert_parameter_set(ms, param)
 
     # Placeholder for now
     ms["Parameters"] = ParameterContainer(ms["Parameters"])

@@ -41,6 +41,7 @@ def load_entities(ms: Dict, json: Dict) -> None:
     """
 
     ms["Entities"] = {}
-    assert "Global" in json["Entities"], "There must be a global entity"
-    for key in json["Entities"]:
-        ms["Entities"][key] = convert_entity(json["Entities"][key], ms)
+
+    for e in json["Entities"]:
+        ms["Entities"][e["name"]] = convert_entity(e, ms)
+    assert "Global" in ms["Entities"], "There must be a global entity"
