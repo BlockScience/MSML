@@ -1,7 +1,7 @@
 # Space Schema
 
 ```txt
-undefined#/definitions/Space
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space
 ```
 
 
@@ -16,10 +16,10 @@ undefined#/definitions/Space
 
 # Space Properties
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                    |
-| :---------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------ |
-| [name](#name)     | `string` | Required | cannot be null | [Untitled schema](schema-definitions-space-properties-name.md "undefined#/definitions/Space/properties/name") |
-| [schema](#schema) | `object` | Required | cannot be null | [Untitled schema](schema-definitions-schema.md "undefined#/definitions/Space/properties/schema")              |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                           |
+| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)     | `string` | Required | cannot be null | [MSML](schema-definitions-space-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/name") |
+| [schema](#schema) | `object` | Required | cannot be null | [MSML](schema-definitions-schema.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/schema")              |
 
 ## name
 
@@ -33,7 +33,7 @@ undefined#/definitions/Space
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-space-properties-name.md "undefined#/definitions/Space/properties/name")
+*   defined in: [MSML](schema-definitions-space-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/name")
 
 ### name Type
 
@@ -51,7 +51,7 @@ undefined#/definitions/Space
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-schema.md "undefined#/definitions/Space/properties/schema")
+*   defined in: [MSML](schema-definitions-schema.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/schema")
 
 ### schema Type
 

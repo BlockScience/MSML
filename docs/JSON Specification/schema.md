@@ -1,7 +1,7 @@
-# Untitled schema Schema
+# MSML Schema
 
 ```txt
-undefined
+https://github.com/BlockScience/MSML/src/schema.schema.json
 ```
 
 
@@ -10,33 +10,33 @@ undefined
 | :--------------------- | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------ |
 | Cannot be instantiated | Yes        | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [schema.schema.json](../../out/schema.schema.json "open original schema") |
 
-## Untitled schema Type
+## MSML Type
 
-unknown
+unknown ([MSML](schema.md))
 
-# Untitled schema Definitions
+# MSML Definitions
 
 ## Definitions group MSMLSpec
 
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/MSMLSpec"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec"}
 ```
 
-| Property                              | Type    | Required | Nullable       | Defined by                                                                                                                                  |
-| :------------------------------------ | :------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Policies](#policies)                 | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-policies.md "undefined#/definitions/MSMLSpec/properties/Policies")                 |
-| [Spaces](#spaces)                     | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-spaces.md "undefined#/definitions/MSMLSpec/properties/Spaces")                     |
-| [State](#state)                       | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-state.md "undefined#/definitions/MSMLSpec/properties/State")                       |
-| [Stateful Metrics](#stateful-metrics) | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-stateful-metrics.md "undefined#/definitions/MSMLSpec/properties/Stateful Metrics") |
-| [Parameters](#parameters)             | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-parameters.md "undefined#/definitions/MSMLSpec/properties/Parameters")             |
-| [Mechanisms](#mechanisms)             | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-mechanisms.md "undefined#/definitions/MSMLSpec/properties/Mechanisms")             |
-| [Entities](#entities)                 | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-entities.md "undefined#/definitions/MSMLSpec/properties/Entities")                 |
-| [Boundary Actions](#boundary-actions) | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-boundary-actions.md "undefined#/definitions/MSMLSpec/properties/Boundary Actions") |
-| [Control Actions](#control-actions)   | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-control-actions.md "undefined#/definitions/MSMLSpec/properties/Control Actions")   |
-| [Wiring](#wiring)                     | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-wiring.md "undefined#/definitions/MSMLSpec/properties/Wiring")                     |
-| [Types](#types)                       | `array` | Required | cannot be null | [Untitled schema](schema-definitions-msmlspec-properties-types.md "undefined#/definitions/MSMLSpec/properties/Types")                       |
+| Property                              | Type    | Required | Nullable       | Defined by                                                                                                                                                                         |
+| :------------------------------------ | :------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Policies](#policies)                 | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-policies.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Policies")                 |
+| [Spaces](#spaces)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-spaces.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Spaces")                     |
+| [State](#state)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/State")                       |
+| [Stateful Metrics](#stateful-metrics) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-stateful-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Stateful Metrics") |
+| [Parameters](#parameters)             | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Parameters")             |
+| [Mechanisms](#mechanisms)             | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-mechanisms.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Mechanisms")             |
+| [Entities](#entities)                 | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-entities.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Entities")                 |
+| [Boundary Actions](#boundary-actions) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-boundary-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Boundary Actions") |
+| [Control Actions](#control-actions)   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")   |
+| [Wiring](#wiring)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")                     |
+| [Types](#types)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")                       |
 
 ### Policies
 
@@ -50,7 +50,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-policies.md "undefined#/definitions/MSMLSpec/properties/Policies")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-policies.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Policies")
 
 #### Policies Type
 
@@ -68,7 +68,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-spaces.md "undefined#/definitions/MSMLSpec/properties/Spaces")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-spaces.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Spaces")
 
 #### Spaces Type
 
@@ -86,7 +86,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-state.md "undefined#/definitions/MSMLSpec/properties/State")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/State")
 
 #### State Type
 
@@ -104,7 +104,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-stateful-metrics.md "undefined#/definitions/MSMLSpec/properties/Stateful Metrics")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-stateful-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Stateful Metrics")
 
 #### Stateful Metrics Type
 
@@ -122,7 +122,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-parameters.md "undefined#/definitions/MSMLSpec/properties/Parameters")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Parameters")
 
 #### Parameters Type
 
@@ -140,7 +140,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-mechanisms.md "undefined#/definitions/MSMLSpec/properties/Mechanisms")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-mechanisms.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Mechanisms")
 
 #### Mechanisms Type
 
@@ -158,7 +158,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-entities.md "undefined#/definitions/MSMLSpec/properties/Entities")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-entities.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Entities")
 
 #### Entities Type
 
@@ -176,7 +176,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-boundary-actions.md "undefined#/definitions/MSMLSpec/properties/Boundary Actions")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-boundary-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Boundary Actions")
 
 #### Boundary Actions Type
 
@@ -194,7 +194,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-control-actions.md "undefined#/definitions/MSMLSpec/properties/Control Actions")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")
 
 #### Control Actions Type
 
@@ -212,7 +212,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-wiring.md "undefined#/definitions/MSMLSpec/properties/Wiring")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")
 
 #### Wiring Type
 
@@ -230,7 +230,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-msmlspec-properties-types.md "undefined#/definitions/MSMLSpec/properties/Types")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")
 
 #### Types Type
 
@@ -241,17 +241,17 @@ unknown\[]
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/ControlAction"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction"}
 ```
 
-| Property                                            | Type     | Required | Nullable       | Defined by                                                                                                                                                        |
-| :-------------------------------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                                       | `string` | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-name.md "undefined#/definitions/ControlAction/properties/name")                                     |
-| [description](#description)                         | `string` | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-description.md "undefined#/definitions/ControlAction/properties/description")                       |
-| [constraints](#constraints)                         | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-constraints.md "undefined#/definitions/ControlAction/properties/constraints")                       |
-| [control\_action\_options](#control_action_options) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-control_action_options.md "undefined#/definitions/ControlAction/properties/control_action_options") |
-| [codomain](#codomain)                               | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-codomain.md "undefined#/definitions/ControlAction/properties/codomain")                             |
-| [parameters\_used](#parameters_used)                | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-controlaction-properties-parameters_used.md "undefined#/definitions/ControlAction/properties/parameters_used")               |
+| Property                                            | Type     | Required | Nullable       | Defined by                                                                                                                                                                                               |
+| :-------------------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)                                       | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")                                     |
+| [description](#description)                         | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")                       |
+| [constraints](#constraints)                         | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")                       |
+| [control\_action\_options](#control_action_options) | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options") |
+| [codomain](#codomain)                               | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")                             |
+| [parameters\_used](#parameters_used)                | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")               |
 
 ### name
 
@@ -265,7 +265,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-name.md "undefined#/definitions/ControlAction/properties/name")
+*   defined in: [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")
 
 #### name Type
 
@@ -283,7 +283,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-description.md "undefined#/definitions/ControlAction/properties/description")
+*   defined in: [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")
 
 #### description Type
 
@@ -301,7 +301,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-constraints.md "undefined#/definitions/ControlAction/properties/constraints")
+*   defined in: [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")
 
 #### constraints Type
 
@@ -319,7 +319,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-control_action_options.md "undefined#/definitions/ControlAction/properties/control_action_options")
+*   defined in: [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options")
 
 #### control\_action\_options Type
 
@@ -337,7 +337,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-codomain.md "undefined#/definitions/ControlAction/properties/codomain")
+*   defined in: [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")
 
 #### codomain Type
 
@@ -355,7 +355,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-controlaction-properties-parameters_used.md "undefined#/definitions/ControlAction/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")
 
 #### parameters\_used Type
 
@@ -366,14 +366,14 @@ unknown\[]
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Entity"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity"}
 ```
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                        |
-| :---------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------- |
-| [name](#name-1)   | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-name.md "undefined#/definitions/Entity/properties/name")   |
-| [notes](#notes)   | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-notes.md "undefined#/definitions/Entity/properties/notes") |
-| [state](#state-1) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-state.md "undefined#/definitions/Entity/properties/state") |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                               |
+| :---------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-1)   | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")   |
+| [notes](#notes)   | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes") |
+| [state](#state-1) | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state") |
 
 ### name
 
@@ -387,7 +387,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-name.md "undefined#/definitions/Entity/properties/name")
+*   defined in: [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")
 
 #### name Type
 
@@ -405,7 +405,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-notes.md "undefined#/definitions/Entity/properties/notes")
+*   defined in: [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")
 
 #### notes Type
 
@@ -423,7 +423,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-state.md "undefined#/definitions/Entity/properties/state")
+*   defined in: [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state")
 
 #### state Type
 
@@ -434,18 +434,18 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Mechanism"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism"}
 ```
 
-| Property                               | Type     | Required | Nullable       | Defined by                                                                                                                                  |
-| :------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| [name](#name-2)                        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-name.md "undefined#/definitions/Mechanism/properties/name")                       |
-| [description](#description-1)          | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-description.md "undefined#/definitions/Mechanism/properties/description")         |
-| [constraints](#constraints-1)          | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-constraints.md "undefined#/definitions/Mechanism/properties/constraints")         |
-| [logic](#logic)                        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-logic.md "undefined#/definitions/Mechanism/properties/logic")                     |
-| [domain](#domain)                      | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-domain.md "undefined#/definitions/Mechanism/properties/domain")                   |
-| [parameters\_used](#parameters_used-1) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-parameters_used.md "undefined#/definitions/Mechanism/properties/parameters_used") |
-| [updates](#updates)                    | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-updates.md "undefined#/definitions/Mechanism/properties/updates")                 |
+| Property                               | Type     | Required | Nullable       | Defined by                                                                                                                                                                         |
+| :------------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-2)                        | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")                       |
+| [description](#description-1)          | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")         |
+| [constraints](#constraints-1)          | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")         |
+| [logic](#logic)                        | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")                     |
+| [domain](#domain)                      | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
+| [parameters\_used](#parameters_used-1) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
+| [updates](#updates)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
 
 ### name
 
@@ -459,7 +459,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-name.md "undefined#/definitions/Mechanism/properties/name")
+*   defined in: [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")
 
 #### name Type
 
@@ -477,7 +477,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-description.md "undefined#/definitions/Mechanism/properties/description")
+*   defined in: [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")
 
 #### description Type
 
@@ -495,7 +495,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-constraints.md "undefined#/definitions/Mechanism/properties/constraints")
+*   defined in: [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")
 
 #### constraints Type
 
@@ -513,7 +513,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-logic.md "undefined#/definitions/Mechanism/properties/logic")
+*   defined in: [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")
 
 #### logic Type
 
@@ -531,7 +531,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-domain.md "undefined#/definitions/Mechanism/properties/domain")
+*   defined in: [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")
 
 #### domain Type
 
@@ -549,7 +549,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-parameters_used.md "undefined#/definitions/Mechanism/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used")
 
 #### parameters\_used Type
 
@@ -567,7 +567,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-updates.md "undefined#/definitions/Mechanism/properties/updates")
+*   defined in: [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")
 
 #### updates Type
 
@@ -578,14 +578,14 @@ unknown\[]
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Parameter"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter"}
 ```
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                        |
-| :-------------------------- | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-3)             | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-name.md "undefined#/definitions/Parameter/properties/name")             |
-| [notes](#notes-1)           | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-notes.md "undefined#/definitions/Parameter/properties/notes")           |
-| [parameters](#parameters-1) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-parameters.md "undefined#/definitions/Parameter/properties/parameters") |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                               |
+| :-------------------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-3)             | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")             |
+| [notes](#notes-1)           | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")           |
+| [parameters](#parameters-1) | `array`  | Required | cannot be null | [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters") |
 
 ### name
 
@@ -599,7 +599,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-name.md "undefined#/definitions/Parameter/properties/name")
+*   defined in: [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")
 
 #### name Type
 
@@ -617,7 +617,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-notes.md "undefined#/definitions/Parameter/properties/notes")
+*   defined in: [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")
 
 #### notes Type
 
@@ -635,7 +635,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-parameters.md "undefined#/definitions/Parameter/properties/parameters")
+*   defined in: [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters")
 
 #### parameters Type
 
@@ -646,17 +646,17 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/ParameterElement"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement"}
 ```
 
-| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                |
-| :----------------------------------- | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [variable\_type](#variable_type)     | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameterelement-properties-variable_type.md "undefined#/definitions/ParameterElement/properties/variable_type")     |
-| [name](#name-4)                      | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameterelement-properties-name.md "undefined#/definitions/ParameterElement/properties/name")                       |
-| [description](#description-2)        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameterelement-properties-description.md "undefined#/definitions/ParameterElement/properties/description")         |
-| [symbol](#symbol)                    | `string` | Required | can be null    | [Untitled schema](schema-definitions-parameterelement-properties-symbol.md "undefined#/definitions/ParameterElement/properties/symbol")                   |
-| [domain](#domain-1)                  | `string` | Required | can be null    | [Untitled schema](schema-definitions-parameterelement-properties-domain.md "undefined#/definitions/ParameterElement/properties/domain")                   |
-| [parameter\_class](#parameter_class) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameterelement-properties-parameter_class.md "undefined#/definitions/ParameterElement/properties/parameter_class") |
+| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
+| :----------------------------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [variable\_type](#variable_type)     | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")     |
+| [name](#name-4)                      | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")                       |
+| [description](#description-2)        | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")         |
+| [symbol](#symbol)                    | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")                   |
+| [domain](#domain-1)                  | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")                   |
+| [parameter\_class](#parameter_class) | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class") |
 
 ### variable\_type
 
@@ -670,7 +670,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-variable_type.md "undefined#/definitions/ParameterElement/properties/variable_type")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")
 
 #### variable\_type Type
 
@@ -688,7 +688,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-name.md "undefined#/definitions/ParameterElement/properties/name")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")
 
 #### name Type
 
@@ -706,7 +706,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-description.md "undefined#/definitions/ParameterElement/properties/description")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")
 
 #### description Type
 
@@ -724,7 +724,7 @@ Reference this group by using
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-symbol.md "undefined#/definitions/ParameterElement/properties/symbol")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")
 
 #### symbol Type
 
@@ -742,7 +742,7 @@ Reference this group by using
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-domain.md "undefined#/definitions/ParameterElement/properties/domain")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")
 
 #### domain Type
 
@@ -760,7 +760,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameterelement-properties-parameter_class.md "undefined#/definitions/ParameterElement/properties/parameter_class")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class")
 
 #### parameter\_class Type
 
@@ -771,18 +771,18 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Policy"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy"}
 ```
 
-| Property                               | Type     | Required | Nullable       | Defined by                                                                                                                            |
-| :------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| [name](#name-5)                        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-name.md "undefined#/definitions/Policy/properties/name")                       |
-| [description](#description-3)          | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-description.md "undefined#/definitions/Policy/properties/description")         |
-| [constraints](#constraints-2)          | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-constraints.md "undefined#/definitions/Policy/properties/constraints")         |
-| [policy\_options](#policy_options)     | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-policy_options.md "undefined#/definitions/Policy/properties/policy_options")   |
-| [domain](#domain-2)                    | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-domain.md "undefined#/definitions/Policy/properties/domain")                   |
-| [codomain](#codomain-1)                | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-codomain.md "undefined#/definitions/Policy/properties/codomain")               |
-| [parameters\_used](#parameters_used-2) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-parameters_used.md "undefined#/definitions/Policy/properties/parameters_used") |
+| Property                               | Type     | Required | Nullable       | Defined by                                                                                                                                                                   |
+| :------------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-5)                        | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")                       |
+| [description](#description-3)          | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")         |
+| [constraints](#constraints-2)          | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")         |
+| [policy\_options](#policy_options)     | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")   |
+| [domain](#domain-2)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")                   |
+| [codomain](#codomain-1)                | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")               |
+| [parameters\_used](#parameters_used-2) | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used") |
 
 ### name
 
@@ -796,7 +796,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-name.md "undefined#/definitions/Policy/properties/name")
+*   defined in: [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")
 
 #### name Type
 
@@ -814,7 +814,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-description.md "undefined#/definitions/Policy/properties/description")
+*   defined in: [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")
 
 #### description Type
 
@@ -832,7 +832,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-constraints.md "undefined#/definitions/Policy/properties/constraints")
+*   defined in: [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")
 
 #### constraints Type
 
@@ -850,7 +850,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-policy_options.md "undefined#/definitions/Policy/properties/policy_options")
+*   defined in: [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")
 
 #### policy\_options Type
 
@@ -868,7 +868,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-domain.md "undefined#/definitions/Policy/properties/domain")
+*   defined in: [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")
 
 #### domain Type
 
@@ -886,7 +886,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-codomain.md "undefined#/definitions/Policy/properties/codomain")
+*   defined in: [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")
 
 #### codomain Type
 
@@ -904,7 +904,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-parameters_used.md "undefined#/definitions/Policy/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used")
 
 #### parameters\_used Type
 
@@ -915,14 +915,14 @@ unknown\[]
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/PolicyOption"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption"}
 ```
 
-| Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                |
-| :---------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-6)               | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-name.md "undefined#/definitions/PolicyOption/properties/name")               |
-| [description](#description-4) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-description.md "undefined#/definitions/PolicyOption/properties/description") |
-| [logic](#logic-1)             | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-logic.md "undefined#/definitions/PolicyOption/properties/logic")             |
+| Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :---------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-6)               | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")               |
+| [description](#description-4) | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description") |
+| [logic](#logic-1)             | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")             |
 
 ### name
 
@@ -936,7 +936,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-name.md "undefined#/definitions/PolicyOption/properties/name")
+*   defined in: [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")
 
 #### name Type
 
@@ -954,7 +954,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-description.md "undefined#/definitions/PolicyOption/properties/description")
+*   defined in: [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description")
 
 #### description Type
 
@@ -972,7 +972,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-logic.md "undefined#/definitions/PolicyOption/properties/logic")
+*   defined in: [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")
 
 #### logic Type
 
@@ -983,13 +983,13 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Space"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space"}
 ```
 
-| Property          | Type     | Required | Nullable       | Defined by                                                                                                    |
-| :---------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------ |
-| [name](#name-7)   | `string` | Required | cannot be null | [Untitled schema](schema-definitions-space-properties-name.md "undefined#/definitions/Space/properties/name") |
-| [schema](#schema) | `object` | Required | cannot be null | [Untitled schema](schema-definitions-schema.md "undefined#/definitions/Space/properties/schema")              |
+| Property          | Type     | Required | Nullable       | Defined by                                                                                                                                           |
+| :---------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-7)   | `string` | Required | cannot be null | [MSML](schema-definitions-space-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/name") |
+| [schema](#schema) | `object` | Required | cannot be null | [MSML](schema-definitions-schema.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/schema")              |
 
 ### name
 
@@ -1003,7 +1003,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-space-properties-name.md "undefined#/definitions/Space/properties/name")
+*   defined in: [MSML](schema-definitions-space-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/name")
 
 #### name Type
 
@@ -1021,7 +1021,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-schema.md "undefined#/definitions/Space/properties/schema")
+*   defined in: [MSML](schema-definitions-schema.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Space/properties/schema")
 
 #### schema Type
 
@@ -1032,7 +1032,7 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Schema"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Schema"}
 ```
 
 | Property              | Type | Required | Nullable    | Defined by |
@@ -1048,14 +1048,14 @@ Additional properties are allowed and do not have to follow a specific schema
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/State"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State"}
 ```
 
-| Property                | Type     | Required | Nullable       | Defined by                                                                                                              |
-| :---------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-8)         | `string` | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-name.md "undefined#/definitions/State/properties/name")           |
-| [notes](#notes-2)       | `string` | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-notes.md "undefined#/definitions/State/properties/notes")         |
-| [variables](#variables) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-variables.md "undefined#/definitions/State/properties/variables") |
+| Property                | Type     | Required | Nullable       | Defined by                                                                                                                                                     |
+| :---------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-8)         | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")           |
+| [notes](#notes-2)       | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")         |
+| [variables](#variables) | `array`  | Required | cannot be null | [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables") |
 
 ### name
 
@@ -1069,7 +1069,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-name.md "undefined#/definitions/State/properties/name")
+*   defined in: [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")
 
 #### name Type
 
@@ -1087,7 +1087,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-notes.md "undefined#/definitions/State/properties/notes")
+*   defined in: [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")
 
 #### notes Type
 
@@ -1105,7 +1105,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-variables.md "undefined#/definitions/State/properties/variables")
+*   defined in: [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables")
 
 #### variables Type
 
@@ -1116,16 +1116,16 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Variable"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable"}
 ```
 
-| Property                      | Type          | Required | Nullable       | Defined by                                                                                                                        |
-| :---------------------------- | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)                 | Not specified | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-type.md "undefined#/definitions/Variable/properties/type")               |
-| [name](#name-9)               | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-name.md "undefined#/definitions/Variable/properties/name")               |
-| [description](#description-5) | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-description.md "undefined#/definitions/Variable/properties/description") |
-| [symbol](#symbol-1)           | `string`      | Required | can be null    | [Untitled schema](schema-definitions-variable-properties-symbol.md "undefined#/definitions/Variable/properties/symbol")           |
-| [domain](#domain-3)           | `string`      | Required | can be null    | [Untitled schema](schema-definitions-variable-properties-domain.md "undefined#/definitions/Variable/properties/domain")           |
+| Property                      | Type          | Required | Nullable       | Defined by                                                                                                                                                               |
+| :---------------------------- | :------------ | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type)                 | Not specified | Required | cannot be null | [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")               |
+| [name](#name-9)               | `string`      | Required | cannot be null | [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")               |
+| [description](#description-5) | `string`      | Required | cannot be null | [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description") |
+| [symbol](#symbol-1)           | `string`      | Required | can be null    | [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")           |
+| [domain](#domain-3)           | `string`      | Required | can be null    | [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")           |
 
 ### type
 
@@ -1139,7 +1139,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-type.md "undefined#/definitions/Variable/properties/type")
+*   defined in: [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")
 
 #### type Type
 
@@ -1157,7 +1157,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-name.md "undefined#/definitions/Variable/properties/name")
+*   defined in: [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")
 
 #### name Type
 
@@ -1175,7 +1175,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-description.md "undefined#/definitions/Variable/properties/description")
+*   defined in: [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description")
 
 #### description Type
 
@@ -1193,7 +1193,7 @@ unknown
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-symbol.md "undefined#/definitions/Variable/properties/symbol")
+*   defined in: [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")
 
 #### symbol Type
 
@@ -1211,7 +1211,7 @@ unknown
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-domain.md "undefined#/definitions/Variable/properties/domain")
+*   defined in: [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")
 
 #### domain Type
 
@@ -1222,14 +1222,14 @@ unknown
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Type"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type"}
 ```
 
-| Property          | Type          | Required | Nullable       | Defined by                                                                                                    |
-| :---------------- | :------------ | :------- | :------------- | :------------------------------------------------------------------------------------------------------------ |
-| [name](#name-10)  | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-type-properties-name.md "undefined#/definitions/Type/properties/name")   |
-| [type](#type-1)   | Not specified | Required | cannot be null | [Untitled schema](schema-definitions-type-properties-type.md "undefined#/definitions/Type/properties/type")   |
-| [notes](#notes-3) | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-type-properties-notes.md "undefined#/definitions/Type/properties/notes") |
+| Property          | Type          | Required | Nullable       | Defined by                                                                                                                                           |
+| :---------------- | :------------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-10)  | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")   |
+| [type](#type-1)   | Not specified | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")   |
+| [notes](#notes-3) | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes") |
 
 ### name
 
@@ -1243,7 +1243,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-type-properties-name.md "undefined#/definitions/Type/properties/name")
+*   defined in: [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")
 
 #### name Type
 
@@ -1261,7 +1261,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-type-properties-type.md "undefined#/definitions/Type/properties/type")
+*   defined in: [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")
 
 #### type Type
 
@@ -1279,7 +1279,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-type-properties-notes.md "undefined#/definitions/Type/properties/notes")
+*   defined in: [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes")
 
 #### notes Type
 
@@ -1290,19 +1290,19 @@ unknown
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Wiring"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring"}
 ```
 
-| Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                |
-| :---------------------------------------- | :-------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-11)                          | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-name.md "undefined#/definitions/Wiring/properties/name")                           |
-| [components](#components)                 | `array`   | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-components.md "undefined#/definitions/Wiring/properties/components")               |
-| [description](#description-6)             | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-description.md "undefined#/definitions/Wiring/properties/description")             |
-| [constraints](#constraints-3)             | `array`   | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-constraints.md "undefined#/definitions/Wiring/properties/constraints")             |
-| [type](#type-2)                           | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-typeenum.md "undefined#/definitions/Wiring/properties/type")                       |
-| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-mermaid_show_name.md "undefined#/definitions/Wiring/properties/mermaid_show_name") |
-| [loop](#loop)                             | `boolean` | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-loop.md "undefined#/definitions/Wiring/properties/loop")                           |
-| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-optional_indices.md "undefined#/definitions/Wiring/properties/optional_indices")   |
+| Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :---------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-11)                          | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
+| [components](#components)                 | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")               |
+| [description](#description-6)             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
+| [constraints](#constraints-3)             | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")             |
+| [type](#type-2)                           | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
+| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
+| [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
+| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
 
 ### name
 
@@ -1316,7 +1316,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-name.md "undefined#/definitions/Wiring/properties/name")
+*   defined in: [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")
 
 #### name Type
 
@@ -1334,7 +1334,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-components.md "undefined#/definitions/Wiring/properties/components")
+*   defined in: [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")
 
 #### components Type
 
@@ -1352,7 +1352,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-description.md "undefined#/definitions/Wiring/properties/description")
+*   defined in: [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")
 
 #### description Type
 
@@ -1370,7 +1370,7 @@ Reference this group by using
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-constraints.md "undefined#/definitions/Wiring/properties/constraints")
+*   defined in: [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")
 
 #### constraints Type
 
@@ -1388,7 +1388,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-typeenum.md "undefined#/definitions/Wiring/properties/type")
+*   defined in: [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")
 
 #### type Type
 
@@ -1415,7 +1415,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-mermaid_show_name.md "undefined#/definitions/Wiring/properties/mermaid_show_name")
+*   defined in: [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name")
 
 #### mermaid\_show\_name Type
 
@@ -1433,7 +1433,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-loop.md "undefined#/definitions/Wiring/properties/loop")
+*   defined in: [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")
 
 #### loop Type
 
@@ -1451,7 +1451,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-optional_indices.md "undefined#/definitions/Wiring/properties/optional_indices")
+*   defined in: [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")
 
 #### optional\_indices Type
 
@@ -1462,7 +1462,7 @@ unknown\[]
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/Update"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Update"}
 ```
 
 | Property | Type | Required | Nullable | Defined by |
@@ -1473,7 +1473,7 @@ Reference this group by using
 Reference this group by using
 
 ```json
-{"$ref":"undefined#/definitions/TypeEnum"}
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/TypeEnum"}
 ```
 
 | Property | Type | Required | Nullable | Defined by |

@@ -1,7 +1,7 @@
 # Variable Schema
 
 ```txt
-undefined#/definitions/Variable
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable
 ```
 
 
@@ -16,13 +16,13 @@ undefined#/definitions/Variable
 
 # Variable Properties
 
-| Property                    | Type          | Required | Nullable       | Defined by                                                                                                                        |
-| :-------------------------- | :------------ | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)               | Not specified | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-type.md "undefined#/definitions/Variable/properties/type")               |
-| [name](#name)               | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-name.md "undefined#/definitions/Variable/properties/name")               |
-| [description](#description) | `string`      | Required | cannot be null | [Untitled schema](schema-definitions-variable-properties-description.md "undefined#/definitions/Variable/properties/description") |
-| [symbol](#symbol)           | `string`      | Required | can be null    | [Untitled schema](schema-definitions-variable-properties-symbol.md "undefined#/definitions/Variable/properties/symbol")           |
-| [domain](#domain)           | `string`      | Required | can be null    | [Untitled schema](schema-definitions-variable-properties-domain.md "undefined#/definitions/Variable/properties/domain")           |
+| Property                    | Type          | Required | Nullable       | Defined by                                                                                                                                                               |
+| :-------------------------- | :------------ | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type)               | Not specified | Required | cannot be null | [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")               |
+| [name](#name)               | `string`      | Required | cannot be null | [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")               |
+| [description](#description) | `string`      | Required | cannot be null | [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description") |
+| [symbol](#symbol)           | `string`      | Required | can be null    | [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")           |
+| [domain](#domain)           | `string`      | Required | can be null    | [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")           |
 
 ## type
 
@@ -36,7 +36,7 @@ undefined#/definitions/Variable
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-type.md "undefined#/definitions/Variable/properties/type")
+*   defined in: [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")
 
 ### type Type
 
@@ -54,7 +54,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-name.md "undefined#/definitions/Variable/properties/name")
+*   defined in: [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")
 
 ### name Type
 
@@ -72,7 +72,7 @@ unknown
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-description.md "undefined#/definitions/Variable/properties/description")
+*   defined in: [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description")
 
 ### description Type
 
@@ -90,7 +90,7 @@ unknown
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-symbol.md "undefined#/definitions/Variable/properties/symbol")
+*   defined in: [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")
 
 ### symbol Type
 
@@ -108,7 +108,7 @@ unknown
 
 *   can be null
 
-*   defined in: [Untitled schema](schema-definitions-variable-properties-domain.md "undefined#/definitions/Variable/properties/domain")
+*   defined in: [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")
 
 ### domain Type
 

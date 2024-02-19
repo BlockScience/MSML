@@ -1,7 +1,7 @@
 # Entity Schema
 
 ```txt
-undefined#/definitions/Entity
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
 ```
 
 
@@ -16,11 +16,11 @@ undefined#/definitions/Entity
 
 # Entity Properties
 
-| Property        | Type     | Required | Nullable       | Defined by                                                                                                        |
-| :-------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------- |
-| [name](#name)   | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-name.md "undefined#/definitions/Entity/properties/name")   |
-| [notes](#notes) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-notes.md "undefined#/definitions/Entity/properties/notes") |
-| [state](#state) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-entity-properties-state.md "undefined#/definitions/Entity/properties/state") |
+| Property        | Type     | Required | Nullable       | Defined by                                                                                                                                               |
+| :-------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)   | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")   |
+| [notes](#notes) | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes") |
+| [state](#state) | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state") |
 
 ## name
 
@@ -34,7 +34,7 @@ undefined#/definitions/Entity
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-name.md "undefined#/definitions/Entity/properties/name")
+*   defined in: [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ undefined#/definitions/Entity
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-notes.md "undefined#/definitions/Entity/properties/notes")
+*   defined in: [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")
 
 ### notes Type
 
@@ -70,7 +70,7 @@ undefined#/definitions/Entity
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-entity-properties-state.md "undefined#/definitions/Entity/properties/state")
+*   defined in: [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state")
 
 ### state Type
 

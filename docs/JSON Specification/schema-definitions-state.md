@@ -1,7 +1,7 @@
 # State Schema
 
 ```txt
-undefined#/definitions/State
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State
 ```
 
 
@@ -16,11 +16,11 @@ undefined#/definitions/State
 
 # State Properties
 
-| Property                | Type     | Required | Nullable       | Defined by                                                                                                              |
-| :---------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)           | `string` | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-name.md "undefined#/definitions/State/properties/name")           |
-| [notes](#notes)         | `string` | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-notes.md "undefined#/definitions/State/properties/notes")         |
-| [variables](#variables) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-state-properties-variables.md "undefined#/definitions/State/properties/variables") |
+| Property                | Type     | Required | Nullable       | Defined by                                                                                                                                                     |
+| :---------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)           | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")           |
+| [notes](#notes)         | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")         |
+| [variables](#variables) | `array`  | Required | cannot be null | [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables") |
 
 ## name
 
@@ -34,7 +34,7 @@ undefined#/definitions/State
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-name.md "undefined#/definitions/State/properties/name")
+*   defined in: [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ undefined#/definitions/State
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-notes.md "undefined#/definitions/State/properties/notes")
+*   defined in: [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")
 
 ### notes Type
 
@@ -70,7 +70,7 @@ undefined#/definitions/State
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-state-properties-variables.md "undefined#/definitions/State/properties/variables")
+*   defined in: [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables")
 
 ### variables Type
 

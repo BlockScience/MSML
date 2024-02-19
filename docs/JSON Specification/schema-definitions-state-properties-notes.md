@@ -1,7 +1,7 @@
-# Untitled string in undefined Schema
+# Untitled string in MSML Schema
 
 ```txt
-undefined#/definitions/State/properties/notes
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes
 ```
 
 

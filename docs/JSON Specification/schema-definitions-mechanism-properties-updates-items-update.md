@@ -1,7 +1,7 @@
 # Update Schema
 
 ```txt
-undefined#/definitions/Mechanism/properties/updates/items/items
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates/items/items
 ```
 
 

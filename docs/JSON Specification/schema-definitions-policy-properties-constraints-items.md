@@ -1,7 +1,7 @@
-# Untitled schema Schema
+# Untitled undefined type in MSML Schema
 
 ```txt
-undefined#/definitions/Policy/properties/constraints/items
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints/items
 ```
 
 

@@ -1,7 +1,7 @@
 # Wiring Schema
 
 ```txt
-undefined#/definitions/Wiring
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring
 ```
 
 
@@ -16,16 +16,16 @@ undefined#/definitions/Wiring
 
 # Wiring Properties
 
-| Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                |
-| :---------------------------------------- | :-------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                             | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-name.md "undefined#/definitions/Wiring/properties/name")                           |
-| [components](#components)                 | `array`   | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-components.md "undefined#/definitions/Wiring/properties/components")               |
-| [description](#description)               | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-description.md "undefined#/definitions/Wiring/properties/description")             |
-| [constraints](#constraints)               | `array`   | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-constraints.md "undefined#/definitions/Wiring/properties/constraints")             |
-| [type](#type)                             | `string`  | Required | cannot be null | [Untitled schema](schema-definitions-wiring-properties-typeenum.md "undefined#/definitions/Wiring/properties/type")                       |
-| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-mermaid_show_name.md "undefined#/definitions/Wiring/properties/mermaid_show_name") |
-| [loop](#loop)                             | `boolean` | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-loop.md "undefined#/definitions/Wiring/properties/loop")                           |
-| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [Untitled schema](schema-definitions-wiring-properties-optional_indices.md "undefined#/definitions/Wiring/properties/optional_indices")   |
+| Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :---------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
+| [components](#components)                 | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")               |
+| [description](#description)               | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
+| [constraints](#constraints)               | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")             |
+| [type](#type)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
+| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
+| [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
+| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
 
 ## name
 
@@ -39,7 +39,7 @@ undefined#/definitions/Wiring
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-name.md "undefined#/definitions/Wiring/properties/name")
+*   defined in: [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")
 
 ### name Type
 
@@ -57,7 +57,7 @@ undefined#/definitions/Wiring
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-components.md "undefined#/definitions/Wiring/properties/components")
+*   defined in: [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")
 
 ### components Type
 
@@ -75,7 +75,7 @@ undefined#/definitions/Wiring
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-description.md "undefined#/definitions/Wiring/properties/description")
+*   defined in: [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")
 
 ### description Type
 
@@ -93,7 +93,7 @@ undefined#/definitions/Wiring
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-constraints.md "undefined#/definitions/Wiring/properties/constraints")
+*   defined in: [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")
 
 ### constraints Type
 
@@ -111,7 +111,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-typeenum.md "undefined#/definitions/Wiring/properties/type")
+*   defined in: [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")
 
 ### type Type
 
@@ -138,7 +138,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-mermaid_show_name.md "undefined#/definitions/Wiring/properties/mermaid_show_name")
+*   defined in: [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name")
 
 ### mermaid\_show\_name Type
 
@@ -156,7 +156,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-loop.md "undefined#/definitions/Wiring/properties/loop")
+*   defined in: [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")
 
 ### loop Type
 
@@ -174,7 +174,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-wiring-properties-optional_indices.md "undefined#/definitions/Wiring/properties/optional_indices")
+*   defined in: [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")
 
 ### optional\_indices Type
 

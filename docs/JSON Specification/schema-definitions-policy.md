@@ -1,7 +1,7 @@
 # Policy Schema
 
 ```txt
-undefined#/definitions/Policy
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy
 ```
 
 
@@ -16,15 +16,15 @@ undefined#/definitions/Policy
 
 # Policy Properties
 
-| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                            |
-| :----------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| [name](#name)                        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-name.md "undefined#/definitions/Policy/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-description.md "undefined#/definitions/Policy/properties/description")         |
-| [constraints](#constraints)          | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-constraints.md "undefined#/definitions/Policy/properties/constraints")         |
-| [policy\_options](#policy_options)   | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-policy_options.md "undefined#/definitions/Policy/properties/policy_options")   |
-| [domain](#domain)                    | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-domain.md "undefined#/definitions/Policy/properties/domain")                   |
-| [codomain](#codomain)                | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-codomain.md "undefined#/definitions/Policy/properties/codomain")               |
-| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-policy-properties-parameters_used.md "undefined#/definitions/Policy/properties/parameters_used") |
+| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                   |
+| :----------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")         |
+| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")         |
+| [policy\_options](#policy_options)   | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")   |
+| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")                   |
+| [codomain](#codomain)                | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")               |
+| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used") |
 
 ## name
 
@@ -38,7 +38,7 @@ undefined#/definitions/Policy
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-name.md "undefined#/definitions/Policy/properties/name")
+*   defined in: [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")
 
 ### name Type
 
@@ -56,7 +56,7 @@ undefined#/definitions/Policy
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-description.md "undefined#/definitions/Policy/properties/description")
+*   defined in: [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")
 
 ### description Type
 
@@ -74,7 +74,7 @@ undefined#/definitions/Policy
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-constraints.md "undefined#/definitions/Policy/properties/constraints")
+*   defined in: [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")
 
 ### constraints Type
 
@@ -92,7 +92,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-policy_options.md "undefined#/definitions/Policy/properties/policy_options")
+*   defined in: [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")
 
 ### policy\_options Type
 
@@ -110,7 +110,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-domain.md "undefined#/definitions/Policy/properties/domain")
+*   defined in: [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")
 
 ### domain Type
 
@@ -128,7 +128,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-codomain.md "undefined#/definitions/Policy/properties/codomain")
+*   defined in: [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")
 
 ### codomain Type
 
@@ -146,7 +146,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policy-properties-parameters_used.md "undefined#/definitions/Policy/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used")
 
 ### parameters\_used Type
 

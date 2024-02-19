@@ -1,7 +1,7 @@
-# Untitled string in undefined Schema
+# Untitled string in MSML Schema
 
 ```txt
-undefined#/definitions/Wiring/properties/name
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name
 ```
 
 
