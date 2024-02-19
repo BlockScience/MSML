@@ -1,7 +1,7 @@
-# Untitled string in undefined Schema
+# Untitled string in MSML Schema
 
 ```txt
-undefined#/definitions/ParameterElement/properties/variable_type
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type
 ```
 
 

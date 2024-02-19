@@ -1,7 +1,7 @@
-# Untitled string in undefined Schema
+# Untitled string in MSML Schema
 
 ```txt
-undefined#/definitions/ControlAction/properties/codomain/items
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain/items
 ```
 
 

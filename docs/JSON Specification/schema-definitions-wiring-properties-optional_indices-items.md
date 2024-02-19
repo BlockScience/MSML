@@ -1,7 +1,7 @@
-# Untitled integer in undefined Schema
+# Untitled integer in MSML Schema
 
 ```txt
-undefined#/definitions/Wiring/properties/optional_indices/items
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices/items
 ```
 
 

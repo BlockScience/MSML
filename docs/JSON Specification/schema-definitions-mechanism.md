@@ -1,7 +1,7 @@
 # Mechanism Schema
 
 ```txt
-undefined#/definitions/Mechanism
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism
 ```
 
 
@@ -16,15 +16,15 @@ undefined#/definitions/Mechanism
 
 # Mechanism Properties
 
-| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                  |
-| :----------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| [name](#name)                        | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-name.md "undefined#/definitions/Mechanism/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-description.md "undefined#/definitions/Mechanism/properties/description")         |
-| [constraints](#constraints)          | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-constraints.md "undefined#/definitions/Mechanism/properties/constraints")         |
-| [logic](#logic)                      | `string` | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-logic.md "undefined#/definitions/Mechanism/properties/logic")                     |
-| [domain](#domain)                    | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-domain.md "undefined#/definitions/Mechanism/properties/domain")                   |
-| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-parameters_used.md "undefined#/definitions/Mechanism/properties/parameters_used") |
-| [updates](#updates)                  | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-mechanism-properties-updates.md "undefined#/definitions/Mechanism/properties/updates")                 |
+| Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                         |
+| :----------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")         |
+| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")         |
+| [logic](#logic)                      | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")                     |
+| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
+| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
+| [updates](#updates)                  | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
 
 ## name
 
@@ -38,7 +38,7 @@ undefined#/definitions/Mechanism
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-name.md "undefined#/definitions/Mechanism/properties/name")
+*   defined in: [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")
 
 ### name Type
 
@@ -56,7 +56,7 @@ undefined#/definitions/Mechanism
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-description.md "undefined#/definitions/Mechanism/properties/description")
+*   defined in: [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")
 
 ### description Type
 
@@ -74,7 +74,7 @@ undefined#/definitions/Mechanism
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-constraints.md "undefined#/definitions/Mechanism/properties/constraints")
+*   defined in: [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")
 
 ### constraints Type
 
@@ -92,7 +92,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-logic.md "undefined#/definitions/Mechanism/properties/logic")
+*   defined in: [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")
 
 ### logic Type
 
@@ -110,7 +110,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-domain.md "undefined#/definitions/Mechanism/properties/domain")
+*   defined in: [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")
 
 ### domain Type
 
@@ -128,7 +128,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-parameters_used.md "undefined#/definitions/Mechanism/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used")
 
 ### parameters\_used Type
 
@@ -146,7 +146,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-mechanism-properties-updates.md "undefined#/definitions/Mechanism/properties/updates")
+*   defined in: [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")
 
 ### updates Type
 

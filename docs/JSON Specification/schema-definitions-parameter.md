@@ -1,7 +1,7 @@
 # Parameter Schema
 
 ```txt
-undefined#/definitions/Parameter
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter
 ```
 
 
@@ -16,11 +16,11 @@ undefined#/definitions/Parameter
 
 # Parameter Properties
 
-| Property                  | Type     | Required | Nullable       | Defined by                                                                                                                        |
-| :------------------------ | :------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)             | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-name.md "undefined#/definitions/Parameter/properties/name")             |
-| [notes](#notes)           | `string` | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-notes.md "undefined#/definitions/Parameter/properties/notes")           |
-| [parameters](#parameters) | `array`  | Required | cannot be null | [Untitled schema](schema-definitions-parameter-properties-parameters.md "undefined#/definitions/Parameter/properties/parameters") |
+| Property                  | Type     | Required | Nullable       | Defined by                                                                                                                                                               |
+| :------------------------ | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)             | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")             |
+| [notes](#notes)           | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")           |
+| [parameters](#parameters) | `array`  | Required | cannot be null | [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters") |
 
 ## name
 
@@ -34,7 +34,7 @@ undefined#/definitions/Parameter
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-name.md "undefined#/definitions/Parameter/properties/name")
+*   defined in: [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ undefined#/definitions/Parameter
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-notes.md "undefined#/definitions/Parameter/properties/notes")
+*   defined in: [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")
 
 ### notes Type
 
@@ -70,7 +70,7 @@ undefined#/definitions/Parameter
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-parameter-properties-parameters.md "undefined#/definitions/Parameter/properties/parameters")
+*   defined in: [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters")
 
 ### parameters Type
 

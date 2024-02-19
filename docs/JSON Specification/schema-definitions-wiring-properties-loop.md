@@ -1,7 +1,7 @@
-# Untitled boolean in undefined Schema
+# Untitled boolean in MSML Schema
 
 ```txt
-undefined#/definitions/Wiring/properties/loop
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop
 ```
 
 

@@ -1,7 +1,7 @@
-# Untitled array in undefined Schema
+# Untitled array in MSML Schema
 
 ```txt
-undefined#/definitions/Mechanism/properties/constraints
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints
 ```
 
 

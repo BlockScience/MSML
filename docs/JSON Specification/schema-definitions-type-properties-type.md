@@ -1,7 +1,7 @@
-# Untitled schema Schema
+# Untitled undefined type in MSML Schema
 
 ```txt
-undefined#/definitions/Type/properties/type
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type
 ```
 
 

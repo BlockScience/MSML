@@ -1,6 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
     "$ref": "./schema.schema.json/#/definitions/MSMLSpec",
+    "title": "MSML",
+    "$id": "https://github.com/BlockScience/MSML/src/schema.schema.json",
     "definitions": {
         "MSMLSpec": {
             "type": "object",
@@ -82,7 +84,8 @@
                 "Types",
                 "Wiring"
             ],
-            "title": "MSMLSpec"
+            "title": "MSMLSpec",
+            "description": "A JSON schema that is used in the mathematical specification mapping library to create the underlying MSML object."
         },
         "ControlAction": {
             "type": "object",

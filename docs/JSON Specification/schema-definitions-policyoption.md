@@ -1,7 +1,7 @@
 # PolicyOption Schema
 
 ```txt
-undefined#/definitions/PolicyOption
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption
 ```
 
 
@@ -16,11 +16,11 @@ undefined#/definitions/PolicyOption
 
 # PolicyOption Properties
 
-| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                |
-| :-------------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)               | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-name.md "undefined#/definitions/PolicyOption/properties/name")               |
-| [description](#description) | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-description.md "undefined#/definitions/PolicyOption/properties/description") |
-| [logic](#logic)             | `string` | Required | cannot be null | [Untitled schema](schema-definitions-policyoption-properties-logic.md "undefined#/definitions/PolicyOption/properties/logic")             |
+| Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")               |
+| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description") |
+| [logic](#logic)             | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")             |
 
 ## name
 
@@ -34,7 +34,7 @@ undefined#/definitions/PolicyOption
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-name.md "undefined#/definitions/PolicyOption/properties/name")
+*   defined in: [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ undefined#/definitions/PolicyOption
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-description.md "undefined#/definitions/PolicyOption/properties/description")
+*   defined in: [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description")
 
 ### description Type
 
@@ -70,7 +70,7 @@ undefined#/definitions/PolicyOption
 
 *   cannot be null
 
-*   defined in: [Untitled schema](schema-definitions-policyoption-properties-logic.md "undefined#/definitions/PolicyOption/properties/logic")
+*   defined in: [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")
 
 ### logic Type
 

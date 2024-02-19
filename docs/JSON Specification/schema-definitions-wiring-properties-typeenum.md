@@ -1,7 +1,7 @@
 # TypeEnum Schema
 
 ```txt
-undefined#/definitions/Wiring/properties/type
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type
 ```
 
 

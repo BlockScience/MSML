@@ -1,7 +1,7 @@
 # Schema Schema
 
 ```txt
-undefined#/definitions/Schema
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Schema
 ```
 
 

@@ -1,7 +1,7 @@
-# Untitled string in undefined Schema
+# Untitled string in MSML Schema
 
 ```txt
-undefined#/definitions/Policy/properties/parameters_used/items
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used/items
 ```
 
 
