@@ -13,7 +13,13 @@ dummy_policy = {
     "description": "Dummy Policy",
     "constraints": [],
     "policy_options": [dummy_policy_option],
-    "domain": ("Dummy Space 1",),
-    "codomain": ("Dummy Space 2",),
+    "domain": [
+        "Dummy Space 1",
+    ],
+    "codomain": [
+        "Dummy Space 2",
+    ],
     "parameters_used": ["dummy_parameter"],
 }
+
+dummy_policies = [dummy_policy]

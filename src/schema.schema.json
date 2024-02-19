@@ -1,0 +1,480 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "./schema.schema.json/#/definitions/MSMLSpec",
+    "title": "MSML",
+    "$id": "https://github.com/BlockScience/MSML/src/schema.schema.json",
+    "definitions": {
+        "MSMLSpec": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Policies": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Policy"
+                    }
+                },
+                "Spaces": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Space"
+                    }
+                },
+                "State": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/State"
+                    }
+                },
+                "Stateful Metrics": {
+                    "type": "array",
+                    "items": {}
+                },
+                "Parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Parameter"
+                    }
+                },
+                "Mechanisms": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Mechanism"
+                    }
+                },
+                "Entities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Entity"
+                    }
+                },
+                "Boundary Actions": {
+                    "type": "array",
+                    "items": {}
+                },
+                "Control Actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/ControlAction"
+                    }
+                },
+                "Wiring": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Wiring"
+                    }
+                },
+                "Types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Type"
+                    }
+                }
+            },
+            "required": [
+                "Boundary Actions",
+                "Control Actions",
+                "Entities",
+                "Mechanisms",
+                "Parameters",
+                "Policies",
+                "Spaces",
+                "State",
+                "Stateful Metrics",
+                "Types",
+                "Wiring"
+            ],
+            "title": "MSMLSpec",
+            "description": "A JSON schema that is used in the mathematical specification mapping library to create the underlying MSML object."
+        },
+        "ControlAction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {}
+                },
+                "control_action_options": {
+                    "type": "array",
+                    "items": {}
+                },
+                "codomain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parameters_used": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "codomain",
+                "constraints",
+                "control_action_options",
+                "description",
+                "name",
+                "parameters_used"
+            ],
+            "title": "ControlAction"
+        },
+        "Entity": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "metadata": {"type": "object"}
+            },
+            "required": [
+                "name",
+                "notes",
+                "state"
+            ],
+            "title": "Entity"
+        },
+        "Mechanism": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {}
+                },
+                "logic": {
+                    "type": "string"
+                },
+                "domain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parameters_used": {
+                    "type": "array",
+                    "items": {}
+                },
+                "updates": {
+                    "type": "array",
+                    "items": {
+                        "items": {
+                            "$ref": "./schema.schema.json/#/definitions/Update"
+                        }
+                    }
+                },
+                "metadata": {"type": "object"}
+            },
+            "required": [
+                "constraints",
+                "description",
+                "domain",
+                "logic",
+                "name",
+                "parameters_used",
+                "updates"
+            ],
+            "title": "Mechanism"
+        },
+        "Parameter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/ParameterElement"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "notes",
+                "parameters"
+            ],
+            "title": "Parameter"
+        },
+        "ParameterElement": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "variable_type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": ["string","null"]
+                },
+                "domain": {
+                    "type": ["string","null"]
+                },
+                "parameter_class": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "domain",
+                "name",
+                "parameter_class",
+                "symbol",
+                "variable_type"
+            ],
+            "title": "ParameterElement"
+        },
+        "Policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {}
+                },
+                "policy_options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/PolicyOption"
+                    }
+                },
+                "domain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "codomain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parameters_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "codomain",
+                "constraints",
+                "description",
+                "domain",
+                "name",
+                "parameters_used",
+                "policy_options"
+            ],
+            "title": "Policy"
+        },
+        "PolicyOption": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "logic": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "description",
+                "logic",
+                "name"
+            ],
+            "title": "PolicyOption"
+        },
+        "Space": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "schema": {
+                    "$ref": "./schema.schema.json/#/definitions/Schema"
+                }
+            },
+            "required": [
+                "name",
+                "schema"
+            ],
+            "title": "Space"
+        },
+        "Schema": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": [],
+            "title": "Schema"
+        },
+        "State": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "variables": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Variable"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "notes",
+                "variables"
+            ],
+            "title": "State"
+        },
+        "Variable": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": ["string", "null"]
+                },
+                "domain": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "description",
+                "domain",
+                "name",
+                "symbol",
+                "type"
+            ],
+            "title": "Variable"
+        },
+        "Type": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "metadata": {"type": "object"}
+            },
+            "required": [
+                "name",
+                "notes",
+                "type"
+            ],
+            "title": "Type"
+        },
+        "Wiring": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {}
+                },
+                "type": {
+                    "$ref": "./schema.schema.json/#/definitions/TypeEnum"
+                },
+                "mermaid_show_name": {
+                    "type": "boolean"
+                },
+                "loop": {
+                    "type": "boolean"
+                },
+                "optional_indices": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "required": [
+                "components",
+                "constraints",
+                "description",
+                "name",
+                "type"
+            ],
+            "title": "Wiring"
+        },
+        "Update": {
+            "title": "Update"
+        },
+        "TypeEnum": {
+            "type": "string",
+            "enum": [
+                "Parallel",
+                "Stack"
+            ],
+            "title": "TypeEnum"
+        }
+    }
+}

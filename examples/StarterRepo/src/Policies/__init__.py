@@ -1,4 +1,4 @@
-from .Dummy import dummy_policy
-policies = {
-    "Dummy Policy": dummy_policy
-}
+from .Dummy import dummy_policies
+
+policies = []
+policies.extend(dummy_policies)
