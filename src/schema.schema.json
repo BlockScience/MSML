@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$ref": "#/definitions/MSMLSpec",
+    "$ref": "./schema.schema.json/#/definitions/MSMLSpec",
     "definitions": {
         "MSMLSpec": {
             "type": "object",
@@ -9,19 +9,19 @@
                 "Policies": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Policy"
+                        "$ref": "./schema.schema.json/#/definitions/Policy"
                     }
                 },
                 "Spaces": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Space"
+                        "$ref": "./schema.schema.json/#/definitions/Space"
                     }
                 },
                 "State": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/State"
+                        "$ref": "./schema.schema.json/#/definitions/State"
                     }
                 },
                 "Stateful Metrics": {
@@ -31,19 +31,19 @@
                 "Parameters": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Parameter"
+                        "$ref": "./schema.schema.json/#/definitions/Parameter"
                     }
                 },
                 "Mechanisms": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Mechanism"
+                        "$ref": "./schema.schema.json/#/definitions/Mechanism"
                     }
                 },
                 "Entities": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Entity"
+                        "$ref": "./schema.schema.json/#/definitions/Entity"
                     }
                 },
                 "Boundary Actions": {
@@ -53,19 +53,19 @@
                 "Control Actions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/ControlAction"
+                        "$ref": "./schema.schema.json/#/definitions/ControlAction"
                     }
                 },
                 "Wiring": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Wiring"
+                        "$ref": "./schema.schema.json/#/definitions/Wiring"
                     }
                 },
                 "Types": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Type"
+                        "$ref": "./schema.schema.json/#/definitions/Type"
                     }
                 }
             },
@@ -175,7 +175,7 @@
                     "type": "array",
                     "items": {
                         "items": {
-                            "$ref": "#/definitions/Update"
+                            "$ref": "./schema.schema.json/#/definitions/Update"
                         }
                     }
                 }
@@ -204,7 +204,7 @@
                 "parameters": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/ParameterElement"
+                        "$ref": "./schema.schema.json/#/definitions/ParameterElement"
                     }
                 }
             },
@@ -265,7 +265,7 @@
                 "policy_options": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/PolicyOption"
+                        "$ref": "./schema.schema.json/#/definitions/PolicyOption"
                     }
                 },
                 "domain": {
@@ -327,7 +327,7 @@
                     "type": "string"
                 },
                 "schema": {
-                    "$ref": "#/definitions/Schema"
+                    "$ref": "./schema.schema.json/#/definitions/Schema"
                 }
             },
             "required": [
@@ -355,7 +355,7 @@
                 "variables": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Variable"
+                        "$ref": "./schema.schema.json/#/definitions/Variable"
                     }
                 }
             },
@@ -435,7 +435,7 @@
                     "items": {}
                 },
                 "type": {
-                    "$ref": "#/definitions/TypeEnum"
+                    "$ref": "./schema.schema.json/#/definitions/TypeEnum"
                 },
                 "mermaid_show_name": {
                     "type": "boolean"
