@@ -32,6 +32,12 @@
 
 *   [Type](./schema-definitions-type.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type`
 
+*   [Untitled object in MSML](./schema-definitions-mechanism-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata`
+
+*   [Untitled object in MSML](./schema-definitions-entity-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata`
+
+*   [Untitled object in MSML](./schema-definitions-type-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata`
+
 *   [Variable](./schema-definitions-variable.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable`
 
 *   [Wiring](./schema-definitions-wiring.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring`

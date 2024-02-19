@@ -138,7 +138,8 @@
                 },
                 "state": {
                     "type": "string"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "name",
@@ -181,7 +182,8 @@
                             "$ref": "./schema.schema.json/#/definitions/Update"
                         }
                     }
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "constraints",
@@ -408,7 +410,8 @@
                 },
                 "notes": {
                     "type": "string"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "name",

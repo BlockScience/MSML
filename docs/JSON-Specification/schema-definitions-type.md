@@ -16,11 +16,12 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type
 
 # Type Properties
 
-| Property        | Type          | Required | Nullable       | Defined by                                                                                                                                           |
-| :-------------- | :------------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)   | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")   |
-| [type](#type)   | Not specified | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")   |
-| [notes](#notes) | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes") |
+| Property              | Type          | Required | Nullable       | Defined by                                                                                                                                                 |
+| :-------------------- | :------------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name)         | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")         |
+| [type](#type)         | Not specified | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")         |
+| [notes](#notes)       | `string`      | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes")       |
+| [metadata](#metadata) | `object`      | Optional | cannot be null | [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata") |
 
 ## name
 
@@ -75,3 +76,21 @@ unknown
 ### notes Type
 
 `string`
+
+## metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-type-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata")
+
+### metadata Type
+
+`object` ([Details](schema-definitions-type-properties-metadata.md))
