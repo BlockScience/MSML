@@ -88,7 +88,14 @@ def load_wiring(ms, json):
             else:
                 hold.append(w)
         wiring = hold
-    assert len(wiring) == 0, "There are circular references"
+    if len(wiring) > 0:
+        names = [x["name"] for x in wiring]
+        for y in wiring:
+            for z in y["components"]:
+                assert (
+                    z in ms["Blocks"] or z in names
+                ), "{} is not defined in the spec".format(z)
+        assert len(wiring) == 0, "There are circular references"
     action_transmission_channels = filter_atc(action_transmission_channels)
 
     return action_transmission_channels
