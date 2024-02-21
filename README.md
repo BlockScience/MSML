@@ -30,6 +30,26 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ```
 
+## MSML in the Engineering Lifecycle
+
+The engineering lifecycle as defined and visualized in ["Block by Block: Managing Complexity with Model-Based Systems Engineering"
+](https://blog.block.science/block-by-block-managing-complexity-with-model-based-systems-engineering/) is depicted below.
+
+![Systems Engineering Diagram](SystemsEngineering.png)
+
+MSML can aid in all five of these phases in different ways.
+
+### Ideation and Conceptualization
+
+### Requirements and Design
+
+### Implementation, Integration, and Testing
+
+### Operations and Maintenance
+
+### Governance and Evolution
+
+
 ## Canonical Examples
 
 [Dummy/Starter Repository](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo)
