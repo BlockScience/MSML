@@ -41,7 +41,11 @@ MSML can aid in all five of these phases in different ways.
 
 ### Ideation and Conceptualization
 
+During ideation phases, users of MSML can leverage the markdown writing tool to begin organizing different thoughts into components. For example, if one were trying to model a system that has multiple currencies, i.e. USD and the Euro, those could be added in as MSML types as they are discovered. The markdown report writing supports wiki-links for use in Obsidian or a similar tool allowing users to iteratively catalog different components they find in their research and ideation. 
+
 ### Requirements and Design
+
+When moving into requirements and design, MSML provides a suite of reports so that presentations to stakeholders can be insightful but tailored to the different audiences. Feedback can be iteratively incorporated into the spec with reports being re-run.
 
 ### Implementation, Integration, and Testing
 
