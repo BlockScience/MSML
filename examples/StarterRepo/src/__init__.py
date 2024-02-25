@@ -9,6 +9,7 @@ from .BoundaryActions import boundary_actions
 from .ControlActions import control_actions
 from .Wiring import wiring
 from .Types import types
+from .Metrics import metrics
 
 math_spec_json = {
     "Policies": policies,
@@ -22,4 +23,5 @@ math_spec_json = {
     "Control Actions": control_actions,
     "Wiring": wiring,
     "Types": types,
+    "Metrics": metrics,
 }

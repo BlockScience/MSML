@@ -9,7 +9,15 @@ dummy_parameter_set = {
             "symbol": None,
             "domain": None,
             "parameter_class": "Behavioral",
-        }
+        },
+        {
+            "variable_type": "Dummy Type 1",
+            "name": "dummy_parameter2",
+            "description": "",
+            "symbol": None,
+            "domain": None,
+            "parameter_class": "System",
+        },
     ],
 }
 
