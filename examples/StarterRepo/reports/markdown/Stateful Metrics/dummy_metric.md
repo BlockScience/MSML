@@ -1,6 +1,6 @@
 Description: Dummy Dummy
 
-Type: {'name': 'Dummy Type 2', 'type': <class 'int'>, 'notes': '', 'metadata': {}}
+Type: Dummy Type 2
 
 Symbol: None
 
