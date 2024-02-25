@@ -37,6 +37,7 @@ Reference this group by using
 | [Control Actions](#control-actions)   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")   |
 | [Wiring](#wiring)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")                     |
 | [Types](#types)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")                       |
+| [Metrics](#metrics)                   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")                   |
 
 ### Policies
 
@@ -235,6 +236,24 @@ unknown\[]
 #### Types Type
 
 `object[]` ([Type](schema-definitions-type.md))
+
+### Metrics
+
+
+
+`Metrics`
+
+*   is required
+
+*   Type: `object[]` ([Metric](schema-definitions-metric.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")
+
+#### Metrics Type
+
+`object[]` ([Metric](schema-definitions-metric.md))
 
 ## Definitions group ControlAction
 
@@ -1342,6 +1361,188 @@ unknown
 
 `object` ([Details](schema-definitions-type-properties-metadata.md))
 
+## Definitions group Metric
+
+Reference this group by using
+
+```json
+{"$ref":"https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric"}
+```
+
+| Property                               | Type     | Required | Nullable       | Defined by                                                                                                                                                                   |
+| :------------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [type](#type-2)                        | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/type")                       |
+| [name](#name-11)                       | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/name")                       |
+| [description](#description-6)          | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/description")         |
+| [variables\_used](#variables_used)     | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")   |
+| [parameters\_used](#parameters_used-3) | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used") |
+| [metrics\_used](#metrics_used)         | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")       |
+| [domain](#domain-4)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")                   |
+| [logic](#logic-2)                      | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")                     |
+| [symbol](#symbol-2)                    | `string` | Required | can be null    | [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")                   |
+
+### type
+
+
+
+`type`
+
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/type")
+
+#### type Type
+
+`string`
+
+### name
+
+
+
+`name`
+
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/name")
+
+#### name Type
+
+`string`
+
+### description
+
+
+
+`description`
+
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/description")
+
+#### description Type
+
+`string`
+
+### variables\_used
+
+
+
+`variables_used`
+
+*   is required
+
+*   Type: `string[][]`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")
+
+#### variables\_used Type
+
+`string[][]`
+
+### parameters\_used
+
+
+
+`parameters_used`
+
+*   is required
+
+*   Type: `string[]`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used")
+
+#### parameters\_used Type
+
+`string[]`
+
+### metrics\_used
+
+
+
+`metrics_used`
+
+*   is required
+
+*   Type: `string[]`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")
+
+#### metrics\_used Type
+
+`string[]`
+
+### domain
+
+
+
+`domain`
+
+*   is required
+
+*   Type: `string[]`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")
+
+#### domain Type
+
+`string[]`
+
+### logic
+
+
+
+`logic`
+
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")
+
+#### logic Type
+
+`string`
+
+### symbol
+
+
+
+`symbol`
+
+*   is required
+
+*   Type: `string`
+
+*   can be null
+
+*   defined in: [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")
+
+#### symbol Type
+
+`string`
+
 ## Definitions group Wiring
 
 Reference this group by using
@@ -1352,11 +1553,11 @@ Reference this group by using
 
 | Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
 | :---------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-11)                          | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
+| [name](#name-12)                          | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
 | [components](#components)                 | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")               |
-| [description](#description-6)             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
+| [description](#description-7)             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
 | [constraints](#constraints-3)             | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")             |
-| [type](#type-2)                           | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
+| [type](#type-3)                           | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
 | [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
 | [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
 | [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
