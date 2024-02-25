@@ -27,6 +27,7 @@ class MathSpec:
         self.wiring = ms_dict["Wiring"]
         self.blocks = ms_dict["Blocks"]
         self.types = ms_dict["Types"]
+        self.metrics = ms_dict["Metrics"]
 
         self._check_parameters()
         self._crawl_parameters()
