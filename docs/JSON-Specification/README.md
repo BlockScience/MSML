@@ -16,6 +16,8 @@
 
 *   [Mechanism](./schema-definitions-mechanism.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism`
 
+*   [Metric](./schema-definitions-metric.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric`
+
 *   [Parameter](./schema-definitions-parameter.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter`
 
 *   [ParameterElement](./schema-definitions-parameterelement.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement`
@@ -101,6 +103,18 @@
 *   [Untitled array in MSML](./schema-definitions-wiring-properties-optional_indices.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices`
 
 *   [Untitled array in MSML](./schema-definitions-msmlspec-properties-types.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types`
+
+*   [Untitled array in MSML](./schema-definitions-msmlspec-properties-metrics.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics`
+
+*   [Untitled array in MSML](./schema-definitions-metric-properties-variables_used.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used`
+
+*   [Untitled array in MSML](./schema-definitions-metric-properties-variables_used-items.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used/items`
+
+*   [Untitled array in MSML](./schema-definitions-metric-properties-parameters_used.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used`
+
+*   [Untitled array in MSML](./schema-definitions-metric-properties-metrics_used.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used`
+
+*   [Untitled array in MSML](./schema-definitions-metric-properties-domain.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/domain`
 
 ## Version Note
 

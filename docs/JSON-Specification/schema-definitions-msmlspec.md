@@ -29,6 +29,7 @@ A JSON schema that is used in the mathematical specification mapping library to 
 | [Control Actions](#control-actions)   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")   |
 | [Wiring](#wiring)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")                     |
 | [Types](#types)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")                       |
+| [Metrics](#metrics)                   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")                   |
 
 ## Policies
 
@@ -227,3 +228,21 @@ unknown\[]
 ### Types Type
 
 `object[]` ([Type](schema-definitions-type.md))
+
+## Metrics
+
+
+
+`Metrics`
+
+*   is required
+
+*   Type: `object[]` ([Metric](schema-definitions-metric.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")
+
+### Metrics Type
+
+`object[]` ([Metric](schema-definitions-metric.md))
