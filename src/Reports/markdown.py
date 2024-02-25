@@ -470,7 +470,7 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
             )
 
     out += "Description: {}\n\n".format(metric.description)
-    out += "Type: {}\n\n".format(metric.type)
+    out += "Type: [[{}]]\n\n".format(metric.type)
     out += "Symbol: {}\n\n".format(metric.symbol)
     out += "Domain: {}\n\n".format(metric.domain)
 
@@ -506,8 +506,12 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
             )
 
     out += "Description: {}\n\n".format(metric.description)
-    out += "Type: {}\n\n".format(metric.type)
+    out += "Type: [[{}]]\n\n".format(metric.type)
     out += "Symbol: {}\n\n".format(metric.symbol)
+
+    out += "## Logic\n"
+    out += metric.logic
+    out += "\n\n"
 
     out += "## Parameters Used\n"
     for i, x in enumerate(metric.parameters_used):
@@ -520,6 +524,16 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
         out += "{}. {}.{}".format(i + 1, x[0], x[1])
         out += "\n"
     out += "\n"
+
+    out += "## Domain Spaces\n"
+    for i, x in enumerate(metric.domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(metric.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
 
     with open("{}/Metrics/{}.md".format(path, metric.name), "w") as f:
         f.write(out)
