@@ -35,6 +35,16 @@ def convert_metric(ms, data: Dict) -> Metric:
     for x in data["parameters_used"]:
         assert x in ms["Parameters"].all_parameters
 
+    data["domain"] = tuple(data["domain"])
+    for x in data["domain"]:
+        assert x in ms["Spaces"], "{} not a valid space".format(x)
+    data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
+
+    for x in data["metrics_used"]:
+        assert x in ms["Metrics"], "{} not a valid metric".format(x)
+
+    data["metrics_used"] = tuple(ms["Metrics"][x] for x in data["metrics_used"])
+
     # Build the metric object
     return Metric(data)
 
