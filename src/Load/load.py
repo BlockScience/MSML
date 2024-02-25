@@ -14,6 +14,7 @@ from .spaces import load_spaces
 from .stateful_metrics import load_stateful_metrics
 from .wiring import load_wiring
 from .type import load_types
+from .metrics import load_metrics
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -48,6 +49,7 @@ def load_from_json(json: Dict) -> MathSpec:
     action_transmission_channels = load_wiring(ms, json)
     load_action_transmission_channels(ms, action_transmission_channels)
     load_state_update_transmission_channels(ms, state_update_transmission_channels)
+    load_metrics(ms, json)
 
     # Assert all keys are correct for the ms version
     check_json_keys(ms, "Math Spec")
