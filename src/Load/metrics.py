@@ -54,5 +54,28 @@ def load_metrics(ms: Dict, json: Dict) -> None:
     """
 
     ms["Metrics"] = {}
-    for metric in json["Metrics"]:
-        ms["Metrics"][metric["name"]] = convert_metric(ms, metric)
+    metrics = json["Metrics"]
+
+    i = 1
+    while i > 0:
+        i = 0
+        hold = []
+        for metric in metrics:
+            if all([x in ms["Metrics"] for x in metric["metrics_used"]]):
+                i += 1
+                metric = convert_metric(ms, metric)
+                assert (
+                    metric.name not in ms["Metrics"]
+                ), "{} was a repeated metric".format(metric.name)
+                ms["Metrics"][metric.name] = metric
+            else:
+                hold.append(metric)
+        metrics = hold
+    if len(metrics) > 0:
+        names = [x["name"] for x in metrics]
+        for y in metrics:
+            for z in y["metrics_used"]:
+                assert (
+                    z in ms["Metrics"] or z in names
+                ), "{} is not defined in the spec".format(z)
+        assert len(metrics) == 0, "There are circular references"
