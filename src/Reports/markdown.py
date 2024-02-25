@@ -480,13 +480,48 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
         out += "\n"
     out += "\n"
 
-    out += "## Parameters Used\n"
+    out += "## Variables Used\n"
     for i, x in enumerate(metric.variables_used):
         out += "{}. {}.{}".format(i + 1, x[0], x[1])
         out += "\n"
     out += "\n"
 
     with open("{}/Stateful Metrics/{}.md".format(path, metric.name), "w") as f:
+        f.write(out)
+
+
+def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
+    metric = ms.metrics[metric]
+    out = ""
+    if "Metrics" not in os.listdir(path):
+        os.makedirs(path + "/Metrics")
+    if add_metadata:
+        metadata = metric.metadata
+        if len(metadata) > 0:
+            out += """---
+    {}
+---
+""".format(
+                "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+            )
+
+    out += "Description: {}\n\n".format(metric.description)
+    out += "Type: {}\n\n".format(metric.type)
+    out += "Symbol: {}\n\n".format(metric.symbol)
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(metric.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    out += "## Variables Used\n"
+    for i, x in enumerate(metric.variables_used):
+        out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        out += "\n"
+    out += "\n"
+
+    with open("{}/Metrics/{}.md".format(path, metric.name), "w") as f:
         f.write(out)
 
 
@@ -545,3 +580,7 @@ def write_all_markdown_reports(ms, path):
     stateful_metrics = ms.get_all_stateful_metric_names()
     for x in stateful_metrics:
         write_stateful_metrics_markdown_report(ms, path, x)
+
+    # Write metrics
+    for x in ms.metrics:
+        write_metrics_markdown_report(ms, path, x)
