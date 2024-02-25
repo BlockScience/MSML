@@ -455,6 +455,12 @@
                         "type": "string"
                     }
                 },
+                "metrics_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "domain": {
                     "type": "array",
                     "items": {
@@ -476,7 +482,8 @@
                 "parameters_used",
                 "symbol",
                 "type",
-                "variables_used"
+                "variables_used",
+                "metrics_used"
             ],
             "title": "Metric"
         },

@@ -8,6 +8,7 @@ metrics_x.append(
         "description": "Dummy metric",
         "variables_used": [["Dummy State", "Variable A"]],
         "parameters_used": ["dummy_parameter2"],
+        "metrics_used": [],
         "domain": ["Dummy Space 1"],
         "logic": "",
         "symbol": None,
