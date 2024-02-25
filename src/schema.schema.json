@@ -69,6 +69,12 @@
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/Type"
                     }
+                },
+                "Metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/Metric"
+                    }
                 }
             },
             "required": [
@@ -82,7 +88,8 @@
                 "State",
                 "Stateful Metrics",
                 "Types",
-                "Wiring"
+                "Wiring",
+                "Metrics"
             ],
             "title": "MSMLSpec",
             "description": "A JSON schema that is used in the mathematical specification mapping library to create the underlying MSML object."
@@ -419,6 +426,66 @@
                 "type"
             ],
             "title": "Type"
+        },
+        "Metric": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "variables_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "parameters_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "metrics_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "domain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "logic": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": ["string", "null"]
+                }
+            },
+            "required": [
+                "description",
+                "domain",
+                "logic",
+                "name",
+                "parameters_used",
+                "symbol",
+                "type",
+                "variables_used",
+                "metrics_used"
+            ],
+            "title": "Metric"
         },
         "Wiring": {
             "type": "object",
