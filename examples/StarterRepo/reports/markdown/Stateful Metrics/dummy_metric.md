@@ -1,6 +1,6 @@
 Description: Dummy Dummy
 
-Type: Dummy Type 2
+Type: [[Dummy Type 2]]
 
 Symbol: None
 
