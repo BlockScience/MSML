@@ -18,28 +18,22 @@ def convert_metric(ms, data: Dict) -> Metric:
     # Copy
     data = data.copy()
 
-    """
-    # Convert the variables
-    new_variables = []
-    for var in data["metrics"]:
-        if "metadata" not in var:
-            var["metadata"] = {}
-        check_json_keys(var, "Stateful Metric")
-        for x in var["variables_used"]:
-            assert type(x) == tuple, "Variables used is not tuple"
-            assert len(x) == 2, "Length of variables used is not 2"
-            assert (
-                x[0] in ms["State"]
-            ), "State '{}' from variables used not in states".format(x[0])
-            vm = ms["State"][x[0]].variable_map
-            assert (
-                x[1] in vm
-            ), "Variable '{}' not in variable map for stateful metrics variables used".format(
-                x[1]
-            )
-        new_variables.append(StatefulMetric(var))
-    data["metrics"] = new_variables
-    """
+    assert data["type"] in ms["Types"], "Type {} not in ms".format(data["type"])
+    data["type"] = data["type"]
+
+    for x in data["variables_used"]:
+        assert len(x) == 2, "Length of variables used is not 2"
+        assert (
+            x[0] in ms["State"]
+        ), "State '{}' from variables used not in states".format(x[0])
+        vm = ms["State"][x[0]].variable_map
+        assert (
+            x[1] in vm
+        ), "Variable '{}' not in variable map for stateful metrics variables used".format(
+            x[1]
+        )
+    for x in data["parameters_used"]:
+        assert x in ms["Parameters"].all_parameters
 
     # Build the metric object
     return Metric(data)
