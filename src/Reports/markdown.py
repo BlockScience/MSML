@@ -551,8 +551,57 @@ def write_displays_markdown_reports(ms, path, add_metadata=True):
         )
 
 
-def write_wiring_display_markdown_report(ms, path, metric, add_metadata=True):
-    pass
+def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
+    wirings = [ms.wiring[w] for w in wiring["components"]]
+    out = ""
+
+    out += "## Wiring Diagrams"
+    out += "\n"
+    out += "\n"
+    for w in wirings:
+        out += w.render_mermaid_root()
+        out += "\n"
+        out += "\n"
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += wiring["description"]
+    out += "\n"
+
+    out += "## Wirings\n"
+    for i, x in enumerate(wiring["components"]):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    out += "## Unique Components Used\n"
+    components = [set(x.components) for x in wirings]
+    components = set().union(*components)
+    for i, x in enumerate(components):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Unique Domain Spaces\n"
+    for i, x in enumerate(wiring.domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Unique Codomain Spaces\n"
+    for i, x in enumerate(wiring.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Unique Parameters Used\n"
+    for i, x in enumerate(wiring.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    with open("{}/Displays/Wiring/{}.md".format(path, wiring["name"]), "w") as f:
+        f.write(out)
 
 
 def write_all_markdown_reports(ms, path):
