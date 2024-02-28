@@ -33,7 +33,7 @@ def convert_metric(ms, data: Dict) -> Metric:
             x[1]
         )
     for x in data["parameters_used"]:
-        assert x in ms["Parameters"].all_parameters
+        assert x in ms["Parameters"].all_parameters, "{} not in parameters".format(x)
 
     data["domain"] = tuple(data["domain"])
     for x in data["domain"]:
@@ -77,9 +77,10 @@ def load_metrics(ms: Dict, json: Dict) -> None:
         metrics = hold
     if len(metrics) > 0:
         names = [x["name"] for x in metrics]
+        print(ms["Stateful Metrics"])
         for y in metrics:
             for z in y["metrics_used"]:
                 assert (
-                    z in ms["Metrics"] or z in names
+                    z in ms["Metrics"] or z in names or z in ms["Stateful Metrics"]
                 ), "{} is not defined in the spec".format(z)
         assert len(metrics) == 0, "There are circular references"

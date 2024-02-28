@@ -29,6 +29,10 @@ class MathSpec:
         self.types = ms_dict["Types"]
         self.metrics = ms_dict["Metrics"]
         self.displays = ms_dict["Displays"]
+        self.stateful_metrics_map = {}
+        for x in self.stateful_metrics:
+            for y in self.stateful_metrics[x].metrics:
+                self.stateful_metrics_map[y.name] = y
 
         self._check_parameters()
         self._crawl_parameters()

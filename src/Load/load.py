@@ -47,6 +47,12 @@ def load_from_json(json: Dict) -> MathSpec:
     load_parameters(ms, json)
     load_policies(ms, json)
     load_stateful_metrics(ms, json)
+
+    stateful_metrics_map = {}
+    for x in ms["Stateful Metrics"]:
+        for y in ms["Stateful Metrics"][x].metrics:
+            stateful_metrics_map[y.name] = y
+
     action_transmission_channels = load_wiring(ms, json)
     load_action_transmission_channels(ms, action_transmission_channels)
     load_state_update_transmission_channels(ms, state_update_transmission_channels)
