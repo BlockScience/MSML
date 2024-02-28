@@ -582,20 +582,26 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
+    """domain = [set(x.domain) for x in wirings]
+    domain = set().union(*domain)
     out += "## Unique Domain Spaces\n"
-    for i, x in enumerate(wiring.domain):
+    for i, x in enumerate(domain):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
 
+    codomain = [set(x.codomain) for x in wirings]
+    codomain = set().union(*codomain)
     out += "## Unique Codomain Spaces\n"
-    for i, x in enumerate(wiring.codomain):
+    for i, x in enumerate(codomain):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
-    out += "\n"
+    out += "\n"""
 
+    parameters = [set(x.parameters_used) for x in wirings]
+    parameters = set().union(*parameters)
     out += "## Unique Parameters Used\n"
-    for i, x in enumerate(wiring.parameters_used):
+    for i, x in enumerate(parameters):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
