@@ -539,6 +539,22 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
         f.write(out)
 
 
+def write_displays_markdown_reports(ms, path, add_metadata=True):
+    if "Displays" not in os.listdir(path):
+        os.makedirs(path + "/Displays")
+    if "Wiring" not in os.listdir(path + "/Displays"):
+        os.makedirs(path + "/Displays/Wiring")
+
+    for wiring in ms.displays["Wiring"]:
+        write_wiring_display_markdown_report(
+            ms, path, wiring, add_metadata=add_metadata
+        )
+
+
+def write_wiring_display_markdown_report(ms, path, metric, add_metadata=True):
+    pass
+
+
 def write_all_markdown_reports(ms, path):
 
     # Write entities
@@ -598,3 +614,7 @@ def write_all_markdown_reports(ms, path):
     # Write metrics
     for x in ms.metrics:
         write_metrics_markdown_report(ms, path, x)
+
+    # Write displays
+    if ms.displays:
+        write_displays_markdown_reports(ms, path, add_metadata=True)
