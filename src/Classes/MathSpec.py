@@ -28,6 +28,7 @@ class MathSpec:
         self.blocks = ms_dict["Blocks"]
         self.types = ms_dict["Types"]
         self.metrics = ms_dict["Metrics"]
+        self.displays = ms_dict["Displays"]
 
         self._check_parameters()
         self._crawl_parameters()
