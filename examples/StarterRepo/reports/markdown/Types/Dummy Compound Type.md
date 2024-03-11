@@ -1,5 +1,5 @@
 ## Type
-<class 'src.Types.Dummy.Dummy Compound Type'>
+DummyCompoundType
 
 ## Notes
 

@@ -1,5 +1,5 @@
 ## Type
-<class 'str'>
+DummyType1
 
 ## Notes
 
