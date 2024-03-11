@@ -396,6 +396,7 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -427,6 +428,7 @@
                     "type": "string"
                 },
                 "type": {
+                    "type": "string"
                 },
                 "notes": {
                     "type": "string"
