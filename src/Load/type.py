@@ -25,16 +25,16 @@ def load_types(ms, json) -> None:
         ms["Types"][data["name"]] = convert_type(data, ms)
 
 
-def load_python_type_key(path):
-    mod = __import__(path.replace("/", ".").replace(".py", "") + ".mapping")
+def load_python_type_key():
+    from src.TypeMappings.types import mapping
 
-    print(mod)
+    return mapping
 
 
 def load_type_keys(ms) -> dict:
     type_keys = {}
     python_path = "src/TypeMappings/types.py"
     if os.path.exists(python_path):
-        type_keys["python"] = load_python_type_key(python_path)
+        type_keys["python"] = load_python_type_key()
 
     ms["Type Keys"] = type_keys
