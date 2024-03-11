@@ -1,5 +1,5 @@
 ## Type
-<class 'int'>
+DummyType2
 
 ## Notes
 
