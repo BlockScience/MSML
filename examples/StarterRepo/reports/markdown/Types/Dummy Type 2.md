@@ -1,5 +1,5 @@
 ## Type
-DummyType2
+{'python': <class 'int'>}
 
 ## Notes
 

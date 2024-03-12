@@ -14,6 +14,14 @@ def convert_type(data, ms):
     # Copy
     data = data.copy()
 
+    type_name = data["type"]
+    data["type"] = {}
+
+    if "python" in ms["Type Keys"]:
+
+        if type_name in ms["Type Keys"]["python"]:
+            data["type"]["python"] = ms["Type Keys"]["python"][type_name]
+
     # Build the type object
     return Type(data)
 
