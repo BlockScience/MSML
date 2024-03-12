@@ -16,11 +16,13 @@ def convert_type(data, ms):
 
     type_name = data["type"]
     data["type"] = {}
+    data["type_name"] = {}
 
     if "python" in ms["Type Keys"]:
 
         if type_name in ms["Type Keys"]["python"]:
             data["type"]["python"] = ms["Type Keys"]["python"][type_name]
+            data["type_name"]["python"] = str(data["type"]["python"])
 
     # Build the type object
     return Type(data)
