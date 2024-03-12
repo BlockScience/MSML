@@ -90,8 +90,12 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
 
     out += "## Type"
     out += "\n"
-    out += str(t.type)
-    out += "\n\n"
+
+    if "python" in t.type:
+        out += "### Python Type\n"
+        out += t.type_name["python"]
+        out += "\n"
+    out += "\n"
     out += "## Notes"
     out += "\n\n"
     out += t.notes
@@ -337,18 +341,14 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     if control_action.control_action_options:
         out += "## Control Action Options:\n"
         for i, x in enumerate(control_action.control_action_options):
-            out += "<details>"
-            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
-            out += "<p>"
+            out += "### {}. {}\n".format(i + 1, x.name)
+            out += "#### Description\n"
             out += x.description
-            out += "</p>"
+            out += "\n"
 
-            out += "<p>"
-            out += "Logic: {}".format(x.logic)
-            out += "</p>"
-
-            out += "</details>"
-        out += "<br/>"
+            out += "#### Logic\n"
+            out += x.logic
+            out += "\n\n"
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
         f.write(out)
@@ -539,6 +539,77 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
         f.write(out)
 
 
+def write_displays_markdown_reports(ms, path, add_metadata=True):
+    if "Displays" not in os.listdir(path):
+        os.makedirs(path + "/Displays")
+    if "Wiring" not in os.listdir(path + "/Displays"):
+        os.makedirs(path + "/Displays/Wiring")
+
+    for wiring in ms.displays["Wiring"]:
+        write_wiring_display_markdown_report(
+            ms, path, wiring, add_metadata=add_metadata
+        )
+
+
+def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
+    wirings = [ms.wiring[w] for w in wiring["components"]]
+    out = ""
+
+    out += "## Wiring Diagrams"
+    out += "\n"
+    out += "\n"
+    for w in wirings:
+        out += w.render_mermaid_root()
+        out += "\n"
+        out += "\n"
+    out += "## Description"
+    out += "\n"
+    out += "\n"
+    out += wiring["description"]
+    out += "\n"
+
+    out += "## Wirings\n"
+    for i, x in enumerate(wiring["components"]):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    out += "## Unique Components Used\n"
+    components = [set(x.components) for x in wirings]
+    components = set().union(*components)
+    for i, x in enumerate(components):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    """domain = [set(x.domain) for x in wirings]
+    domain = set().union(*domain)
+    out += "## Unique Domain Spaces\n"
+    for i, x in enumerate(domain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    codomain = [set(x.codomain) for x in wirings]
+    codomain = set().union(*codomain)
+    out += "## Unique Codomain Spaces\n"
+    for i, x in enumerate(codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"""
+
+    parameters = [set(x.parameters_used) for x in wirings]
+    parameters = set().union(*parameters)
+    out += "## Unique Parameters Used\n"
+    for i, x in enumerate(parameters):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
+    with open("{}/Displays/Wiring/{}.md".format(path, wiring["name"]), "w") as f:
+        f.write(out)
+
+
 def write_all_markdown_reports(ms, path):
 
     # Write entities
@@ -598,3 +669,7 @@ def write_all_markdown_reports(ms, path):
     # Write metrics
     for x in ms.metrics:
         write_metrics_markdown_report(ms, path, x)
+
+    # Write displays
+    if ms.displays:
+        write_displays_markdown_reports(ms, path, add_metadata=True)

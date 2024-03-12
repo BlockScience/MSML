@@ -1,5 +1,6 @@
 ## Type
-<class 'str'>
+### Python Type
+str
 
 ## Notes
 

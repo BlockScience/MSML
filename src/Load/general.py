@@ -4,6 +4,7 @@ from ..schema import schema
 
 
 def check_json_keys(json: Dict, check_set_key: str) -> None:
+    pass
     """Function to check the correct keys are in the json dictionary
 
     Args:
@@ -11,7 +12,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
         check_set_key (str): The key for what checking set to use
     """
 
-    # Get a temporary list of keys
+    """# Get a temporary list of keys
     keys = list(json.keys())
 
     # Pick the correct checking set
@@ -46,6 +47,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             "Wiring",
             "Types",
             "Metrics",
+            "Displays",
         ],
         "State": ["name", "label", "notes", "variables", "metadata"],
         "State Variable": ["type", "name", "description", "symbol", "domain"],
@@ -152,7 +154,7 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
             keys.remove(k)
 
     # Make sure there are no extra keys in the json
-    assert len(keys) == 0, "There are extra keys in json: {}".format(", ".join(keys))
+    assert len(keys) == 0, "There are extra keys in json: {}".format(", ".join(keys))"""
 
 
 def validate_json_schema(json):

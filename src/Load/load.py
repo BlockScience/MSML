@@ -13,8 +13,9 @@ from .policy import load_policies
 from .spaces import load_spaces
 from .stateful_metrics import load_stateful_metrics
 from .wiring import load_wiring
-from .type import load_types
+from .type import load_types, load_type_keys
 from .metrics import load_metrics
+from .displays import load_displays
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -36,6 +37,8 @@ def load_from_json(json: Dict) -> MathSpec:
     ms = {}
 
     # Do loading one by one to transfer the json
+
+    load_type_keys(ms)
     load_types(ms, json)
     load_spaces(ms, json)
     load_states(ms, json)
@@ -46,10 +49,20 @@ def load_from_json(json: Dict) -> MathSpec:
     load_parameters(ms, json)
     load_policies(ms, json)
     load_stateful_metrics(ms, json)
+
+    stateful_metrics_map = {}
+    for x in ms["Stateful Metrics"]:
+        for y in ms["Stateful Metrics"][x].metrics:
+            stateful_metrics_map[y.name] = y
+
     action_transmission_channels = load_wiring(ms, json)
     load_action_transmission_channels(ms, action_transmission_channels)
     load_state_update_transmission_channels(ms, state_update_transmission_channels)
-    load_metrics(ms, json)
+    load_metrics(ms, json, stateful_metrics_map)
+    if "Displays" in json:
+        load_displays(ms, json)
+    else:
+        ms["Displays"] = None
 
     # Assert all keys are correct for the ms version
     check_json_keys(ms, "Math Spec")

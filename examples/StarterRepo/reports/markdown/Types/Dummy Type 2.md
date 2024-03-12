@@ -1,5 +1,6 @@
 ## Type
-<class 'int'>
+### Python Type
+int
 
 ## Notes
 
