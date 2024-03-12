@@ -22,7 +22,18 @@ def convert_type(data, ms):
 
         if type_name in ms["Type Keys"]["python"]:
             data["type"]["python"] = ms["Type Keys"]["python"][type_name]
-            data["type_name"]["python"] = str(data["type"]["python"])
+            if type(data["type"]["python"]) == dict:
+                out = {}
+                for key in data["type"]["python"]:
+                    val = data["type"]["python"][key]
+                    if type(val) == str:
+                        val = ms["Types"][val].name
+                    else:
+                        val = val.__name__
+                    out[key] = val
+                data["type_name"]["python"] = str(out)
+            else:
+                data["type_name"]["python"] = data["type"]["python"].__name__
 
     # Build the type object
     return Type(data)

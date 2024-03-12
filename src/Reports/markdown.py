@@ -93,7 +93,7 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
 
     if "python" in t.type:
         out += "### Python Type\n"
-        out += str(t.type["python"])
+        out += t.type_name["python"]
         out += "\n"
     out += "\n"
     out += "## Notes"
