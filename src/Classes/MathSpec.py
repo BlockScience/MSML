@@ -11,6 +11,7 @@ class MathSpec:
         # Internal variables to keep track
         self._ms_dict = ms_dict
         self._json = json
+        self.type_keys = ms_dict["Type Keys"]
         self.action_transmission_channels = ms_dict["Action Transmission Channels"]
         self.boundary_actions = ms_dict["Boundary Actions"]
         self.control_actions = ms_dict["Control Actions"]
@@ -28,6 +29,11 @@ class MathSpec:
         self.blocks = ms_dict["Blocks"]
         self.types = ms_dict["Types"]
         self.metrics = ms_dict["Metrics"]
+        self.displays = ms_dict["Displays"]
+        self.stateful_metrics_map = {}
+        for x in self.stateful_metrics:
+            for y in self.stateful_metrics[x].metrics:
+                self.stateful_metrics_map[y.name] = y
 
         self._check_parameters()
         self._crawl_parameters()

@@ -75,7 +75,20 @@
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/Metric"
                     }
-                }
+                },
+                "Displays": {"type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "wiring": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "./schema.schema.json/#/definitions/WiringDisplay"
+                        }
+                    }
+                },
+                "required": [
+                    "wiring"
+                ]}
             },
             "required": [
                 "Boundary Actions",
@@ -383,6 +396,7 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -414,6 +428,7 @@
                     "type": "string"
                 },
                 "type": {
+                    "type": "string"
                 },
                 "notes": {
                     "type": "string"
@@ -542,6 +557,27 @@
                 "Stack"
             ],
             "title": "TypeEnum"
-        }
+        },
+        "WiringDisplay": {"type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "name": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "components": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        },
+        "required": [
+            "components",
+            "name",
+            "description"
+        ]}
     }
 }

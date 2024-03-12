@@ -3,7 +3,7 @@ from ..Classes import Metric
 from .general import check_json_keys
 
 
-def convert_metric(ms, data: Dict) -> Metric:
+def convert_metric(ms, data: Dict, stateful_metrics_map) -> Metric:
     """Function to convert metric
 
     Args:
@@ -33,7 +33,7 @@ def convert_metric(ms, data: Dict) -> Metric:
             x[1]
         )
     for x in data["parameters_used"]:
-        assert x in ms["Parameters"].all_parameters
+        assert x in ms["Parameters"].all_parameters, "{} not in parameters".format(x)
 
     data["domain"] = tuple(data["domain"])
     for x in data["domain"]:
@@ -41,15 +41,20 @@ def convert_metric(ms, data: Dict) -> Metric:
     data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
 
     for x in data["metrics_used"]:
-        assert x in ms["Metrics"], "{} not a valid metric".format(x)
+        assert (
+            x in ms["Metrics"] or x in stateful_metrics_map
+        ), "{} not a valid metric".format(x)
 
-    data["metrics_used"] = tuple(ms["Metrics"][x] for x in data["metrics_used"])
+    data["metrics_used"] = tuple(
+        ms["Metrics"][x] if x in ms["Metrics"] else stateful_metrics_map[x]
+        for x in data["metrics_used"]
+    )
 
     # Build the metric object
     return Metric(data)
 
 
-def load_metrics(ms: Dict, json: Dict) -> None:
+def load_metrics(ms: Dict, json: Dict, stateful_metrics_map) -> None:
     """Function to load metrics into the new dictionary
 
     Args:
@@ -65,9 +70,14 @@ def load_metrics(ms: Dict, json: Dict) -> None:
         i = 0
         hold = []
         for metric in metrics:
-            if all([x in ms["Metrics"] for x in metric["metrics_used"]]):
+            if all(
+                [
+                    x in ms["Metrics"] or x in stateful_metrics_map
+                    for x in metric["metrics_used"]
+                ]
+            ):
                 i += 1
-                metric = convert_metric(ms, metric)
+                metric = convert_metric(ms, metric, stateful_metrics_map)
                 assert (
                     metric.name not in ms["Metrics"]
                 ), "{} was a repeated metric".format(metric.name)
@@ -80,6 +90,6 @@ def load_metrics(ms: Dict, json: Dict) -> None:
         for y in metrics:
             for z in y["metrics_used"]:
                 assert (
-                    z in ms["Metrics"] or z in names
+                    z in ms["Metrics"] or z in names or z in stateful_metrics_map
                 ), "{} is not defined in the spec".format(z)
         assert len(metrics) == 0, "There are circular references"
