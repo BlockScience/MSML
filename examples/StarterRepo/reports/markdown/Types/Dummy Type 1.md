@@ -1,5 +1,5 @@
 ## Type
-DummyType1
+{'python': <class 'str'>}
 
 ## Notes
 
