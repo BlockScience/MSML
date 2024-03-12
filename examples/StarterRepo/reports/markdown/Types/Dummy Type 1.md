@@ -1,5 +1,6 @@
 ## Type
-{'python': <class 'str'>}
+### Python Type
+<class 'str'>
 
 ## Notes
 

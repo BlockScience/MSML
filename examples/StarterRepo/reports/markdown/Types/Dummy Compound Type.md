@@ -1,5 +1,6 @@
 ## Type
-{'python': <class 'src.TypeMappings.types.DummyCompoundType'>}
+### Python Type
+<class 'src.TypeMappings.types.DummyCompoundType'>
 
 ## Notes
 
