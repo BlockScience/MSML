@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Boundary Actions/Dummy Boundary Action.md",
-                "mode": "preview",
+                "file": "Types/Dummy Compound Type.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Boundary Actions/Dummy Boundary Action.md",
+                "file": "Types/Dummy Compound Type.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Boundary Actions/Dummy Boundary Action.md",
+                "file": "Types/Dummy Compound Type.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Boundary Actions/Dummy Boundary Action.md"
+                "file": "Types/Dummy Compound Type.md"
               }
             }
           }
@@ -148,10 +148,21 @@
   },
   "active": "2282fa5ab8fe505d",
   "lastOpenFiles": [
-    "Control Actions/Dummy Control Action.md",
-    "Boundary Actions/Dummy Boundary Action.md",
-    "Metrics/Metric A.md",
     "Types/Dummy Type 2.md",
-    "Entities/Dummy.md"
+    "Types/Dummy Type 1.md",
+    "Types/Dummy Compound Type.md",
+    "States/Dummy State.md",
+    "Spaces/Dummy Space 1.md",
+    "Spaces/Empty Space.md",
+    "Spaces/Terminating Space.md",
+    "Spaces/Dummy Space 2.md",
+    "Policies/Dummy Policy.md",
+    "Parameters/dummy_parameter2.md",
+    "Parameters/dummy_parameter.md",
+    "Mechanisms/Dummy Mechanism.md",
+    "Entities/Dummy.md",
+    "Boundary Actions/Dummy Boundary Action.md",
+    "Control Actions/Dummy Control Action.md",
+    "Metrics/Metric A.md"
   ]
 }

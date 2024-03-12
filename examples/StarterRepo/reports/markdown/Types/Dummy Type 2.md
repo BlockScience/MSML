@@ -1,5 +1,6 @@
 ## Type
-{'python': <class 'int'>}
+### Python Type
+<class 'int'>
 
 ## Notes
 
