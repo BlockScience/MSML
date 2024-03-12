@@ -337,18 +337,14 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     if control_action.control_action_options:
         out += "## Control Action Options:\n"
         for i, x in enumerate(control_action.control_action_options):
-            out += "<details>"
-            out += "<summary><b>{}. {}</b></summary>".format(i + 1, x.name)
-            out += "<p>"
+            out += "### {}. {}\n".format(i + 1, x.name)
+            out += "#### Description\n"
             out += x.description
-            out += "</p>"
+            out += "\n"
 
-            out += "<p>"
-            out += "Logic: {}".format(x.logic)
-            out += "</p>"
-
-            out += "</details>"
-        out += "<br/>"
+            out += "#### Logic\n"
+            out += x.logic
+            out += "\n\n"
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
         f.write(out)
