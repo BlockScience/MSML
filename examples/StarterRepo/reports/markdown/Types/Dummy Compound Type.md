@@ -1,6 +1,6 @@
 ## Type
 ### Python Type
-<class 'src.TypeMappings.types.DummyCompoundType'>
+{'A': 'Dummy Type 1', 'B': 'Dummy Type 2'}
 
 ## Notes
 
