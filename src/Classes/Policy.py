@@ -14,3 +14,4 @@ class Policy(Block):
         super().__init__(data)
         self.policy_options: List[PolicyOption] = data["policy_options"]
         self.block_type = "Policy"
+        self.metrics_used = data["metrics_used"]
