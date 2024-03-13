@@ -208,6 +208,16 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
 
+    out += "## Parameters Used\n"
+    for i, x in enumerate(policy.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(policy.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
     if policy.policy_options:
         out += "## Policy Options\n"
         for i, x in enumerate(policy.policy_options):
