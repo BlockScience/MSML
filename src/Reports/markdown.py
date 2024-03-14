@@ -95,6 +95,10 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
         out += "### Python Type\n"
         out += t.type_name["python"]
         out += "\n"
+    if "typescript" in t.type:
+        out += "### Typescript Type\n"
+        out += t.type_name["typescript"]
+        out += "\n"
     out += "\n"
     out += "## Notes"
     out += "\n\n"
