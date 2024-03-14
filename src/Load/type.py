@@ -55,10 +55,43 @@ def load_python_type_key():
     return mapping
 
 
+def load_typescript_type_key(path):
+    with open(path, "r") as file:
+        type_definitions = file.read()
+    type_definitions = type_definitions.split("\n")
+    type_definitions = [x for x in type_definitions if len(x) > 0]
+    hold = type_definitions[:]
+    type_definitions = []
+    type_definitions.append(hold.pop(0))
+    while len(hold) > 0:
+        curr = hold.pop(0)
+        if "type" in curr or "interface" in curr:
+            type_definitions.append(curr)
+        else:
+            type_definitions[-1] += "\n" + curr
+
+    hold = type_definitions[:]
+    type_definitions = {}
+    for x in hold:
+        name = x
+        if x.startswith("type"):
+            name = name[5:]
+        elif x.startswith("interface"):
+            name = name[10:]
+        else:
+            assert False
+        name = name[: name.index("=")].strip()
+        type_definitions[name] = x
+    return type_definitions
+
+
 def load_type_keys(ms) -> dict:
     type_keys = {}
     python_path = "src/TypeMappings/types.py"
+    typescript_path = "src/TypeMappings/types.ts"
     if os.path.exists(python_path):
         type_keys["python"] = load_python_type_key()
+    if os.path.exists(typescript_path):
+        type_keys["typescript"] = load_typescript_type_key(typescript_path)
 
     ms["Type Keys"] = type_keys
