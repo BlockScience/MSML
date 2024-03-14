@@ -63,7 +63,7 @@ class Block:
 
     def render_mermaid(self, i):
         i += 1
-        return "X{}[{}]".format(i, self.name), i
+        return 'X{}["{}"]'.format(i, self.name), i
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
@@ -205,7 +205,7 @@ class ParallelBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
+        out = 'subgraph X{}["{}"]\ndirection TB\n'.format(i, name) + out
 
         out += "end"
 
@@ -359,7 +359,7 @@ class StackBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
+        out = 'subgraph X{}["{}"]\ndirection TB\n'.format(i, name) + out
         out += "end"
 
         return out, i
