@@ -37,6 +37,9 @@ def convert_type(data, ms):
                 data["type_name"]["python"] = data["type"]["python"].__repr__()
             else:
                 data["type_name"]["python"] = data["type"]["python"].__name__
+        if type_name in ms["Type Keys"]["typescript"]:
+            data["type"]["typescript"] = ms["Type Keys"]["typescript"][type_name]
+            data["type_name"]["typescript"] = ms["Type Keys"]["typescript"][type_name]
 
     # Build the type object
     return Type(data)
