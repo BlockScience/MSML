@@ -111,7 +111,9 @@ def write_entity_reports(ms: MathSpec, directory: str, entities: List[str]) -> N
             f.write(out)
 
 
-def write_spec_tree(ms: MathSpec, path=None, linking=False, add_tabbing=False) -> str:
+def write_spec_tree(
+    ms: MathSpec, path=None, linking=False, add_tabbing=False, readme=False
+) -> str:
     """Write the tree of the specification structure
 
     Args:
@@ -198,6 +200,9 @@ def write_spec_tree(ms: MathSpec, path=None, linking=False, add_tabbing=False) -
         out = out.split("\n")
         out = ["\t" + x for x in out]
         out = "\n".join(out)
+    if readme:
+        out = "\n\n```\n{}\n```".format(out)
+        out = out.replace("**", "")
 
     if path:
         with open("{}/Spec Tree.md".format(path), "w") as f:
@@ -211,6 +216,6 @@ def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None)
         out += "<h2>Summary</h2>"
         out += "<p>{}</p>".format(summary)
     out += "<h2>Specification Tree</h2>"
-    out += write_spec_tree(ms)
+    out += write_spec_tree(ms, readme=True)
     with open(file_path, "w") as f:
         f.write(out)
