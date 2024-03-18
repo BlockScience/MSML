@@ -310,7 +310,9 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
     out += "\n"
     out += "\n"
     d = space.schema
-    d = ",\n".join(["{}: {}".format(a, b.name) for a, b in zip(d.keys(), d.values())])
+    d = ",\n".join(
+        ["{}: [[{}]]".format(a, b.name) for a, b in zip(d.keys(), d.values())]
+    )
     d = "{" + d + "}"
     out += d
     out += "\n"
