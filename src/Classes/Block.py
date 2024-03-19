@@ -67,20 +67,33 @@ class Block:
     def render_mermaid(self, i):
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
-        if self.block_type == "Mechanism":
+        """if self.block_type == "Mechanism":
             for u in self.updates:
                 out += "\n"
                 out += 'X{} --> {}["{}"]'.format(
                     i,
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
                     u[0].name + "." + u[1].name,
-                )
+                )"""
         return out, i
+
+    def render_ending_entities(self):
+        if self.block_type == "Mechanism":
+            updates = self.updates
+        elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
+            updates = self.all_updates
+        else:
+            return ""
+
+        out = ""
+        out += "\n"
+        return out
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
         out += self.render_mermaid(0)[0]
         out += "\n```"
+        out += self.render_ending_entities()
         return out
 
     def find_all_spaces_used(self, data):
@@ -100,6 +113,7 @@ class Block:
                     self.all_updates.extend(x.updates)
                 else:
                     self.all_updates.extend(x.all_updates)
+        self.all_updates = list(set(self.all_updates))
 
 
 class ParallelBlock(Block):
