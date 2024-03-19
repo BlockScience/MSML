@@ -83,9 +83,9 @@ class Block:
         elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
             updates = self.all_updates
         else:
-            return ""
+            return "\n"
 
-        out = ""
+        out = "\n"
 
         # Render the entities
         entity_mapping = {}
@@ -94,7 +94,14 @@ class Block:
             entity_mapping[x.name] = "EE{}".format(i)
             out += '{}[("{}")]'.format(entity_mapping[x.name], x.name)
             out += "\n"
-        print(entity_mapping)
+
+        # Render the state variables
+        for i, x in enumerate(updates):
+            out += '{}(["{}"])'.format("EES{}".format(i), x[1].name)
+            out += "\n"
+
+            out += "{} --- {}".format("EES{}".format(i), entity_mapping[x[0].name])
+            out += "\n"
 
         out += "\n"
         return out
@@ -102,13 +109,8 @@ class Block:
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
         out += self.render_mermaid(0)[0]
-        if out.endswith("end"):
-            out = out[:-3]
-            out += self.render_ending_entities()
-            out += "end"
-        else:
-            out += self.render_ending_entities()
-        out += "\n```"
+        out += self.render_ending_entities()
+        out += "```"
 
         return out
 
