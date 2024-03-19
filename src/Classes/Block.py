@@ -123,7 +123,7 @@ class ParallelBlock(Block):
 
         self.called_by = []
         self.calls = []
-        self.block_type = "Paralell Block"
+        self.block_type = "Parallel Block"
         self.metadata = data["metadata"]
 
     def render_mermaid(self, i):
