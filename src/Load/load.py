@@ -59,7 +59,11 @@ def load_from_json(json: Dict) -> MathSpec:
     load_action_transmission_channels(ms, action_transmission_channels)
     load_state_update_transmission_channels(ms, state_update_transmission_channels)
 
+    temp = {}
     for w in json["Wiring"]:
+        temp[w["name"]] = w
+    for w in ms["Wiring"]:
+        w = temp[w]
         ms["Wiring"][w["name"]].find_all_updates(w)
 
     load_metrics(ms, json, stateful_metrics_map)
