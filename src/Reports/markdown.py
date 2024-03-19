@@ -448,6 +448,12 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
+    out += "## All State Updates\n"
+    for i, x in enumerate(wiring.all_updates):
+        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "\n"
+    out += "\n"
+
     with open("{}/Wiring/{}.md".format(path, wiring.name), "w") as f:
         f.write(out)
 
