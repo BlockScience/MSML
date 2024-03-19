@@ -210,6 +210,7 @@ class ParallelBlock(Block):
         # Render components
         domain_map = {}
         codomain_map = {}
+
         for component in self.components:
             domain = component.domain
             codomain = component.codomain
@@ -261,15 +262,19 @@ class ParallelBlock(Block):
                 out += "X{} --> X{}".format(domain_i, ix1)
             out += "\n"
 
+        codomain_connections = 0
         for ix1 in nodes:
             d = codomain_map[ix1]
             if len(d) > 0:
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
                 out += "X{} --{}--> X{}".format(ix1, d, codomain_i)
-            else:
-                out += "X{} --> X{}".format(ix1, codomain_i)
-            out += "\n"
+                codomain_connections += 1
+                out += "\n"
+            # else:
+            #    out += "X{} --> X{}".format(ix1, codomain_i)
+        if codomain_connections == 0:
+            out = out.replace("X{}[Codomain]".format(codomain_i), "")
 
         # Subgraph it
         if self.mermaid_show_name:
