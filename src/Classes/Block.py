@@ -61,6 +61,8 @@ class Block:
             for _ in range(len([x for x in self.codomain if x == TerminatingSpace]))
         )
 
+        self.find_all_spaces_used(data)
+
     def render_mermaid(self, i):
         i += 1
         return 'X{}["{}"]'.format(i, self.name), i
@@ -70,6 +72,15 @@ class Block:
         out += self.render_mermaid(0)[0]
         out += "\n```"
         return out
+
+    def find_all_spaces_used(self, data):
+        self.all_spaces_used = []
+        self.all_spaces_used.extend(self.domain)
+        self.all_spaces_used.extend(self.codomain)
+        if "components" in data:
+            for x in data["components"]:
+                self.all_spaces_used.extend(x.all_spaces_used)
+        self.all_spaces_used = list(set(self.all_spaces_used))
 
 
 class ParallelBlock(Block):
@@ -125,6 +136,7 @@ class ParallelBlock(Block):
         self.calls = []
         self.block_type = "Parallel Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def render_mermaid(self, i):
         multi = None
@@ -241,6 +253,7 @@ class StackBlock(Block):
 
         self.block_type = "Stack Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def _check_domain_mapping(self):
         x = self.components[:-1]
@@ -419,6 +432,7 @@ class SplitBlock(Block):
 
         self.block_type = "Split Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def render_mermaid(self, i):
         multi = None
