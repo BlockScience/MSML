@@ -65,7 +65,17 @@ class Block:
 
     def render_mermaid(self, i):
         i += 1
-        return 'X{}["{}"]'.format(i, self.name), i
+        out = 'X{}["{}"]'.format(i, self.name)
+        if self.block_type == "Mechanism":
+            for u in self.updates:
+                out += "\n"
+                out += 'X{} --> {}["{}"]'.format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                    u[0].name + "." + u[1].name,
+                )
+                print(u)
+        return out, i
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
