@@ -85,6 +85,7 @@ class Block:
             return "\n", {}
 
         out = "\n"
+        out += 'subgraph SVS["State Variables"]\n'
 
         # Render the entities
         entity_mapping = {}
@@ -105,18 +106,19 @@ class Block:
 
             out += "{} --- {}".format("EES{}".format(i), entity_mapping[x[0].name])
             out += "\n"
-
+        out += "end\n"
         out += "\n"
         return out, entity_variable_mapping
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
-        out += self.render_mermaid(0)[0]
         add, entity_variable_mapping = self.render_ending_entities()
         out += add
+        out += self.render_mermaid(0)[0]
+
         for key in entity_variable_mapping:
             out = out.replace(key, entity_variable_mapping[key])
-        out += "```"
+        out += "\n```"
 
         return out
 
