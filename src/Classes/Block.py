@@ -253,9 +253,10 @@ class ParallelBlock(Block):
         for ix1 in nodes:
             d = domain_map[ix1]
             if len(d) > 0:
+                d_length = len(d)
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
-                out += "X{} --{}--> X{}".format(domain_i, d, ix1)
+                out += "X{} --{}{}-> X{}".format(domain_i, d, "-" * d_length, ix1)
             else:
                 out += "X{} --> X{}".format(domain_i, ix1)
             out += "\n"
@@ -412,12 +413,13 @@ class StackBlock(Block):
                     d = domain_map[ix4]
                     optional = global_optional
                     if len(d) > 0:
+                        d_length = len(d)
                         d = "\n".join(d)
                         d = '"{}"'.format(d)
                         if optional:
-                            out += "X{}-.{}.->X{}".format(ix3, d, ix4)
+                            out += "X{}-.{}.{}->X{}".format(ix3, d, "." * d_length, ix4)
                         else:
-                            out += "X{}--{}-->X{}".format(ix3, d, ix4)
+                            out += "X{}--{}-{}->X{}".format(ix3, d, "-" * d_length, ix4)
                     else:
                         if optional:
                             out += "X{}-.->X{}".format(ix3, ix4)
