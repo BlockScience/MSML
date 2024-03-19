@@ -21,6 +21,7 @@ class Block:
             self.called_by = []
         self.calls = []
         self.block_type = "Block"
+        self.all_updates = []
         # Will be overwritten in composite blocks to represent individual components
         self.domain_blocks = tuple(
             [
@@ -74,7 +75,6 @@ class Block:
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
                     u[0].name + "." + u[1].name,
                 )
-                print(u)
         return out, i
 
     def render_mermaid_root(self):
@@ -91,6 +91,15 @@ class Block:
             for x in data["components"]:
                 self.all_spaces_used.extend(x.all_spaces_used)
         self.all_spaces_used = list(set(self.all_spaces_used))
+
+    def find_all_updates(self, data):
+        self.all_updates = []
+        if "components" in data:
+            for x in data["components"]:
+                if x.block_type == "Mechanism":
+                    self.all_updates.extend(x.updates)
+                else:
+                    self.all_updates.extend(x.all_updates)
 
 
 class ParallelBlock(Block):
