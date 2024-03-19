@@ -67,14 +67,13 @@ class Block:
     def render_mermaid(self, i):
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
-        """if self.block_type == "Mechanism":
+        if self.block_type == "Mechanism":
             for u in self.updates:
                 out += "\n"
-                out += 'X{} --> {}["{}"]'.format(
+                out += "X{} --> {}".format(
                     i,
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
-                    u[0].name + "." + u[1].name,
-                )"""
+                )
         return out, i
 
     def render_ending_entities(self):
@@ -83,7 +82,7 @@ class Block:
         elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
             updates = self.all_updates
         else:
-            return "\n"
+            return "\n", {}
 
         out = "\n"
 
@@ -95,8 +94,12 @@ class Block:
             out += '{}[("{}")]'.format(entity_mapping[x.name], x.name)
             out += "\n"
 
+        entity_variable_mapping = {}
         # Render the state variables
         for i, x in enumerate(updates):
+            entity_variable_mapping[(x[0].name + "-" + x[1].name).replace(" ", "-")] = (
+                "EES{}".format(i)
+            )
             out += '{}(["{}"])'.format("EES{}".format(i), x[1].name)
             out += "\n"
 
@@ -104,12 +107,15 @@ class Block:
             out += "\n"
 
         out += "\n"
-        return out
+        return out, entity_variable_mapping
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
         out += self.render_mermaid(0)[0]
-        out += self.render_ending_entities()
+        add, entity_variable_mapping = self.render_ending_entities()
+        out += add
+        for key in entity_variable_mapping:
+            out = out.replace(key, entity_variable_mapping[key])
         out += "```"
 
         return out
