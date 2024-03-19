@@ -95,6 +95,10 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
         out += "### Python Type\n"
         out += t.type_name["python"]
         out += "\n"
+    if "typescript" in t.type:
+        out += "### Typescript Type\n"
+        out += t.type_name["typescript"]
+        out += "\n"
     out += "\n"
     out += "## Notes"
     out += "\n\n"
@@ -208,6 +212,16 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
 
+    out += "## Parameters Used\n"
+    for i, x in enumerate(policy.parameters_used):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(policy.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
     if policy.policy_options:
         out += "## Policy Options\n"
         for i, x in enumerate(policy.policy_options):
@@ -296,7 +310,9 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
     out += "\n"
     out += "\n"
     d = space.schema
-    d = ",\n".join(["{}: {}".format(a, b.name) for a, b in zip(d.keys(), d.values())])
+    d = ",\n".join(
+        ["{}: [[{}]]".format(a, b.name) for a, b in zip(d.keys(), d.values())]
+    )
     d = "{" + d + "}"
     out += d
     out += "\n"
@@ -408,6 +424,12 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
+    out += "## All Spaces Used\n"
+    for i, x in enumerate(wiring.all_spaces_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
     out += "## Parameters Used\n"
     for i, x in enumerate(wiring.parameters_used):
         out += "{}. [[{}]]".format(i + 1, x)
@@ -423,6 +445,12 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "## Calls\n"
     for i, x in enumerate(wiring.calls):
         out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## All State Updates\n"
+    for i, x in enumerate(wiring.all_updates):
+        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
         out += "\n"
     out += "\n"
 

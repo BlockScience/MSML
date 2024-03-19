@@ -310,6 +310,12 @@
                     "items": {
                         "type": "string"
                     }
+                },
+                "metrics_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "required": [
@@ -319,7 +325,8 @@
                 "domain",
                 "name",
                 "parameters_used",
-                "policy_options"
+                "policy_options",
+                "metrics_used"
             ],
             "title": "Policy"
         },
