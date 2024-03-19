@@ -21,6 +21,7 @@ class Block:
             self.called_by = []
         self.calls = []
         self.block_type = "Block"
+        self.all_updates = []
         # Will be overwritten in composite blocks to represent individual components
         self.domain_blocks = tuple(
             [
@@ -61,15 +62,84 @@ class Block:
             for _ in range(len([x for x in self.codomain if x == TerminatingSpace]))
         )
 
+        self.find_all_spaces_used(data)
+
     def render_mermaid(self, i):
         i += 1
-        return "X{}[{}]".format(i, self.name), i
+        out = 'X{}["{}"]'.format(i, self.name)
+        if self.block_type == "Mechanism":
+            for u in self.updates:
+                out += "\n"
+                out += "X{} --> {}".format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                )
+        return out, i
+
+    def render_ending_entities(self):
+        if self.block_type == "Mechanism":
+            updates = self.updates
+        elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
+            updates = self.all_updates
+        else:
+            return "\n", {}
+
+        out = "\n"
+        out += 'subgraph SVS["State Variables"]\n'
+
+        # Render the entities
+        entity_mapping = {}
+        entities = set([x[0] for x in updates])
+        for i, x in enumerate(entities):
+            entity_mapping[x.name] = "EE{}".format(i)
+            out += '{}[("{}")]'.format(entity_mapping[x.name], x.name)
+            out += "\n"
+
+        entity_variable_mapping = {}
+        # Render the state variables
+        for i, x in enumerate(updates):
+            entity_variable_mapping[(x[0].name + "-" + x[1].name).replace(" ", "-")] = (
+                "EES{}".format(i)
+            )
+            out += '{}(["{}"])'.format("EES{}".format(i), x[1].name)
+            out += "\n"
+
+            out += "{} --- {}".format("EES{}".format(i), entity_mapping[x[0].name])
+            out += "\n"
+        out += "end\n"
+        out += "\n"
+        return out, entity_variable_mapping
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
+        add, entity_variable_mapping = self.render_ending_entities()
+        out += add
         out += self.render_mermaid(0)[0]
+
+        for key in entity_variable_mapping:
+            out = out.replace(key, entity_variable_mapping[key])
         out += "\n```"
+
         return out
+
+    def find_all_spaces_used(self, data):
+        self.all_spaces_used = []
+        self.all_spaces_used.extend(self.domain)
+        self.all_spaces_used.extend(self.codomain)
+        if "components" in data:
+            for x in data["components"]:
+                self.all_spaces_used.extend(x.all_spaces_used)
+        self.all_spaces_used = list(set(self.all_spaces_used))
+
+    def find_all_updates(self, data):
+        self.all_updates = []
+        if "components" in data:
+            for x in data["components"]:
+                if x.block_type == "Mechanism":
+                    self.all_updates.extend(x.updates)
+                else:
+                    self.all_updates.extend(x.all_updates)
+        self.all_updates = list(set(self.all_updates))
 
 
 class ParallelBlock(Block):
@@ -123,8 +193,9 @@ class ParallelBlock(Block):
 
         self.called_by = []
         self.calls = []
-        self.block_type = "Paralell Block"
+        self.block_type = "Parallel Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def render_mermaid(self, i):
         multi = None
@@ -139,6 +210,7 @@ class ParallelBlock(Block):
         # Render components
         domain_map = {}
         codomain_map = {}
+
         for component in self.components:
             domain = component.domain
             codomain = component.codomain
@@ -182,22 +254,27 @@ class ParallelBlock(Block):
         for ix1 in nodes:
             d = domain_map[ix1]
             if len(d) > 0:
+                d_length = len(d)
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
-                out += "X{} --{}--> X{}".format(domain_i, d, ix1)
+                out += "X{} --{}{}-> X{}".format(domain_i, d, "-" * d_length, ix1)
             else:
                 out += "X{} --> X{}".format(domain_i, ix1)
             out += "\n"
 
+        codomain_connections = 0
         for ix1 in nodes:
             d = codomain_map[ix1]
             if len(d) > 0:
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
                 out += "X{} --{}--> X{}".format(ix1, d, codomain_i)
-            else:
-                out += "X{} --> X{}".format(ix1, codomain_i)
-            out += "\n"
+                codomain_connections += 1
+                out += "\n"
+            # else:
+            #    out += "X{} --> X{}".format(ix1, codomain_i)
+        if codomain_connections == 0:
+            out = out.replace("X{}[Codomain]".format(codomain_i), "")
 
         # Subgraph it
         if self.mermaid_show_name:
@@ -205,7 +282,7 @@ class ParallelBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
+        out = 'subgraph X{}["{}"]\ndirection TB\n'.format(i, name) + out
 
         out += "end"
 
@@ -241,6 +318,7 @@ class StackBlock(Block):
 
         self.block_type = "Stack Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def _check_domain_mapping(self):
         x = self.components[:-1]
@@ -340,12 +418,13 @@ class StackBlock(Block):
                     d = domain_map[ix4]
                     optional = global_optional
                     if len(d) > 0:
+                        d_length = len(d)
                         d = "\n".join(d)
                         d = '"{}"'.format(d)
                         if optional:
-                            out += "X{}-.{}.->X{}".format(ix3, d, ix4)
+                            out += "X{}-.{}.{}->X{}".format(ix3, d, "." * d_length, ix4)
                         else:
-                            out += "X{}--{}-->X{}".format(ix3, d, ix4)
+                            out += "X{}--{}-{}->X{}".format(ix3, d, "-" * d_length, ix4)
                     else:
                         if optional:
                             out += "X{}-.->X{}".format(ix3, ix4)
@@ -359,7 +438,7 @@ class StackBlock(Block):
         else:
             name = " "
         i += 1
-        out = "subgraph X{}[{}]\ndirection TB\n".format(i, name) + out
+        out = 'subgraph X{}["{}"]\ndirection TB\n'.format(i, name) + out
         out += "end"
 
         return out, i
@@ -419,6 +498,7 @@ class SplitBlock(Block):
 
         self.block_type = "Split Block"
         self.metadata = data["metadata"]
+        self.find_all_spaces_used(data)
 
     def render_mermaid(self, i):
         multi = None
