@@ -86,14 +86,30 @@ class Block:
             return ""
 
         out = ""
+
+        # Render the entities
+        entity_mapping = {}
+        entities = set([x[0] for x in updates])
+        for i, x in enumerate(entities):
+            entity_mapping[x.name] = "EE{}".format(i)
+            out += '{}[("{}")]'.format(entity_mapping[x.name], x.name)
+            out += "\n"
+        print(entity_mapping)
+
         out += "\n"
         return out
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
         out += self.render_mermaid(0)[0]
+        if out.endswith("end"):
+            out = out[:-3]
+            out += self.render_ending_entities()
+            out += "end"
+        else:
+            out += self.render_ending_entities()
         out += "\n```"
-        out += self.render_ending_entities()
+
         return out
 
     def find_all_spaces_used(self, data):
