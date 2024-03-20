@@ -455,7 +455,8 @@
                 "notes",
                 "type"
             ],
-            "title": "Type"
+            "title": "Type",
+            "description": "This is for defining what a type might in its most basic form. These could be single typings or compound typings. The point here is to allow for changing typing in one single place and having it flow through anywhere else. I.e. if one were to define the currency type as USD, but then the project switched to using EUR, it would just require changing currency to be EUR."
         },
         "Metric": {
             "type": "object",
@@ -515,7 +516,8 @@
                 "variables_used",
                 "metrics_used"
             ],
-            "title": "Metric"
+            "title": "Metric",
+            "description": "This component takes a variety of potential inputs and creates a metric from it. This can be used for defining out system success metrics or trying to modularize certain calculations that are needed across many other system components."
         },
         "Wiring": {
             "type": "object",
@@ -560,7 +562,8 @@
                 "name",
                 "type"
             ],
-            "title": "Wiring"
+            "title": "Wiring",
+            "description": "A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel."
         },
         "Update": {
             "title": "Update"
