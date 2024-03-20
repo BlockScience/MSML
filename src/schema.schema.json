@@ -241,7 +241,8 @@
                 "notes",
                 "parameters"
             ],
-            "title": "Parameter"
+            "title": "Parameter",
+            "description": "Both local and global parameter sets in the system that could be set"
         },
         "ParameterElement": {
             "type": "object",
@@ -331,7 +332,8 @@
                 "policy_options",
                 "metrics_used"
             ],
-            "title": "Policy"
+            "title": "Policy",
+            "description": "A definition of the policies that handle all logical things. This could be, for example, a policy which determines what price is paid given a boundary action of someone putting in a market buy order for a stock."
         },
         "PolicyOption": {
             "type": "object",
@@ -352,7 +354,8 @@
                 "logic",
                 "name"
             ],
-            "title": "PolicyOption"
+            "title": "PolicyOption",
+            "description": "The concrete possible implementations that a given policy block can reference or select"
         },
         "Space": {
             "type": "object",
@@ -369,7 +372,8 @@
                 "name",
                 "schema"
             ],
-            "title": "Space"
+            "title": "Space",
+            "description": "Spaces are similar to types in that they define a schema for data and are used as the domain/codomain for different blocks. They can be thought of as typed dictionaries."
         },
         "Schema": {
             "type": "object",
@@ -399,7 +403,8 @@
                 "notes",
                 "variables"
             ],
-            "title": "State"
+            "title": "State",
+            "description": "The definition of states in the system. There is one global system state and then the rest of the definitions are local states, generally for recording what entity states there are."
         },
         "Variable": {
             "type": "object",
