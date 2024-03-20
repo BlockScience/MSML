@@ -52,7 +52,9 @@
                 },
                 "Boundary Actions": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/BoundaryAction"
+                    }
                 },
                 "Control Actions": {
                     "type": "array",
@@ -385,6 +387,15 @@
             "required": [],
             "title": "Stateful Metric",
             "description": "Variables that are not held directly in the state but can computed from the state & parameters."
+        },
+        "BoundaryAction": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+            },
+            "required": [],
+            "title": "Boundary Action",
+            "description": "The definition of different actions that might happen outside of the system such as customers coming into a shop. Generally will be called by entities."
         },
         "Schema": {
             "type": "object",
