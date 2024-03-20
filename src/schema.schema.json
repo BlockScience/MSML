@@ -28,7 +28,9 @@
                 },
                 "Stateful Metrics": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/StatefulMetric"
+                    }
                 },
                 "Parameters": {
                     "type": "array",
@@ -374,6 +376,15 @@
             ],
             "title": "Space",
             "description": "Spaces are similar to types in that they define a schema for data and are used as the domain/codomain for different blocks. They can be thought of as typed dictionaries."
+        },
+        "StatefulMetric": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+            },
+            "required": [],
+            "title": "Stateful Metric",
+            "description": "Variables that are not held directly in the state but can computed from the state & parameters."
         },
         "Schema": {
             "type": "object",
