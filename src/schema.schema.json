@@ -144,7 +144,8 @@
                 "name",
                 "parameters_used"
             ],
-            "title": "ControlAction"
+            "title": "ControlAction",
+            "description": "The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness."
         },
         "Entity": {
             "type": "object",
@@ -166,7 +167,8 @@
                 "notes",
                 "state"
             ],
-            "title": "Entity"
+            "title": "Entity",
+            "description": "Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions. Examples could be a customer or a company (for which a simulation might assume it is acting as one cohesive unit)"
         },
         "Mechanism": {
             "type": "object",
@@ -214,7 +216,8 @@
                 "parameters_used",
                 "updates"
             ],
-            "title": "Mechanism"
+            "title": "Mechanism",
+            "description": "Anything that updates state in the system, usually policies will call these with the outputs of logic. The reasoning to split them out is so that if at some point you want to add a recording variable every time an account is changed or do something like have a variable listener, you can just change the mechanism responsible for it in only one place."
         },
         "Parameter": {
             "type": "object",
