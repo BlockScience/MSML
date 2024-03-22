@@ -1,3 +1,3 @@
 ## Schema
 
-{a: Dummy Type 1}
+{a: [[Dummy Type 1]]}
