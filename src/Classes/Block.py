@@ -141,6 +141,18 @@ class Block:
                     self.all_updates.extend(x.all_updates)
         self.all_updates = list(set(self.all_updates))
 
+    def components_full(self):
+        q = [self]
+        out = []
+        while len(q) > 0:
+            cur = q.pop()
+            if hasattr(cur, "components"):
+                q.extend(cur.components)
+            else:
+                out.append(cur)
+        out = list(set(out))
+        return out
+
 
 class ParallelBlock(Block):
     def __init__(self, data: Dict):
