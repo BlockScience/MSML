@@ -153,6 +153,13 @@ def write_spec_tree(
         for var in ms.stateful_metrics[name].metrics:
             out += symbol3 + var.name + "\n"
 
+    out += symbol1 + "**Types**\n"
+    for name in ms.types.keys():
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
+
     out += symbol1 + "**Spaces**\n"
     for name in ms.spaces.keys():
         if linking:
