@@ -406,6 +406,13 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "\n"
 
+    out += "## All Blocks\n"
+    for i, x in enumerate(wiring.components_full()):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "\n"
+
     out += "## Constraints\n"
     for i, x in enumerate(wiring.constraints):
         out += "{}. {}".format(i + 1, x)
