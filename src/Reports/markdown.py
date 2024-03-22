@@ -406,7 +406,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "\n"
 
-    out += "## Constraints"
+    out += "## Constraints\n"
     for i, x in enumerate(wiring.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
@@ -609,7 +609,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## Unique Components Used\n"
-    components = [set(x.components) for x in wirings]
+    components = [set(x.components_full()) for x in wirings]
     components = set().union(*components)
     for i, x in enumerate(components):
         out += "{}. [[{}]]".format(i + 1, x.name)
