@@ -55,5 +55,9 @@ def load_stateful_metrics(ms: Dict, json: Dict) -> None:
     """
 
     ms["Stateful Metrics"] = {}
+    check = []
     for sm in json["Stateful Metrics"]:
         ms["Stateful Metrics"][sm["name"]] = convert_stateful_metric(ms, sm)
+        for x in ms["Stateful Metrics"][sm["name"]].metrics:
+            assert x.name not in check, "{} stateful metric name is repeated"
+            check.append(x)
