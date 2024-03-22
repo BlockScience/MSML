@@ -9,7 +9,9 @@ A Block is a parameterized operation that, for each Point in its Parameters Spac
 Blocks are characterized by three things:
 
 **Domain**: The space(s) that are taken in for the function
+
 **Codomain**: The space(s) that are emitted out from the function
+
 **Logic**: The logic that describes the transformation from domain to codomain
 
 ## Spaces

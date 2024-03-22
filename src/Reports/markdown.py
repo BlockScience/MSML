@@ -135,6 +135,12 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
+    out += "## Followed By\n"
+    for i, x in enumerate([x[0] for x in boundary_action.calls]):
+        out += "{}. [[{}]]".format(i + 1, x.label)
+        out += "\n"
+    out += "\n"
+
     out += "## Constraints"
     for i, x in enumerate(boundary_action.constraints):
         out += "{}. {}".format(i + 1, x)
@@ -342,6 +348,12 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     out += control_action.description
     out += "\n"
 
+    out += "## Followed By\n"
+    for i, x in enumerate([x[0] for x in control_action.calls]):
+        out += "{}. [[{}]]".format(i + 1, x.label)
+        out += "\n"
+    out += "\n"
+
     out += "## Constraints"
     for i, x in enumerate(control_action.constraints):
         out += "{}. {}".format(i + 1, x)
@@ -406,7 +418,14 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "\n"
 
-    out += "## Constraints"
+    out += "## All Blocks\n"
+    for i, x in enumerate(wiring.components_full()):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+
+    out += "\n"
+
+    out += "## Constraints\n"
     for i, x in enumerate(wiring.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
@@ -510,7 +529,7 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     out += "## Variables Used\n"
     for i, x in enumerate(metric.variables_used):
-        out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        out += "{}. [[{}]].{}".format(i + 1, x[0], x[1])
         out += "\n"
     out += "\n"
 
@@ -544,12 +563,18 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "## Parameters Used\n"
     for i, x in enumerate(metric.parameters_used):
         out += "{}. [[{}]]".format(i + 1, x)
+        var = ms.parameters.parameter_map[x]
+        if var.symbol:
+            out += " , symbol: {}".format(var.symbol)
         out += "\n"
     out += "\n"
 
     out += "## Variables Used\n"
     for i, x in enumerate(metric.variables_used):
         out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        var = ms.state[x[0]].variable_map[x[1]]
+        if var.symbol:
+            out += " , symbol: {}".format(var.symbol)
         out += "\n"
     out += "\n"
 
@@ -603,7 +628,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## Unique Components Used\n"
-    components = [set(x.components) for x in wirings]
+    components = [set(x.components_full()) for x in wirings]
     components = set().union(*components)
     for i, x in enumerate(components):
         out += "{}. [[{}]]".format(i + 1, x.name)
@@ -638,7 +663,26 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
         f.write(out)
 
 
-def write_all_markdown_reports(ms, path):
+def write_all_markdown_reports(ms, path, clear_folders=False):
+    if clear_folders:
+        for x in [
+            "Metrics",
+            "Mechanisms",
+            "Types",
+            "Control Actions",
+            "Spaces",
+            ".obsidian",
+            "Boundary Actions",
+            "Policies",
+            "Wiring",
+            "States",
+            "Parameters",
+            "Entities",
+            "Stateful Metrics",
+        ]:
+            if os.path.exists("{}/{}".format(path, x)):
+                for y in os.listdir("{}/{}".format(path, x)):
+                    os.remove("{}/{}/{}".format(path, x, y))
 
     # Write entities
     entities = list(ms.entities.keys())
