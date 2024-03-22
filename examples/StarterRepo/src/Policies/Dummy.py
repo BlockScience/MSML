@@ -20,6 +20,7 @@ dummy_policy = {
         "Dummy Space 2",
     ],
     "parameters_used": ["dummy_parameter"],
+    "metrics_used": [],
 }
 
 dummy_policies = [dummy_policy]

@@ -135,6 +135,12 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
+    out += "## Followed By\n"
+    for i, x in enumerate([x[0] for x in boundary_action.calls]):
+        out += "{}. [[{}]]".format(i + 1, x.label)
+        out += "\n"
+    out += "\n"
+
     out += "## Constraints"
     for i, x in enumerate(boundary_action.constraints):
         out += "{}. {}".format(i + 1, x)
@@ -340,6 +346,12 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     out += "\n"
     out += "\n"
     out += control_action.description
+    out += "\n"
+
+    out += "## Followed By\n"
+    for i, x in enumerate([x[0] for x in control_action.calls]):
+        out += "{}. [[{}]]".format(i + 1, x.label)
+        out += "\n"
     out += "\n"
 
     out += "## Constraints"
