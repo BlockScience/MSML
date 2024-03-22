@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Types/Dummy Compound Type.md",
+                "file": "Types/Dummy Type 2.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Types/Dummy Compound Type.md",
+                "file": "Types/Dummy Type 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Types/Dummy Compound Type.md",
+                "file": "Types/Dummy Type 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Types/Dummy Compound Type.md"
+                "file": "Types/Dummy Type 2.md"
               }
             }
           }
@@ -148,9 +148,9 @@
   },
   "active": "2282fa5ab8fe505d",
   "lastOpenFiles": [
-    "Types/Dummy Type 2.md",
     "Types/Dummy Type 1.md",
     "Types/Dummy Compound Type.md",
+    "Types/Dummy Type 2.md",
     "States/Dummy State.md",
     "Spaces/Dummy Space 1.md",
     "Spaces/Empty Space.md",
