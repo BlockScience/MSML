@@ -147,11 +147,11 @@ def write_spec_tree(
     out += symbol1 + "**Stateful Metrics**\n"
     for name in ms.stateful_metrics.keys():
         if linking:
-            out += symbol2 + "[[{}]]".format(name) + "\n"
+            out += symbol2 + "{}".format(name) + "\n"
         else:
             out += symbol2 + name + "\n"
         for var in ms.stateful_metrics[name].metrics:
-            out += symbol3 + var.name + "\n"
+            out += symbol3 + "[[{}]]".format(var.name) + "\n"
 
     out += symbol1 + "**Types**\n"
     for name in ms.types.keys():
@@ -169,11 +169,11 @@ def write_spec_tree(
     out += symbol1 + "**Parameters**\n"
     for name in ms.parameters.data.keys():
         if linking:
-            out += symbol2 + "[[{}]]".format(name) + "\n"
+            out += symbol2 + "{}".format(name) + "\n"
         else:
             out += symbol2 + name + "\n"
         for param in [x.name for x in ms.parameters.data[name].parameters]:
-            out += symbol3 + param + "\n"
+            out += symbol3 + "[[{}]]".format(param) + "\n"
 
     out += symbol1 + "**Boundary Actions**\n"
     for name in ms.boundary_actions.keys():

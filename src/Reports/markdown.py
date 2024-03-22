@@ -529,7 +529,7 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     out += "## Variables Used\n"
     for i, x in enumerate(metric.variables_used):
-        out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        out += "{}. [[{}]].{}".format(i + 1, x[0], x[1])
         out += "\n"
     out += "\n"
 

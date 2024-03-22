@@ -9,5 +9,5 @@ Domain: None
 ## Parameters Used
 
 ## Variables Used
-1. Dummy State.Variable A
+1. [[Dummy State]].Variable A
 
