@@ -10,6 +10,10 @@
 ├──**Stateful Metrics**
 │   ├──[[Dummy Stateful Metrics]]
 │   │   ├──dummy_metric
+├──**Types**
+│   ├──[[Dummy Type 1]]
+│   ├──[[Dummy Type 2]]
+│   ├──[[Dummy Compound Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]
