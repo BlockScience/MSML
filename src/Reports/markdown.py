@@ -663,7 +663,26 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
         f.write(out)
 
 
-def write_all_markdown_reports(ms, path):
+def write_all_markdown_reports(ms, path, clear_folders=False):
+    if clear_folders:
+        for x in [
+            "Metrics",
+            "Mechanisms",
+            "Types",
+            "Control Actions",
+            "Spaces",
+            ".obsidian",
+            "Boundary Actions",
+            "Policies",
+            "Wiring",
+            "States",
+            "Parameters",
+            "Entities",
+            "Stateful Metrics",
+        ]:
+            if os.path.exists("{}/{}".format(path, x)):
+                for y in os.listdir("{}/{}".format(path, x)):
+                    os.remove("{}/{}/{}".format(path, x, y))
 
     # Write entities
     entities = list(ms.entities.keys())
