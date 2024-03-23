@@ -1,6 +1,6 @@
 dummy_stateful_metric = {
     "name": "Dummy Stateful Metrics",
-    "notes": None,
+    "notes": "",
     "metrics": [
         {
             "type": "Dummy Type 2",

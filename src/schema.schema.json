@@ -137,7 +137,7 @@
                 },
                 "parameters_used": {
                     "type": "array",
-                    "items": {}
+                    "items": {"type": "string"}
                 }
             },
             "required": [
@@ -383,8 +383,24 @@
             "type": "object",
             "additionalProperties": true,
             "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "notes": {
+                    "type": "string"
+                },
+                "metrics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "./schema.schema.json/#/definitions/StatefulMetricVar"
+                    }
+                }
             },
-            "required": [],
+            "required": [
+                "metrics",
+                "name",
+                "notes"
+            ],
             "title": "Stateful Metric",
             "description": "Variables that are not held directly in the state but can computed from the state & parameters."
         },
@@ -660,6 +676,38 @@
             "components",
             "name",
             "description"
-        ]}
+        ]},
+        "StatefulMetricVar": {"type": "object",
+        "additionalProperties": false,
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "name": {
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "variables_used": {
+                "type": "array",
+                "items": {
+
+                }
+            },
+            "parameters_used": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            },
+            "symbol": {
+                "type": ["string","null"]
+            },
+            "domain": {
+                "type": ["string","null"]
+            }
+        }
     }
+}
 }
