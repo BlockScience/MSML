@@ -89,7 +89,7 @@ def load_typescript_type_key(path):
     return type_definitions
 
 
-def load_type_keys(ms) -> dict:
+def load_type_keys(ms):
     type_keys = {}
     python_path = "src/TypeMappings/types.py"
     typescript_path = "src/TypeMappings/types.ts"
