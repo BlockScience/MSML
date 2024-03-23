@@ -392,8 +392,50 @@
             "type": "object",
             "additionalProperties": true,
             "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "boundary_action_options": {
+                    "type": "array",
+                    "items": {}
+                },
+                "called_by": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "codomain": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "parameters_used": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
             },
-            "required": [],
+            "required": [
+                "boundary_action_options",
+                "called_by",
+                "codomain",
+                "constraints",
+                "description",
+                "name",
+                "parameters_used"
+            ],
             "title": "Boundary Action",
             "description": "The definition of different actions that might happen outside of the system such as customers coming into a shop. Generally will be called by entities."
         },
