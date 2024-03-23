@@ -179,27 +179,35 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the mechanism"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of what the mechanism does"
                 },
                 "constraints": {
                     "type": "array",
-                    "items": {}
+                    "description": "Any constraints which the mechanism must respect",
+                    "items": {"type": "string"}
                 },
                 "logic": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The logic of how the mechanism should work"
                 },
                 "domain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The spaces which are the input into the mechanism"
                 },
                 "parameters_used": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The string keys of parameters which have an effect on the mechanism"
                 },
                 "updates": {
                     "type": "array",
@@ -207,9 +215,11 @@
                         "items": {
                             "$ref": "./schema.schema.json/#/definitions/Update"
                         }
-                    }
+                    },
+                    "description": "The states updates that the mechanism causes in the form of (Entity, State Variable)"
                 },
-                "metadata": {"type": "object"}
+                "metadata": {"type": "object",
+            "description": "Any metadata that is added onto the mechanism"}
             },
             "required": [
                 "constraints",
