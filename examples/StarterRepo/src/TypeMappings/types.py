@@ -1,5 +1,3 @@
-from typing import TypedDict
-
 mapping = {
     "DummyType1": str,
     "DummyType2": int,
