@@ -16,6 +16,7 @@ from .wiring import load_wiring
 from .type import load_types, load_type_keys
 from .metrics import load_metrics
 from .displays import load_displays
+from .implementations import load_implementations
 
 
 def load_from_json(json: Dict) -> MathSpec:
@@ -39,6 +40,7 @@ def load_from_json(json: Dict) -> MathSpec:
     # Do loading one by one to transfer the json
 
     load_type_keys(ms)
+    load_implementations(ms)
     load_types(ms, json)
     load_spaces(ms, json)
     load_states(ms, json)

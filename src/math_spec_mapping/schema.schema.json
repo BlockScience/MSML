@@ -156,13 +156,16 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the entity"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes on the entity"
                 },
                 "state": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The string key for the state associated with the entity"
                 },
                 "metadata": {"type": "object"}
             },
@@ -179,27 +182,35 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the mechanism"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of what the mechanism does"
                 },
                 "constraints": {
                     "type": "array",
-                    "items": {}
+                    "description": "Any constraints which the mechanism must respect",
+                    "items": {"type": "string"}
                 },
                 "logic": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The logic of how the mechanism should work"
                 },
                 "domain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The spaces which are the input into the mechanism"
                 },
                 "parameters_used": {
                     "type": "array",
-                    "items": {}
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The string keys of parameters which have an effect on the mechanism"
                 },
                 "updates": {
                     "type": "array",
@@ -207,9 +218,11 @@
                         "items": {
                             "$ref": "./schema.schema.json/#/definitions/Update"
                         }
-                    }
+                    },
+                    "description": "The states updates that the mechanism causes in the form of (Entity, State Variable)"
                 },
-                "metadata": {"type": "object"}
+                "metadata": {"type": "object",
+            "description": "Any metadata that is added onto the mechanism"}
             },
             "required": [
                 "constraints",
@@ -228,16 +241,19 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the parameter set"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the parameter set"
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/ParameterElement"
-                    }
+                    },
+                    "description": "All parameters that are a part of this parameter set"
                 }
             },
             "required": [
@@ -253,22 +269,28 @@
             "additionalProperties": false,
             "properties": {
                 "variable_type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of that the parameter takes."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name of the parameter"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter"
                 },
                 "symbol": {
-                    "type": ["string","null"]
+                    "type": ["string","null"],
+                    "description": "The symbol associated with the parameter (optional)"
                 },
                 "domain": {
-                    "type": ["string","null"]
+                    "type": ["string","null"],
+                    "description": "The mathematical domain of the parameter (optional)"
                 },
                 "parameter_class": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of paramter this is, of which the options are system (what you would find in production code of a system), behavioral (for what kinds of behavioral assumptions and distributions there are), and functional (for defining out different functional forms such as swapping in and out policies)"
                 }
             },
             "required": [
@@ -384,15 +406,18 @@
             "additionalProperties": true,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the stateful metric set"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the stateful metric set"
                 },
                 "metrics": {
                     "type": "array",
                     "items": {
-                        "$ref": "./schema.schema.json/#/definitions/StatefulMetricVar"
+                        "$ref": "./schema.schema.json/#/definitions/StatefulMetricVar",
+                        "description": "All the attatched stateful metrics"
                     }
                 }
             },
@@ -466,16 +491,19 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the state or its implementation"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the state"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/Variable"
-                    }
+                    },
+                    "description": "All the attatched state variables for the component"
                 }
             },
             "required": [
@@ -491,19 +519,24 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of the variable"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variable name"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of what the variable is"
                 },
                 "symbol": {
-                    "type": ["string", "null"]
+                    "type": ["string","null"],
+                    "description": "The symbol associated with the parameter (optional)"
                 },
                 "domain": {
-                    "type": ["string", "null"]
+                    "type": ["string","null"],
+                    "description": "The mathematical domain of the parameter (optional)"
                 }
             },
             "required": [
@@ -681,31 +714,38 @@
         "additionalProperties": false,
         "properties": {
             "type": {
-                "type": "string"
+                "type": "string",
+                "description": "The type of the metric variable"
             },
             "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the stateful metric variable"
             },
             "description": {
-                "type": "string"
+                "type": "string",
+                "description": "The description of the computation"
             },
             "variables_used": {
                 "type": "array",
                 "items": {
 
-                }
+                },
+                "description": "The variables used for computation of the form (state, variable)"
             },
             "parameters_used": {
                 "type": "array",
                 "items": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The string keys of parameters which are used in the metric calculation"
                 }
             },
             "symbol": {
-                "type": ["string","null"]
+                "type": ["string","null"],
+                "description": "The symbol associated with the stateful metric (optional)"
             },
             "domain": {
-                "type": ["string","null"]
+                "type": ["string","null"],
+                "description": "The mathematical domain of the stateful metric (optional)"
             }
         }
     }

@@ -8,6 +8,10 @@ It uses block diagram wirings and spaces to represent the actions in complex sys
 
 One good example is the [wiring report](https://github.com/SeanMcOwen/Root-Finding-Simulation/blob/main/MSML/reports/Simulation%20Block.md) for the Root Finding Simulation canonical example.
 
+## Installing the library
+
+To install the library, simply pip install by running "pip install math_spec_mapping"
+
 ## Why MSML?
 
 Writing mathematical specifications can be a difficult process, especially when variable names are changed or new mechanisms are introduced. MSML seeks to streamline the process with automations as well as enhance the abilities of static math specs to deliver deeper insights. Because it is automated, one can write specifications at different levels of details or for different purposes.
