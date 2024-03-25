@@ -12,6 +12,7 @@ class MathSpec:
         self._ms_dict = ms_dict
         self._json = json
         self.type_keys = ms_dict["Type Keys"]
+        self.implementations = ms_dict["Implementations"]
         self.action_transmission_channels = ms_dict["Action Transmission Channels"]
         self.boundary_actions = ms_dict["Boundary Actions"]
         self.control_actions = ms_dict["Control Actions"]

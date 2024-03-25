@@ -15,3 +15,4 @@ class ControlActionOption:
         self.name = data["name"]
         self.description = data["description"]
         self.logic = data["logic"]
+        self.implementations = data["implementations"]
