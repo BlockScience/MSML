@@ -41,6 +41,10 @@ def convert_type(data, ms):
         if type_name in ms["Type Keys"]["typescript"]:
             data["type"]["typescript"] = ms["Type Keys"]["typescript"][type_name]
             data["type_name"]["typescript"] = ms["Type Keys"]["typescript"][type_name]
+    if "julia" in ms["Type Keys"]:
+        if type_name in ms["Type Keys"]["julia"]:
+            data["type"]["julia"] = ms["Type Keys"]["julia"][type_name]
+            data["type_name"]["julia"] = ms["Type Keys"]["julia"][type_name]
 
     # Build the type object
     return Type(data)
