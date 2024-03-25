@@ -238,16 +238,19 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the parameter set"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the parameter set"
                 },
                 "parameters": {
                     "type": "array",
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/ParameterElement"
-                    }
+                    },
+                    "description": "All parameters that are a part of this parameter set"
                 }
             },
             "required": [
@@ -263,22 +266,28 @@
             "additionalProperties": false,
             "properties": {
                 "variable_type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of that the parameter takes."
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique name of the parameter"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the parameter"
                 },
                 "symbol": {
-                    "type": ["string","null"]
+                    "type": ["string","null"],
+                    "description": "The symbol associated with the parameter (optional)"
                 },
                 "domain": {
-                    "type": ["string","null"]
+                    "type": ["string","null"],
+                    "description": "The mathematical domain of the parameter (optional)"
                 },
                 "parameter_class": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of paramter this is, of which the options are system (what you would find in production code of a system), behavioral (for what kinds of behavioral assumptions and distributions there are), and functional (for defining out different functional forms such as swapping in and out policies)"
                 }
             },
             "required": [
