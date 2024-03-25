@@ -156,13 +156,16 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the entity"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes on the entity"
                 },
                 "state": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The string key for the state associated with the entity"
                 },
                 "metadata": {"type": "object"}
             },
@@ -469,16 +472,19 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the state or its implementation"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the state"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/Variable"
-                    }
+                    },
+                    "description": "All the attatched state variables for the component"
                 }
             },
             "required": [
@@ -494,19 +500,24 @@
             "additionalProperties": false,
             "properties": {
                 "type": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The type of the variable"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Variable name"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of what the variable is"
                 },
                 "symbol": {
-                    "type": ["string", "null"]
+                    "type": ["string","null"],
+                    "description": "The symbol associated with the parameter (optional)"
                 },
                 "domain": {
-                    "type": ["string", "null"]
+                    "type": ["string","null"],
+                    "description": "The mathematical domain of the parameter (optional)"
                 }
             },
             "required": [
