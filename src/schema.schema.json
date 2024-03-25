@@ -406,15 +406,18 @@
             "additionalProperties": true,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the stateful metric set"
                 },
                 "notes": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any notes about the stateful metric set"
                 },
                 "metrics": {
                     "type": "array",
                     "items": {
-                        "$ref": "./schema.schema.json/#/definitions/StatefulMetricVar"
+                        "$ref": "./schema.schema.json/#/definitions/StatefulMetricVar",
+                        "description": "All the attatched stateful metrics"
                     }
                 }
             },
@@ -711,31 +714,38 @@
         "additionalProperties": false,
         "properties": {
             "type": {
-                "type": "string"
+                "type": "string",
+                "description": "The type of the metric variable"
             },
             "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The name of the stateful metric variable"
             },
             "description": {
-                "type": "string"
+                "type": "string",
+                "description": "The description of the computation"
             },
             "variables_used": {
                 "type": "array",
                 "items": {
 
-                }
+                },
+                "description": "The variables used for computation of the form (state, variable)"
             },
             "parameters_used": {
                 "type": "array",
                 "items": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The string keys of parameters which are used in the metric calculation"
                 }
             },
             "symbol": {
-                "type": ["string","null"]
+                "type": ["string","null"],
+                "description": "The symbol associated with the stateful metric (optional)"
             },
             "domain": {
-                "type": ["string","null"]
+                "type": ["string","null"],
+                "description": "The mathematical domain of the stateful metric (optional)"
             }
         }
     }
