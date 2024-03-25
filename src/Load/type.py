@@ -89,13 +89,40 @@ def load_typescript_type_key(path):
     return type_definitions
 
 
+def load_julia_type_key(path):
+    with open(path, "r") as file:
+        type_definitions = file.read()
+    type_definitions = type_definitions.split("end")
+    type_definitions = [x.strip() for x in type_definitions]
+    type_definitions = [x for x in type_definitions if len(x) > 0]
+
+    hold = type_definitions[:]
+    type_definitions = {}
+    for x in hold:
+        name = x
+        if x.startswith("abstract type"):
+            name = name[14:]
+            name = name[: name.index("<:")].strip()
+        elif x.startswith("struct"):
+            name = name[7:]
+            name = name[: name.index("\n")].strip()
+        else:
+            assert False
+
+        type_definitions[name] = x
+    return type_definitions
+
+
 def load_type_keys(ms):
     type_keys = {}
     python_path = "src/TypeMappings/types.py"
     typescript_path = "src/TypeMappings/types.ts"
+    julia_path = "src/TypeMappings/types.jl"
     if os.path.exists(python_path):
         type_keys["python"] = load_python_type_key()
     if os.path.exists(typescript_path):
         type_keys["typescript"] = load_typescript_type_key(typescript_path)
+    if os.path.exists(julia_path):
+        type_keys["julia"] = load_julia_type_key(julia_path)
 
     ms["Type Keys"] = type_keys
