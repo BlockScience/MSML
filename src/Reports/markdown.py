@@ -99,6 +99,10 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
         out += "### Typescript Type\n"
         out += t.type_name["typescript"]
         out += "\n"
+    if "julia" in t.type:
+        out += "### Julia Type\n"
+        out += t.type_name["julia"]
+        out += "\n"
     out += "\n"
     out += "## Notes"
     out += "\n\n"
