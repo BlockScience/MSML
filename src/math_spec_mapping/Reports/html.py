@@ -9,6 +9,7 @@ from .node_map import create_action_chains_graph
 from .parameters import write_out_params
 from .state import write_local_state_variable_tables, write_global_state_variable_table
 from typing import List
+import os
 
 
 def write_basic_report_full(ms: MathSpec, directory: str, name: str) -> None:
@@ -128,6 +129,15 @@ def write_spec_tree(
     symbol3 = "│   │   ├──"
 
     out = ""
+
+    if linking:
+        out += """---
+cssclasses:
+  - spec
+---
+
+"""
+
     out += symbol1 + "**Entities**\n"
     for name in ms.entities.keys():
         if linking:
@@ -214,7 +224,29 @@ def write_spec_tree(
     if path:
         with open("{}/Spec Tree.md".format(path), "w") as f:
             f.write(out)
-    return out
+        try:
+            if ".obsidian" not in os.listdir(path):
+                path = path + "/" + ".obsidian"
+                os.mkdir(path)
+            else:
+                path = path + "/" + ".obsidian"
+            if "snippets" not in os.listdir(path):
+                path = path + "/" + "snippets"
+                os.mkdir(path)
+            else:
+                path = path + "/" + "snippets"
+
+            snippet = """.spec {
+  font-family: 'Consolas', Courier, monospace ;
+  line-height: 1;
+  }"""
+            with open("{}/spec.css".format(path), "w") as f:
+                f.write(snippet)
+
+        except:
+            print("Couldn't find .obsidian/snippets to put snippet in")
+    else:
+        return out
 
 
 def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None):
