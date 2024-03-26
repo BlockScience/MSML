@@ -10,3 +10,4 @@ class Mechanism(Block):
         self.logic = data["logic"]
         self.updates = []
         self.block_type = "Mechanism"
+        self.implementations = data["implementations"]
