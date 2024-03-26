@@ -42,6 +42,14 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
         )
 
     data["domain"] = tuple(ms["Spaces"][x] for x in data["domain"])
+    data["implementations"] = {}
+
+    if "python" in ms["Implementations"]:
+        if "mechanisms" in ms["Implementations"]["python"]:
+            if data["name"] in ms["Implementations"]["python"]["mechanisms"]:
+                data["implementations"]["python"] = ms["Implementations"]["python"][
+                    "mechanisms"
+                ][data["name"]]
 
     # Build the action transmission channel object
     return Mechanism(data), new_channels
