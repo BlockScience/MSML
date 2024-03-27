@@ -4,6 +4,7 @@ from .Policy import Policy
 from .Mechanism import Mechanism
 from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
+import os
 
 
 class MathSpec:
@@ -350,3 +351,17 @@ class MathSpec:
         for metrics in self.stateful_metrics.values():
             sm.extend([x.name for x in metrics.metrics])
         return sm
+
+    def metaprogramming_python_types(self, model_directory, overwrite=False):
+        path = model_directory + "/types.py"
+        if not overwrite:
+            assert "types.py" not in os.listdir(
+                model_directory
+            ), "The types file is already written, either delete it or switch to overwrite mode"
+        out = ""
+        for t in self.types:
+            t = self.types[t]
+            assert "python" in t.type, "No python type associated with {}".format(
+                t.name
+            )
+            print(t.type["python"])
