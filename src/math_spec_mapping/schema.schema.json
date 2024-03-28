@@ -434,38 +434,45 @@
             "additionalProperties": true,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Name of the boundary action"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Quick description of the boundary action"
                 },
                 "constraints": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Any constraints which the boundary action must respect"
                 },
                 "boundary_action_options": {
                     "type": "array",
-                    "items": {}
+                    "items": {},
+                    "description": "The options for implementation of the boundary action"
                 },
                 "called_by": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The entities which are allowed to call this boundary action"
                 },
                 "codomain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "List of outputs that come out of this block"
                 },
                 "parameters_used": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The string keys of parameters which have an effect on the boundary action"
                 }
             },
             "required": [

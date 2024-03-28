@@ -6,6 +6,7 @@ class Space:
         self.name = data["name"]
         self.schema = data["schema"]
         self.metadata = data["metadata"]
+        self.name_variable = self.name.replace(" ", "").replace("-", "_")
 
     def __repr__(self):
         return self.name

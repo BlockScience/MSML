@@ -4,6 +4,7 @@ from .Policy import Policy
 from .Mechanism import Mechanism
 from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
+import os
 
 
 class MathSpec:
@@ -12,6 +13,7 @@ class MathSpec:
         self._ms_dict = ms_dict
         self._json = json
         self.type_keys = ms_dict["Type Keys"]
+        self.implementations = ms_dict["Implementations"]
         self.action_transmission_channels = ms_dict["Action Transmission Channels"]
         self.boundary_actions = ms_dict["Boundary Actions"]
         self.control_actions = ms_dict["Control Actions"]
@@ -349,3 +351,99 @@ class MathSpec:
         for metrics in self.stateful_metrics.values():
             sm.extend([x.name for x in metrics.metrics])
         return sm
+
+    def metaprogramming_python_types(self, model_directory, overwrite=False):
+        path = model_directory + "/types.py"
+        if not overwrite:
+            assert "types.py" not in os.listdir(
+                model_directory
+            ), "The types file is already written, either delete it or switch to overwrite mode"
+        out = "import typing\n\n"
+        for t in self.types:
+            t = self.types[t]
+            assert "python" in t.type, "No python type associated with {}".format(
+                t.name
+            )
+            x = t.type["python"]
+            type_desc = x.__name__ if hasattr(x, "__name__") else str(x)
+            out += "{} = {}".format(t.original_type_name, type_desc)
+            out += "\n"
+        with open(path, "w") as f:
+            f.write(out)
+
+    def metaprogramming_python_spaces(self, model_directory, overwrite=False):
+        path = model_directory + "/spaces.py"
+        if not overwrite:
+            assert "spaces.py" not in os.listdir(
+                model_directory
+            ), "The spaces file is already written, either delete it or switch to overwrite mode"
+        unique_spaces = set().union(
+            *[set(x.schema.values()) for x in self.spaces.values()]
+        )
+        unique_types = [x.original_type_name for x in unique_spaces]
+        out = ""
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+
+        for space in self.spaces:
+            out += self.spaces[space].name_variable
+            out += " = "
+            d = self.spaces[space].schema
+            d = [(x, d[x].original_type_name) for x in d]
+            d = ["'{}': {}".format(x[0], x[1]) for x in d]
+            d = ", ".join(d)
+            d = "{" + d + "}"
+            out += "TypedDict('{}', {})".format(self.spaces[space].name, d)
+            out += "\n"
+
+        with open(path, "w") as f:
+            f.write(out)
+
+    def metaprogramming_python_states(
+        self, model_directory, overwrite=False, default_values=None
+    ):
+        path = model_directory + "/states.py"
+        if not overwrite:
+            assert "states.py" not in os.listdir(
+                model_directory
+            ), "The states file is already written, either delete it or switch to overwrite mode"
+        out = ""
+        unique_types = [x.variables for x in self.state.values()]
+        unique_types = [set(y.type.original_type_name for y in x) for x in unique_types]
+        unique_types = set().union(*unique_types)
+        out = ""
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+
+        for state in self.state:
+            out += self.state[state].name_variable
+            out += " = "
+            d = self.state[state].variables
+            d = [(x.name, x.type.original_type_name) for x in d]
+            d = ["'{}': {}".format(x[0], x[1]) for x in d]
+            d = ", ".join(d)
+            d = "{" + d + "}"
+            out += "TypedDict('{}', {})".format(self.state[state].name, d)
+            out += "\n"
+        out += "\n"
+        out += "state: GlobalState = "
+        out += "{"
+        for x in self.state["Global State"].variables:
+            out += '"{}"'.format(x.name)
+            out += ": "
+            val = "None"
+            if default_values:
+                if x.name in default_values:
+                    val = str(default_values[x.name])
+            out += val
+            out += ",\n"
+        out += "}"
+
+        with open(path, "w") as f:
+            f.write(out)

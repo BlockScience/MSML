@@ -5,7 +5,7 @@ from ..Classes import Policy, PolicyOption
 from .general import check_json_keys
 
 
-def convert_policy_options(data: Dict) -> PolicyOption:
+def convert_policy_options(data: Dict, ms) -> PolicyOption:
     """Function to convert policy options
 
     Args:
@@ -20,6 +20,15 @@ def convert_policy_options(data: Dict) -> PolicyOption:
 
     # Copy
     data = data.copy()
+
+    data["implementations"] = {}
+
+    if "python" in ms["Implementations"]:
+        if "policies" in ms["Implementations"]["python"]:
+            if data["name"] in ms["Implementations"]["python"]["policies"]:
+                data["implementations"]["python"] = ms["Implementations"]["python"][
+                    "policies"
+                ][data["name"]]
 
     # Build the policy object
     return PolicyOption(data)
@@ -62,7 +71,7 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
     # Convert policy options
     policy_options = []
     for po in data["policy_options"]:
-        policy_options.append(convert_policy_options(po))
+        policy_options.append(convert_policy_options(po, ms))
     data["policy_options"] = policy_options
 
     data["codomain"] = tuple(ms["Spaces"][x] for x in data["codomain"])

@@ -18,6 +18,7 @@ def convert_type(data, ms):
     type_name = data["type"]
     data["type"] = {}
     data["type_name"] = {}
+    data["original_type_name"] = type_name
 
     if "python" in ms["Type Keys"]:
 

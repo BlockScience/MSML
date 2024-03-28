@@ -35,6 +35,16 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
     new_cao = []
     for ca in data["control_action_options"]:
         check_json_keys(ca, "Control Action Option")
+        ca["implementations"] = {}
+        if "python" in ms["Implementations"]:
+            if "control_action_options" in ms["Implementations"]["python"]:
+                if (
+                    ca["name"]
+                    in ms["Implementations"]["python"]["control_action_options"]
+                ):
+                    ca["implementations"]["python"] = ms["Implementations"]["python"][
+                        "control_action_options"
+                    ][ca["name"]]
         new_cao.append(ControlActionOption(ca))
     data["control_action_options"] = new_cao
 

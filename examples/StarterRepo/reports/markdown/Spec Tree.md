@@ -1,3 +1,8 @@
+---
+cssclasses:
+  - spec
+---
+
 ├──**Entities**
 │   ├──[[Dummy]]
 │   ├──[[Global]]
@@ -30,4 +35,4 @@
 ├──**Policies**
 │   ├──[[Dummy Policy]]
 ├──**Mechanisms**
-│   ├──[[Dummy Mechanism]]
+│   ├──[[Dummy Mechanism]]```
