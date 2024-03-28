@@ -418,5 +418,17 @@ class MathSpec:
         out += "from typing import TypedDict"
         out += "\n"
         out += "\n"
+
+        for state in self.state:
+            out += self.state[state].name_variable
+            out += " = "
+            d = self.state[state].variables
+            d = [(x.name, x.type.original_type_name) for x in d]
+            d = ["'{}': {}".format(x[0], x[1]) for x in d]
+            d = ", ".join(d)
+            d = "{" + d + "}"
+            out += "TypedDict('{}', {})".format(self.state[state].name, d)
+            out += "\n"
+
         with open(path, "w") as f:
             f.write(out)
