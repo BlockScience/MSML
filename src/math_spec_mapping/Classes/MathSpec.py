@@ -401,3 +401,22 @@ class MathSpec:
 
         with open(path, "w") as f:
             f.write(out)
+
+    def metaprogramming_python_states(self, model_directory, overwrite=False):
+        path = model_directory + "/states.py"
+        if not overwrite:
+            assert "states.py" not in os.listdir(
+                model_directory
+            ), "The states file is already written, either delete it or switch to overwrite mode"
+        out = ""
+        unique_types = [x.variables for x in self.state.values()]
+        unique_types = [set(y.type.original_type_name for y in x) for x in unique_types]
+        unique_types = set().union(*unique_types)
+        out = ""
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+        with open(path, "w") as f:
+            f.write(out)
