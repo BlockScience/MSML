@@ -380,10 +380,24 @@ class MathSpec:
         unique_spaces = set().union(
             *[set(x.schema.values()) for x in self.spaces.values()]
         )
-        unique_spaces = [x.original_type_name for x in unique_spaces]
+        unique_types = [x.original_type_name for x in unique_spaces]
         out = ""
-        out += "from .types import {}".format(" ,".join(unique_spaces))
-        out += "\n\n"
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+
+        for space in self.spaces:
+            out += self.spaces[space].name_variable
+            out += " = "
+            d = self.spaces[space].schema
+            d = [(x, d[x].original_type_name) for x in d]
+            d = ["'{}': {}".format(x[0], x[1]) for x in d]
+            d = ", ".join(d)
+            d = "{" + d + "}"
+            out += "TypedDict('{}', {})".format(self.spaces[space].name, d)
+            out += "\n"
 
         with open(path, "w") as f:
             f.write(out)
