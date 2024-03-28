@@ -402,7 +402,9 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
-    def metaprogramming_python_states(self, model_directory, overwrite=False):
+    def metaprogramming_python_states(
+        self, model_directory, overwrite=False, default_values=None
+    ):
         path = model_directory + "/states.py"
         if not overwrite:
             assert "states.py" not in os.listdir(
@@ -429,6 +431,19 @@ class MathSpec:
             d = "{" + d + "}"
             out += "TypedDict('{}', {})".format(self.state[state].name, d)
             out += "\n"
+        out += "\n"
+        out += "state: GlobalState = "
+        out += "{"
+        for x in self.state["Global State"].variables:
+            out += '"{}"'.format(x.name)
+            out += ": "
+            val = "None"
+            if default_values:
+                if x.name in default_values:
+                    val = str(default_values[x.name])
+            out += val
+            out += ",\n"
+        out += "}"
 
         with open(path, "w") as f:
             f.write(out)
