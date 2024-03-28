@@ -314,44 +314,52 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the policy"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Description of the policy"
                 },
                 "constraints": {
                     "type": "array",
-                    "items": {}
+                    "description": "Any constraints which the policy must respect",
+                    "items": {"type": "string"}
                 },
                 "policy_options": {
                     "type": "array",
                     "items": {
                         "$ref": "./schema.schema.json/#/definitions/PolicyOption"
-                    }
+                    },
+                    "description": "Possible implementations of the policy"
                 },
                 "domain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The spaces which are passed in as inputs to the policy"
                 },
                 "codomain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The spaces which are returned as results of the policy"
                 },
                 "parameters_used": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "All parameters used in the implementations of policies"
                 },
                 "metrics_used": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "All metrics used in implementation of policies"
                 }
             },
             "required": [
@@ -372,13 +380,16 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the policy option"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "A description of the implementation"
                 },
                 "logic": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Any logic associated with the implementation"
                 }
             },
             "required": [
