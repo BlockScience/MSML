@@ -116,28 +116,34 @@
             "additionalProperties": false,
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the control action"
                 },
                 "description": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The description of the control action"
                 },
                 "constraints": {
                     "type": "array",
-                    "items": {}
+                    "description": "Any constraints which the control action must respect",
+                    "items": {"type": "string"}
                 },
                 "control_action_options": {
                     "type": "array",
-                    "items": {}
+                    "items": {},
+                    "description": "Possible implementations of the control action"
                 },
                 "codomain": {
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "The output spaces of the control action"
                 },
                 "parameters_used": {
                     "type": "array",
-                    "items": {"type": "string"}
+                    "items": {"type": "string"},
+                    "description": "The parameters which the control action uses in its implenetations"
                 }
             },
             "required": [
