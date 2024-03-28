@@ -1,4 +1,4 @@
-from .MathSpec import MathSpec
+from .MathSpec import MathSpec, MathSpecImplementation
 from .State import State, StateVariable
 from .Entity import Entity
 from .BoundaryAction import BoundaryAction, BoundaryActionOption

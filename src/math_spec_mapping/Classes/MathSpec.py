@@ -5,6 +5,7 @@ from .Mechanism import Mechanism
 from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
 import os
+from copy import deepcopy
 
 
 class MathSpec:
@@ -447,3 +448,8 @@ class MathSpec:
 
         with open(path, "w") as f:
             f.write(out)
+
+
+class MathSpecImplementation:
+    def __init__(self, ms: MathSpec, params):
+        self.ms = deepcopy(ms)
