@@ -358,10 +358,15 @@ class MathSpec:
             assert "types.py" not in os.listdir(
                 model_directory
             ), "The types file is already written, either delete it or switch to overwrite mode"
-        out = ""
+        out = "import typing\n\n"
         for t in self.types:
             t = self.types[t]
             assert "python" in t.type, "No python type associated with {}".format(
                 t.name
             )
-            print(t.type["python"])
+            x = t.type["python"]
+            type_desc = x.__name__ if hasattr(x, "__name__") else str(x)
+            out += "{} = {}".format(t.original_type_name, type_desc)
+            out += "\n"
+        with open(path, "w") as f:
+            f.write(out)
