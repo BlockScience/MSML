@@ -15,6 +15,7 @@ class State:
         self._write_variable_map()
         self.updated_by = []
         self.metadata = data["metadata"]
+        self.name_variable = self.name.replace(" ", "").replace("-", "_")
 
     def _write_variable_map(self) -> None:
         """
