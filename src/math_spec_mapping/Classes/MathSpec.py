@@ -370,3 +370,20 @@ class MathSpec:
             out += "\n"
         with open(path, "w") as f:
             f.write(out)
+
+    def metaprogramming_python_spaces(self, model_directory, overwrite=False):
+        path = model_directory + "/spaces.py"
+        if not overwrite:
+            assert "spaces.py" not in os.listdir(
+                model_directory
+            ), "The spaces file is already written, either delete it or switch to overwrite mode"
+        unique_spaces = set().union(
+            *[set(x.schema.values()) for x in self.spaces.values()]
+        )
+        unique_spaces = [x.original_type_name for x in unique_spaces]
+        out = ""
+        out += "from .types import {}".format(" ,".join(unique_spaces))
+        out += "\n\n"
+
+        with open(path, "w") as f:
+            f.write(out)
