@@ -43,6 +43,7 @@ class MathSpec:
         self._crawl_parameters_exploded()
         self._check_dictionary_names()
         self._build_functional_parameters()
+        self._build_parameter_types()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -373,6 +374,29 @@ class MathSpec:
         self.functional_parameters = {}
         for x in opts:
             self.functional_parameters["FP {}".format(x.name)] = x
+
+    def _build_parameter_types(self):
+        system_parameters_types = {}
+        behavioral_parameters_types = {}
+        functional_parameters_types = {}
+
+        for x in self.parameters.all_parameters:
+            pt = self.parameters.parameter_map[x].variable_type.original_type_name
+            pc = self.parameters.parameter_map[x].parameter_class
+            if pc == "functional":
+                functional_parameters_types[x] = pt
+            elif pc == "system":
+                system_parameters_types[x] = pt
+            elif pc == "behavioral":
+                behavioral_parameters_types[x] = pt
+            else:
+                assert False
+        for x in self.functional_parameters:
+            functional_parameters_types[x] = "str"
+
+        self.system_parameters_types = system_parameters_types
+        self.behavioral_parameters_types = behavioral_parameters_types
+        self.functional_parameters_types = functional_parameters_types
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
