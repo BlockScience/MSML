@@ -42,6 +42,7 @@ class MathSpec:
         self._crawl_parameters()
         self._crawl_parameters_exploded()
         self._check_dictionary_names()
+        self._build_functional_parameters()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -352,6 +353,26 @@ class MathSpec:
         for metrics in self.stateful_metrics.values():
             sm.extend([x.name for x in metrics.metrics])
         return sm
+
+    def _build_functional_parameters(self):
+        opts = [x for x in self.policies.values() if len(x.policy_options) > 1]
+        opts.extend(
+            [
+                x
+                for x in self.boundary_actions.values()
+                if len(x.boundary_action_options) > 1
+            ]
+        )
+        opts.extend(
+            [
+                x
+                for x in self.control_actions.values()
+                if len(x.control_action_options) > 1
+            ]
+        )
+        self.functional_parameters = {}
+        for x in opts:
+            self.functional_parameters["FP {}".format(x.name)] = x
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
