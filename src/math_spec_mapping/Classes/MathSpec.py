@@ -494,6 +494,61 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def metaprogramming_python_parameters(
+        self, model_directory, overwrite=False, default_values=None
+    ):
+        path = model_directory + "/parameters.py"
+        if not overwrite:
+            assert "parameters.py" not in os.listdir(
+                model_directory
+            ), "The parameters file is already written, either delete it or switch to overwrite mode"
+        out = ""
+
+        unique_types = (
+            set(self.system_parameters_types.values())
+            .union(set(self.functional_parameters_types.values()))
+            .union(set(self.behavioral_parameters_types.values()))
+        )
+        unique_types = [x for x in unique_types if x != "str"]
+
+        print(unique_types)
+
+        out = ""
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+        print(out)
+        """
+
+        for state in self.state:
+            out += self.state[state].name_variable
+            out += " = "
+            d = self.state[state].variables
+            d = [(x.name, x.type.original_type_name) for x in d]
+            d = ["'{}': {}".format(x[0], x[1]) for x in d]
+            d = ", ".join(d)
+            d = "{" + d + "}"
+            out += "TypedDict('{}', {})".format(self.state[state].name, d)
+            out += "\n"
+        out += "\n"
+        out += "state: GlobalState = "
+        out += "{"
+        for x in self.state["Global State"].variables:
+            out += '"{}"'.format(x.name)
+            out += ": "
+            val = "None"
+            if default_values:
+                if x.name in default_values:
+                    val = str(default_values[x.name])
+            out += val
+            out += ",\n"
+        out += "}"
+
+        with open(path, "w") as f:
+            f.write(out)"""
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params):
