@@ -6,3 +6,4 @@
     - Build out more documentation
 2. Finalize Reporting Capabilities
     - Conversion of all reporting to markdown format
+    - Replacement of the graphviz visualizations with the mermaid visualizations
