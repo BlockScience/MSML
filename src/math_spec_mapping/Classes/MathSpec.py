@@ -544,6 +544,10 @@ class MathSpec:
 
         out += "FunctionalParameters = TypedDict('FunctionalParameters', {})".format(d)
         out += "\n\n"
+        out += """Parameters = TypedDict("Parameters",{**BehavioralParameters.__annotations__,
+ **FunctionalParameters.__annotations__,
+**SystemParameters.__annotations__})"""
+        out += "\n\n"
 
         """
 
