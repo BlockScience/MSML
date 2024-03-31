@@ -675,7 +675,6 @@ def write_all_markdown_reports(ms, path, clear_folders=False):
             "Types",
             "Control Actions",
             "Spaces",
-            ".obsidian",
             "Boundary Actions",
             "Policies",
             "Wiring",
