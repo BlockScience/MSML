@@ -5,6 +5,7 @@ from .Mechanism import Mechanism
 from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
 import os
+from copy import deepcopy
 
 
 class MathSpec:
@@ -41,6 +42,8 @@ class MathSpec:
         self._crawl_parameters()
         self._crawl_parameters_exploded()
         self._check_dictionary_names()
+        self._build_functional_parameters()
+        self._build_parameter_types()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -352,6 +355,49 @@ class MathSpec:
             sm.extend([x.name for x in metrics.metrics])
         return sm
 
+    def _build_functional_parameters(self):
+        opts = [x for x in self.policies.values() if len(x.policy_options) > 1]
+        opts.extend(
+            [
+                x
+                for x in self.boundary_actions.values()
+                if len(x.boundary_action_options) > 1
+            ]
+        )
+        opts.extend(
+            [
+                x
+                for x in self.control_actions.values()
+                if len(x.control_action_options) > 1
+            ]
+        )
+        self.functional_parameters = {}
+        for x in opts:
+            self.functional_parameters["FP {}".format(x.name)] = x
+
+    def _build_parameter_types(self):
+        system_parameters_types = {}
+        behavioral_parameters_types = {}
+        functional_parameters_types = {}
+
+        for x in self.parameters.all_parameters:
+            pt = self.parameters.parameter_map[x].variable_type.original_type_name
+            pc = self.parameters.parameter_map[x].parameter_class
+            if pc == "Functional":
+                functional_parameters_types[x] = pt
+            elif pc == "System":
+                system_parameters_types[x] = pt
+            elif pc == "Behavioral":
+                behavioral_parameters_types[x] = pt
+            else:
+                assert False
+        for x in self.functional_parameters:
+            functional_parameters_types[x] = "str"
+
+        self.system_parameters_types = system_parameters_types
+        self.behavioral_parameters_types = behavioral_parameters_types
+        self.functional_parameters_types = functional_parameters_types
+
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
         if not overwrite:
@@ -447,3 +493,110 @@ class MathSpec:
 
         with open(path, "w") as f:
             f.write(out)
+
+    def metaprogramming_python_parameters(
+        self, model_directory, overwrite=False, default_values=None
+    ):
+        path = model_directory + "/parameters.py"
+        if not overwrite:
+            assert "parameters.py" not in os.listdir(
+                model_directory
+            ), "The parameters file is already written, either delete it or switch to overwrite mode"
+        out = ""
+
+        unique_types = (
+            set(self.system_parameters_types.values())
+            .union(set(self.functional_parameters_types.values()))
+            .union(set(self.behavioral_parameters_types.values()))
+        )
+        unique_types = [x for x in unique_types if x != "str"]
+
+        out = ""
+        out += "from .types import {}".format(", ".join(unique_types))
+        out += "\n"
+        out += "from typing import TypedDict"
+        out += "\n"
+        out += "\n"
+
+        d = self.system_parameters_types
+        d = [(x, d[x]) for x in d]
+        d = ["'{}': {}".format(x[0], x[1]) for x in d]
+        d = ", ".join(d)
+        d = "{" + d + "}"
+
+        out += "SystemParameters = TypedDict('SystemParameters', {})".format(d)
+        out += "\n\n"
+
+        d = self.behavioral_parameters_types
+        d = [(x, d[x]) for x in d]
+        d = ["'{}': {}".format(x[0], x[1]) for x in d]
+        d = ", ".join(d)
+        d = "{" + d + "}"
+
+        out += "BehavioralParameters = TypedDict('BehavioralParameters', {})".format(d)
+        out += "\n\n"
+
+        d = self.functional_parameters_types
+        d = [(x, d[x]) for x in d]
+        d = ["'{}': {}".format(x[0], x[1]) for x in d]
+        d = ", ".join(d)
+        d = "{" + d + "}"
+
+        out += "FunctionalParameters = TypedDict('FunctionalParameters', {})".format(d)
+        out += "\n\n"
+        out += """Parameters = TypedDict("Parameters",{**BehavioralParameters.__annotations__,
+ **FunctionalParameters.__annotations__,
+**SystemParameters.__annotations__})"""
+        out += "\n\n"
+
+        out += "functional_parameters: FunctionalParameters = "
+        out += "{"
+        for key in self.functional_parameters_types:
+            out += '"{}"'.format(key)
+            out += ": "
+            val = "None"
+            if default_values:
+                if key in default_values:
+                    val = str(default_values[key])
+            out += val
+            out += ",\n"
+        out += "}"
+        out += "\n\n"
+
+        out += "behavioral_parameters: BehavioralParameters = "
+        out += "{"
+        for key in self.behavioral_parameters_types:
+            out += '"{}"'.format(key)
+            out += ": "
+            val = "None"
+            if default_values:
+                if key in default_values:
+                    val = str(default_values[key])
+            out += val
+            out += ",\n"
+        out += "}"
+        out += "\n\n"
+
+        out += "system_parameters: SystemParameters = "
+        out += "{"
+        for key in self.system_parameters_types:
+            out += '"{}"'.format(key)
+            out += ": "
+            val = "None"
+            if default_values:
+                if key in default_values:
+                    val = str(default_values[key])
+            out += val
+            out += ",\n"
+        out += "}"
+        out += "\n\n"
+
+        out += "parameters: Parameters = {**behavioral_parameters, **functional_parameters, **system_parameters}"
+
+        with open(path, "w") as f:
+            f.write(out)
+
+
+class MathSpecImplementation:
+    def __init__(self, ms: MathSpec, params):
+        self.ms = deepcopy(ms)
