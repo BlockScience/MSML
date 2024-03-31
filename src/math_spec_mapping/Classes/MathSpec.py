@@ -563,6 +563,36 @@ class MathSpec:
         out += "}"
         out += "\n\n"
 
+        out += "behavioral_parameters: BehavioralParameters = "
+        out += "{"
+        for key in self.behavioral_parameters_types:
+            out += '"{}"'.format(key)
+            out += ": "
+            val = "None"
+            if default_values:
+                if key in default_values:
+                    val = str(default_values[key])
+            out += val
+            out += ",\n"
+        out += "}"
+        out += "\n\n"
+
+        out += "system_parameters: SystemParameters = "
+        out += "{"
+        for key in self.system_parameters_types:
+            out += '"{}"'.format(key)
+            out += ": "
+            val = "None"
+            if default_values:
+                if key in default_values:
+                    val = str(default_values[key])
+            out += val
+            out += ",\n"
+        out += "}"
+        out += "\n\n"
+
+        out += "parameters: Parameters = {**behavioral_parameters, **functional_parameters, **system_parameters}"
+
         with open(path, "w") as f:
             f.write(out)
 
