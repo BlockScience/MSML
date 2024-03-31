@@ -383,11 +383,11 @@ class MathSpec:
         for x in self.parameters.all_parameters:
             pt = self.parameters.parameter_map[x].variable_type.original_type_name
             pc = self.parameters.parameter_map[x].parameter_class
-            if pc == "functional":
+            if pc == "Functional":
                 functional_parameters_types[x] = pt
-            elif pc == "system":
+            elif pc == "System":
                 system_parameters_types[x] = pt
-            elif pc == "behavioral":
+            elif pc == "Behavioral":
                 behavioral_parameters_types[x] = pt
             else:
                 assert False
