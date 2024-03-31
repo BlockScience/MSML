@@ -549,32 +549,20 @@ class MathSpec:
 **SystemParameters.__annotations__})"""
         out += "\n\n"
 
-        """
-
-        for state in self.state:
-            out += self.state[state].name_variable
-            out += " = "
-            d = self.state[state].variables
-            d = [(x.name, x.type.original_type_name) for x in d]
-            d = ["'{}': {}".format(x[0], x[1]) for x in d]
-            d = ", ".join(d)
-            d = "{" + d + "}"
-            out += "TypedDict('{}', {})".format(self.state[state].name, d)
-            out += "\n"
-        out += "\n"
-        out += "state: GlobalState = "
+        out += "functional_parameters: FunctionalParameters = "
         out += "{"
-        for x in self.state["Global State"].variables:
-            out += '"{}"'.format(x.name)
+        for key in self.functional_parameters_types:
+            out += '"{}"'.format(key)
             out += ": "
             val = "None"
             if default_values:
-                if x.name in default_values:
-                    val = str(default_values[x.name])
+                if key in default_values:
+                    val = str(default_values[key])
             out += val
             out += ",\n"
         out += "}"
-        """
+        out += "\n\n"
+
         with open(path, "w") as f:
             f.write(out)
 
