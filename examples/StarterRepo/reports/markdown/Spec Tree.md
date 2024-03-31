@@ -35,4 +35,4 @@ cssclasses:
 ├──**Policies**
 │   ├──[[Dummy Policy]]
 ├──**Mechanisms**
-│   ├──[[Dummy Mechanism]]```
+│   ├──[[Dummy Mechanism]]
