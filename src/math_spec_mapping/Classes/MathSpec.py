@@ -605,6 +605,7 @@ class MathSpecImplementation:
         self.ms = deepcopy(ms)
         self.params = params
         self.control_actions = self.load_control_actions()
+        self.mechanisms = self.load_mechanisms()
 
     def load_control_actions(self):
         control_actions = {}
@@ -629,3 +630,14 @@ class MathSpecImplementation:
 
                 control_actions[ca.name] = opt.implementations["python"]
         return control_actions
+
+    def load_mechanisms(self):
+        mechanisms = {}
+        for m in self.ms.mechanisms:
+            m = self.ms.mechanisms[m]
+            if "python" not in m.implementations:
+                print("No python implementation for {}".format(m.name))
+                mechanisms[m.name] = None
+            else:
+                mechanisms[m.name] = m.implementations["python"]
+        return mechanisms
