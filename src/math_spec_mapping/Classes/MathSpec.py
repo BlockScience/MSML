@@ -596,7 +596,36 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def build_implementation(self, params):
+        return MathSpecImplementation(self, params)
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params):
         self.ms = deepcopy(ms)
+        self.params = params
+        self.control_actions = self.load_control_actions()
+
+    def load_control_actions(self):
+        control_actions = {}
+        for ca in self.ms.control_actions:
+            ca = self.ms.control_actions[ca]
+            opts = ca.control_action_options
+            if len(opts) == 0:
+                print("{} has no control action options".format(ca.name))
+                control_actions[ca.name] = None
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(ca.name) in self.params
+                    ), "No functional parameterization for {}".format(ca.name)
+                    opt = self.ms.functional_parameters["FP {}".format(ca.name)]
+
+                assert (
+                    "python" in opt.implementations
+                ), "No python implementation for {} / {}".format(ca.name, opt.name)
+
+                control_actions[ca.name] = opt.implementations["python"]
+        return control_actions
