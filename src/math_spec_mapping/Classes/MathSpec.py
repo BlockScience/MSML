@@ -670,10 +670,13 @@ class MathSpecImplementation:
 
             for i, x in enumerate([x.name for x in wiring.domain_blocks]):
                 spaces_mapping[x].append(i)
-            print(spaces_mapping)
 
             def wiring(state, params, spaces):
-                pass
+                codomain = []
+                for component in components:
+                    spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    codomain.extend(self.blocks[component](state, params, spaces_i))
+                return codomain
 
         else:
             assert False
