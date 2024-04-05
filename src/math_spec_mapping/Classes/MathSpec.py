@@ -631,7 +631,9 @@ class MathSpecImplementation:
                     assert (
                         "FP {}".format(ca.name) in self.params
                     ), "No functional parameterization for {}".format(ca.name)
-                    opt = self.ms.functional_parameters["FP {}".format(ca.name)]
+                    opt = self.ms.functional_parameters["FP {}".format(ca.name)][
+                        self.params["FP {}".format(ca.name)]
+                    ]
 
                 assert (
                     "python" in opt.implementations
@@ -684,7 +686,9 @@ class MathSpecImplementation:
                     assert (
                         "FP {}".format(p.name) in self.params
                     ), "No functional parameterization for {}".format(p.name)
-                    opt = self.ms.functional_parameters["FP {}".format(p.name)]
+                    opt = self.ms.functional_parameters["FP {}".format(p.name)][
+                        self.params["FP {}".format(p.name)]
+                    ]
 
                 if "python" not in opt.implementations:
                     print(
