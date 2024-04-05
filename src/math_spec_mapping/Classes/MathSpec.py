@@ -605,7 +605,10 @@ class MathSpecImplementation:
         self.ms = deepcopy(ms)
         self.params = params
         self.control_actions = self.load_control_actions()
+        self.boundary_actions = {}
+        self.policies = {}
         self.mechanisms = self.load_mechanisms()
+        self.load_wiring()
 
     def load_control_actions(self):
         control_actions = {}
@@ -641,3 +644,46 @@ class MathSpecImplementation:
             else:
                 mechanisms[m.name] = m.implementations["python"]
         return mechanisms
+
+    def load_single_wiring(self, wiring):
+        # if wiring.block_type == ""
+        def wiring(state, params, spaces):
+            pass
+
+        return wiring
+
+    def load_wiring(
+        self,
+    ):
+        self.blocks = {}
+        self.blocks.update(self.boundary_actions)
+        self.blocks.update(self.control_actions)
+        self.blocks.update(self.policies)
+        self.blocks.update(self.mechanisms)
+
+        self.wiring = {}
+
+        wiring = [x for x in self.ms.wiring.values()]
+
+        i = 1
+        while i > 0:
+            i = 0
+            hold = []
+            for w in wiring:
+                components = [x.name for x in w.components]
+                if all([x in self.blocks for x in components]):
+                    i += 1
+                    w2 = self.load_single_wiring(w)
+                    assert w.name not in self.blocks, "{} was a repeated block".format(
+                        w.name
+                    )
+                    if w2:
+                        self.blocks[w.name] = w2
+                        self.wiring[w.name] = w2
+
+                else:
+                    hold.append(w)
+            wiring = hold
+        if len(wiring) > 0:
+            wiring = [x.name for x in wiring]
+            print("The following wirings were not loading: {}".format(wiring))
