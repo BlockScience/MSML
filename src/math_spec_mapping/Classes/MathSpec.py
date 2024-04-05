@@ -356,24 +356,31 @@ class MathSpec:
         return sm
 
     def _build_functional_parameters(self):
-        opts = [x for x in self.policies.values() if len(x.policy_options) > 1]
+        opts = [
+            (x, x.policy_options)
+            for x in self.policies.values()
+            if len(x.policy_options) > 1
+        ]
         opts.extend(
             [
-                x
+                (x, x.boundary_actions)
                 for x in self.boundary_actions.values()
                 if len(x.boundary_action_options) > 1
             ]
         )
         opts.extend(
             [
-                x
+                (x, x.control_actions)
                 for x in self.control_actions.values()
                 if len(x.control_action_options) > 1
             ]
         )
         self.functional_parameters = {}
         for x in opts:
-            self.functional_parameters["FP {}".format(x.name)] = x
+            x, y = x
+            self.functional_parameters["FP {}".format(x.name)] = {}
+            for y1 in y:
+                self.functional_parameters["FP {}".format(x.name)][y1.name] = y1
 
     def _build_parameter_types(self):
         system_parameters_types = {}
