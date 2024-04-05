@@ -606,7 +606,7 @@ class MathSpecImplementation:
         self.params = params
         self.control_actions = self.load_control_actions()
         self.boundary_actions = {}
-        self.policies = {}
+        self.policies = self.load_policies()
         self.mechanisms = self.load_mechanisms()
         self.load_wiring()
 
@@ -617,7 +617,6 @@ class MathSpecImplementation:
             opts = ca.control_action_options
             if len(opts) == 0:
                 print("{} has no control action options".format(ca.name))
-                control_actions[ca.name] = None
             else:
                 if len(opts) == 1:
                     opt = opts[0]
@@ -663,6 +662,30 @@ class MathSpecImplementation:
             assert False
 
         return wiring
+
+    def load_policies(self):
+        policies = {}
+        for p in self.ms.policies:
+            p = self.ms.policies[p]
+            opts = p.policy_options
+            if len(opts) == 0:
+                print("{} has no policy options".format(p.name))
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(p.name) in self.params
+                    ), "No functional parameterization for {}".format(p.name)
+                    opt = self.ms.functional_parameters["FP {}".format(p.name)]
+
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}".format(p.name, opt.name)
+                    )
+                else:
+                    policies[p.name] = opt.implementations["python"]
+        return policies
 
     def load_wiring(
         self,
