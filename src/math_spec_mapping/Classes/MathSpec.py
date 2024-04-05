@@ -646,9 +646,21 @@ class MathSpecImplementation:
         return mechanisms
 
     def load_single_wiring(self, wiring):
-        # if wiring.block_type == ""
-        def wiring(state, params, spaces):
-            pass
+        components = [x.name for x in wiring.components]
+        if wiring.block_type == "Stack Block":
+
+            def wiring(state, params, spaces):
+                for component in components:
+                    spaces = self.blocks[component](state, params, spaces)
+                return spaces
+
+        elif wiring.block_type == "Parallel Block":
+
+            def wiring(state, params, spaces):
+                pass
+
+        else:
+            assert False
 
         return wiring
 
