@@ -648,7 +648,6 @@ class MathSpecImplementation:
             m = self.ms.mechanisms[m]
             if "python" not in m.implementations:
                 print("No python implementation for {}".format(m.name))
-                mechanisms[m.name] = None
             else:
                 mechanisms[m.name] = m.implementations["python"]
         return mechanisms
@@ -675,7 +674,9 @@ class MathSpecImplementation:
                 codomain = []
                 for component in components:
                     spaces_i = [spaces[i] for i in spaces_mapping[component]]
-                    codomain.extend(self.blocks[component](state, params, spaces_i))
+                    spaces_i = self.blocks[component](state, params, spaces_i)
+                    if spaces_i:
+                        codomain.extend(spaces_i)
                 return codomain
 
         else:
