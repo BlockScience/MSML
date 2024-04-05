@@ -16,10 +16,15 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - Wiki links were added for the types in the spaces reporting
 - Python, Typescript, and Julia type parsing is now supported!
 
+### Metaprogramming
+
+- Code mapping for python is completed allowing for beginning to metaprogram
+
 ### Metrics Updates
 
 - For any "metrics_used" attributes, stateful_metrics are now allowed to be used as a metrics_used input
 - Metrics used is now added to the policies so that they can be referenced as an input into how the policy is working
+- Symbols used for when state variables/parameters are referenced in a metric are now mapped/displayed
 
 ### Displays
 
@@ -35,10 +40,16 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - Bug fix on control action report writing
 - Now the arrows between blocks scale to the number of spaces being passed
 - Any blocks which do not have an output space (meaning all mechanisms) are no longer linked to the codomain as it was getting too cluttered like that
+- New sections added to the markdown reports + cleaning up of loose ends
+- A whole bunch of updates to the JSON spec for:
+    - Expanding it for places that were not defined including nested components
+    - Adding descriptions for a whole lot of the components and subcomponents
 
 ### Documentation and Artifacts
 
 - Everything except for the coffee shop example has been ported from HackMD to the github repository
+- New functionality that can take the JSON spec descriptions and map them into a markdown table for easy display in READMEs or presentations
+- Revisions to the V0.2.2 report from typos + broken links that I discovered after the presentation
 
 ## Future Research Arc
 
