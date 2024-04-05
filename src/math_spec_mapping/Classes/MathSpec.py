@@ -356,24 +356,31 @@ class MathSpec:
         return sm
 
     def _build_functional_parameters(self):
-        opts = [x for x in self.policies.values() if len(x.policy_options) > 1]
+        opts = [
+            (x, x.policy_options)
+            for x in self.policies.values()
+            if len(x.policy_options) > 1
+        ]
         opts.extend(
             [
-                x
+                (x, x.boundary_actions)
                 for x in self.boundary_actions.values()
                 if len(x.boundary_action_options) > 1
             ]
         )
         opts.extend(
             [
-                x
+                (x, x.control_actions)
                 for x in self.control_actions.values()
                 if len(x.control_action_options) > 1
             ]
         )
         self.functional_parameters = {}
         for x in opts:
-            self.functional_parameters["FP {}".format(x.name)] = x
+            x, y = x
+            self.functional_parameters["FP {}".format(x.name)] = {}
+            for y1 in y:
+                self.functional_parameters["FP {}".format(x.name)][y1.name] = y1
 
     def _build_parameter_types(self):
         system_parameters_types = {}
@@ -596,7 +603,145 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def build_implementation(self, params):
+        return MathSpecImplementation(self, params)
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params):
         self.ms = deepcopy(ms)
+        self.params = params
+        self.control_actions = self.load_control_actions()
+        self.boundary_actions = {}
+        self.policies = self.load_policies()
+        self.mechanisms = self.load_mechanisms()
+        self.load_wiring()
+
+    def load_control_actions(self):
+        control_actions = {}
+        for ca in self.ms.control_actions:
+            ca = self.ms.control_actions[ca]
+            opts = ca.control_action_options
+            if len(opts) == 0:
+                print("{} has no control action options".format(ca.name))
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(ca.name) in self.params
+                    ), "No functional parameterization for {}".format(ca.name)
+                    opt = self.ms.functional_parameters["FP {}".format(ca.name)][
+                        self.params["FP {}".format(ca.name)]
+                    ]
+
+                assert (
+                    "python" in opt.implementations
+                ), "No python implementation for {} / {}".format(ca.name, opt.name)
+
+                control_actions[ca.name] = opt.implementations["python"]
+        return control_actions
+
+    def load_mechanisms(self):
+        mechanisms = {}
+        for m in self.ms.mechanisms:
+            m = self.ms.mechanisms[m]
+            if "python" not in m.implementations:
+                print("No python implementation for {}".format(m.name))
+            else:
+                mechanisms[m.name] = m.implementations["python"]
+        return mechanisms
+
+    def load_single_wiring(self, wiring):
+        components = [x.name for x in wiring.components]
+        if wiring.block_type == "Stack Block":
+
+            def wiring(state, params, spaces):
+                for component in components:
+                    spaces = self.blocks[component](state, params, spaces)
+                return spaces
+
+        elif wiring.block_type == "Parallel Block":
+
+            spaces_mapping = {}
+            for x in wiring.components:
+                spaces_mapping[x.name] = []
+
+            for i, x in enumerate([x.name for x in wiring.domain_blocks]):
+                spaces_mapping[x].append(i)
+
+            def wiring(state, params, spaces):
+                codomain = []
+                for component in components:
+                    spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    spaces_i = self.blocks[component](state, params, spaces_i)
+                    if spaces_i:
+                        codomain.extend(spaces_i)
+                return codomain
+
+        else:
+            assert False
+
+        return wiring
+
+    def load_policies(self):
+        policies = {}
+        for p in self.ms.policies:
+            p = self.ms.policies[p]
+            opts = p.policy_options
+            if len(opts) == 0:
+                print("{} has no policy options".format(p.name))
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(p.name) in self.params
+                    ), "No functional parameterization for {}".format(p.name)
+                    opt = self.ms.functional_parameters["FP {}".format(p.name)][
+                        self.params["FP {}".format(p.name)]
+                    ]
+
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}".format(p.name, opt.name)
+                    )
+                else:
+                    policies[p.name] = opt.implementations["python"]
+        return policies
+
+    def load_wiring(
+        self,
+    ):
+        self.blocks = {}
+        self.blocks.update(self.boundary_actions)
+        self.blocks.update(self.control_actions)
+        self.blocks.update(self.policies)
+        self.blocks.update(self.mechanisms)
+
+        self.wiring = {}
+
+        wiring = [x for x in self.ms.wiring.values()]
+
+        i = 1
+        while i > 0:
+            i = 0
+            hold = []
+            for w in wiring:
+                components = [x.name for x in w.components]
+                if all([x in self.blocks for x in components]):
+                    i += 1
+                    w2 = self.load_single_wiring(w)
+                    assert w.name not in self.blocks, "{} was a repeated block".format(
+                        w.name
+                    )
+                    if w2:
+                        self.blocks[w.name] = w2
+                        self.wiring[w.name] = w2
+
+                else:
+                    hold.append(w)
+            wiring = hold
+        if len(wiring) > 0:
+            wiring = [x.name for x in wiring]
+            print("The following wirings were not loading: {}".format(wiring))
