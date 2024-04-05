@@ -19,6 +19,16 @@ A total of XX issues were closed out over the development cycle, which broadly f
 ### Metaprogramming
 
 - Code mapping for python is completed allowing for beginning to metaprogram
+- Spaces, types, state, and parameters now all have the python metaprogramming routine complete
+- A new feature in the spec class is one that finds all functional parameterizations necessary for boundary action/control action/policy options
+    - Basically will make it so a user can specify in parameters which implementations to use
+    - This is going to be key to getting the first version of an "implementation" version out there where one can specify all the options to use, what code that it corresponds to, and then run that within the spec library (for early exploration before writing the full model)
+
+### Interactive / Code Enabled Blocks
+
+- Integrations into the blocks for running code off of them in the spec is underway. This will allow playing with it in a notebook and eventually will allow for meta programming to write the code into a model
+- Control actions, mechanisms, policies complete
+- Will also enable more exploratory work when iterating on a math spec
 
 ### Metrics Updates
 
@@ -44,6 +54,7 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - A whole bunch of updates to the JSON spec for:
     - Expanding it for places that were not defined including nested components
     - Adding descriptions for a whole lot of the components and subcomponents
+- The spec tree formatting has been improved with CSS snippets, but there was an issue created to force it to be used in the future. For now it has to be manually turned on by the user
 
 ### Documentation and Artifacts
 
