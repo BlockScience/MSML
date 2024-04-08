@@ -179,6 +179,8 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
     policy = ms.policies[policy]
     if "Policies" not in os.listdir(path):
         os.makedirs(path + "/Policies")
+
+    out = ""
     if add_metadata:
         metadata = policy.metadata
         if len(metadata) > 0:
@@ -188,7 +190,7 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
-    out = ""
+
     out += "## Description"
     out += "\n"
     out += "\n"
