@@ -563,7 +563,8 @@
                 "domain": {
                     "type": ["string","null"],
                     "description": "The mathematical domain of the parameter (optional)"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "description",
