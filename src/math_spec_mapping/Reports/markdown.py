@@ -621,8 +621,8 @@ def write_state_variables_markdown_reports(ms, path, state, add_metadata=True):
             if len(metadata) > 0:
                 out += """---
         {}
-    ---
-    """.format(
+---
+""".format(
                     "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
                 )
         out += "Description: "
