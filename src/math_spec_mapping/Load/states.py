@@ -27,6 +27,8 @@ def convert_state(ms, data: Dict) -> State:
         check_json_keys(var, "State Variable")
         assert var["type"] in ms["Types"], "Type not in ms"
         var["type"] = ms["Types"][var["type"]]
+        if "metadata" not in var:
+            var["metadata"] = {}
         new_variables.append(StateVariable(var))
     data["variables"] = new_variables
 

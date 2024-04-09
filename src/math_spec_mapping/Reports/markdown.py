@@ -610,6 +610,45 @@ def write_displays_markdown_reports(ms, path, add_metadata=True):
         )
 
 
+def write_state_variables_markdown_reports(ms, path, state, add_metadata=True):
+    if "State Variables" not in os.listdir(path):
+        os.makedirs(path + "/State Variables")
+    state = ms.state[state]
+    for variable in state.variables:
+        out = ""
+        if add_metadata:
+            metadata = variable.metadata
+            if len(metadata) > 0:
+                out += """---
+        {}
+    ---
+    """.format(
+                    "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+                )
+        out += "Description: "
+        out += variable.description
+        out += "\n\n"
+        out += "Type: [["
+        out += variable.type.name
+        out += "]]\n\n"
+        out += "Symbol: "
+        if variable.symbol:
+            out += variable.symbol
+        out += "\n\n"
+        out += "Domain: "
+        if variable.domain:
+            out += variable.domain
+        out += "\n\n"
+
+        with open(
+            "{}/State Variables/{}.md".format(
+                path, "{}-{}".format(state.name, variable.name)
+            ),
+            "w",
+        ) as f:
+            f.write(out)
+
+
 def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     wirings = [ms.wiring[w] for w in wiring["components"]]
     out = ""
@@ -698,6 +737,7 @@ def write_all_markdown_reports(ms, path, clear_folders=False):
     states = list(ms.state.keys())
     for x in states:
         write_state_markdown_report(ms, path, x)
+        write_state_variables_markdown_reports(ms, path, x)
 
     # Write types
     for t in ms.types.values():
