@@ -51,6 +51,8 @@ def write_state_variable_table_markdown(target_state, links=False):
             if tv:
                 if links and i == 2:
                     table += "[[{}]]".format(tv)
+                elif links and i == 0:
+                    table += "[[{}-{}\|{}]]".format(target_state.name, tv, tv)
                 else:
                     table += "{}".format(tv)
             table += "|"
