@@ -1,6 +1,7 @@
-abstract type DummyType1 <: AbstractString end
-abstract type DummyType2 <: Integer end
+const DummyType1 = String
+const DummyType2 = Integer
 struct DummyCompoundType
     A::DummyType1
     B::DummyType2
 end
+
