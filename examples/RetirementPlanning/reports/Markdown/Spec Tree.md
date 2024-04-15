@@ -32,13 +32,14 @@ cssclasses:
 │   ├──[[Empty Space]]
 │   ├──[[Dummy Space 1]]
 │   ├──[[Dummy Space 2]]
-│   ├──[[Investment Allocation Space]]
+│   ├──[[Investment Allocation Percentage Space]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
 │   │   ├──[[dummy_parameter]]
 │   │   ├──[[dummy_parameter2]]
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]
+│   ├──[[Portfolio Allocation Boundary Action]]
 ├──**Control Actions**
 │   ├──[[Dummy Control Action]]
 ├──**Policies**
