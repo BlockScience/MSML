@@ -100,14 +100,31 @@ write_spec_tree(ms, path=d, linking=True)</code></pre>
 - We now are going to move into updating the spec, which we will do iteratively while going through each component and what it means
 - The dummy components will be taken out at the very end because they can be very helpful for understanding how the format works
 
+## Types
+
+Add a USD type for prices, add a shares types for bonds and stocks
+
 ## Entities & State
+
+### Definitions
+
+- **Entity**: Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions. Examples could be a customer or a company (for which a simulation might assume it is acting as one cohesive unit)
+- **State**: The definition of states in the system. There is one global system state and then the rest of the definitions are local states, generally for recording what entity states there are.
+
+### JSON Spec
+
+The specific schemas for entities and states are defined here:
+
+- [Entity](../docs/JSON-Specification/schema-definitions-entity.md)
+- [State](../docs/JSON-Specification/schema-definitions-state.md)
+
+### Adding Entity & State
 
 - Our first starting point will be to define out what entities we have in our system.
 - We have the global entity which we will not touch yet but represents the global system and has the associated global state
-- Besides the global state, we can see from the proble statement that there should be a Person entity representing the person who is possibly retiring.
+- Besides the global state, we can see from the proble statement that there should be a Person entity representing the person who is saving for retirement.
 
 
 Add person to global state
 Add in person entity
 Add in person state
-Add in the JSON definitions
