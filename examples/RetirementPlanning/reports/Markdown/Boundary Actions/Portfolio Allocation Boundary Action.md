@@ -11,3 +11,10 @@ The boundary action for a user looking to rebalance their portfolio.
 ## Codomain Spaces
 1. [[Investment Allocation Percentage Space]]
 
+## Boundary Action Options:
+### 1. 60/40 Portfolio
+#### Description
+An option where the person always rebalances to a target allocation of 60/40 stocks/bonds.
+#### Logic
+Return a codomain of {'percentage_bonds': .4, 'percentage_stocks': .6}
+
