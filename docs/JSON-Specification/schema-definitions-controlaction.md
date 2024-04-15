@@ -4,11 +4,11 @@
 https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction
 ```
 
+The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness.
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## ControlAction Type
 
@@ -27,7 +27,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Control
 
 ## name
 
-
+The name of the control action
 
 `name`
 
@@ -45,7 +45,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Control
 
 ## description
 
-
+The description of the control action
 
 `description`
 
@@ -63,13 +63,13 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Control
 
 ## constraints
 
-
+Any constraints which the control action must respect
 
 `constraints`
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `string[]`
 
 *   cannot be null
 
@@ -77,11 +77,11 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Control
 
 ### constraints Type
 
-unknown\[]
+`string[]`
 
 ## control\_action\_options
 
-
+Possible implementations of the control action
 
 `control_action_options`
 
@@ -99,7 +99,7 @@ unknown\[]
 
 ## codomain
 
-
+The output spaces of the control action
 
 `codomain`
 
@@ -117,13 +117,13 @@ unknown\[]
 
 ## parameters\_used
 
-
+The parameters which the control action uses in its implenetations
 
 `parameters_used`
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `string[]`
 
 *   cannot be null
 
@@ -131,4 +131,4 @@ unknown\[]
 
 ### parameters\_used Type
 
-unknown\[]
+`string[]`
