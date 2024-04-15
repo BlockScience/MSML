@@ -80,4 +80,3 @@ Is changed to this line where the path is wherever your repo is:
 - Make sure the you create the Markdown folder in the reports folder
 - The notebook will look like this and be able to be run:
 
-![notebook](notebook.png)
