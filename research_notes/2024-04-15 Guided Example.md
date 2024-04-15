@@ -102,7 +102,46 @@ write_spec_tree(ms, path=d, linking=True)</code></pre>
 
 ## Types
 
-Add a USD type for prices, add a shares types for bonds and stocks
+### Definitions
+
+**Types**: This is for defining what a type might in its most basic form. These could be single typings or compound typings. The point here is to allow for changing typing in one single place and having it flow through anywhere else. I.e. if one were to define the currency type as USD, but then the project switched to using EUR, it would just require changing currency to be EUR.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-type.md)
+
+### Adding our First Types
+
+- The first types we can infer from reading the problem statement is that we are going to have a USD type to denote dollar amounts, as well as two types for number of shares in bonds and number of shares in stocks. 
+- What we want to do is create a file called "Investments.py" in the types folder which we will use to host these three new types.
+- For now we will ignore what the "type" as it will be covered how MSML maps types into different programming languages in a later section.
+- The following type definitions can be written into the python file to give us our first three types:
+
+<pre><code>USDType = {"name": "USD Type", "type": "USDType", "notes": "A dollar amount"}
+StockSharesType = {
+    "name": "Stock Shares Type",
+    "type": "StockSharesType",
+    "notes": "The number of shares of stock. Note that in this current spec, it is assumed that fractional shares can be held.",
+}
+BondSharesType = {
+    "name": "Bond Shares Type",
+    "type": "BondSharesType",
+    "notes": "The number of shares of bonds. Note that in this current spec, it is assumed that fractional shares can be held.",
+}</code></pre>
+
+- And the \_\_init\_\_.py file can be updated to be:
+
+<pre><code>from .Dummy import DummyCompoundType, DummyType1, DummyType2
+from .Investments import USDType, BondSharesType, StockSharesType
+
+types = [
+    DummyType1,
+    DummyType2,
+    DummyCompoundType,
+    USDType,
+    BondSharesType,
+    StockSharesType,
+]</code></pre>
 
 ## Entities & State
 
