@@ -145,7 +145,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
-    out += "## Constraints"
+    out += "## Constraints\n"
     for i, x in enumerate(boundary_action.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
