@@ -94,3 +94,20 @@ write_spec_tree(ms, path=d, linking=True)</code></pre>
 ![notebook](notebook.png)
 - The markdown folder can now be opened up in Obsidian and should look like the following:
 ![obsidian1](obsidian1.png)
+
+### Updating the Spec
+
+- We now are going to move into updating the spec, which we will do iteratively while going through each component and what it means
+- The dummy components will be taken out at the very end because they can be very helpful for understanding how the format works
+
+## Entities & State
+
+- Our first starting point will be to define out what entities we have in our system.
+- We have the global entity which we will not touch yet but represents the global system and has the associated global state
+- Besides the global state, we can see from the proble statement that there should be a Person entity representing the person who is possibly retiring.
+
+
+Add person to global state
+Add in person entity
+Add in person state
+Add in the JSON definitions
