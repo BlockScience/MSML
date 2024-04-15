@@ -4,7 +4,11 @@ str
 ### Typescript Type
 type DummyType1 = string
 ### Julia Type
-abstract type DummyType1 <: AbstractString
+const DummyType1 = String
+const DummyType2 = Integer
+struct DummyCompoundType
+    A::DummyType1
+    B::DummyType2
 
 ## Notes
 
