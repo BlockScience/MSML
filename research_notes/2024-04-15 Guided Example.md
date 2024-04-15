@@ -262,7 +262,39 @@ entities = [dummy_entity, global_entity, person_entity]</code></pre>
     - We can think of the spaces as having a component for each (technically only one is needed, and 1 - that value equals the other, but we will show it with both and using constraints to ensure they add up to 100%)
 - Before we can write the space out, we need to define how we show the percentages. Some people might prefer to use a percentage, i.e. 60% or 60 corresponds to 60%, while others may prefer to use decimals, i.e. .60 means 60%. We will add a new type called "Decimal Type" to denote that we are using decimals in this simulation.
 - The following is added to the "Investments.py" file in the Types folder:
-<pre><code></code></pre>
+<pre><code>DecimalType = {
+    "name": "Decimal Type",
+    "type": "DecimalType",
+    "notes": "The type which denotes a percentage as a decimal, i.e. .60 means 60%.",
+}</code></pre>
+- Now that we have defined out this new type that we needed to add, we move on to the spaces and boundary actions.
+
+### Definitions
+
+- **Space**: Spaces are similar to types in that they define a schema for data and are used as the domain/codomain for different blocks. They can be thought of as typed dictionaries.
+- **Boundary Action**: The definition of different actions that might happen outside of the system such as customers coming into a shop. Generally will be called by entities.
+
+### JSON Spec
+
+The specific schemas for entities and states are defined here:
+
+- [Space](../docs/JSON-Specification/schema-definitions-space.md)
+- [Boundary Action](../docs/JSON-Specification/schema-definitions-boundary-action.md)
+
+### Adding the Percentage Allocation Space
+- Our first space will be called the percentage allocation space and will be used to denote the space that our boundary action will output.
+- We add "Investments.py" to the Spaces folder and the following defines out what our space should look like:
+<pre><code>investment_allocation_space = {
+    "name": "Investment Allocation Space",
+    "schema": {
+        "percentage_bonds": "Decimal Type",
+        "percentage_stocks": "Decimal Type",
+    },
+}
+
+
+investment_spaces = [investment_allocation_space]</code></pre>
+- Notice the schema defines out the two variables that are part of the space which are meant to denote the allocation choices of the person.
 
 - The following code defines out, in "Investment.py" within the BoundaryActions folder, what the boundary action should be.
 <pre><code></code></pre>
