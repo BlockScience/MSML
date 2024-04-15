@@ -111,6 +111,9 @@ def load_julia_type_key(path):
         elif x.startswith("struct"):
             name = name[7:]
             name = name[: name.index("\n")].strip()
+        if x.startswith("const"):
+            name = name[6:]
+            name = name[: name.index("=")].strip()
         else:
             assert False
 

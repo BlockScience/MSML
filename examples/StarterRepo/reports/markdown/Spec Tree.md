@@ -8,9 +8,9 @@ cssclasses:
 │   ├──[[Global]]
 ├──**State**
 │   ├──[[Dummy State]]
-│   │   ├──Variable A
-│   │   ├──Variable B
-│   │   ├──Variable C
+│   │   ├──[[Dummy State-Variable A\|Variable A]]
+│   │   ├──[[Dummy State-Variable B\|Variable B]]
+│   │   ├──[[Dummy State-Variable C\|Variable C]]
 │   ├──[[Global State]]
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
