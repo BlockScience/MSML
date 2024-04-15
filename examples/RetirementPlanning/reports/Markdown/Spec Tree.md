@@ -33,6 +33,7 @@ cssclasses:
 │   ├──[[Dummy Space 1]]
 │   ├──[[Dummy Space 2]]
 │   ├──[[Investment Allocation Percentage Space]]
+│   ├──[[Investment Allocation Space]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
 │   │   ├──[[dummy_parameter]]

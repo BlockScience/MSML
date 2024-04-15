@@ -6,5 +6,16 @@ investment_allocation_percentage_space = {
     },
 }
 
+investment_allocation_space = {
+    "name": "Investment Allocation Space",
+    "schema": {
+        "bond_shares": "Bond Shares Type",
+        "stock_shares": "Stock Shares Type",
+    },
+}
 
-investment_spaces = [investment_allocation_percentage_space]
+
+investment_spaces = [
+    investment_allocation_percentage_space,
+    investment_allocation_space,
+]
