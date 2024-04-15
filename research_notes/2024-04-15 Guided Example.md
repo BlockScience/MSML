@@ -284,8 +284,8 @@ The specific schemas for entities and states are defined here:
 ### Adding the Percentage Allocation Space
 - Our first space will be called the percentage allocation space and will be used to denote the space that our boundary action will output.
 - We add "Investments.py" to the Spaces folder and the following defines out what our space should look like:
-<pre><code>investment_allocation_space = {
-    "name": "Investment Allocation Space",
+<pre><code>investment_allocation_percentage_space = {
+    "name": "Investment Allocation Percentage Space",
     "schema": {
         "percentage_bonds": "Decimal Type",
         "percentage_stocks": "Decimal Type",
@@ -293,10 +293,29 @@ The specific schemas for entities and states are defined here:
 }
 
 
-investment_spaces = [investment_allocation_space]</code></pre>
+investment_spaces = [investment_allocation_percentage_space]</code></pre>
 - Notice the schema defines out the two variables that are part of the space which are meant to denote the allocation choices of the person.
 
-- The following code defines out, in "Investment.py" within the BoundaryActions folder, what the boundary action should be.
-<pre><code></code></pre>
+### Adding the Investment Allocation Boundary Action
 
-- Constraint of allocations == 1
+- This boundary action should represent a user sending an updated allocation decision.
+- We will add in a constraint that the codomain space must sum to 1, meaning 100%.
+- This allocation decision is called by the Person entity.
+- No parameters are used.
+- The codomain will be the newly defined "Investment Allocation Space"
+- We won't define out the boundary action options yet
+- The following code defines out, in "Investment.py" within the BoundaryActions folder, what the boundary action should be.
+<pre><code>portfolio_allocation_boundary_action = {
+    "name": "Portfolio Allocation Boundary Action",
+    "description": "The boundary action for a user looking to rebalance their portfolio.",
+    "constraints": [
+        "CODOMAIN[0].percentage_bonds + CODOMAIN[0].percentage_stocks == 1"
+    ],
+    "boundary_action_options": [],
+    "called_by": ["Person"],
+    "codomain": [
+        "Investment Allocation Percentage Space",
+    ],
+    "parameters_used": [],
+}</code></pre>
+
