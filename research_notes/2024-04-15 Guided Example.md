@@ -35,3 +35,13 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
     B --> C[Report Outputs \n\n Automatically build reports for the full spec or subviews \n Example: all blocks with an effect on variable XYZ]
 
 ```
+
+## Problem Statement
+
+For this guided example, the following is the problem statement from which we will build the specification.
+
+Investing for retirement is often modeled with monte carlo simulations because of how much path dependence there is. The following are the specific facts of the problem:
+- There is only one person of interest in the model, the employee looking to retire.
+- They only have control over the allocation percentages at any given time between bonds and stocks.
+- Any time a trade is conducted, a commission fee of 30 basis points (.30%) will be taken out on both sell orders and buy orders.
+- The returns of both stocks and bonds are assumed to be randomly distributed (although this could of course be extended to get more accurate measures), and can be parameterized by $\mu_s$, $\sigma_s$, $\mu_b$ and $\sigma_b$.
