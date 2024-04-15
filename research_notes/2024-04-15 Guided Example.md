@@ -1,0 +1,37 @@
+# Executive Summary
+
+This research note shows how to start building out a first mathematical specification with the MSML library.
+
+## What is the Mathematical Specification Mapping Library (MSML)?
+
+MSML is a library for standardizing the creation of mathematical specifications as JSON objects as well as aiding in the automation of report and visualization creation from these standardized JSON. 
+
+It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
+
+One good example is the [wiring report](https://github.com/SeanMcOwen/Root-Finding-Simulation/blob/main/MSML/reports/Simulation%20Block.md) for the Root Finding Simulation canonical example.
+
+### Installing the library
+
+To install the library, simply pip install by running "pip install math_spec_mapping"
+
+### Why MSML?
+
+Writing mathematical specifications can be a difficult process, especially when variable names are changed or new mechanisms are introduced. MSML seeks to streamline the process with automations as well as enhance the abilities of static math specs to deliver deeper insights. Because it is automated, one can write specifications at different levels of details or for different purposes.
+
+
+### What are some of the solutions offered?
+
+- **Automation**: Automate writing of a specification
+- **Standardization**: Ensure standardization across teams working to spec out a system
+- **Flexibility**: Allow for creating views on the fly and in multiple ways depending on what stakeholders find important
+- **Trackability**: Keep a repository of a JSON file to track changes to the spec with the same enhancements git provides for projects already
+
+### How does MSML work?
+
+
+```mermaid
+graph TD
+A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to the json specification \n Defines all aspects of the spec including blocks, spaces and actions] -->B[MSML Object \n\n JSON file is parsed, with validations and mappings along the way \n Can show different views on the fly]
+    B --> C[Report Outputs \n\n Automatically build reports for the full spec or subviews \n Example: all blocks with an effect on variable XYZ]
+
+```
