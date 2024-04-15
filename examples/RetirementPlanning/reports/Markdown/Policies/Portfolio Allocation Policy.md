@@ -2,9 +2,11 @@
 
 The policy which maps a percentage allocation to a shares allocation.
 ## Called By
+1. [[Portfolio Allocation Boundary Action]]
 ## Domain Spaces
 1. [[Investment Allocation Percentage Space]]
 ## Followed By
+1. [[Update Shares Mechanism]]
 ## Codomain Spaces
 1. [[Investment Allocation Space]]
 ## Constraints

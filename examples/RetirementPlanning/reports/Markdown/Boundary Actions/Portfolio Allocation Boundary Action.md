@@ -5,6 +5,7 @@ The boundary action for a user looking to rebalance their portfolio.
 1. [[Person]]
 
 ## Followed By
+1. [[Portfolio Allocation Policy]]
 
 ## Constraints
 1. CODOMAIN[0].percentage_bonds + CODOMAIN[0].percentage_stocks == 1

@@ -2,6 +2,7 @@
 
 The mechanism which updates the amount of shares that a person has
 ## Called By
+1. [[Portfolio Allocation Policy]]
 ## Domain Spaces
 1. [[Investment Allocation Space]]
 ## Constraints

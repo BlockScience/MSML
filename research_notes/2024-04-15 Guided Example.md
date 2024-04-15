@@ -514,3 +514,39 @@ The schema is defined [here](../docs/JSON-Specification/schema-definitions-mecha
 }
 
 investment_mechanisms = [update_shares_mechanism]</code></pre>
+
+## Portfolio Allocation Wiring
+
+- Now we get to tie it all together! We are creating a wiring which will illustrate the flow of the portfolio allocation process.
+
+**Wiring**: A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-wiring.md)
+
+### Creating the Portfolio Allocation Wiring
+- The component order matters here, and we are going to put the three previously defined components
+- The MSML library does checking on spaces to ensure that domains and codomains match up
+- In this case we use the type of "Stack" because the blocks are each running one after another, passing their spaces
+- The implementation in the newly created "Investments.py" file in the Wiring folder is:
+<pre><code>investments_wiring = []
+
+investments_wiring.append(
+    {
+        "name": "Portfolio Allocation Wiring",
+        "components": [
+            "Portfolio Allocation Boundary Action",
+            "Portfolio Allocation Policy",
+            "Update Shares Mechanism",
+        ],
+        "description": "This wiring takes care of all logic around a person updating their portfolio allocation",
+        "constraints": [],
+        "type": "Stack",
+    }
+)</code></pre>
+
+And this is how the markdown component looks:
+
+![wiring1](wiring1.png)
+![wiring2](wiring2.png)
