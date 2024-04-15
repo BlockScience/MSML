@@ -19,6 +19,9 @@ cssclasses:
 │   ├──[[Dummy Type 1]]
 │   ├──[[Dummy Type 2]]
 │   ├──[[Dummy Compound Type]]
+│   ├──[[USD Type]]
+│   ├──[[Bond Shares Type]]
+│   ├──[[Stock Shares Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]
