@@ -6,7 +6,8 @@ The boundary action for a user looking to rebalance their portfolio.
 
 ## Followed By
 
-## Constraints1. CODOMAIN[0].percentage_bonds + CODOMAIN[0].percentage_stocks == 1
+## Constraints
+1. CODOMAIN[0].percentage_bonds + CODOMAIN[0].percentage_stocks == 1
 
 ## Codomain Spaces
 1. [[Investment Allocation Percentage Space]]

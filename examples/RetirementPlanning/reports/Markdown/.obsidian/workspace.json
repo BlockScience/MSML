@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "States/Person State.md",
+                "file": "Boundary Actions/Portfolio Allocation Boundary Action.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "States/Person State.md",
+                "file": "Boundary Actions/Portfolio Allocation Boundary Action.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "States/Person State.md",
+                "file": "Boundary Actions/Portfolio Allocation Boundary Action.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "States/Person State.md"
+                "file": "Boundary Actions/Portfolio Allocation Boundary Action.md"
               }
             }
           }
@@ -148,6 +148,7 @@
   },
   "active": "1233a62702978b47",
   "lastOpenFiles": [
+    "States/Person State.md",
     "Spaces/Investment Allocation Percentage Space.md",
     "Boundary Actions/Portfolio Allocation Boundary Action.md",
     "Spaces/Investment Allocation Space.md",
