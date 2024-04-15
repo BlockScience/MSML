@@ -72,3 +72,12 @@ Investing for retirement is often modeled with monte carlo simulations because o
 
 - Before we begin to make any changes, we need to first make sure functionality works. We will take the "Build Starter Repo.ipynb" notebook and use it to make sure.
 - Everything after the write_spec_tree can be deleted as we will not go through metaprogramming or more advanced reporting.
+- This line:
+<code>os.chdir("MSML/examples/StarterRepo")</code>
+Is changed to this line where the path is wherever your repo is:
+<code>os.chdir("MSML/examples/RetirementPlanning")</code>
+- Make sure the path to the 
+- Make sure the you create the Markdown folder in the reports folder
+- The notebook will look like this and be able to be run:
+
+![notebook](notebook.png)
