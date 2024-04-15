@@ -483,3 +483,34 @@ The schema is defined [here](../docs/JSON-Specification/schema-definitions-state
 }
 
 investment_stateful_metric_sets = [investment_stateful_metric]</code></pre>
+
+## Update Shares Mechanism
+
+- The last piece of the puzzle for updating the allocation is a mechanism which updates the shares for the user. We will define this below.
+
+### Definitions
+
+**Mechanism**: Anything that updates state in the system, usually policies will call these with the outputs of logic. The reasoning to split them out is so that if at some point you want to add a recording variable every time an account is changed or do something like have a variable listener, you can just change the mechanism responsible for it in only one place.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-mechanism.md)
+
+### Creating the Update Shares Mechanism
+
+- The implementation is fairly straight-forward, except that it is important to explain the schema for the updates attribute.
+    - The format is (Entity Name, Variable Name, Boolean for whether or not it is optional)
+- We create "Investments.py" in the Mechanisms folder and add the following:
+<pre><code>update_shares_mechanism = {
+    "name": "Update Shares Mechanism",
+    "description": "The mechanism which updates the amount of shares that a person has",
+    "constraints": [],
+    "logic": "The values from the domain space are mapped into the person's state",
+    "domain": [
+        "Investment Allocation Space",
+    ],
+    "parameters_used": [],
+    "updates": [("Person", "Stock Shares", False), ("Person", "Bond Shares", False)],
+}
+
+investment_mechanisms = [update_shares_mechanism]</code></pre>

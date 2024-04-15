@@ -52,3 +52,4 @@ cssclasses:
 │   ├──[[Portfolio Allocation Policy]]
 ├──**Mechanisms**
 │   ├──[[Dummy Mechanism]]
+│   ├──[[Update Shares Mechanism]]

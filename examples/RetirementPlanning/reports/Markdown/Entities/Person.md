@@ -13,4 +13,6 @@ A person's state in the simulation
 ## Boundary Actions
 ### [[Portfolio Allocation Boundary Action]]
 ## Mechanisms Impacting the Entity
+### [[Update Shares Mechanism]]
+### [[Update Shares Mechanism]]
 ## Actions Impacting the Entity
