@@ -160,10 +160,44 @@ The specific schemas for entities and states are defined here:
 ### Adding Entity & State
 
 - Our first starting point will be to define out what entities we have in our system.
-- We have the global entity which we will not touch yet but represents the global system and has the associated global state
-- Besides the global state, we can see from the proble statement that there should be a Person entity representing the person who is saving for retirement.
+- We have the global entity which we will not modify right now but represents the global system and has the associated global state
+- Besides the global state, we can see from the problem statement that there should be a Person entity representing the person who is saving for retirement.
+- To add the person entity, we define out the following in a new file we will name "Person.py" in the Entities folder.
+<pre><code>person_entity = {
+    "name": "Person",
+    "notes": "A person who is trying to save up for retirement in the simulation.",
+    "state": "Person State",
+}</code></pre>
+- Then modify the \_\_init\_\_.py in the entities folder like so:
 
+<pre><code>from .Dummy import dummy_entity
+from .Global import global_entity
+from .Person import person_entity
 
-Add person to global state
-Add in person entity
-Add in person state
+entities = [dummy_entity, global_entity, person_entity]</code></pre>
+- This could would fail if we ran it right away because it is missing the "Person State" referenced.
+- We create the "Person.py" file in the State folder to define out our state for the person as follows below:
+<pre><code>person_state = {
+    "name": "Person State",
+    "notes": "A person's state in the simulation",
+    "variables": [
+        {
+            "type": "Bond Shares Type",
+            "name": "Bond Shares",
+            "description": "The number of shares of bonds that a person has.",
+            "symbol": "$S_{B}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+        {
+            "type": "Stock Shares Type",
+            "name": "Stock Shares",
+            "description": "The number of shares of stock that a person has.",
+            "symbol": "$S_{S}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+    ],
+}</code></pre>
+- The \_\_init\_\_.py also gets updated but we will no longer show the code updates since they are relatively straightforward imports.
+- You will notice that for the domain and symbol latex is used. This gets rendered nicely in markdown and can be seen below.
+
+![markdown](markdown.png)

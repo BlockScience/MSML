@@ -6,12 +6,16 @@ cssclasses:
 ├──**Entities**
 │   ├──[[Dummy]]
 │   ├──[[Global]]
+│   ├──[[Person]]
 ├──**State**
 │   ├──[[Dummy State]]
 │   │   ├──[[Dummy State-Variable A\|Variable A]]
 │   │   ├──[[Dummy State-Variable B\|Variable B]]
 │   │   ├──[[Dummy State-Variable C\|Variable C]]
 │   ├──[[Global State]]
+│   ├──[[Person State]]
+│   │   ├──[[Person State-Bond Shares\|Bond Shares]]
+│   │   ├──[[Person State-Stock Shares\|Stock Shares]]
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
 │   │   ├──[[dummy_metric]]

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "States/Person State.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "States/Person State.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "States/Person State.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Spec Tree.md"
+                "file": "States/Person State.md"
               }
             }
           }
@@ -147,5 +147,7 @@
     }
   },
   "active": "1233a62702978b47",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Spec Tree.md"
+  ]
 }
