@@ -352,6 +352,7 @@ This then allows us to create this nice boundary action markdown file automatica
 
 - What would come after this boundary action is a policy which converts the percentages to the correct number of shares.
 - The output being the correct number of shares tells us that we need to first create a new space to represent the output of the policy.
+- We also will realize when going through this process that our global state needs two new variables, one for the stock price and one for the bond price.
 
 ### Investment Allocation Space
 
@@ -379,6 +380,30 @@ investment_spaces = [
 ]</code></pre>
 - With our newly created space we are ready to define out the portfolio allocation policy
 
+### Global State Update
+
+- The global state gets updated like so to add in the price of bonds and stocks
+<pre><code>global_state = {
+    "name": "Global State",
+    "notes": "",
+    "variables": [
+        {
+            "type": "USD Type",
+            "name": "Bond Price",
+            "description": "The current price of the bond (per share).",
+            "symbol": "$P_{B}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+        {
+            "type": "USD Type",
+            "name": "Stock Price",
+            "description": "The current price of the stock (per share).",
+            "symbol": "$P_{S}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+    ],
+}</code></pre>
+
 ### Definitions
 
 **Policy**: A definition of the policies that handle all logical things. This could be, for example, a policy which determines what price is paid given a boundary action of someone putting in a market buy order for a stock.
@@ -387,3 +412,35 @@ investment_spaces = [
 
 The schema is defined [here](../docs/JSON-Specification/schema-definitions-policy.md)
 
+### Creating the Portfolio Allocation Policy
+- This time we will create the policy option at the same time as the policy. Similar to boundary actions it is what represents possible specific implementations.
+- Notice the domain and codomain are different here
+- There is a reference to "portfolio_value" which is a stateful metric to be defined next, for now just take it as the total value of our portfolio at the given time.
+- The code is as follows:
+<pre><code>portfolio_allocation_policy_option1 = {
+    "name": "Portfolio Allocation Policy V1",
+    "description": "Simple policy to convert percentages to shares",
+    "logic": """1. Grab the portfolio_value metric at the current time.
+2. Define stock_shares as the portfolio_value * DOMAIN[0].percentage_stocks / STATE["Global"].stock_price
+3. Define bond_shares as the portfolio_value * DOMAIN[0].percentage_bonds / STATE["Global"].bond_price
+4. Return a space of {"bond_shares": bond_shares, "stock_shares": stock_shares}""",
+}
+
+portfolio_allocation_policy = {
+    "name": "Portfolio Allocation Policy",
+    "description": "The policy which maps a percentage allocation to a shares allocation.",
+    "constraints": ["DOMAIN[0].percentage_bonds + DOMAIN[0].percentage_stocks == 1"],
+    "policy_options": [portfolio_allocation_policy_option1],
+    "domain": [
+        "Investment Allocation Percentage Space",
+    ],
+    "codomain": [
+        "Investment Allocation Space",
+    ],
+    "parameters_used": [],
+    "metrics_used": [],
+}
+
+investment_policies = [portfolio_allocation_policy]</code></pre>
+- And our outputted policy component in markdown looks like:
+![policy](policy.png)
