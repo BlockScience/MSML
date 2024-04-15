@@ -1,5 +1,5 @@
 from .Dummy import DummyCompoundType, DummyType1, DummyType2
-from .Investments import USDType, BondSharesType, StockSharesType
+from .Investments import USDType, BondSharesType, StockSharesType, DecimalType
 
 types = [
     DummyType1,
@@ -8,4 +8,5 @@ types = [
     USDType,
     BondSharesType,
     StockSharesType,
+    DecimalType,
 ]

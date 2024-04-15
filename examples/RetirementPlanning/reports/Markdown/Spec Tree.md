@@ -26,6 +26,7 @@ cssclasses:
 │   ├──[[USD Type]]
 │   ├──[[Bond Shares Type]]
 │   ├──[[Stock Shares Type]]
+│   ├──[[Decimal Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]
