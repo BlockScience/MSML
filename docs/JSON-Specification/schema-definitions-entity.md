@@ -4,11 +4,11 @@
 https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
 ```
 
+Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions. Examples could be a customer or a company (for which a simulation might assume it is acting as one cohesive unit)
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## Entity Type
 
@@ -25,7 +25,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
 
 ## name
 
-
+The name of the entity
 
 `name`
 
@@ -43,7 +43,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
 
 ## notes
 
-
+Any notes on the entity
 
 `notes`
 
@@ -61,7 +61,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
 
 ## state
 
-
+The string key for the state associated with the entity
 
 `state`
 

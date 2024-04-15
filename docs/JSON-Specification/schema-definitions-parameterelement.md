@@ -6,9 +6,9 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 
 
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## ParameterElement Type
 
@@ -27,7 +27,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## variable\_type
 
-
+The type of that the parameter takes.
 
 `variable_type`
 
@@ -45,7 +45,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## name
 
-
+The unique name of the parameter
 
 `name`
 
@@ -63,7 +63,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## description
 
-
+The description of the parameter
 
 `description`
 
@@ -81,7 +81,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## symbol
 
-
+The symbol associated with the parameter (optional)
 
 `symbol`
 
@@ -99,7 +99,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## domain
 
-
+The mathematical domain of the parameter (optional)
 
 `domain`
 
@@ -117,7 +117,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## parameter\_class
 
-
+The type of paramter this is, of which the options are system (what you would find in production code of a system), behavioral (for what kinds of behavioral assumptions and distributions there are), and functional (for defining out different functional forms such as swapping in and out policies)
 
 `parameter_class`
 
