@@ -21,6 +21,8 @@ cssclasses:
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
 │   │   ├──[[dummy_metric]]
+│   ├──Investment Stateful Metrics
+│   │   ├──[[portfolio_value]]
 ├──**Types**
 │   ├──[[Dummy Type 1]]
 │   ├──[[Dummy Type 2]]

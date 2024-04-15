@@ -444,3 +444,42 @@ portfolio_allocation_policy = {
 investment_policies = [portfolio_allocation_policy]</code></pre>
 - And our outputted policy component in markdown looks like:
 ![policy](policy.png)
+
+## Portfolio Value Stateful Metric
+
+- We will add in a stateful metric now to represent the total portfolio value at a given time.
+
+**Stateful Metric**: Variables that are not held directly in the state but can computed from the state & parameters.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-stateful-metric.md)
+
+### Adding the Portfolio Value Stateful Metric
+
+- We create an "Investments.py" file in the StatefulMetrics folder and use it to craft our set of investment stateful metrics.
+- Notice that we define metrics in sets, so we create the "Investment Stateful Metrics" set
+- We also can denote that variables used with tuples where the first element is the state and the second element is the state variable.
+- The definition of the stateful metric is done like this:
+<pre><code>investment_stateful_metric = {
+    "name": "Investment Stateful Metrics",
+    "notes": "Stateful metrics related to investments",
+    "metrics": [
+        {
+            "type": "USD Type",
+            "name": "portfolio_value",
+            "description": "The total portfolio value as measured by the shares a person has times their prices, and then summed.",
+            "variables_used": [
+                ("Global State", "Stock Price"),
+                ("Global State", "Bond Price"),
+                ("Person State", "Stock Shares"),
+                ("Person State", "Bond Shares"),
+            ],
+            "parameters_used": [],
+            "symbol": "$V$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        }
+    ],
+}
+
+investment_stateful_metric_sets = [investment_stateful_metric]</code></pre>
