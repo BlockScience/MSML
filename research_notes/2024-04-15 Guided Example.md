@@ -54,3 +54,21 @@ Investing for retirement is often modeled with monte carlo simulations because o
 
 - We can begin by forking the [starter repo](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo) into a directory and removing the "model" folder since we are just doing a spec today.
 - We will also clear out the reports folder to start fresh.
+
+### The Initialization File
+
+- The \_\_init\_\_.py is the entrypoint for all of components of our spec. You will note that in the example set up, each folder brings in a set of components to the spec json.
+
+![init](init.png)
+
+### Component Definitions
+
+- If we dive deeper into the repository, we see that there are component definitions in the folders which just requires that there is a list with all components to be added.
+- The following is what the policy definitions look like for the dummy repo in terms of the \_\_init\_\_.py file as well as the specific definitions (more on definition specifics later).
+
+![policy_example](policy_example.png)
+
+### Test Run on Functionality
+
+- Before we begin to make any changes, we need to first make sure functionality works. We will take the "Build Starter Repo.ipynb" notebook and use it to make sure.
+- Everything after the write_spec_tree can be deleted as we will not go through metaprogramming or more advanced reporting.
