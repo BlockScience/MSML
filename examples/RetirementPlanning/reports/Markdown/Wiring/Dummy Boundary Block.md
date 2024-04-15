@@ -30,9 +30,9 @@ Dummy Boundary Block
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Boundary Action]]
-2. [[Dummy Mechanism]]
-3. [[Dummy Policy]]
+1. [[Dummy Policy]]
+2. [[Dummy Boundary Action]]
+3. [[Dummy Mechanism]]
 
 ## Constraints
 

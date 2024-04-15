@@ -13,6 +13,8 @@ cssclasses:
 │   │   ├──[[Dummy State-Variable B\|Variable B]]
 │   │   ├──[[Dummy State-Variable C\|Variable C]]
 │   ├──[[Global State]]
+│   │   ├──[[Global State-Bond Price\|Bond Price]]
+│   │   ├──[[Global State-Stock Price\|Stock Price]]
 │   ├──[[Person State]]
 │   │   ├──[[Person State-Bond Shares\|Bond Shares]]
 │   │   ├──[[Person State-Stock Shares\|Stock Shares]]
@@ -45,5 +47,6 @@ cssclasses:
 │   ├──[[Dummy Control Action]]
 ├──**Policies**
 │   ├──[[Dummy Policy]]
+│   ├──[[Portfolio Allocation Policy]]
 ├──**Mechanisms**
 │   ├──[[Dummy Mechanism]]
