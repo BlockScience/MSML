@@ -9,3 +9,8 @@ BondSharesType = {
     "type": "BondSharesType",
     "notes": "The number of shares of bonds. Note that in this current spec, it is assumed that fractional shares can be held.",
 }
+DecimalType = {
+    "name": "Decimal Type",
+    "type": "DecimalType",
+    "notes": "The type which denotes a percentage as a decimal, i.e. .60 means 60%.",
+}

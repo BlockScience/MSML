@@ -40,6 +40,55 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ```
 
+### Generalized Dynamical Systems Basics
+
+For more information with regards to the GDS fundamentals, one can look at this [repository](https://github.com/BlockScience/GDS-MSML-cadCAD). Below is abbreviated documentation describing the fundamentals of Generalized Dynamical Systems (GDS).
+
+#### Blocks
+
+A Block is a parameterized operation that, for each Point in its Parameters Space, maps a Point in an input Space to a unique point in an output Space.	
+
+Basic blocks are characterized by three things:
+
+**Domain**: The space(s) that are taken in for the function
+
+**Codomain**: The space(s) that are emitted out from the function
+
+**Logic**: The logic that describes the transformation from domain to codomain
+
+#### Spaces
+
+A space is a pointer to a collection of dimensions.	For example we might have a space such as cartesian coordinates with the schema {"x": float, "y": float}. Spaces are passed between domains and codomains of blocks.
+
+#### Wiring
+
+A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel.
+
+### MSML Components
+
+MSML extends GDS with multiple types of blocks and other enhancements. Below are the definitions of top level components.
+
+#### Types & Spaces
+
+- **Type**: This is for defining what a type might in its most basic form. These could be single typings or compound typings. The point here is to allow for changing typing in one single place and having it flow through anywhere else. I.e. if one were to define the currency type as USD, but then the project switched to using EUR, it would just require changing currency to be EUR.
+- **Space**: Spaces are similar to types in that they define a schema for data and are used as the domain/codomain for different blocks. They can be thought of as typed dictionaries.
+
+#### Entities, States, Parameters & Metrics
+
+- **Entity**: Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions. Examples could be a customer or a company (for which a simulation might assume it is acting as one cohesive unit)
+- **State**: The definition of states in the system. There is one global system state and then the rest of the definitions are local states, generally for recording what entity states there are.
+- **Stateful Metric**: Variables that are not held directly in the state but can computed from the state & parameters.
+- **Parameter**: Both local and global parameter sets in the system that could be set
+- **Metric**: This component takes a variety of potential inputs and creates a metric from it. This can be used for defining out system success metrics or trying to modularize certain calculations that are needed across many other system components.
+
+#### Blocks & Wiring
+
+- **Boundary Action**: The definition of different actions that might happen outside of the system such as customers coming into a shop. Generally will be called by entities.
+- **Control Action**: The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness.
+- **Policy**: A definition of the policies that handle all logical things. This could be, for example, a policy which determines what price is paid given a boundary action of someone putting in a market buy order for a stock.
+- **Mechanism**: Anything that updates state in the system, usually policies will call these with the outputs of logic. The reasoning to split them out is so that if at some point you want to add a recording variable every time an account is changed or do something like have a variable listener, you can just change the mechanism responsible for it in only one place.
+- **Wiring**: A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel.
+
 ## Problem Statement
 
 For this guided example, the following is the problem statement from which we will build the specification.
@@ -49,6 +98,7 @@ Investing for retirement is often modeled with monte carlo simulations because o
 - They only have control over the allocation percentages at any given time between bonds and stocks.
 - Any time a trade is conducted, a commission fee of 30 basis points (.30%) will be taken out on both sell orders and buy orders.
 - The returns of both stocks and bonds are assumed to be randomly distributed (although this could of course be extended to get more accurate measures), and can be parameterized by $\mu_s$, $\sigma_s$, $\mu_b$ and $\sigma_b$.
+- The person rebalancing their portfolio rebalances it to a percentage of stocks and a percentage of bonds. This percentage will over time change, however, based on how the prices of the assets change!
 
 ## Getting Started with a Base Directory
 
@@ -201,3 +251,20 @@ entities = [dummy_entity, global_entity, person_entity]</code></pre>
 - You will notice that for the domain and symbol latex is used. This gets rendered nicely in markdown and can be seen below.
 
 ![markdown](markdown.png)
+
+
+
+## Boundary Action & First Space
+
+- We have defined out some very basic pieces of the spec, and now we can begin to think through the problem statement and what it would mean for a person to change their allocation.
+- The first thing to think about in regards to this boundary action, is what space should be coming out of it.
+    - We know that the investment allocation is supposed to be in terms of percentage of stocks vs. bonds, so we want to define our space out like that.
+    - We can think of the spaces as having a component for each (technically only one is needed, and 1 - that value equals the other, but we will show it with both and using constraints to ensure they add up to 100%)
+- Before we can write the space out, we need to define how we show the percentages. Some people might prefer to use a percentage, i.e. 60% or 60 corresponds to 60%, while others may prefer to use decimals, i.e. .60 means 60%. We will add a new type called "Decimal Type" to denote that we are using decimals in this simulation.
+- The following is added to the "Investments.py" file in the Types folder:
+<pre><code></code></pre>
+
+- The following code defines out, in "Investment.py" within the BoundaryActions folder, what the boundary action should be.
+<pre><code></code></pre>
+
+- Constraint of allocations == 1
