@@ -343,3 +343,47 @@ portfolio_allocation_boundary_action = {
     ],
     "parameters_used": [],
 }</code></pre>
+
+This then allows us to create this nice boundary action markdown file automatically:
+
+![boundary_action](boundary_action.png)
+
+## Portfolio Allocation Policy
+
+- What would come after this boundary action is a policy which converts the percentages to the correct number of shares.
+- The output being the correct number of shares tells us that we need to first create a new space to represent the output of the policy.
+
+### Investment Allocation Space
+
+- We update "Investments.py" in the Spaces folder to be the following:
+<pre><code>investment_allocation_percentage_space = {
+    "name": "Investment Allocation Percentage Space",
+    "schema": {
+        "percentage_bonds": "Decimal Type",
+        "percentage_stocks": "Decimal Type",
+    },
+}
+
+investment_allocation_space = {
+    "name": "Investment Allocation Space",
+    "schema": {
+        "bond_shares": "Bond Shares Type",
+        "stock_shares": "Stock Shares Type",
+    },
+}
+
+
+investment_spaces = [
+    investment_allocation_percentage_space,
+    investment_allocation_space,
+]</code></pre>
+- With our newly created space we are ready to define out the portfolio allocation policy
+
+### Definitions
+
+**Policy**: A definition of the policies that handle all logical things. This could be, for example, a policy which determines what price is paid given a boundary action of someone putting in a market buy order for a stock.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-policy.md)
+
