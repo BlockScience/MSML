@@ -96,7 +96,7 @@ For this guided example, the following is the problem statement from which we wi
 Investing for retirement is often modeled with monte carlo simulations because of how much path dependence there is. The following are the specific facts of the problem:
 - There is only one person of interest in the model, the employee looking to retire.
 - They only have control over the allocation percentages at any given time between bonds and stocks.
-- Any time a trade is conducted, a commission fee of 30 basis points (.30%) will be taken out on both sell orders and buy orders.
+- Any time a trade is conducted, we can assume no comissions or fees, although the model could be enriched by adding this.
 - The returns of both stocks and bonds are assumed to be randomly distributed (although this could of course be extended to get more accurate measures), and can be parameterized by $\mu_s$, $\sigma_s$, $\mu_b$ and $\sigma_b$.
 - The person rebalancing their portfolio rebalances it to a percentage of stocks and a percentage of bonds. This percentage will over time change, however, based on how the prices of the assets change!
 
@@ -319,3 +319,27 @@ investment_spaces = [investment_allocation_percentage_space]</code></pre>
     "parameters_used": [],
 }</code></pre>
 
+### Adding a Boundary Action Option
+
+- The boundary action options are meant to represent actual implementations of a boundary action that we might see in the simulation.
+- We will define one and update our code to include a boundary action option where the user always balances to a 60% stock/40% bond portfolio.
+- The code is updated like so:
+<pre><code>portfolio_allocation_boundary_action_option1 = {
+    "name": "60/40 Portfolio",
+    "description": "An option where the person always rebalances to a target allocation of 60/40 stocks/bonds.",
+    "logic": "Return a codomain of {'percentage_bonds': .4, 'percentage_stocks': .6}",
+}
+
+portfolio_allocation_boundary_action = {
+    "name": "Portfolio Allocation Boundary Action",
+    "description": "The boundary action for a user looking to rebalance their portfolio.",
+    "constraints": [
+        "CODOMAIN[0].percentage_bonds + CODOMAIN[0].percentage_stocks == 1"
+    ],
+    "boundary_action_options": [portfolio_allocation_boundary_action_option1],
+    "called_by": ["Person"],
+    "codomain": [
+        "Investment Allocation Percentage Space",
+    ],
+    "parameters_used": [],
+}</code></pre>
