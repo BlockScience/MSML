@@ -1,6 +1,10 @@
 # Executive Summary
 
-This research note shows how to start building out a first mathematical specification with the MSML library.
+This research note shows how to start building out a first mathematical specification with the MSML library. This research note will walk through a guide example with the following format:
+
+1. Introduce the MSML
+2. Introduce the Problem Statement
+3. Iteratively Explain Components with Worked Examples
 
 ## What is the Mathematical Specification Mapping Library (MSML)?
 
@@ -45,3 +49,8 @@ Investing for retirement is often modeled with monte carlo simulations because o
 - They only have control over the allocation percentages at any given time between bonds and stocks.
 - Any time a trade is conducted, a commission fee of 30 basis points (.30%) will be taken out on both sell orders and buy orders.
 - The returns of both stocks and bonds are assumed to be randomly distributed (although this could of course be extended to get more accurate measures), and can be parameterized by $\mu_s$, $\sigma_s$, $\mu_b$ and $\sigma_b$.
+
+## Getting Started with a Base Directory
+
+- We can begin by forking the [starter repo](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo) into a directory and removing the "model" folder since we are just doing a spec today.
+- We will also clear out the reports folder to start fresh.
