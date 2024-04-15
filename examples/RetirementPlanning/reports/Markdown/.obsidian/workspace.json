@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Policies/Portfolio Allocation Policy.md",
-                "mode": "source",
+                "file": "Wiring/Portfolio Allocation Wiring.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Policies/Portfolio Allocation Policy.md",
+                "file": "Wiring/Portfolio Allocation Wiring.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Policies/Portfolio Allocation Policy.md",
+                "file": "Wiring/Portfolio Allocation Wiring.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Policies/Portfolio Allocation Policy.md"
+                "file": "Wiring/Portfolio Allocation Wiring.md"
               }
             }
           }
@@ -148,12 +148,13 @@
   },
   "active": "1233a62702978b47",
   "lastOpenFiles": [
+    "Policies/Portfolio Allocation Policy.md",
+    "Wiring/Portfolio Allocation Wiring.md",
     "Mechanisms/Update Shares Mechanism.md",
     "Stateful Metrics/portfolio_value.md",
     "State Variables/Global State-Stock Price.md",
     "State Variables/Global State-Bond Price.md",
     "Boundary Actions/Portfolio Allocation Boundary Action.md",
-    "Policies/Portfolio Allocation Policy.md",
     "Spaces/Investment Allocation Space.md",
     "States/Person State.md",
     "Spaces/Investment Allocation Percentage Space.md",
