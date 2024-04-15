@@ -71,12 +71,26 @@ Investing for retirement is often modeled with monte carlo simulations because o
 ### Test Run on Functionality
 
 - Before we begin to make any changes, we need to first make sure functionality works. We will take the "Build Starter Repo.ipynb" notebook and use it to make sure.
-- Everything after the write_spec_tree can be deleted as we will not go through metaprogramming or more advanced reporting.
-- This line:
-<code>os.chdir("MSML/examples/StarterRepo")</code>
-Is changed to this line where the path is wherever your repo is:
-<code>os.chdir("MSML/examples/RetirementPlanning")</code>
-- Make sure the path to the 
+- We will update the code to be:
+<pre><code>"""# For the production library
+from math_spec_mapping import (load_from_json, write_all_markdown_reports, write_spec_tree)"""
+
+# Development library loading
+import sys
+sys.path.append("/Users/seanmcowen/Dropbox/BlockScience")
+from MSML.src.math_spec_mapping import (load_from_json, write_all_markdown_reports, write_spec_tree)
+
+from src import math_spec_json
+from copy import deepcopy
+ms = load_from_json(deepcopy(math_spec_json))
+
+d = "reports/Markdown"
+write_all_markdown_reports(ms, d, clear_folders=True)
+write_spec_tree(ms, path=d, linking=True)</code></pre>
+- If using the development library make sure to update the path to the MSML folder
 - Make sure the you create the Markdown folder in the reports folder
 - The notebook will look like this and be able to be run:
 
+![notebook](notebook.png)
+- The markdown folder can now be opened up in Obsidian and should look like the following:
+![obsidian1](obsidian1.png)
