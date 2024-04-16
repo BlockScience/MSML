@@ -31,6 +31,7 @@ cssclasses:
 │   ├──[[Bond Shares Type]]
 │   ├──[[Stock Shares Type]]
 │   ├──[[Decimal Type]]
+│   ├──[[Years Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]
@@ -38,6 +39,7 @@ cssclasses:
 │   ├──[[Dummy Space 2]]
 │   ├──[[Investment Allocation Percentage Space]]
 │   ├──[[Investment Allocation Space]]
+│   ├──[[Advance Time Space]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
 │   │   ├──[[dummy_parameter]]
