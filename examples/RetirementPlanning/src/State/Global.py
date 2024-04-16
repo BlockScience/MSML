@@ -16,5 +16,12 @@ global_state = {
             "symbol": "$P_{S}$",
             "domain": "$\mathbb{R}_{>=0}$",
         },
+        {
+            "type": "Years Type",
+            "name": "Time",
+            "description": "The time in the system, in terms of the years passed",
+            "symbol": "$t$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
     ],
 }

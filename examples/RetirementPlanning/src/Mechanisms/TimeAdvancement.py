@@ -4,10 +4,13 @@ update_asset_prices_mechanism = {
     "constraints": [],
     "logic": "The values from the domain space are mapped into the global state variables of stock_price and bond_price",
     "domain": [
-        "Advance Time Space",
+        "Asset Prices Space",
     ],
     "parameters_used": [],
-    "updates": [("Person", "Stock Shares", False), ("Person", "Bond Shares", False)],
+    "updates": [
+        ("Global", "Stock Price", False),
+        ("Global", "Bond Price", False),
+    ],
 }
 
 increment_time_mechanism = {
@@ -16,10 +19,12 @@ increment_time_mechanism = {
     "constraints": [],
     "logic": "The time attribute of the global state is incremented by DOMAIN[0].delta_time",
     "domain": [
-        "Asset Prices Space",
+        "Advance Time Space",
     ],
     "parameters_used": [],
-    "updates": [("Person", "Stock Shares", False), ("Person", "Bond Shares", False)],
+    "updates": [
+        ("Global", "Time", False),
+    ],
 }
 
 time_advancement_mechanisms = [update_asset_prices_mechanism, increment_time_mechanism]
