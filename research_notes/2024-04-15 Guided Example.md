@@ -722,7 +722,79 @@ time_progression_policies = [advance_time_policy]
 ## New Mechanisms
 
 - We define out the two mechanisms that get called after the latest policy, one for updating the time and one for updating the asset prices
+- We also need to add in a state variable for the time in the system to global state.
+
+### Global State Update
+
+<pre><code>global_state = {
+    "name": "Global State",
+    "notes": "",
+    "variables": [
+        {
+            "type": "USD Type",
+            "name": "Bond Price",
+            "description": "The current price of the bond (per share).",
+            "symbol": "$P_{B}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+        {
+            "type": "USD Type",
+            "name": "Stock Price",
+            "description": "The current price of the stock (per share).",
+            "symbol": "$P_{S}$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+        {
+            "type": "Years Type",
+            "name": "Time",
+            "description": "The time in the system, in terms of the years passed",
+            "symbol": "$t$",
+            "domain": "$\mathbb{R}_{>=0}$",
+        },
+    ],
+}</code></pre>
 
 ### Mechanism Definitions
 - Defined in TimeAdvancement.py
-<pre><code></code></pre>
+<pre><code>update_asset_prices_mechanism = {
+    "name": "Update Asset Prices Mechanism",
+    "description": "The mechanism which updates the amount of shares that a person has",
+    "constraints": [],
+    "logic": "The values from the domain space are mapped into the global state variables of stock_price and bond_price",
+    "domain": [
+        "Asset Prices Space",
+    ],
+    "parameters_used": [],
+    "updates": [
+        ("Global", "Stock Price", False),
+        ("Global", "Bond Price", False),
+    ],
+}
+
+increment_time_mechanism = {
+    "name": "Increment Time Mechanism",
+    "description": "The mechanism which increments the time passed",
+    "constraints": [],
+    "logic": "The time attribute of the global state is incremented by DOMAIN[0].delta_time",
+    "domain": [
+        "Advance Time Space",
+    ],
+    "parameters_used": [],
+    "updates": [
+        ("Global", "Time", False),
+    ],
+}
+
+time_advancement_mechanisms = [update_asset_prices_mechanism, increment_time_mechanism]</code></pre>
+
+
+
+## Mechanisms Parallel Wiring
+
+- We are going to demonstrate how to use a parallel block with the last two mechanisms we made
+- This makes it so that their domains/codomains are concatonated together and they can be run as one large block where the inner blocks run at the same time
+
+## Time Advancement Wiring
+
+- Now we bring together the control action, the policy, and the parallel mechanism wiring
+- We actually have a wiring within a wiring now highlighting the idea of composability

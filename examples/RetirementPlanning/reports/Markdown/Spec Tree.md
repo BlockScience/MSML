@@ -15,6 +15,7 @@ cssclasses:
 │   ├──[[Global State]]
 │   │   ├──[[Global State-Bond Price\|Bond Price]]
 │   │   ├──[[Global State-Stock Price\|Stock Price]]
+│   │   ├──[[Global State-Time\|Time]]
 │   ├──[[Person State]]
 │   │   ├──[[Person State-Bond Shares\|Bond Shares]]
 │   │   ├──[[Person State-Stock Shares\|Stock Shares]]

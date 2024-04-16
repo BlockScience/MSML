@@ -42,9 +42,9 @@ Dummy Boundary Block
 1. [[Terminating Space]]
 
 ## All Spaces Used
-1. [[Dummy Space 2]]
+1. [[Dummy Space 1]]
 2. [[Terminating Space]]
-3. [[Dummy Space 1]]
+3. [[Dummy Space 2]]
 
 ## Parameters Used
 1. [[dummy_parameter]]
