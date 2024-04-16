@@ -5,9 +5,9 @@ graph TB
 
 subgraph SVS["State Variables"]
 EE0[("Person")]
-EES0(["Bond Shares"])
+EES0(["Stock Shares"])
 EES0 --- EE0
-EES1(["Stock Shares"])
+EES1(["Bond Shares"])
 EES1 --- EE0
 end
 
@@ -16,8 +16,8 @@ direction TB
 X1["Portfolio Allocation Boundary Action"]
 X2["Portfolio Allocation Policy"]
 X3["Update Shares Mechanism"]
-X3 --> EES1
 X3 --> EES0
+X3 --> EES1
 X1--"Investment Allocation Percentage Space"--->X2
 X2--"Investment Allocation Space"--->X3
 end
@@ -33,9 +33,9 @@ This wiring takes care of all logic around a person updating their portfolio all
 3. [[Update Shares Mechanism]]
 
 ## All Blocks
-1. [[Portfolio Allocation Boundary Action]]
-2. [[Update Shares Mechanism]]
-3. [[Portfolio Allocation Policy]]
+1. [[Portfolio Allocation Policy]]
+2. [[Portfolio Allocation Boundary Action]]
+3. [[Update Shares Mechanism]]
 
 ## Constraints
 
@@ -46,8 +46,8 @@ This wiring takes care of all logic around a person updating their portfolio all
 
 ## All Spaces Used
 1. [[Investment Allocation Percentage Space]]
-2. [[Terminating Space]]
-3. [[Investment Allocation Space]]
+2. [[Investment Allocation Space]]
+3. [[Terminating Space]]
 
 ## Parameters Used
 
@@ -56,6 +56,6 @@ This wiring takes care of all logic around a person updating their portfolio all
 ## Calls
 
 ## All State Updates
-1. [[Person]].Bond Shares
-2. [[Person]].Stock Shares
+1. [[Person]].Stock Shares
+2. [[Person]].Bond Shares
 
