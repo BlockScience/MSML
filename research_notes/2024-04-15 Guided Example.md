@@ -637,3 +637,84 @@ time_progression_spaces = [advance_time_space, asset_prices_space]
 </code></pre>
 
 ### Parameters
+
+- We define out the parameters below in "TimeAdvancement.py" within the Parameters folder.
+- All the parameters are of the behavioral type because they have to do with behaviors of the system
+<pre><code>time_advancement_parameter_set = {
+    "name": "Time Advancement Parameter Set",
+    "notes": "",
+    "parameters": [
+        {
+            "variable_type": "Decimal Type",
+            "name": "stock_return_mu",
+            "description": "The average yearly return of stocks",
+            "symbol": "$r_s$",
+            "domain": "$\mathbb{R}$",
+            "parameter_class": "Behavioral",
+        },
+        {
+            "variable_type": "Decimal Type",
+            "name": "stock_return_std",
+            "description": "The average yearly standard deviation of stock returns",
+            "symbol": "$\sigma_s$",
+            "domain": "$\mathbb{R}$",
+            "parameter_class": "Behavioral",
+        },
+        {
+            "variable_type": "Decimal Type",
+            "name": "bond_return_mu",
+            "description": "The average yearly return of bonds",
+            "symbol": "$r_b$",
+            "domain": "$\mathbb{R}$",
+            "parameter_class": "Behavioral",
+        },
+        {
+            "variable_type": "Decimal Type",
+            "name": "bond_return_std",
+            "description": "The average yearly standard deviation of bond returns",
+            "symbol": "$\sigma_b$",
+            "domain": "$\mathbb{R}$",
+            "parameter_class": "Behavioral",
+        },
+    ],
+}
+
+
+time_advancement_parameter_set = [time_advancement_parameter_set]
+</code></pre>
+
+### Implementing the Advance Time Policy
+
+- For this policy we have two spaces from the codomain, this is because we are going to be calling one mechanism for updating the time and another for updating the asset prices.
+- We are using the parameters feature for the first time here too!
+<pre><code>advance_time_policy_option1 = {
+    "name": "Advance Time Policy V1",
+    "description": "Simple policy to advance time and use the normal distribution for price movements.",
+    "logic": """1. Take the current stock price and multiply it by (1+NORMAL_RANDOM(PARAMS["stock_return_mu"], PARAMS["stock_return_std"])) ** (DOMAIN["delta_time"]), define it as new_stock_price
+2. Take the current bond price and multiply it by (1+NORMAL_RANDOM(PARAMS["bond_return_mu"], PARAMS["bond_return_std"])) ** (DOMAIN["delta_time"]), define it as new_bond_price
+3. Return (DOMAIN[0], {
+        "stock_price": new_stock_price,
+        "bond_price": new_bond_price,
+    })""",
+}
+
+advance_time_policy = {
+    "name": "Advance Time Policy",
+    "description": "The policy which pushes forward time and determines any changes in asset prices.",
+    "constraints": [],
+    "policy_options": [advance_time_policy_option1],
+    "domain": [
+        "Advance Time Space",
+    ],
+    "codomain": ["Advance Time Space", "Asset Prices Space"],
+    "parameters_used": [
+        "stock_return_mu",
+        "stock_return_std",
+        "bond_return_mu",
+        "bond_return_std",
+    ],
+    "metrics_used": [],
+}
+
+time_progression_policies = [advance_time_policy]
+</code></pre>
