@@ -602,3 +602,12 @@ advance_time_control_action = {
     ],
     "parameters_used": [],
 }</code></pre>
+
+## Parameters & Advance Time Policy
+- One thing we will need before creating this policy is a new space for transmitting the new prices of the bond and stock, defined below
+
+### Asset Prices Space
+- Updating the "TimeProgression.py" file in the spaces folder:
+
+
+### Parameters
