@@ -1,10 +1,12 @@
 advance_time_policy_option1 = {
     "name": "Advance Time Policy V1",
-    "description": "Simple policy to convert percentages to shares",
-    "logic": """1. Grab the portfolio_value metric at the current time.
-2. Define stock_shares as the portfolio_value * DOMAIN[0].percentage_stocks / STATE["Global"].stock_price
-3. Define bond_shares as the portfolio_value * DOMAIN[0].percentage_bonds / STATE["Global"].bond_price
-4. Return a space of {"bond_shares": bond_shares, "stock_shares": stock_shares}""",
+    "description": "Simple policy to advance time and use the normal distribution for price movements.",
+    "logic": """1. Take the current stock price and multiply it by (1+NORMAL_RANDOM(PARAMS["stock_return_mu"], PARAMS["stock_return_std"])) ** (DOMAIN["delta_time"]), define it as new_stock_price
+2. Take the current bond price and multiply it by (1+NORMAL_RANDOM(PARAMS["bond_return_mu"], PARAMS["bond_return_std"])) ** (DOMAIN["delta_time"]), define it as new_bond_price
+3. Return {
+        "stock_price": new_stock_price,
+        "bond_price": new_bond_price,
+    }""",
 }
 
 advance_time_policy = {
@@ -16,7 +18,12 @@ advance_time_policy = {
         "Advance Time Space",
     ],
     "codomain": ["Advance Time Space", "Asset Prices Space"],
-    "parameters_used": [],
+    "parameters_used": [
+        "stock_return_mu",
+        "stock_return_std",
+        "bond_return_mu",
+        "bond_return_std",
+    ],
     "metrics_used": [],
 }
 
