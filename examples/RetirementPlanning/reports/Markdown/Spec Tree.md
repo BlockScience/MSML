@@ -63,3 +63,5 @@ cssclasses:
 ├──**Mechanisms**
 │   ├──[[Dummy Mechanism]]
 │   ├──[[Update Shares Mechanism]]
+│   ├──[[Update Asset Prices Mechanism]]
+│   ├──[[Increment Time Mechanism]]

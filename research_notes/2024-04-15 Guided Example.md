@@ -718,3 +718,11 @@ advance_time_policy = {
 
 time_progression_policies = [advance_time_policy]
 </code></pre>
+
+## New Mechanisms
+
+- We define out the two mechanisms that get called after the latest policy, one for updating the time and one for updating the asset prices
+
+### Mechanism Definitions
+- Defined in TimeAdvancement.py
+<pre><code></code></pre>
