@@ -40,6 +40,7 @@ cssclasses:
 │   ├──[[Investment Allocation Percentage Space]]
 │   ├──[[Investment Allocation Space]]
 │   ├──[[Advance Time Space]]
+│   ├──[[Asset Prices Space]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
 │   │   ├──[[dummy_parameter]]
@@ -53,6 +54,7 @@ cssclasses:
 ├──**Policies**
 │   ├──[[Dummy Policy]]
 │   ├──[[Portfolio Allocation Policy]]
+│   ├──[[Advance Time Policy]]
 ├──**Mechanisms**
 │   ├──[[Dummy Mechanism]]
 │   ├──[[Update Shares Mechanism]]
