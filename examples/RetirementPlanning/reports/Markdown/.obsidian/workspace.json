@@ -148,6 +148,8 @@
   },
   "active": "1233a62702978b47",
   "lastOpenFiles": [
+    "Mechanisms/Increment Time Mechanism.md",
+    "Mechanisms/Update Asset Prices Mechanism.md",
     "Parameters/bond_return_std.md",
     "Parameters/bond_return_mu.md",
     "Parameters/stock_return_std.md",

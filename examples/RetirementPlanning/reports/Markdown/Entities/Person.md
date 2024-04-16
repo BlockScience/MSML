@@ -15,5 +15,9 @@ A person's state in the simulation
 ## Mechanisms Impacting the Entity
 ### [[Update Shares Mechanism]]
 ### [[Update Shares Mechanism]]
+### [[Update Asset Prices Mechanism]]
+### [[Update Asset Prices Mechanism]]
+### [[Increment Time Mechanism]]
+### [[Increment Time Mechanism]]
 ## Actions Impacting the Entity
 ### [[Portfolio Allocation Boundary Action]]
