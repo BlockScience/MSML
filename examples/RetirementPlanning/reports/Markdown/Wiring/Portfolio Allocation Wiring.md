@@ -45,9 +45,9 @@ This wiring takes care of all logic around a person updating their portfolio all
 1. [[Terminating Space]]
 
 ## All Spaces Used
-1. [[Investment Allocation Space]]
-2. [[Investment Allocation Percentage Space]]
-3. [[Terminating Space]]
+1. [[Investment Allocation Percentage Space]]
+2. [[Terminating Space]]
+3. [[Investment Allocation Space]]
 
 ## Parameters Used
 

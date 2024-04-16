@@ -2,9 +2,12 @@
 
 The policy which pushes forward time and determines any changes in asset prices.
 ## Called By
+1. [[Advance Time Control Action]]
 ## Domain Spaces
 1. [[Advance Time Space]]
 ## Followed By
+1. [[Increment Time Mechanism]]
+2. [[Update Asset Prices Mechanism]]
 ## Codomain Spaces
 1. [[Advance Time Space]]
 2. [[Asset Prices Space]]

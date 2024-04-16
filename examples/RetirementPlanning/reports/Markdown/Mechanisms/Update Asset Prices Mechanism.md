@@ -2,6 +2,7 @@
 
 The mechanism which updates the amount of shares that a person has
 ## Called By
+1. [[Advance Time Policy]]
 ## Domain Spaces
 1. [[Asset Prices Space]]
 ## Constraints
