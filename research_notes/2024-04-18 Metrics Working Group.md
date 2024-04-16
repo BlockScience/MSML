@@ -1,8 +1,8 @@
-# Metrics Working Group
+# Metrics Working Group 4/18/2024
 
 ## Executive Summary
 
-The future of metrics in MSML has a few different paths that can be taken, and as such a call is being put together to discuss some of the finer points.
+The future of metrics in MSML has a few different paths that can be taken, and as such a call is being put together to discuss some of the finer points. The majority of these ideas and issues are subject to change if strong arguments are presented for or against something.
 
 ## The Possible Roles and Uses of Metrics in MSML and Beyond
 
@@ -24,7 +24,14 @@ Metrics can take on a few different functions depending on their context, making
 
 ### Examples
 
+1. We might use a stateful metric for a system with N users that have currency holdings state variables to calculate a metric for total system holdings
+2. We might use a metric which takes a domain input of a space describing total fees to keep track of fees accumulated in a system
+3. We might have a metric for error in a root finding simulation which gives us the divergence from the optimal solution
+
 ## Current Oustanding Issues
+
+- The issues for discussion are the most important ones to talk through
+- All are linked to their respective github issues
 
 ### Issues for Discussion
 
@@ -46,6 +53,8 @@ Metrics can take on a few different functions depending on their context, making
 
 Moving into the discussion, the following points would be very helpful to consider during:
 1. What should the roles of metrics be, and should any of the possible functionalities such as logging be offloaded to something else?
+2. Are there any frameworks or past works that can be utilized as supporting documentation or literature review?
+3. What does success look like for metrics? Is it better to have a more flexible but tougher to fully understand solution?
 
 ## Notes from Meeting
 
