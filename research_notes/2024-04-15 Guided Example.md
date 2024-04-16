@@ -606,8 +606,34 @@ advance_time_control_action = {
 ## Parameters & Advance Time Policy
 - One thing we will need before creating this policy is a new space for transmitting the new prices of the bond and stock, defined below
 
+### Definitions
+
+**Parameter**: Both local and global parameter sets in the system that could be set
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-parameter.md)
+
+
 ### Asset Prices Space
 - Updating the "TimeProgression.py" file in the spaces folder:
+<pre><code>advance_time_space = {
+    "name": "Advance Time Space",
+    "schema": {
+        "delta_years": "Years Type",
+    },
+}
 
+asset_prices_space = {
+    "name": "Asset Prices Space",
+    "schema": {
+        "stock_price": "USD Type",
+        "bond_price": "USD Type",
+    },
+}
+
+
+time_progression_spaces = [advance_time_space, asset_prices_space]
+</code></pre>
 
 ### Parameters
