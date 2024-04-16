@@ -17,3 +17,4 @@
 ### [[Update Asset Prices Mechanism]]
 ### [[Increment Time Mechanism]]
 ## Actions Impacting the Entity
+### [[Advance Time Control Action]]
