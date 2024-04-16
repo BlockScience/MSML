@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "Wiring/Time Advancement Wiring.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "Wiring/Time Advancement Wiring.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Spec Tree.md",
+                "file": "Wiring/Time Advancement Wiring.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Spec Tree.md"
+                "file": "Wiring/Time Advancement Wiring.md"
               }
             }
           }
@@ -148,9 +148,14 @@
   },
   "active": "1233a62702978b47",
   "lastOpenFiles": [
-    "Wiring/Time Advancement Wiring.md",
-    "Wiring/Time Advancement Mechanisms Wiring.md",
     "Wiring/Portfolio Allocation Wiring.md",
+    "Wiring/Time Advancement Wiring.md",
+    "Policies/Advance Time Policy.md",
+    "Control Actions/Advance Time Control Action.md",
+    "Policies/Portfolio Allocation Policy.md",
+    "Boundary Actions/Portfolio Allocation Boundary Action.md",
+    "Spec Tree.md",
+    "Wiring/Time Advancement Mechanisms Wiring.md",
     "State Variables/Global State-Time.md",
     "Mechanisms/Increment Time Mechanism.md",
     "Mechanisms/Update Asset Prices Mechanism.md",
@@ -159,20 +164,15 @@
     "Parameters/stock_return_std.md",
     "Parameters/stock_return_mu.md",
     "Spaces/Asset Prices Space.md",
-    "Policies/Advance Time Policy.md",
-    "Control Actions/Advance Time Control Action.md",
     "Spaces/Advance Time Space.md",
     "Types/Years Type.md",
-    "Policies/Portfolio Allocation Policy.md",
     "Mechanisms/Update Shares Mechanism.md",
     "Stateful Metrics/portfolio_value.md",
     "State Variables/Global State-Stock Price.md",
     "State Variables/Global State-Bond Price.md",
-    "Boundary Actions/Portfolio Allocation Boundary Action.md",
     "Spaces/Investment Allocation Space.md",
     "States/Person State.md",
     "Spaces/Investment Allocation Percentage Space.md",
-    "Types/Decimal Type.md",
-    "Spec Tree.md"
+    "Types/Decimal Type.md"
   ]
 }
