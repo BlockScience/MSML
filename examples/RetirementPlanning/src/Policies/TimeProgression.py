@@ -3,10 +3,10 @@ advance_time_policy_option1 = {
     "description": "Simple policy to advance time and use the normal distribution for price movements.",
     "logic": """1. Take the current stock price and multiply it by (1+NORMAL_RANDOM(PARAMS["stock_return_mu"], PARAMS["stock_return_std"])) ** (DOMAIN["delta_time"]), define it as new_stock_price
 2. Take the current bond price and multiply it by (1+NORMAL_RANDOM(PARAMS["bond_return_mu"], PARAMS["bond_return_std"])) ** (DOMAIN["delta_time"]), define it as new_bond_price
-3. Return {
+3. Return (DOMAIN[0], {
         "stock_price": new_stock_price,
         "bond_price": new_bond_price,
-    }""",
+    })""",
 }
 
 advance_time_policy = {

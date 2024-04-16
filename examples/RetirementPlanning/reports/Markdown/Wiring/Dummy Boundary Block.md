@@ -30,9 +30,9 @@ Dummy Boundary Block
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Policy]]
+1. [[Dummy Boundary Action]]
 2. [[Dummy Mechanism]]
-3. [[Dummy Boundary Action]]
+3. [[Dummy Policy]]
 
 ## Constraints
 
@@ -42,8 +42,8 @@ Dummy Boundary Block
 1. [[Terminating Space]]
 
 ## All Spaces Used
-1. [[Terminating Space]]
-2. [[Dummy Space 2]]
+1. [[Dummy Space 2]]
+2. [[Terminating Space]]
 3. [[Dummy Space 1]]
 
 ## Parameters Used

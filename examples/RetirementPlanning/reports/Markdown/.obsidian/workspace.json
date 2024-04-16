@@ -148,6 +148,10 @@
   },
   "active": "1233a62702978b47",
   "lastOpenFiles": [
+    "Parameters/bond_return_std.md",
+    "Parameters/bond_return_mu.md",
+    "Parameters/stock_return_std.md",
+    "Parameters/stock_return_mu.md",
     "Spaces/Asset Prices Space.md",
     "Policies/Advance Time Policy.md",
     "Control Actions/Advance Time Control Action.md",
