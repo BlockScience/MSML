@@ -793,6 +793,24 @@ time_advancement_mechanisms = [update_asset_prices_mechanism, increment_time_mec
 
 - We are going to demonstrate how to use a parallel block with the last two mechanisms we made
 - This makes it so that their domains/codomains are concatonated together and they can be run as one large block where the inner blocks run at the same time
+- In "TimeAdvancement.py" in the wiring folder, we write:
+<pre><code>time_advancement_wiring = []
+
+time_advancement_wiring.append(
+    {
+        "name": "Time Advancement Mechanisms Wiring",
+        "components": [
+            "Update Asset Prices Mechanism",
+            "Increment Time Mechanism",
+        ],
+        "description": "This wiring takes care of the mechanisms from the time advancement wiring",
+        "constraints": [],
+        "type": "Parallel",
+    }
+)</code></pre>
+
+And we can see the markdown file display of the new wiring we have added
+![wiring3](wiring3.png)
 
 ## Time Advancement Wiring
 
