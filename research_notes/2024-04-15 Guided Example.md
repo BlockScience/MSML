@@ -550,3 +550,15 @@ And this is how the markdown component looks:
 
 ![wiring1](wiring1.png)
 ![wiring2](wiring2.png)
+
+## Advance Time Control Action
+
+- We use control actions for those actions that might trigger behaviors but are not related to a specific entity
+- In our case, we will make a control action that is meant to represent a certain amount of time being advanced
+- Before we begin there are two things we need to add, a type for number of years and then a space for the time advance.
+
+### Adding the new Type and Space
+
+- For the year type, we add in "TimeProgression.py" to Types with the following simple type definition:
+<pre><code>YearsType = {"name": "Years Type", "type": "YearType", "notes": "A number of years"}</code></pre>
+- Then we can add in "TimeProgression.py" to the spaces folder with the following definition to represent a space that says some number or fraction of years passed.

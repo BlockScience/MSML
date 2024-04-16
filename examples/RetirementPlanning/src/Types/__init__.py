@@ -1,5 +1,6 @@
 from .Dummy import DummyCompoundType, DummyType1, DummyType2
 from .Investments import USDType, BondSharesType, StockSharesType, DecimalType
+from .TimeProgression import YearsType
 
 types = [
     DummyType1,
@@ -9,4 +10,5 @@ types = [
     BondSharesType,
     StockSharesType,
     DecimalType,
+    YearsType,
 ]
