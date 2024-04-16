@@ -47,10 +47,10 @@ This wiring takes care of time advancement
 3. [[Time Advancement Mechanisms Wiring]]
 
 ## All Blocks
-1. [[Increment Time Mechanism]]
-2. [[Update Asset Prices Mechanism]]
-3. [[Advance Time Policy]]
-4. [[Advance Time Control Action]]
+1. [[Advance Time Control Action]]
+2. [[Advance Time Policy]]
+3. [[Increment Time Mechanism]]
+4. [[Update Asset Prices Mechanism]]
 
 ## Constraints
 
@@ -60,16 +60,16 @@ This wiring takes care of time advancement
 1. [[Empty Space]]
 
 ## All Spaces Used
-1. [[Asset Prices Space]]
-2. [[Empty Space]]
-3. [[Terminating Space]]
+1. [[Empty Space]]
+2. [[Terminating Space]]
+3. [[Asset Prices Space]]
 4. [[Advance Time Space]]
 
 ## Parameters Used
-1. [[bond_return_std]]
-2. [[stock_return_mu]]
+1. [[stock_return_std]]
+2. [[bond_return_std]]
 3. [[bond_return_mu]]
-4. [[stock_return_std]]
+4. [[stock_return_mu]]
 
 ## Called By
 

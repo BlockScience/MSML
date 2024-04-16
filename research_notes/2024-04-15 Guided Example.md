@@ -848,3 +848,9 @@ time_advancement_wiring.append(
 )</code></pre>
 - Which produces a wiring diagram like so:
 ![wiring4](wiring4.png)
+
+## Conclusion
+
+- Through this guided example we created one boundary action and one control action which served as the two actions that initiated wirings.
+- Along the way, all the other components naturally fell into place as needed for finishing the spec.
+- To create a model from this spec, one would need to decide on the frequency of the boundary and control actions firing. One example would be alternating between the two for some set number of iterations. I.e. a quarter of a year would pass, a rebalance would happen, repeat.
