@@ -49,6 +49,7 @@ cssclasses:
 │   ├──[[Portfolio Allocation Boundary Action]]
 ├──**Control Actions**
 │   ├──[[Dummy Control Action]]
+│   ├──[[Advance Time Control Action]]
 ├──**Policies**
 │   ├──[[Dummy Policy]]
 │   ├──[[Portfolio Allocation Policy]]

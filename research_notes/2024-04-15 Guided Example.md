@@ -519,6 +519,8 @@ investment_mechanisms = [update_shares_mechanism]</code></pre>
 
 - Now we get to tie it all together! We are creating a wiring which will illustrate the flow of the portfolio allocation process.
 
+### Definitions
+
 **Wiring**: A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel.
 
 ### JSON Spec
@@ -562,3 +564,41 @@ And this is how the markdown component looks:
 - For the year type, we add in "TimeProgression.py" to Types with the following simple type definition:
 <pre><code>YearsType = {"name": "Years Type", "type": "YearType", "notes": "A number of years"}</code></pre>
 - Then we can add in "TimeProgression.py" to the spaces folder with the following definition to represent a space that says some number or fraction of years passed.
+<pre><code>advance_time_space = {
+    "name": "Advance Time Space",
+    "schema": {
+        "delta_years": "Years Type",
+    },
+}
+
+
+time_progression_spaces = [advance_time_space]</code></pre>
+
+### Definitions
+
+**Control Action**: The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness.
+
+### JSON Spec
+
+The schema is defined [here](../docs/JSON-Specification/schema-definitions-controlaction.md)
+
+### Creating the Advance Time Control Action
+
+We build the "TimeProgression.py" file in the ControlActions folder with this code:
+
+<pre><code>advance_time_control_action_option1 = {
+    "name": "Quarter Time Progression",
+    "description": "Control action option which simply pushes time forward by a quarter.",
+    "logic": "Return a codomain space of {'time_delta': .25}",
+}
+
+advance_time_control_action = {
+    "name": "Advance Time Control Action",
+    "description": "The control action which pushes forward the simulation time",
+    "constraints": [],
+    "control_action_options": [advance_time_control_action_option1],
+    "codomain": [
+        "Advance Time Space",
+    ],
+    "parameters_used": [],
+}</code></pre>
