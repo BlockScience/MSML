@@ -6,6 +6,7 @@ from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
 import os
 from copy import deepcopy
+import shutil
 
 
 class MathSpec:
@@ -602,6 +603,15 @@ class MathSpec:
 
         with open(path, "w") as f:
             f.write(out)
+
+    def metaprogramming_julia_types(self, model_directory, overwrite=False):
+        path = model_directory + "/types.jl"
+        if not overwrite:
+            assert "types.jl" not in os.listdir(
+                model_directory
+            ), "The types file is already written, either delete it or switch to overwrite mode"
+
+        shutil.copyfile("src/TypeMappings/types.jl", path)
 
     def build_implementation(self, params):
         return MathSpecImplementation(self, params)
