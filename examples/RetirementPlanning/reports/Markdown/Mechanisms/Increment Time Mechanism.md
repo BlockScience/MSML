@@ -11,4 +11,4 @@ The time attribute of the global state is incremented by DOMAIN[0].delta_time
 
 ## Updates
 
-1. [[Global]].Time
+1. [[Global]].[[Global State-Time|Time]]

@@ -33,9 +33,9 @@ This wiring takes care of all logic around a person updating their portfolio all
 3. [[Update Shares Mechanism]]
 
 ## All Blocks
-1. [[Portfolio Allocation Policy]]
-2. [[Portfolio Allocation Boundary Action]]
-3. [[Update Shares Mechanism]]
+1. [[Portfolio Allocation Boundary Action]]
+2. [[Update Shares Mechanism]]
+3. [[Portfolio Allocation Policy]]
 
 ## Constraints
 
@@ -45,9 +45,9 @@ This wiring takes care of all logic around a person updating their portfolio all
 1. [[Terminating Space]]
 
 ## All Spaces Used
-1. [[Investment Allocation Percentage Space]]
-2. [[Investment Allocation Space]]
-3. [[Terminating Space]]
+1. [[Terminating Space]]
+2. [[Investment Allocation Percentage Space]]
+3. [[Investment Allocation Space]]
 
 ## Parameters Used
 
@@ -56,6 +56,6 @@ This wiring takes care of all logic around a person updating their portfolio all
 ## Calls
 
 ## All State Updates
-1. [[Person]].Stock Shares
-2. [[Person]].Bond Shares
+1. [[Person]].[[Person State-Stock Shares|Stock Shares]]
+2. [[Person]].[[Person State-Bond Shares|Bond Shares]]
 

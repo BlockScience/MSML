@@ -13,4 +13,4 @@ Logic for update
 
 ## Updates
 
-1. [[Dummy]].Variable A
+1. [[Dummy]].[[Dummy State-Variable A|Variable A]]

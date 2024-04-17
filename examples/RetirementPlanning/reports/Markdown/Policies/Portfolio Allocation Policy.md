@@ -13,6 +13,7 @@ The policy which maps a percentage allocation to a shares allocation.
 1. DOMAIN[0].percentage_bonds + DOMAIN[0].percentage_stocks == 1
 ## Parameters Used
 ## Metrics Used
+1. [[portfolio_value]]
 ## Policy Options
 ### 1. Portfolio Allocation Policy V1
 #### Description
