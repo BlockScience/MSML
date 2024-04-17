@@ -11,5 +11,5 @@ The values from the domain space are mapped into the person's state
 
 ## Updates
 
-1. [[Person]].Stock Shares
-2. [[Person]].Bond Shares
+1. [[Person]].[[Person State-Stock Shares|Stock Shares]]
+2. [[Person]].[[Person State-Bond Shares|Bond Shares]]

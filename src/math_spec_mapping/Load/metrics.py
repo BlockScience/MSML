@@ -100,5 +100,9 @@ def load_metrics(ms: Dict, json: Dict, stateful_metrics_map) -> None:
         hold = policy.metrics_used[:]
         policy.metrics_used = []
         for x in hold:
-            assert x in ms["Metrics"], "{} not a valid metric".format(x)
-            policy.metrics_used.append(ms["Metrics"][x])
+            assert (
+                x in ms["Metrics"] or x in stateful_metrics_map
+            ), "{} not a valid metric or stateful metric".format(x)
+            policy.metrics_used.append(
+                ms["Metrics"][x] if x in ms["Metrics"] else stateful_metrics_map[x]
+            )

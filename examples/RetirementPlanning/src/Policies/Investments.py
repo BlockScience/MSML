@@ -19,7 +19,7 @@ portfolio_allocation_policy = {
         "Investment Allocation Space",
     ],
     "parameters_used": [],
-    "metrics_used": [],
+    "metrics_used": ["portfolio_value"],
 }
 
 investment_policies = [portfolio_allocation_policy]

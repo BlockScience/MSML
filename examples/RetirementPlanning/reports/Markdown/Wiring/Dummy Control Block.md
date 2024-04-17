@@ -30,9 +30,9 @@ Dummy Control Block
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Mechanism]]
+1. [[Dummy Policy]]
 2. [[Dummy Control Action]]
-3. [[Dummy Policy]]
+3. [[Dummy Mechanism]]
 
 ## Constraints
 
@@ -42,9 +42,9 @@ Dummy Control Block
 1. [[Terminating Space]]
 
 ## All Spaces Used
-1. [[Dummy Space 1]]
-2. [[Terminating Space]]
-3. [[Dummy Space 2]]
+1. [[Terminating Space]]
+2. [[Dummy Space 2]]
+3. [[Dummy Space 1]]
 
 ## Parameters Used
 1. [[dummy_parameter]]
@@ -54,5 +54,5 @@ Dummy Control Block
 ## Calls
 
 ## All State Updates
-1. [[Dummy]].Variable A
+1. [[Dummy]].[[Dummy State-Variable A|Variable A]]
 

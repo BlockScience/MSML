@@ -11,5 +11,5 @@ The values from the domain space are mapped into the global state variables of s
 
 ## Updates
 
-1. [[Global]].Stock Price
-2. [[Global]].Bond Price
+1. [[Global]].[[Global State-Stock Price|Stock Price]]
+2. [[Global]].[[Global State-Bond Price|Bond Price]]
