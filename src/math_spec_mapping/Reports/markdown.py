@@ -294,7 +294,9 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
     out += "\n\n"
     out += "## Updates\n\n"
     for i, x in enumerate(mechanism.updates):
-        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "{}. [[{}]].[[{}|{}]]".format(
+            i + 1, x[0].name, x[0].state.name + "-" + x[1].name, x[1].name
+        )
         out += "\n"
 
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
