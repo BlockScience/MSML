@@ -474,8 +474,14 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## All State Updates\n"
+
     for i, x in enumerate(wiring.all_updates):
-        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "{}. [[{}]].[[{}|{}]]".format(
+            i + 1,
+            x[0].name,
+            ms.entities[x[0].name].state.name + "-" + x[1].name,
+            x[1].name,
+        )
         out += "\n"
     out += "\n"
 
