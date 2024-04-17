@@ -624,9 +624,22 @@ class MathSpec:
 
         out = """include("{}")
 include("types.jl")
-using .Spaces: generate_space_type""".format(
+using .Spaces: generate_space_type
+
+""".format(
             cadCAD_path
         )
+
+        for space in self.spaces:
+            name = self.spaces[space].name
+            schema = self.spaces[space].schema
+            schema = ["{}={}".format(x, schema[x].original_type_name) for x in schema]
+            if len(schema) >= 1:
+                schema = ", ".join(schema) + ","
+                out += 'generate_space_type(({}), "{}")'.format(schema, name)
+                out += "\n"
+            # out += "{} = Spaces.{}".format(name, name)
+
         with open(path, "w") as f:
             f.write(out)
 
