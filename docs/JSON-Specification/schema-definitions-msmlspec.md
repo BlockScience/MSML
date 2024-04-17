@@ -6,9 +6,9 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpe
 
 A JSON schema that is used in the mathematical specification mapping library to create the underlying MSML object.
 
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## MSMLSpec Type
 
@@ -16,20 +16,21 @@ A JSON schema that is used in the mathematical specification mapping library to 
 
 # MSMLSpec Properties
 
-| Property                              | Type    | Required | Nullable       | Defined by                                                                                                                                                                         |
-| :------------------------------------ | :------ | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Policies](#policies)                 | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-policies.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Policies")                 |
-| [Spaces](#spaces)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-spaces.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Spaces")                     |
-| [State](#state)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/State")                       |
-| [Stateful Metrics](#stateful-metrics) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-stateful-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Stateful Metrics") |
-| [Parameters](#parameters)             | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Parameters")             |
-| [Mechanisms](#mechanisms)             | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-mechanisms.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Mechanisms")             |
-| [Entities](#entities)                 | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-entities.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Entities")                 |
-| [Boundary Actions](#boundary-actions) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-boundary-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Boundary Actions") |
-| [Control Actions](#control-actions)   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")   |
-| [Wiring](#wiring)                     | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")                     |
-| [Types](#types)                       | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")                       |
-| [Metrics](#metrics)                   | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")                   |
+| Property                              | Type     | Required | Nullable       | Defined by                                                                                                                                                                         |
+| :------------------------------------ | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Policies](#policies)                 | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-policies.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Policies")                 |
+| [Spaces](#spaces)                     | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-spaces.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Spaces")                     |
+| [State](#state)                       | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/State")                       |
+| [Stateful Metrics](#stateful-metrics) | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-stateful-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Stateful Metrics") |
+| [Parameters](#parameters)             | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Parameters")             |
+| [Mechanisms](#mechanisms)             | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-mechanisms.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Mechanisms")             |
+| [Entities](#entities)                 | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-entities.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Entities")                 |
+| [Boundary Actions](#boundary-actions) | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-boundary-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Boundary Actions") |
+| [Control Actions](#control-actions)   | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-control-actions.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Control Actions")   |
+| [Wiring](#wiring)                     | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Wiring")                     |
+| [Types](#types)                       | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-types.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Types")                       |
+| [Metrics](#metrics)                   | `array`  | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Metrics")                   |
+| [Displays](#displays)                 | `object` | Optional | cannot be null | [MSML](schema-definitions-msmlspec-properties-displays.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays")                 |
 
 ## Policies
 
@@ -93,7 +94,7 @@ A JSON schema that is used in the mathematical specification mapping library to 
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `object[]` ([Stateful Metric](schema-definitions-stateful-metric.md))
 
 *   cannot be null
 
@@ -101,7 +102,7 @@ A JSON schema that is used in the mathematical specification mapping library to 
 
 ### Stateful Metrics Type
 
-unknown\[]
+`object[]` ([Stateful Metric](schema-definitions-stateful-metric.md))
 
 ## Parameters
 
@@ -165,7 +166,7 @@ unknown\[]
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `object[]` ([Boundary Action](schema-definitions-boundary-action.md))
 
 *   cannot be null
 
@@ -173,7 +174,7 @@ unknown\[]
 
 ### Boundary Actions Type
 
-unknown\[]
+`object[]` ([Boundary Action](schema-definitions-boundary-action.md))
 
 ## Control Actions
 
@@ -246,3 +247,21 @@ unknown\[]
 ### Metrics Type
 
 `object[]` ([Metric](schema-definitions-metric.md))
+
+## Displays
+
+
+
+`Displays`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-msmlspec-properties-displays.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-msmlspec-properties-displays.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays")
+
+### Displays Type
+
+`object` ([Details](schema-definitions-msmlspec-properties-displays.md))

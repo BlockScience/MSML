@@ -360,7 +360,8 @@
                         "type": "string"
                     },
                     "description": "All metrics used in implementation of policies"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "codomain",
@@ -390,7 +391,8 @@
                 "logic": {
                     "type": "string",
                     "description": "Any logic associated with the implementation"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "description",
@@ -561,7 +563,8 @@
                 "domain": {
                     "type": ["string","null"],
                     "description": "The mathematical domain of the parameter (optional)"
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "description",

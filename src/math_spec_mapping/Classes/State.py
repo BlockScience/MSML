@@ -45,6 +45,7 @@ class StateVariable:
         self.symbol = data["symbol"]
         self.domain = data["domain"]
         self.updated_by = []
+        self.metadata = data["metadata"]
 
         # Add check for type of List
         if hasattr(self.type, "_name"):
