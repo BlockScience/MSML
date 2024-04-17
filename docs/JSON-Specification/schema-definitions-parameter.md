@@ -4,11 +4,11 @@
 https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter
 ```
 
+Both local and global parameter sets in the system that could be set
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## Parameter Type
 
@@ -24,7 +24,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## name
 
-
+The name of the parameter set
 
 `name`
 
@@ -42,7 +42,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## notes
 
-
+Any notes about the parameter set
 
 `notes`
 
@@ -60,7 +60,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 ## parameters
 
-
+All parameters that are a part of this parameter set
 
 `parameters`
 

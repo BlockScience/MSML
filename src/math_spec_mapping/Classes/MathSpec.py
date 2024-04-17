@@ -6,6 +6,7 @@ from .ControlAction import ControlAction
 from .BoundaryAction import BoundaryAction
 import os
 from copy import deepcopy
+import shutil
 
 
 class MathSpec:
@@ -599,6 +600,45 @@ class MathSpec:
         out += "\n\n"
 
         out += "parameters: Parameters = {**behavioral_parameters, **functional_parameters, **system_parameters}"
+
+        with open(path, "w") as f:
+            f.write(out)
+
+    def metaprogramming_julia_types(self, model_directory, overwrite=False):
+        path = model_directory + "/types.jl"
+        if not overwrite:
+            assert "types.jl" not in os.listdir(
+                model_directory
+            ), "The types file is already written, either delete it or switch to overwrite mode"
+
+        shutil.copyfile("src/TypeMappings/types.jl", path)
+
+    def metaprogramming_julia_spaces(
+        self, model_directory, cadCAD_path, overwrite=False
+    ):
+        path = model_directory + "/spaces.jl"
+        if not overwrite:
+            assert "spaces.jl" not in os.listdir(
+                model_directory
+            ), "The spaces file is already written, either delete it or switch to overwrite mode"
+
+        out = """include("{}")
+include("types.jl")
+using .Spaces: generate_space_type
+
+""".format(
+            cadCAD_path
+        )
+
+        for space in self.spaces:
+            name = self.spaces[space].name
+            schema = self.spaces[space].schema
+            schema = ["{}={}".format(x, schema[x].original_type_name) for x in schema]
+            if len(schema) >= 1:
+                schema = ", ".join(schema) + ","
+                out += 'generate_space_type(({}), "{}")'.format(schema, name)
+                out += "\n"
+            # out += "{} = Spaces.{}".format(name, name)
 
         with open(path, "w") as f:
             f.write(out)

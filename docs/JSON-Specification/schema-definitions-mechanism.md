@@ -4,11 +4,11 @@
 https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism
 ```
 
+Anything that updates state in the system, usually policies will call these with the outputs of logic. The reasoning to split them out is so that if at some point you want to add a recording variable every time an account is changed or do something like have a variable listener, you can just change the mechanism responsible for it in only one place.
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                  |
-| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/schema.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Forbidden             | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
 ## Mechanism Type
 
@@ -29,7 +29,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechani
 
 ## name
 
-
+The name of the mechanism
 
 `name`
 
@@ -47,7 +47,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechani
 
 ## description
 
-
+The description of what the mechanism does
 
 `description`
 
@@ -65,13 +65,13 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechani
 
 ## constraints
 
-
+Any constraints which the mechanism must respect
 
 `constraints`
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `string[]`
 
 *   cannot be null
 
@@ -79,11 +79,11 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechani
 
 ### constraints Type
 
-unknown\[]
+`string[]`
 
 ## logic
 
-
+The logic of how the mechanism should work
 
 `logic`
 
@@ -101,7 +101,7 @@ unknown\[]
 
 ## domain
 
-
+The spaces which are the input into the mechanism
 
 `domain`
 
@@ -119,13 +119,13 @@ unknown\[]
 
 ## parameters\_used
 
-
+The string keys of parameters which have an effect on the mechanism
 
 `parameters_used`
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `string[]`
 
 *   cannot be null
 
@@ -133,11 +133,11 @@ unknown\[]
 
 ### parameters\_used Type
 
-unknown\[]
+`string[]`
 
 ## updates
 
-
+The states updates that the mechanism causes in the form of (Entity, State Variable)
 
 `updates`
 
@@ -155,7 +155,7 @@ unknown\[]
 
 ## metadata
 
-
+Any metadata that is added onto the mechanism
 
 `metadata`
 

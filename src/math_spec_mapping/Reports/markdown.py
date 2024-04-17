@@ -145,7 +145,7 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
-    out += "## Constraints"
+    out += "## Constraints\n"
     for i, x in enumerate(boundary_action.constraints):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
@@ -179,6 +179,8 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
     policy = ms.policies[policy]
     if "Policies" not in os.listdir(path):
         os.makedirs(path + "/Policies")
+
+    out = ""
     if add_metadata:
         metadata = policy.metadata
         if len(metadata) > 0:
@@ -188,7 +190,7 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
-    out = ""
+
     out += "## Description"
     out += "\n"
     out += "\n"
@@ -292,7 +294,9 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
     out += "\n\n"
     out += "## Updates\n\n"
     for i, x in enumerate(mechanism.updates):
-        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "{}. [[{}]].[[{}|{}]]".format(
+            i + 1, x[0].name, x[0].state.name + "-" + x[1].name, x[1].name
+        )
         out += "\n"
 
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
@@ -472,8 +476,14 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## All State Updates\n"
+
     for i, x in enumerate(wiring.all_updates):
-        out += "{}. [[{}]].{}".format(i + 1, x[0].name, x[1].name)
+        out += "{}. [[{}]].[[{}|{}]]".format(
+            i + 1,
+            x[0].name,
+            ms.entities[x[0].name].state.name + "-" + x[1].name,
+            x[1].name,
+        )
         out += "\n"
     out += "\n"
 
@@ -608,6 +618,45 @@ def write_displays_markdown_reports(ms, path, add_metadata=True):
         )
 
 
+def write_state_variables_markdown_reports(ms, path, state, add_metadata=True):
+    if "State Variables" not in os.listdir(path):
+        os.makedirs(path + "/State Variables")
+    state = ms.state[state]
+    for variable in state.variables:
+        out = ""
+        if add_metadata:
+            metadata = variable.metadata
+            if len(metadata) > 0:
+                out += """---
+        {}
+---
+""".format(
+                    "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
+                )
+        out += "Description: "
+        out += variable.description
+        out += "\n\n"
+        out += "Type: [["
+        out += variable.type.name
+        out += "]]\n\n"
+        out += "Symbol: "
+        if variable.symbol:
+            out += variable.symbol
+        out += "\n\n"
+        out += "Domain: "
+        if variable.domain:
+            out += variable.domain
+        out += "\n\n"
+
+        with open(
+            "{}/State Variables/{}.md".format(
+                path, "{}-{}".format(state.name, variable.name)
+            ),
+            "w",
+        ) as f:
+            f.write(out)
+
+
 def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     wirings = [ms.wiring[w] for w in wiring["components"]]
     out = ""
@@ -696,6 +745,7 @@ def write_all_markdown_reports(ms, path, clear_folders=False):
     states = list(ms.state.keys())
     for x in states:
         write_state_markdown_report(ms, path, x)
+        write_state_variables_markdown_reports(ms, path, x)
 
     # Write types
     for t in ms.types.values():

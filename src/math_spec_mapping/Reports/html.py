@@ -152,7 +152,10 @@ cssclasses:
         else:
             out += symbol2 + name + "\n"
         for var in ms.state[name].variable_map.keys():
-            out += symbol3 + var + "\n"
+            if linking:
+                out += symbol3 + "[[{}-{}\|{}]]".format(name, var, var) + "\n"
+            else:
+                out += symbol3 + var + "\n"
 
     out += symbol1 + "**Stateful Metrics**\n"
     for name in ms.stateful_metrics.keys():
