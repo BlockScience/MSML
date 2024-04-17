@@ -613,6 +613,23 @@ class MathSpec:
 
         shutil.copyfile("src/TypeMappings/types.jl", path)
 
+    def metaprogramming_julia_spaces(
+        self, model_directory, cadCAD_path, overwrite=False
+    ):
+        path = model_directory + "/spaces.jl"
+        if not overwrite:
+            assert "spaces.jl" not in os.listdir(
+                model_directory
+            ), "The spaces file is already written, either delete it or switch to overwrite mode"
+
+        out = """include("{}")
+include("types.jl")
+using .Spaces: generate_space_type""".format(
+            cadCAD_path
+        )
+        with open(path, "w") as f:
+            f.write(out)
+
     def build_implementation(self, params):
         return MathSpecImplementation(self, params)
 
