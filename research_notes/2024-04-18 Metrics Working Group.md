@@ -58,4 +58,21 @@ Moving into the discussion, the following points would be very helpful to consid
 
 ## Notes from Meeting
 
-- To be filled in after 4/18
+- We can think about blocks as potentially having different ports to metrics, that are not always necessarily used but are there
+- It's important to think about "what can we peek into", and what might we want to eventually peek into
+- Leaving KPIs out of MSML and as a component of PSUU probably makes sense
+- We might be better off not explicitly having a spec define out what is logged
+    - Instead, if we have metaprogramming and at that time want to say Metric A, Metric D, Metric F are sent as logging, it could be passed an an array or something that says which metrics should be logged
+    - I also could see some people wanting to have the option to define it in the spec instead of passing. In that case, there might be a secret / optional field that could be added that allows for defining out in the spec which metrics are going to be logged
+- There was a description that I gave that might be worth codifying as a research note or into the wiki, there really are a few phases for the MSML
+    - Concept Spec: Define out just the abstractions, domains, codomains, policies, etc.
+    - Implementation Spec: Add in policy options, control action options, etc. that describe in pseudocode / logical explanations some of the different implementations that say a policy could take on.
+    - Exploratory Modeling Spec: Add in the code for blocks, allow for playing with different wirings and seeing results, possibly doing integration testing (there is a separate issue to define out a research note on how MSML could aim implementation testing)
+    - Metraprogrammed Model: Use the metaprogramming features of the MSML to write out the actual model for use in production simulation software (cadCAD)
+- The metrics are a very similar concept to sensors
+- It might be best to actually have metrics as block representations, i.e. if we have a metric for a wiring we could define it out to show how the wiring actually passes a domain to it potentially, and how if we have metrics that depend on other metrics they work similar to composed blocks
+- Keeping stateful metrics and metrics separate from a UX perspective probably makes a lot of sense to re-inforce the idea they are different
+- The issue of whether or not to use metric options really depends on how we think people will use this
+    - Will they define out one metric for say volatility and be happy?
+    - Will they define out a normal distribution volatility, but then change it to be one with outlier removal and so they are just modifying not adding an option
+    - Or will the user want the ability to say hey I have 4 possible implementations on distance metrics, I actually want to display this ability to swap out metric definitions
