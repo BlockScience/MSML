@@ -693,7 +693,8 @@
                     "items": {
                         "type": "integer"
                     }
-                }
+                },
+                "metadata": {"type": "object"}
             },
             "required": [
                 "components",
