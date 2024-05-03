@@ -30,9 +30,9 @@ Dummy Boundary Block
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Boundary Action]]
+1. [[Dummy Mechanism]]
 2. [[Dummy Policy]]
-3. [[Dummy Mechanism]]
+3. [[Dummy Boundary Action]]
 
 ## Constraints
 
@@ -54,5 +54,5 @@ Dummy Boundary Block
 ## Calls
 
 ## All State Updates
-1. [[Dummy]].Variable A
+1. [[Dummy]].[[Dummy State-Variable A|Variable A]]
 
