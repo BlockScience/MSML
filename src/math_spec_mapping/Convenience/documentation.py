@@ -1,4 +1,4 @@
-from src import schema
+from src.math_spec_mapping import schema
 
 
 def write_json_description(schema, key, name):

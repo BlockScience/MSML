@@ -26,5 +26,6 @@ from .Reports import (
     write_all_markdown_reports,
 )
 from .schema import schema
+from .Convenience import remove_dummy_repo_components
 
 # from .Convenience import write_top_level_json_description
