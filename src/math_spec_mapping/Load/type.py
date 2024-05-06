@@ -71,7 +71,8 @@ def load_typescript_type_key(path):
     type_definitions = [x for x in type_definitions if len(x) > 0]
     hold = type_definitions[:]
     type_definitions = []
-    type_definitions.append(hold.pop(0))
+    if len(hold) > 0:
+        type_definitions.append(hold.pop(0))
     while len(hold) > 0:
         curr = hold.pop(0)
         if "type" in curr or "interface" in curr:
