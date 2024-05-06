@@ -157,9 +157,40 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
+    if "Parameters" in directory_folders:
+        path2 = path + "/Parameters"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    "from .Dummy import dummy_parameter_sets", ""
+                )
+                contents = contents.replace(
+                    "parameters.extend(dummy_parameter_sets)", ""
+                )
+
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+
+    if "Spaces" in directory_folders:
+        path2 = path + "/Spaces"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace("from .Dummy import dummy_spaces\n", "")
+                contents = contents.replace("spaces.extend(dummy_spaces)", "")
+
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+
     [
         "Types",
-        "State",
-        "Parameters",
+        "Spaces",
         "TypeMappings",
     ]
