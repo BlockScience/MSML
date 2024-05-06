@@ -96,14 +96,12 @@ def remove_dummy_repo_components(path):
                 f.write(contents)
 
     [
-        "Mechanisms",
         "BoundaryActions",
         "Types",
         "ControlActions",
         "Spaces",
         "__init__.py",
         "State",
-        "Policies",
         "Parameters",
         "TypeMappings",
         "Entities",
