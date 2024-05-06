@@ -585,7 +585,7 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     out += "## Variables Used\n"
     for i, x in enumerate(metric.variables_used):
-        out += "{}. {}.{}".format(i + 1, x[0], x[1])
+        out += "{}. [[{}]].[[{}-{}|{}]]".format(i + 1, x[0], x[0], x[1], x[1])
         var = ms.state[x[0]].variable_map[x[1]]
         if var.symbol:
             out += " , symbol: {}".format(var.symbol)

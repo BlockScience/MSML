@@ -18,7 +18,9 @@ def convert_parameter_set(ms, data: Dict) -> ParameterSet:
         if "metadata" not in param:
             param["metadata"] = {}
         check_json_keys(param, "Parameter")
-        assert param["variable_type"] in ms["Types"], "Type not in ms"
+        assert param["variable_type"] in ms["Types"], "Type of {} not in ms".format(
+            param["variable_type"]
+        )
         param["variable_type"] = ms["Types"][param["variable_type"]]
         new_parameters.append(Parameter(param))
     data["parameters"] = new_parameters
