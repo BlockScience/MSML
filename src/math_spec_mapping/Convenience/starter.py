@@ -128,15 +128,26 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace("dummy_control_action", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
+    if "Entities" in directory_folders:
+        path2 = path + "/Entities"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace("from .Dummy import dummy_entity\n", "")
+                contents = contents.replace("dummy_entity, ", "")
+                contents = contents.replace("dummy_entity,", "")
+                contents = contents.replace("dummy_entity", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
 
     [
-        "BoundaryActions",
         "Types",
-        "ControlActions",
         "Spaces",
         "__init__.py",
         "State",
         "Parameters",
         "TypeMappings",
-        "Entities",
     ]
