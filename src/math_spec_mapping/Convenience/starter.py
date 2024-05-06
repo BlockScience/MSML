@@ -216,6 +216,56 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
-    [
-        "TypeMappings",
-    ]
+    if "TypeMappings" in directory_folders:
+        path2 = path + "/TypeMappings"
+        contents = os.listdir(path2)
+
+        if "types.py" in contents:
+            with open(path2 + "/types.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    """    "DummyType1": str,
+    "DummyType2": int,
+    "DummyCompoundType": {"A": "Dummy Type 1", "B": "Dummy Type 2"},""",
+                    "",
+                )
+
+            with open(path2 + "/types.py", "w") as f:
+                f.write(contents)
+
+    if "TypeMappings" in directory_folders:
+        path2 = path + "/TypeMappings"
+        contents = os.listdir(path2)
+
+        if "types.py" in contents:
+            with open(path2 + "/types.jl", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    """const DummyType1 = String
+const DummyType2 = Integer
+struct DummyCompoundType
+    A::DummyType1
+    B::DummyType2
+end""",
+                    "",
+                )
+
+            with open(path2 + "/types.jl", "w") as f:
+                f.write(contents)
+
+    if "TypeMappings" in directory_folders:
+        path2 = path + "/TypeMappings"
+        contents = os.listdir(path2)
+
+        if "types.py" in contents:
+            with open(path2 + "/types.ts", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    """type DummyType1 = string
+type DummyType2 = number
+type DummyCompoundType = {"A": DummyType1, "B": DummyType2}""",
+                    "",
+                )
+
+            with open(path2 + "/types.ts", "w") as f:
+                f.write(contents)
