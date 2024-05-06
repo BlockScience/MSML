@@ -95,6 +95,40 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
+    if "BoundaryActions" in directory_folders:
+        path2 = path + "/BoundaryActions"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    "from .Dummy import dummy_boundary_action\n", ""
+                )
+                contents = contents.replace("dummy_boundary_action,\n", "")
+                contents = contents.replace("dummy_boundary_action,", "")
+                contents = contents.replace("dummy_boundary_action", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+
+    if "ControlActions" in directory_folders:
+        path2 = path + "/ControlActions"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace(
+                    "from .Dummy import dummy_control_action\n", ""
+                )
+                contents = contents.replace("dummy_control_action,\n", "")
+                contents = contents.replace("dummy_control_action,", "")
+                contents = contents.replace("dummy_control_action", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+
     [
         "BoundaryActions",
         "Types",
