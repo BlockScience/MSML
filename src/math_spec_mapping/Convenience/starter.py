@@ -142,11 +142,23 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace("dummy_entity", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
+    if "State" in directory_folders:
+        path2 = path + "/State"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace("from .Dummy import dummy_state\n", "")
+                contents = contents.replace("dummy_state, ", "")
+                contents = contents.replace("dummy_state,", "")
+                contents = contents.replace("dummy_state", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
 
     [
         "Types",
-        "Spaces",
-        "__init__.py",
         "State",
         "Parameters",
         "TypeMappings",
