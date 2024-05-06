@@ -19,6 +19,9 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace(
                     "stateful_metrics.extend(dummy_stateful_metrics)\n", ""
                 )
+                contents = contents.replace(
+                    "stateful_metrics.extend(dummy_stateful_metrics)", ""
+                )
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
@@ -36,16 +39,41 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
+    """if "Displays" in directory_folders:
+        path2 = path + "/Displays"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace("from .Dummy import metrics_x\n", "")
+                contents = contents.replace("metrics.extend(metrics_x)\n", "")
+                contents = contents.replace("metrics.extend(metrics_x)", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)"""
+
+    if "Wiring" in directory_folders:
+        path2 = path + "/Wiring"
+        contents = os.listdir(path2)
+        if "Dummy.py" in contents:
+            os.remove(path2 + "/Dummy.py")
+        if "__init__.py" in contents:
+            with open(path2 + "/__init__.py", "r") as f:
+                contents = f.read()
+                contents = contents.replace("from .Dummy import dummy_wiring\n", "")
+                contents = contents.replace("wiring.extend(dummy_wiring)\n", "")
+                contents = contents.replace("wiring.extend(dummy_wiring)", "")
+            with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+
     [
         "Mechanisms",
         "BoundaryActions",
         "Types",
-        ".DS_Store",
         "ControlActions",
-        "Displays",
         "Spaces",
         "__init__.py",
-        "__pycache__",
         "State",
         "Policies",
         "Wiring",
