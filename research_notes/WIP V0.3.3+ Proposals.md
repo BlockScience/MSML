@@ -4,6 +4,8 @@ The following sets up a few proposals for improvements to MSML.
 
 ## Parameter Class Names/Descriptions
 
+- There is a [research note](https://github.com/BlockScience/MSML/blob/main/research_notes/2024-05-03%20Parameter%20Class%20Naming.md) that was put together to describe the current issue
+
 ## SysML Ideas
 
 ## Metrics as Blocks Implementation
@@ -18,3 +20,4 @@ The following sets up a few proposals for improvements to MSML.
 - Issue 2: Consider how MSML might be able to support relationship mappings. There is a lot of models that rely on this kind of thing and also there are two good follow-ups: allocation tables in SysML and how SQLAlchemy takes care of relationships.
 
 ## Commentary
+
