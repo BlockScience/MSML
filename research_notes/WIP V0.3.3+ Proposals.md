@@ -18,5 +18,9 @@ The following sets up a few proposals for improvements to MSML.
 - Issue 1: Look into codifying the $i \in I$ with global state to see if there is a way to automatically have lowercase and uppercase symbols line up for subscripting like user_i in the group of I users.
 - Issue 2: Consider how MSML might be able to support relationship mappings. There is a lot of models that rely on this kind of thing and also there are two good follow-ups: allocation tables in SysML and how SQLAlchemy takes care of relationships.
 
+## Latex Escape Characters
+
+## FAQ Section
+
 ## Commentary
 

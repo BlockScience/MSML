@@ -31,7 +31,9 @@ class State:
             # Check variable name not repeated
             assert (
                 var.name not in self.variable_map
-            ), "Variable name {} is already present in variables!".format(key)
+            ), "Variable name {} is already present in variables for the state of {}!".format(
+                key, self.name
+            )
 
             self.variable_map[key] = var
 
