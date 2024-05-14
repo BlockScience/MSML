@@ -25,7 +25,11 @@ def convert_entity(data: Dict, ms: Dict) -> Entity:
     # Assert that the state is in the math spec and assign it here
     if data["state"]:
         name = data["state"]
-        assert name in ms["State"], "{} state not in states dictionary".format(name)
+        assert (
+            name in ms["State"]
+        ), "{} state not in states dictionary for the entity of {}".format(
+            name, data["name"]
+        )
         data["state"] = ms["State"][name]
 
     # Build the state object
