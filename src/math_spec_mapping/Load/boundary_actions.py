@@ -42,7 +42,9 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
         for name in data["called_by"]:
             assert (
                 name in ms["Entities"]
-            ), "{} entity not in entities dictionary".format(name)
+            ), "{} entity not in entities dictionary which is referenced in called_by for {}".format(
+                name, data["name"]
+            )
         data["called_by"] = [ms["Entities"][x] for x in data["called_by"]]
 
     data["codomain"] = tuple(ms["Spaces"][x] for x in data["codomain"])
