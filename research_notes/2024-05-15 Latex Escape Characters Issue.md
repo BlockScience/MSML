@@ -1,4 +1,4 @@
-# WIP Latex Escape Characters Issue
+# Latex Escape Characters Issue
 
 ## Problem Statement
 
