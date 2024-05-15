@@ -477,7 +477,9 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "## All State Updates\n"
 
-    for i, x in enumerate(sorted(wiring.all_updates, key=lambda x: x[0].name)):
+    for i, x in enumerate(
+        sorted(wiring.all_updates, key=lambda x: x[0].name + "-" + x[1].name)
+    ):
         out += "{}. [[{}]].[[{}|{}]]".format(
             i + 1,
             x[0].name,
