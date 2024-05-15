@@ -83,6 +83,7 @@ class Block:
             updates = self.all_updates
         else:
             return "\n", {}
+        updates = sorted(updates, key=lambda x: x[0].name + "-" + x[1].name)
 
         out = "\n"
         out += 'subgraph SVS["State Variables"]\n'
@@ -90,6 +91,7 @@ class Block:
         # Render the entities
         entity_mapping = {}
         entities = set([x[0] for x in updates])
+        entities = sorted(entities, key=lambda x: x.name)
         for i, x in enumerate(entities):
             entity_mapping[x.name] = "EE{}".format(i)
             out += '{}[("{}")]'.format(entity_mapping[x.name], x.name)
