@@ -28,8 +28,8 @@ The wirings related to only boundary type actions.
 
 ## Unique Components Used
 1. [[Dummy Boundary Action]]
-2. [[Dummy Mechanism]]
-3. [[Dummy Policy]]
+2. [[Dummy Policy]]
+3. [[Dummy Mechanism]]
 
 ## Unique Parameters Used
 1. [[dummy_parameter]]
