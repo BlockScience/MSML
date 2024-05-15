@@ -225,7 +225,7 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
         out += "\n"
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(policy.parameters_used):
+    for i, x in enumerate(sorted(policy.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
 
@@ -458,7 +458,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(wiring.parameters_used):
+    for i, x in enumerate(sorted(wiring.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
@@ -538,7 +538,7 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "Domain: {}\n\n".format(metric.domain)
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(sorted(metric.parameters_used)):
+    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
@@ -577,7 +577,7 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "\n\n"
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(metric.parameters_used):
+    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x)
         var = ms.parameters.parameter_map[x]
         if var.symbol:
@@ -711,7 +711,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     parameters = set().union(*parameters)
     parameters = sorted(parameters, key=lambda x: x)
     out += "## Unique Parameters Used\n"
-    for i, x in enumerate(parameters):
+    for i, x in enumerate(sorted(parameters, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
