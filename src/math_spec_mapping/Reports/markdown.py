@@ -427,7 +427,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## All Blocks\n"
-    for i, x in enumerate(wiring.components_full()):
+    for i, x in enumerate(sorted(wiring.components_full(), key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
 

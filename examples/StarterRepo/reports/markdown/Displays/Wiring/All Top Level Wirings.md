@@ -48,10 +48,10 @@ The wirings which are not components of other wirings.
 2. [[Dummy Control Block]]
 
 ## Unique Components Used
-1. [[Dummy Mechanism]]
-2. [[Dummy Boundary Action]]
-3. [[Dummy Policy]]
-4. [[Dummy Control Action]]
+1. [[Dummy Control Action]]
+2. [[Dummy Mechanism]]
+3. [[Dummy Boundary Action]]
+4. [[Dummy Policy]]
 
 ## Unique Parameters Used
 1. [[dummy_parameter]]
