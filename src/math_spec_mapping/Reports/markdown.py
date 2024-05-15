@@ -452,7 +452,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
 
     out += "## All Spaces Used\n"
-    for i, x in enumerate(wiring.all_spaces_used):
+    for i, x in enumerate(sorted(wiring.all_spaces_used, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
