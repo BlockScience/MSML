@@ -11,7 +11,7 @@ Symbol: None
 1. [[dummy_parameter2]]
 
 ## Variables Used
-1. Dummy State.Variable A
+1. [[Dummy State]].[[Dummy State-Variable A|Variable A]]
 
 ## Domain Spaces
 1. [[Dummy Space 1]]
