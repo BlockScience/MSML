@@ -683,6 +683,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     out += "## Unique Components Used\n"
     components = [set(x.components_full()) for x in wirings]
     components = set().union(*components)
+    components = sorted(components, key=lambda x: x.name)
     for i, x in enumerate(components):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
@@ -706,6 +707,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
 
     parameters = [set(x.parameters_used) for x in wirings]
     parameters = set().union(*parameters)
+    parameters = sorted(parameters, key=lambda x: x)
     out += "## Unique Parameters Used\n"
     for i, x in enumerate(parameters):
         out += "{}. [[{}]]".format(i + 1, x)
