@@ -31,17 +31,31 @@ Returns this:
     $rac{1}{2}$
     $rac{1}{2}$
 
-## Background: Raw Strings
+## Background: Raw Strings in Python
+
+- By putting r before a string, python can create a raw string which does not use any of the escape characters.
+- One can also do double backslashes to turn off the escape character
 
 ## Solution 1: Advise users to leverage raw strings in python but not to use \n
 
+- In this solution, FAQ would be updated with a note that one should use raw strings when defining strings for certain areas of MSML such as logic that might leverage latex/escape characters
+- It would be required to also note that \n would no longer work and a user would have to use block strings for any new lines
+
 ## Solution 2: Move straight to JSON only and get rid of all python versioning which may solve it
+- JSON might be a better fit with escape characters but there still is some risk that parsing is not perfect
+- Also it might be premature to move to this step
 
 ## Solution 3: Add a parser that when turned on parses all strings in MSML to be raw strings
+- This would be an automation on to solution 1, but would also still require warning about new line characters
+- Also the feasibility of it is not definite, it may be the case that once a string is defined it can't be reverted to a raw string
 
 ## Solution 4: Add a parser that goes through and only changes some of the escape characters to have double slashes, i.e. ignore new line characters
+- The parser could be turned on or off so that a user can have it automatically take strings like \f and replace them with \\\f
 
 ## Solution 5: Advise users to just add another slash before any escape characters
+- It works but it also makes the user interface much worse because a user will need to constantly check these things
 
+## Commentary
 
-Is there a way to do raw string that just filters some?
+- I lean heavily on the recommendation of doing solution 4 as it seems like the best UI and also the most flexible.
+
