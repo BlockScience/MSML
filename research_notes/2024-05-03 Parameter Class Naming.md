@@ -94,3 +94,21 @@ KMS: In a systems engineering context, parameters can be broadly categorized bas
 9. **Technical Parameters**: Specifications that detail the technical aspects of the system, such as software versions, hardware specifications, network protocols, and data formats.
 10. **Security Parameters**: Measures and protocols that protect the system from unauthorized access, data breaches, and other security threats.
 These parameters are not exhaustive and can overlap depending on the specific system and the context in which it operates. The selection and prioritization of these parameters are critical steps in the systems engineering process, influencing the design, development, and ultimate success of the system.
+
+Zargham: @KMS let’s work with a conception of parameters that distinguishes aspects of a system under control of the engineer (such as tuning the gains of a controller), from unknown environmental parameters (such as estimated coefficients for the plant model), from strategic or behavior models of actors (or groups) who have unknown goals, distinct from that of the engineering team.
+
+KMS: Differentiating between parameters under an engineer's control, unknown environmental parameters, and strategic or behavioral models of actors with unknown goals involves a structured approach to system design and analysis. Here's how these elements can be distinguished, based on the provided context:
+1. **Parameters Under the Engineer's Control (Control Parameters):**
+   - These are the variables or settings that engineers can directly manipulate to influence the system's performance or behavior. In the context of a cadCAD workflow, control parameters are identified early in the design process. These can include tuning controller gains in a feedback loop, adjusting the input variables to a model, or setting thresholds for decision-making processes.
+   - Such parameters are operational and can often be automated. They are akin to actuators in control theory terms, where direct intervention can adjust the system's state.
+2. **Unknown Environmental Parameters:**
+   - These parameters represent external factors that affect the system but cannot be controlled or directly manipulated by the engineering team. Examples include estimated plant model coefficients, market volatility, or changes in regulatory environments. While these parameters are outside the engineer's control, their potential impact on the system can be modeled and anticipated.
+   - The approach to dealing with unknown environmental parameters often involves admitting a probability distribution over known factors, treating one or more of these factors as random variables. This allows the system design to incorporate flexibility and resilience against uncertainties.
+3. **Strategic or Behavioral Models of Actors with Unknown Goals:**
+   - This category involves modeling the behaviors and strategies of external actors whose objectives may not align with the engineering team's goals. These actors could be competitors, market participants, or other stakeholders whose actions impact the system.
+   - Understanding and differentiating these models require a strategic approach, often necessitating human input to interpret intentions, predict behaviors, and assess potential impacts on the system. These models are strategic rather than operational and involve a higher level of complexity and uncertainty.
+To manage these diverse elements, engineers and system designers use simulations, metrics (or Key Performance Indicators - KPIs), and feedback mechanisms to test different scenarios, measure outcomes against the system's goals, and adjust control parameters accordingly. The process involves both automated and manual interventions, leveraging data and insights to refine the system's design and operation in the face of uncertainties and external influences.
+
+## Next Steps
+
+The recommendation of changes based on all this information will be posted to the V0.3.3+ proposals presentation.
