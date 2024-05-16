@@ -577,7 +577,7 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "\n\n"
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x.name)):
+    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         var = ms.parameters.parameter_map[x]
         if var.symbol:
