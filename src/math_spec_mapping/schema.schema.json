@@ -157,7 +157,17 @@
             "title": "ControlAction",
             "description": "The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness."
         },
-        "ControlActionOption": {"type": "object"},
+        "ControlActionOption": {"type": "object",
+        "additionalProperties": false,
+    "properties": {"name": {"type": "string",
+    "description": "The name of the control action option"},
+    "description": {"type": "string",
+    "description": "A description of what this implementation does"},
+    "logic": {"type": "string",
+    "description": "The logic related to the implementation"},
+        "metadata": {"type": "object"}},
+    "title": "ControlActionOption",
+"description": "Specific implementations of a control action which are in the same form of the underlying control action definition."},
         "Entity": {
             "type": "object",
             "additionalProperties": false,
