@@ -1,15 +1,15 @@
-# Untitled array in MSML Schema
+# Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/boundary_action_options
+https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/description
 ```
 
-The options for implementation of the boundary action
+A description of what this implementation does
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :-------------------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [schema.schema.json\*](../../out/math_spec_mapping/schema.schema.json "open original schema") |
 
-## boundary\_action\_options Type
+## description Type
 
-`object[]` ([BoundaryActionOption](schema-definitions-boundaryactionoption.md))
+`string`

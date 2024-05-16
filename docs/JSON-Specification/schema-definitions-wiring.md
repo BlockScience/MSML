@@ -26,6 +26,7 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 | [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
 | [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
 | [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
+| [metadata](#metadata)                     | `object`  | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")                   |
 
 ## name
 
@@ -179,3 +180,21 @@ unknown\[]
 ### optional\_indices Type
 
 `integer[]`
+
+## metadata
+
+
+
+`metadata`
+
+*   is optional
+
+*   Type: `object` ([Details](schema-definitions-wiring-properties-metadata.md))
+
+*   cannot be null
+
+*   defined in: [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")
+
+### metadata Type
+
+`object` ([Details](schema-definitions-wiring-properties-metadata.md))
