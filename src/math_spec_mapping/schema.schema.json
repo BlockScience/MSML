@@ -130,7 +130,7 @@
                 },
                 "control_action_options": {
                     "type": "array",
-                    "items": {},
+                    "items": {"$ref": "./schema.schema.json/#/definitions/ControlActionOption"},
                     "description": "Possible implementations of the control action"
                 },
                 "codomain": {
@@ -157,6 +157,7 @@
             "title": "ControlAction",
             "description": "The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness."
         },
+        "ControlActionOption": {"type": "object"},
         "Entity": {
             "type": "object",
             "additionalProperties": false,
