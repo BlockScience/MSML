@@ -705,7 +705,7 @@ class MathSpecImplementation:
 
                 assert (
                     "python" in opt.implementations
-                ), "No python implementation for {} / {}".format(ca.name, opt.name)
+                ), "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(ca.name, opt.name, opt.name)
 
                 control_actions[ca.name] = opt.implementations["python"]
         return control_actions
