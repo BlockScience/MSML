@@ -698,7 +698,9 @@ class MathSpecImplementation:
                 else:
                     assert (
                         "FP {}".format(ca.name) in self.params
-                    ), "No functional parameterization for {}".format(ca.name)
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        ca.name, "FP " + ca.name, [x.name for x in opts]
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(ca.name)][
                         self.params["FP {}".format(ca.name)]
                     ]
@@ -726,7 +728,10 @@ class MathSpecImplementation:
                 else:
                     assert (
                         "FP {}".format(ba.name) in self.params
-                    ), "No functional parameterization for {}".format(ba.name)
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        ba.name, ba.name, [x.name for x in opts]
+                    )
+
                     opt = self.ms.functional_parameters["FP {}".format(ba.name)][
                         self.params["FP {}".format(ba.name)]
                     ]
@@ -800,7 +805,9 @@ class MathSpecImplementation:
                 else:
                     assert (
                         "FP {}".format(p.name) in self.params
-                    ), "No functional parameterization for {}".format(p.name)
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        p.name, p.name, [x.name for x in opts]
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(p.name)][
                         self.params["FP {}".format(p.name)]
                     ]
