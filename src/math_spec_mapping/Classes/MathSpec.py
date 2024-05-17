@@ -680,7 +680,7 @@ class MathSpecImplementation:
         self.ms = deepcopy(ms)
         self.params = params
         self.control_actions = self.load_control_actions()
-        self.boundary_actions = {}
+        self.boundary_actions = self.load_boundary_actions()
         self.policies = self.load_policies()
         self.mechanisms = self.load_mechanisms()
         self.load_wiring()
@@ -712,6 +712,34 @@ class MathSpecImplementation:
                 else:
                     control_actions[ca.name] = opt.implementations["python"]
         return control_actions
+
+    def load_boundary_actions(self):
+        boundary_actions = {}
+        for ba in self.ms.boundary_actions:
+            ba = self.ms.boundary_actions[ba]
+            opts = ba.boundary_action_options
+            if len(opts) == 0:
+                print("{} has no boundary action options".format(ba.name))
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(ba.name) in self.params
+                    ), "No functional parameterization for {}".format(ba.name)
+                    opt = self.ms.functional_parameters["FP {}".format(ba.name)][
+                        self.params["FP {}".format(ba.name)]
+                    ]
+
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/BoundaryActions and add {}".format(
+                            ba.name, opt.name, opt.name
+                        )
+                    )
+                else:
+                    boundary_actions[ba.name] = opt.implementations["python"]
+        return boundary_actions
 
     def load_mechanisms(self):
         mechanisms = {}
