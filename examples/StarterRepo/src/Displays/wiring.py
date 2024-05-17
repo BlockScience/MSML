@@ -3,13 +3,20 @@ wiring_display.append(
     {
         "name": "All Top Level Wirings",
         "description": "The wirings which are not components of other wirings.",
-        "components": ["Dummy Boundary Block", "Dummy Control Block"],
+        "components": [
+            "Dummy Boundary Wiring",
+            "Dummy Boundary Wiring 2",
+            "Dummy Control Wiring",
+        ],
     }
 )
 wiring_display.append(
     {
         "name": "Boundary Wirings",
         "description": "The wirings related to only boundary type actions.",
-        "components": ["Dummy Boundary Block"],
+        "components": [
+            "Dummy Boundary Wiring",
+            "Dummy Boundary Wiring 2",
+        ],
     }
 )

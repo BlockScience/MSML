@@ -9,28 +9,28 @@ EES0(["Variable A"])
 EES0 --- EE0
 end
 
-subgraph X4["Dummy Control Block"]
+subgraph X4["Dummy Boundary Wiring 2"]
 direction TB
-X1["Dummy Control Action"]
+X1["Dummy Boundary Action 2"]
 X2["Dummy Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
-X2-."Dummy Space 2"..->X3
+X2--"Dummy Space 2"--->X3
 end
 ```
 
 ## Description
 
 Block Type: Stack Block
-Dummy Control Block
+Dummy Boundary Block
 ## Components
-1. [[Dummy Control Action]]
+1. [[Dummy Boundary Action 2]]
 2. [[Dummy Policy]]
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Control Action]]
+1. [[Dummy Boundary Action 2]]
 2. [[Dummy Mechanism]]
 3. [[Dummy Policy]]
 
