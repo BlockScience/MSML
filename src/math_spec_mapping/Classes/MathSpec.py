@@ -604,6 +604,17 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def metaprogramming_boundary_actions(
+        self, model_directory, overwrite=False, default_values=None
+    ):
+        path = model_directory + "/boundary_actions.py"
+        if not overwrite:
+            assert "boundary_actions.py" not in os.listdir(
+                model_directory
+            ), "The boundary actions file is already written, either delete it or switch to overwrite mode"
+        out = ""
+        print(out)
+
     def metaprogramming_julia_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.jl"
         if not overwrite:
