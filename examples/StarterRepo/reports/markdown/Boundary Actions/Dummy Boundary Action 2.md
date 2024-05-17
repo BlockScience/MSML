@@ -13,9 +13,9 @@ Randomly returns any length 2 string of combinations of A, B, C
 1. [[Dummy Space 1]]
 
 ## Boundary Action Options:
-### 1. V1 Dummy Boundary Action Option
+### 1. V1 Dummy Boundary Action 2 Option
 #### Description
-Equal weighted probability of choosing A, B or C
+Equal weighted probability of choosing A, B or C each time
 #### Logic
 Select A, B, C with equal probabilities
 
