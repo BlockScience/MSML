@@ -13,8 +13,10 @@ A dummy state
 
 ## Boundary Actions
 ### [[Dummy Boundary Action]]
+### [[Dummy Boundary Action 2]]
 ## Mechanisms Impacting the Entity
 ### [[Dummy Mechanism]]
 ## Actions Impacting the Entity
+### [[Dummy Boundary Action 2]]
 ### [[Dummy Control Action]]
 ### [[Dummy Boundary Action]]

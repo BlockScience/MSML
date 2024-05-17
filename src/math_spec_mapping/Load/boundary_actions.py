@@ -34,6 +34,17 @@ def convert_boundary_action(data: Dict, ms: Dict) -> BoundaryAction:
     new_bao = []
     for ba in data["boundary_action_options"]:
         check_json_keys(ba, "Boundary Action Option")
+
+        ba["implementations"] = {}
+        if "python" in ms["Implementations"]:
+            if "boundary_action_options" in ms["Implementations"]["python"]:
+                if (
+                    ba["name"]
+                    in ms["Implementations"]["python"]["boundary_action_options"]
+                ):
+                    ba["implementations"]["python"] = ms["Implementations"]["python"][
+                        "boundary_action_options"
+                    ][ba["name"]]
         new_bao.append(BoundaryActionOption(ba))
     data["boundary_action_options"] = new_bao
 

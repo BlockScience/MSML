@@ -12,4 +12,4 @@ Possible implementations of the control action
 
 ## control\_action\_options Type
 
-unknown\[]
+`object[]` ([ControlActionOption](schema-definitions-controlactionoption.md))
