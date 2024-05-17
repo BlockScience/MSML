@@ -8,6 +8,7 @@ class BoundaryAction(Block):
         super().__init__(data)
         self.boundary_action_options = data["boundary_action_options"]
         self.block_type = "Boundary Action"
+        self.model_name = self.name.replace(" ", "_").lower()
 
 
 class BoundaryActionOption:
