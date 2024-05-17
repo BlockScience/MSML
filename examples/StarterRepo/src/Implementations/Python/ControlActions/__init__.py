@@ -1,0 +1,1 @@
+def dummy_control_action
