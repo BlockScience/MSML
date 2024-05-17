@@ -30,6 +30,7 @@ cssclasses:
 │   │   ├──[[dummy_parameter2]]
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]
+│   ├──[[Dummy Boundary Action 2]]
 ├──**Control Actions**
 │   ├──[[Dummy Control Action]]
 ├──**Policies**

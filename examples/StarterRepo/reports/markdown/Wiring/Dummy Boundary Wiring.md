@@ -9,7 +9,7 @@ EES0(["Variable A"])
 EES0 --- EE0
 end
 
-subgraph X4["Dummy Boundary Block"]
+subgraph X4["Dummy Boundary Wiring"]
 direction TB
 X1["Dummy Boundary Action"]
 X2["Dummy Policy"]

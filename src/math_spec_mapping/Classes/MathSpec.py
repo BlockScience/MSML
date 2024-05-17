@@ -364,7 +364,7 @@ class MathSpec:
         ]
         opts.extend(
             [
-                (x, x.boundary_actions)
+                (x, x.boundary_action_options)
                 for x in self.boundary_actions.values()
                 if len(x.boundary_action_options) > 1
             ]

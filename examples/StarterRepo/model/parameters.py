@@ -5,13 +5,14 @@ SystemParameters = TypedDict('SystemParameters', {'dummy_parameter2': DummyType1
 
 BehavioralParameters = TypedDict('BehavioralParameters', {'dummy_parameter': DummyType1})
 
-FunctionalParameters = TypedDict('FunctionalParameters', {})
+FunctionalParameters = TypedDict('FunctionalParameters', {'FP Dummy Boundary Action 2': str})
 
 Parameters = TypedDict("Parameters",{**BehavioralParameters.__annotations__,
  **FunctionalParameters.__annotations__,
 **SystemParameters.__annotations__})
 
-functional_parameters: FunctionalParameters = {}
+functional_parameters: FunctionalParameters = {"FP Dummy Boundary Action 2": None,
+}
 
 behavioral_parameters: BehavioralParameters = {"dummy_parameter": None,
 }
