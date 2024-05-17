@@ -703,11 +703,14 @@ class MathSpecImplementation:
                         self.params["FP {}".format(ca.name)]
                     ]
 
-                assert (
-                    "python" in opt.implementations
-                ), "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(ca.name, opt.name, opt.name)
-
-                control_actions[ca.name] = opt.implementations["python"]
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(
+                            ca.name, opt.name, opt.name
+                        )
+                    )
+                else:
+                    control_actions[ca.name] = opt.implementations["python"]
         return control_actions
 
     def load_mechanisms(self):
