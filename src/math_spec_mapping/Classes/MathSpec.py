@@ -613,7 +613,16 @@ class MathSpec:
                 model_directory
             ), "The boundary actions file is already written, either delete it or switch to overwrite mode"
         out = ""
-        print(out)
+
+        unique_spaces = set().union(
+            *[x.all_spaces_used for x in self.boundary_actions.values()]
+        )
+        unique_spaces = [x.name_variable for x in unique_spaces]
+
+        out += "from .spaces import {}".format(", ".join(unique_spaces))
+
+        with open(path, "w") as f:
+            f.write(out)
 
     def metaprogramming_julia_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.jl"
