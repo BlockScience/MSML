@@ -620,6 +620,12 @@ class MathSpec:
         unique_spaces = [x.name_variable for x in unique_spaces]
 
         out += "from .spaces import {}".format(", ".join(unique_spaces))
+        out += "\n\n"
+        for x in self.boundary_actions.values():
+            out + "def "
+            out += x.model_name
+            out += "(state, params, spaces):"
+            out += "\n\n"
 
         with open(path, "w") as f:
             f.write(out)
