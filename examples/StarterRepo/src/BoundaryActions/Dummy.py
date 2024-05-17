@@ -34,7 +34,7 @@ dummy_boundary_action2 = {
     "description": "Randomly returns any length 2 string of combinations of A, B, C",
     "constraints": [],
     "boundary_action_options": [
-        dummy_boundary_action_v1_option,
+        dummy_boundary_action2_v1_option,
         dummy_boundary_action2_v2_option,
     ],
     "called_by": ["Dummy"],
