@@ -87,7 +87,7 @@ Possible implementations of the control action
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `object[]` ([ControlActionOption](schema-definitions-controlactionoption.md))
 
 *   cannot be null
 
@@ -95,7 +95,7 @@ Possible implementations of the control action
 
 ### control\_action\_options Type
 
-unknown\[]
+`object[]` ([ControlActionOption](schema-definitions-controlactionoption.md))
 
 ## codomain
 

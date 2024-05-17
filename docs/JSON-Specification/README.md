@@ -10,7 +10,11 @@
 
 *   [Boundary Action](./schema-definitions-boundary-action.md "The definition of different actions that might happen outside of the system such as customers coming into a shop") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryAction`
 
+*   [BoundaryActionOption](./schema-definitions-boundaryactionoption.md "Specific implementations of a control action which are in the same form of the underlying control action definition") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption`
+
 *   [ControlAction](./schema-definitions-controlaction.md "The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction`
+
+*   [ControlActionOption](./schema-definitions-controlactionoption.md "Specific implementations of a control action which are in the same form of the underlying control action definition") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlActionOption`
 
 *   [Entity](./schema-definitions-entity.md "Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity`
 
@@ -47,6 +51,12 @@
 *   [Untitled object in MSML](./schema-definitions-mechanism-properties-metadata.md "Any metadata that is added onto the mechanism") – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata`
 
 *   [Untitled object in MSML](./schema-definitions-entity-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata`
+
+*   [Untitled object in MSML](./schema-definitions-boundaryactionoption-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/metadata`
+
+*   [Untitled object in MSML](./schema-definitions-controlactionoption-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlActionOption/properties/metadata`
+
+*   [Untitled object in MSML](./schema-definitions-wiring-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata`
 
 *   [Untitled object in MSML](./schema-definitions-type-properties-metadata.md) – `https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata`
 

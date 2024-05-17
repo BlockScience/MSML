@@ -89,7 +89,7 @@ The options for implementation of the boundary action
 
 *   is required
 
-*   Type: unknown\[]
+*   Type: `object[]` ([BoundaryActionOption](schema-definitions-boundaryactionoption.md))
 
 *   cannot be null
 
@@ -97,7 +97,7 @@ The options for implementation of the boundary action
 
 ### boundary\_action\_options Type
 
-unknown\[]
+`object[]` ([BoundaryActionOption](schema-definitions-boundaryactionoption.md))
 
 ## called\_by
 

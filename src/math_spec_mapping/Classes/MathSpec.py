@@ -364,7 +364,7 @@ class MathSpec:
         ]
         opts.extend(
             [
-                (x, x.boundary_actions)
+                (x, x.boundary_action_options)
                 for x in self.boundary_actions.values()
                 if len(x.boundary_action_options) > 1
             ]
@@ -604,6 +604,34 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def metaprogramming_boundary_actions(
+        self, model_directory, overwrite=False, default_values=None
+    ):
+        path = model_directory + "/boundary_actions.py"
+        if not overwrite:
+            assert "boundary_actions.py" not in os.listdir(
+                model_directory
+            ), "The boundary actions file is already written, either delete it or switch to overwrite mode"
+        out = ""
+
+        unique_spaces = set().union(
+            *[x.all_spaces_used for x in self.boundary_actions.values()]
+        )
+        unique_spaces = [x.name_variable for x in unique_spaces]
+
+        out += "from .spaces import {}".format(", ".join(unique_spaces))
+        out += "\n\n"
+        for x in self.boundary_actions.values():
+            out += "def "
+            out += x.model_name
+            out += "(state, params) -> ({}):".format(
+                ", ".join([y.name_variable for y in x.codomain])
+            )
+            out += "\n\n"
+
+        with open(path, "w") as f:
+            f.write(out)
+
     def metaprogramming_julia_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.jl"
         if not overwrite:
@@ -652,7 +680,7 @@ class MathSpecImplementation:
         self.ms = deepcopy(ms)
         self.params = params
         self.control_actions = self.load_control_actions()
-        self.boundary_actions = {}
+        self.boundary_actions = self.load_boundary_actions()
         self.policies = self.load_policies()
         self.mechanisms = self.load_mechanisms()
         self.load_wiring()
@@ -670,24 +698,64 @@ class MathSpecImplementation:
                 else:
                     assert (
                         "FP {}".format(ca.name) in self.params
-                    ), "No functional parameterization for {}".format(ca.name)
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        ca.name, "FP " + ca.name, [x.name for x in opts]
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(ca.name)][
                         self.params["FP {}".format(ca.name)]
                     ]
 
-                assert (
-                    "python" in opt.implementations
-                ), "No python implementation for {} / {}".format(ca.name, opt.name)
-
-                control_actions[ca.name] = opt.implementations["python"]
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(
+                            ca.name, opt.name, opt.name
+                        )
+                    )
+                else:
+                    control_actions[ca.name] = opt.implementations["python"]
         return control_actions
+
+    def load_boundary_actions(self):
+        boundary_actions = {}
+        for ba in self.ms.boundary_actions:
+            ba = self.ms.boundary_actions[ba]
+            opts = ba.boundary_action_options
+            if len(opts) == 0:
+                print("{} has no boundary action options".format(ba.name))
+            else:
+                if len(opts) == 1:
+                    opt = opts[0]
+                else:
+                    assert (
+                        "FP {}".format(ba.name) in self.params
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        ba.name, ba.name, [x.name for x in opts]
+                    )
+
+                    opt = self.ms.functional_parameters["FP {}".format(ba.name)][
+                        self.params["FP {}".format(ba.name)]
+                    ]
+
+                if "python" not in opt.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/BoundaryActions and add {}".format(
+                            ba.name, opt.name, opt.name
+                        )
+                    )
+                else:
+                    boundary_actions[ba.name] = opt.implementations["python"]
+        return boundary_actions
 
     def load_mechanisms(self):
         mechanisms = {}
         for m in self.ms.mechanisms:
             m = self.ms.mechanisms[m]
             if "python" not in m.implementations:
-                print("No python implementation for {}".format(m.name))
+                print(
+                    "No python implementation for {}. To fix this, go to Implementations/Python/Mechanisms and add {}".format(
+                        m.name, m.name
+                    )
+                )
             else:
                 mechanisms[m.name] = m.implementations["python"]
         return mechanisms
@@ -737,14 +805,18 @@ class MathSpecImplementation:
                 else:
                     assert (
                         "FP {}".format(p.name) in self.params
-                    ), "No functional parameterization for {}".format(p.name)
+                    ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
+                        p.name, p.name, [x.name for x in opts]
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(p.name)][
                         self.params["FP {}".format(p.name)]
                     ]
 
                 if "python" not in opt.implementations:
                     print(
-                        "No python implementation for {} / {}".format(p.name, opt.name)
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/Policies and add {}".format(
+                            p.name, opt.name, opt.name
+                        )
                     )
                 else:
                     policies[p.name] = opt.implementations["python"]

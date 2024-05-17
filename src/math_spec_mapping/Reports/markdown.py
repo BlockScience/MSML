@@ -577,7 +577,7 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "\n\n"
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x.name)):
+    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         var = ms.parameters.parameter_map[x]
         if var.symbol:
@@ -711,7 +711,7 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
     parameters = set().union(*parameters)
     parameters = sorted(parameters, key=lambda x: x)
     out += "## Unique Parameters Used\n"
-    for i, x in enumerate(sorted(parameters, key=lambda x: x.name)):
+    for i, x in enumerate(sorted(parameters, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
