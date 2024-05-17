@@ -718,7 +718,11 @@ class MathSpecImplementation:
         for m in self.ms.mechanisms:
             m = self.ms.mechanisms[m]
             if "python" not in m.implementations:
-                print("No python implementation for {}".format(m.name))
+                print(
+                    "No python implementation for {}. To fix this, go to Implementations/Python/Mechanisms and add {}".format(
+                        m.name, m.name
+                    )
+                )
             else:
                 mechanisms[m.name] = m.implementations["python"]
         return mechanisms
@@ -775,7 +779,9 @@ class MathSpecImplementation:
 
                 if "python" not in opt.implementations:
                     print(
-                        "No python implementation for {} / {}".format(p.name, opt.name)
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/Policies and add {}".format(
+                            p.name, opt.name, opt.name
+                        )
                     )
                 else:
                     policies[p.name] = opt.implementations["python"]
