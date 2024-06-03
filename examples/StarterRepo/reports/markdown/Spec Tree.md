@@ -10,7 +10,7 @@ cssclasses:
 │   ├──[[Dummy State]]
 │   │   ├──[[Dummy State-Words\|Words]]
 │   │   ├──[[Dummy State-Total Length\|Total Length]]
-│   │   ├──[[Dummy State-Variable C\|Variable C]]
+│   │   ├──[[Dummy State-Dummy\|Dummy]]
 │   ├──[[Global State]]
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
@@ -19,6 +19,7 @@ cssclasses:
 │   ├──[[Dummy Type 1]]
 │   ├──[[Dummy Type 2]]
 │   ├──[[Dummy Compound Type]]
+│   ├──[[Entity Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]

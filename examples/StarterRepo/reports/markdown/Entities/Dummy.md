@@ -8,7 +8,7 @@ A dummy state
 | --- | --- | --- | --- | --- |
 |[[Dummy State-Words\|Words]]|All words that were created|[[Dummy Type 1]]|||
 |[[Dummy State-Total Length\|Total Length]]|The total length of words * multiplier|[[Dummy Type 2]]|||
-|[[Dummy State-Variable C\|Variable C]]|Variable C|[[Dummy Type 2]]|||
+|[[Dummy State-Dummy\|Dummy]]|The dummy entity|[[Entity Type]]|||
 
 
 ## Boundary Actions
