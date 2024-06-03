@@ -1,4 +1,4 @@
-from .types import DummyType2, DummyType1
+from .types import DummyType1, DummyType2
 from typing import TypedDict
 
 TerminatingSpace = TypedDict('Terminating Space', {})
