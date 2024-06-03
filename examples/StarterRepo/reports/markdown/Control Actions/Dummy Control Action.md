@@ -17,7 +17,7 @@ Select D, E, F with equal probabilities
 
 ### 2. V2 Dummy Control
 #### Description
-50% \chance of choosing D, 25% \chance of choosing E or 25% \of eachoosing F each time
+Randomly picks between D, E, F based on the 'DUMMY D Probability' Parameter
 #### Logic
-Select D, E, F with those probabilities
+PARAM['DUMMY D Probability'] chance of picking D, (1-['D Probability']) / 2 chance for the other two
 

@@ -3,7 +3,7 @@ from typing import TypedDict
 
 SystemParameters = TypedDict('SystemParameters', {'dummy_parameter2': DummyType1})
 
-BehavioralParameters = TypedDict('BehavioralParameters', {'dummy_parameter': DummyType1})
+BehavioralParameters = TypedDict('BehavioralParameters', {'DUMMY D Probability': DummyType1})
 
 FunctionalParameters = TypedDict('FunctionalParameters', {'FP Dummy Boundary Action 2': str, 'FP Dummy Control Action': str})
 
@@ -15,7 +15,7 @@ functional_parameters: FunctionalParameters = {"FP Dummy Boundary Action 2": Non
 "FP Dummy Control Action": None,
 }
 
-behavioral_parameters: BehavioralParameters = {"dummy_parameter": None,
+behavioral_parameters: BehavioralParameters = {"DUMMY D Probability": None,
 }
 
 system_parameters: SystemParameters = {"dummy_parameter2": None,

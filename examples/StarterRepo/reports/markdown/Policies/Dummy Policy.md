@@ -14,7 +14,7 @@ Dummy Policy
 1. [[Dummy Space 2]]
 ## Constraints
 ## Parameters Used
-1. [[dummy_parameter]]
+1. [[dummy_parameter2]]
 ## Metrics Used
 ## Policy Options
 ### 1. Dummy Policy V1
