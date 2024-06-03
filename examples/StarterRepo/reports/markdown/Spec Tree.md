@@ -27,13 +27,13 @@ cssclasses:
 ├──**Parameters**
 │   ├──Dummy Parameter Set
 │   │   ├──[[DUMMY D Probability]]
-│   │   ├──[[dummy_parameter2]]
+│   │   ├──[[DUMMY Length Multiplier]]
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]
 │   ├──[[Dummy Boundary Action 2]]
 ├──**Control Actions**
 │   ├──[[Dummy Control Action]]
 ├──**Policies**
-│   ├──[[Dummy Policy]]
+│   ├──[[DUMMY Letter Count Policy]]
 ├──**Mechanisms**
 │   ├──[[Dummy Mechanism]]

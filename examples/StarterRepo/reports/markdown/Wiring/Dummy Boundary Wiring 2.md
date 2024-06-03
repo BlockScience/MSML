@@ -12,7 +12,7 @@ end
 subgraph X4["Dummy Boundary Wiring 2"]
 direction TB
 X1["Dummy Boundary Action 2"]
-X2["Dummy Policy"]
+X2["DUMMY Letter Count Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
@@ -26,13 +26,13 @@ Block Type: Stack Block
 Dummy Boundary Block
 ## Components
 1. [[Dummy Boundary Action 2]]
-2. [[Dummy Policy]]
+2. [[DUMMY Letter Count Policy]]
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Boundary Action 2]]
-2. [[Dummy Mechanism]]
-3. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
+2. [[Dummy Boundary Action 2]]
+3. [[Dummy Mechanism]]
 
 ## Constraints
 
@@ -47,7 +47,7 @@ Dummy Boundary Block
 3. [[Terminating Space]]
 
 ## Parameters Used
-1. [[dummy_parameter2]]
+1. [[DUMMY Length Multiplier]]
 
 ## Called By
 

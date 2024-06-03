@@ -3,7 +3,7 @@ dummy_parameter_set = {
     "notes": "",
     "parameters": [
         {
-            "variable_type": "Dummy Type 1",
+            "variable_type": "Dummy Type 2",
             "name": "DUMMY D Probability",
             "description": "The probability that D is chosen",
             "symbol": None,
@@ -11,9 +11,9 @@ dummy_parameter_set = {
             "parameter_class": "Behavioral",
         },
         {
-            "variable_type": "Dummy Type 1",
-            "name": "dummy_parameter2",
-            "description": "",
+            "variable_type": "Dummy Type 2",
+            "name": "DUMMY Length Multiplier",
+            "description": "A multiplier to multiply into length calculations",
             "symbol": None,
             "domain": None,
             "parameter_class": "System",

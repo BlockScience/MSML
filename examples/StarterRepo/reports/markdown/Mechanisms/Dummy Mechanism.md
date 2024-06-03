@@ -2,8 +2,8 @@
 
 Dummy Mechanism
 ## Called By
-1. [[Dummy Policy]]
-2. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
+2. [[DUMMY Letter Count Policy]]
 ## Domain Spaces
 1. [[Dummy Space 2]]
 ## Constraints

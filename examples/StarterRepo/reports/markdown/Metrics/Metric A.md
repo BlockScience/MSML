@@ -8,7 +8,7 @@ Symbol: None
 
 
 ## Parameters Used
-1. [[dummy_parameter2]]
+1. [[DUMMY Length Multiplier]]
 
 ## Variables Used
 1. [[Dummy State]].[[Dummy State-Variable A|Variable A]]

@@ -1,9 +1,9 @@
-from .types import DummyType1
+from .types import DummyType2
 from typing import TypedDict
 
-SystemParameters = TypedDict('SystemParameters', {'dummy_parameter2': DummyType1})
+SystemParameters = TypedDict('SystemParameters', {'DUMMY Length Multiplier': DummyType2})
 
-BehavioralParameters = TypedDict('BehavioralParameters', {'DUMMY D Probability': DummyType1})
+BehavioralParameters = TypedDict('BehavioralParameters', {'DUMMY D Probability': DummyType2})
 
 FunctionalParameters = TypedDict('FunctionalParameters', {'FP Dummy Boundary Action 2': str, 'FP Dummy Control Action': str})
 
@@ -18,7 +18,7 @@ functional_parameters: FunctionalParameters = {"FP Dummy Boundary Action 2": Non
 behavioral_parameters: BehavioralParameters = {"DUMMY D Probability": None,
 }
 
-system_parameters: SystemParameters = {"dummy_parameter2": None,
+system_parameters: SystemParameters = {"DUMMY Length Multiplier": None,
 }
 
 parameters: Parameters = {**behavioral_parameters, **functional_parameters, **system_parameters}

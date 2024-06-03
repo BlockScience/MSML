@@ -12,7 +12,7 @@ end
 subgraph X4["Dummy Boundary Wiring"]
 direction TB
 X1["Dummy Boundary Action"]
-X2["Dummy Policy"]
+X2["DUMMY Letter Count Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
@@ -32,7 +32,7 @@ end
 subgraph X4["Dummy Boundary Wiring 2"]
 direction TB
 X1["Dummy Boundary Action 2"]
-X2["Dummy Policy"]
+X2["DUMMY Letter Count Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
@@ -52,7 +52,7 @@ end
 subgraph X4["Dummy Control Wiring"]
 direction TB
 X1["Dummy Control Action"]
-X2["Dummy Policy"]
+X2["DUMMY Letter Count Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
@@ -69,13 +69,13 @@ The wirings which are not components of other wirings.
 3. [[Dummy Control Wiring]]
 
 ## Unique Components Used
-1. [[Dummy Boundary Action]]
-2. [[Dummy Boundary Action 2]]
-3. [[Dummy Control Action]]
-4. [[Dummy Mechanism]]
-5. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
+2. [[Dummy Boundary Action]]
+3. [[Dummy Boundary Action 2]]
+4. [[Dummy Control Action]]
+5. [[Dummy Mechanism]]
 
 ## Unique Parameters Used
 1. [[DUMMY D Probability]]
-2. [[dummy_parameter2]]
+2. [[DUMMY Length Multiplier]]
 
