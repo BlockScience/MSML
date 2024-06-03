@@ -8,10 +8,10 @@ Symbol: None
 
 
 ## Parameters Used
-1. [[dummy_parameter2]]
+1. [[DUMMY Length Multiplier]]
 
 ## Variables Used
-1. [[Dummy State]].[[Dummy State-Variable A|Variable A]]
+1. [[Dummy State]].[[Dummy State-Total Length|Total Length]]
 
 ## Domain Spaces
 1. [[Dummy Space 1]]

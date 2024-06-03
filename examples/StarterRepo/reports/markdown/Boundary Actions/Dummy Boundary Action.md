@@ -5,7 +5,7 @@ Randomly returns either A, B, C
 1. [[Dummy]]
 
 ## Followed By
-1. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
 
 ## Constraints
 

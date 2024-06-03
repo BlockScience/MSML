@@ -3,7 +3,7 @@ from .State import states
 from .Spaces import spaces
 from .Policies import policies
 from .Parameters import parameters
-from .Mechanisms import mechanism
+from .Mechanisms import mechanisms
 from .Entities import entities
 from .BoundaryActions import boundary_actions
 from .ControlActions import control_actions
@@ -18,7 +18,7 @@ math_spec_json = {
     "State": states,
     "Stateful Metrics": stateful_metrics,
     "Parameters": parameters,
-    "Mechanisms": mechanism,
+    "Mechanisms": mechanisms,
     "Entities": entities,
     "Boundary Actions": boundary_actions,
     "Control Actions": control_actions,

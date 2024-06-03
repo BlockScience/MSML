@@ -8,9 +8,9 @@ cssclasses:
 │   ├──[[Global]]
 ├──**State**
 │   ├──[[Dummy State]]
-│   │   ├──[[Dummy State-Variable A\|Variable A]]
-│   │   ├──[[Dummy State-Variable B\|Variable B]]
-│   │   ├──[[Dummy State-Variable C\|Variable C]]
+│   │   ├──[[Dummy State-Words\|Words]]
+│   │   ├──[[Dummy State-Total Length\|Total Length]]
+│   │   ├──[[Dummy State-Dummy\|Dummy]]
 │   ├──[[Global State]]
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
@@ -19,6 +19,7 @@ cssclasses:
 │   ├──[[Dummy Type 1]]
 │   ├──[[Dummy Type 2]]
 │   ├──[[Dummy Compound Type]]
+│   ├──[[Entity Type]]
 ├──**Spaces**
 │   ├──[[Terminating Space]]
 │   ├──[[Empty Space]]
@@ -26,14 +27,14 @@ cssclasses:
 │   ├──[[Dummy Space 2]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
-│   │   ├──[[dummy_parameter]]
-│   │   ├──[[dummy_parameter2]]
+│   │   ├──[[DUMMY D Probability]]
+│   │   ├──[[DUMMY Length Multiplier]]
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]
 │   ├──[[Dummy Boundary Action 2]]
 ├──**Control Actions**
 │   ├──[[Dummy Control Action]]
 ├──**Policies**
-│   ├──[[Dummy Policy]]
+│   ├──[[DUMMY Letter Count Policy]]
 ├──**Mechanisms**
-│   ├──[[Dummy Mechanism]]
+│   ├──[[DUMMY Log Results Mechanism]]

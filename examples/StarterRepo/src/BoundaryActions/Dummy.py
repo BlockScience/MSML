@@ -43,3 +43,5 @@ dummy_boundary_action2 = {
     ],
     "parameters_used": [],
 }
+
+dummy_boundary_actions = [dummy_boundary_action, dummy_boundary_action2]

@@ -1,3 +1,4 @@
-from .Dummy import DummyCompoundType, DummyType1, DummyType2
+from .Dummy import dummy_types
 
-types = [DummyType1, DummyType2, DummyCompoundType]
+types = []
+types.extend(dummy_types)
