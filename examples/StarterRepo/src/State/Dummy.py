@@ -16,12 +16,5 @@ dummy_state = {
             "symbol": None,
             "domain": None,
         },
-        {
-            "type": "Dummy Type 2",
-            "name": "Variable C",
-            "description": "Variable C",
-            "symbol": None,
-            "domain": None,
-        },
     ],
 }
