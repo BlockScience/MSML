@@ -10,6 +10,10 @@ The systems modeling language (SysML) is a general-purpose modeling language for
 
 ### Activity Diagram
 
+### Block Definition Diagram
+
+- These diagrams are very similar to how entities are created and used
+
 ## Use Cases of SysML
 
 - Requirements Engineering
@@ -23,6 +27,8 @@ The systems modeling language (SysML) is a general-purpose modeling language for
 
 - Explore UML more to further the ideation process
 - Possibly explore IEEE 1471, which is IEEE Recommended Practice for Architectural Description of Software Intensive Systems
+- Wheels[4] is how sysML represents multiple objects, maybe this is a good way to specify number of something
+
 
 
 
