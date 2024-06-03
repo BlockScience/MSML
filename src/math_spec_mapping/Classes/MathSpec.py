@@ -371,7 +371,7 @@ class MathSpec:
         )
         opts.extend(
             [
-                (x, x.control_actions)
+                (x, x.control_action_options)
                 for x in self.control_actions.values()
                 if len(x.control_action_options) > 1
             ]
