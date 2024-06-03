@@ -871,3 +871,17 @@ class MathSpecImplementation:
         assert (
             len(shouldnt_be_in_state) == 0
         ), "The following state variables are extra: {}".format(shouldnt_be_in_state)
+
+        k1 = parameters.keys()
+        k2 = self.ms.parameters.all_parameters + list(
+            self.ms.functional_parameters.keys()
+        )
+
+        not_in_params = [x for x in k2 if x not in k1]
+        shouldnt_be_in_params = [x for x in k1 if x not in k2]
+        assert (
+            len(not_in_params) == 0
+        ), "The following parameters are missing: {}".format(not_in_params)
+        assert (
+            len(shouldnt_be_in_params) == 0
+        ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
