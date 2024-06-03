@@ -24,3 +24,5 @@ dummy_control_action = {
     ],
     "parameters_used": ["DUMMY D Probability"],
 }
+
+dummy_control_actions = [dummy_control_action]

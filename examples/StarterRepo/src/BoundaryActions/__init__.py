@@ -1,3 +1,4 @@
-from .Dummy import dummy_boundary_action, dummy_boundary_action2
+from .Dummy import dummy_boundary_actions
 
-boundary_actions = [dummy_boundary_action, dummy_boundary_action2]
+boundary_actions = []
+boundary_actions.extend(dummy_boundary_actions)
