@@ -6,7 +6,7 @@ dummy_wiring.append(
         "components": [
             "Dummy Boundary Action",
             "DUMMY Letter Count Policy",
-            "Dummy Mechanism",
+            "DUMMY Log Results Mechanism",
         ],
         "description": "Dummy Boundary Block",
         "constraints": [],
@@ -20,7 +20,7 @@ dummy_wiring.append(
         "components": [
             "Dummy Control Action",
             "DUMMY Letter Count Policy",
-            "Dummy Mechanism",
+            "DUMMY Log Results Mechanism",
         ],
         "description": "Dummy Control Block",
         "constraints": [],
@@ -35,7 +35,7 @@ dummy_wiring.append(
         "components": [
             "Dummy Boundary Action 2",
             "DUMMY Letter Count Policy",
-            "Dummy Mechanism",
+            "DUMMY Log Results Mechanism",
         ],
         "description": "Dummy Boundary Block",
         "constraints": [],

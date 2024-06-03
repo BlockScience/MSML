@@ -1,13 +1,13 @@
 dummy_mechanism = {
-    "name": "Dummy Mechanism",
-    "description": "Dummy Mechanism",
-    "constraints": ["Constaint 1"],
-    "logic": "Logic for update",
+    "name": "DUMMY Log Results Mechanism",
+    "description": "A mechanism which appends the word just added and also increments the total length",
+    "constraints": [],
+    "logic": "",
     "domain": [
         "Dummy Space 2",
     ],
     "parameters_used": [],
-    "updates": [("Dummy", "Variable A", False)],
+    "updates": [("Dummy", "Words", False), ("Dummy", "Total Length", False)],
 }
 
 dummy_mechanisms = [dummy_mechanism]
