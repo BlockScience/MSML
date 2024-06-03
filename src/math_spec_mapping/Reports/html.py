@@ -164,7 +164,10 @@ cssclasses:
         else:
             out += symbol2 + name + "\n"
         for var in ms.stateful_metrics[name].metrics:
-            out += symbol3 + "[[{}]]".format(var.name) + "\n"
+            if linking:
+                out += symbol3 + "[[{}]]".format(var.name) + "\n"
+            else:
+                out += symbol3 + "{}".format(var.name) + "\n"
 
     out += symbol1 + "**Types**\n"
     for name in ms.types.keys():
@@ -186,7 +189,10 @@ cssclasses:
         else:
             out += symbol2 + name + "\n"
         for param in [x.name for x in ms.parameters.data[name].parameters]:
-            out += symbol3 + "[[{}]]".format(param) + "\n"
+            if linking:
+                out += symbol3 + "[[{}]]".format(param) + "\n"
+            else:
+                out += symbol3 + "{}".format(param) + "\n"
 
     out += symbol1 + "**Boundary Actions**\n"
     for name in ms.boundary_actions.keys():
