@@ -1,3 +1,4 @@
-from .Dummy import dummy_control_action
+from .Dummy import dummy_control_actions
 
-control_actions = [dummy_control_action]
+control_actions = []
+control_actions.extend(dummy_control_actions)

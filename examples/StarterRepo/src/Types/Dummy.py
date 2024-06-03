@@ -10,3 +10,5 @@ DummyCompoundType = {
     "type": "DummyCompoundType",
     "notes": "",
 }
+
+dummy_types = [DummyType1, DummyType2, DummyCompoundType]
