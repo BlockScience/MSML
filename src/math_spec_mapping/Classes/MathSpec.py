@@ -371,7 +371,7 @@ class MathSpec:
         )
         opts.extend(
             [
-                (x, x.control_actions)
+                (x, x.control_action_options)
                 for x in self.control_actions.values()
                 if len(x.control_action_options) > 1
             ]
@@ -729,7 +729,7 @@ class MathSpecImplementation:
                     assert (
                         "FP {}".format(ba.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
-                        ba.name, ba.name, [x.name for x in opts]
+                        ba.name, "FP " + ba.name, [x.name for x in opts]
                     )
 
                     opt = self.ms.functional_parameters["FP {}".format(ba.name)][
@@ -806,7 +806,7 @@ class MathSpecImplementation:
                     assert (
                         "FP {}".format(p.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
-                        p.name, p.name, [x.name for x in opts]
+                        p.name, "FP " + p.name, [x.name for x in opts]
                     )
                     opt = self.ms.functional_parameters["FP {}".format(p.name)][
                         self.params["FP {}".format(p.name)]
@@ -857,3 +857,31 @@ class MathSpecImplementation:
         if len(wiring) > 0:
             wiring = [x.name for x in wiring]
             print("The following wirings were not loading: {}".format(wiring))
+
+    def validate_state_and_params(self, state, parameters):
+
+        k1 = state.keys()
+        k2 = [x.name for x in self.ms.state["Global State"].variables]
+
+        not_in_state = [x for x in k2 if x not in k1]
+        shouldnt_be_in_state = [x for x in k1 if x not in k2]
+        assert (
+            len(not_in_state) == 0
+        ), "The following state variables are missing: {}".format(not_in_state)
+        assert (
+            len(shouldnt_be_in_state) == 0
+        ), "The following state variables are extra: {}".format(shouldnt_be_in_state)
+
+        k1 = parameters.keys()
+        k2 = self.ms.parameters.all_parameters + list(
+            self.ms.functional_parameters.keys()
+        )
+
+        not_in_params = [x for x in k2 if x not in k1]
+        shouldnt_be_in_params = [x for x in k1 if x not in k2]
+        assert (
+            len(not_in_params) == 0
+        ), "The following parameters are missing: {}".format(not_in_params)
+        assert (
+            len(shouldnt_be_in_params) == 0
+        ), "The following parameters are extra: {}".format(shouldnt_be_in_params)

@@ -1,8 +1,8 @@
 ## Description
 
-Dummy
+Randomly returns any length 1 string of combinations of D, E, F
 ## Followed By
-1. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
 
 ## Constraints
 ## Codomain Spaces
@@ -11,7 +11,13 @@ Dummy
 ## Control Action Options:
 ### 1. V1 Dummy Control
 #### Description
-Description
+Equal weighted probability of choosing D, E or F each time
 #### Logic
-A+B=C
+Select D, E, F with equal probabilities
+
+### 2. V2 Dummy Control
+#### Description
+Randomly picks between D, E, F based on the 'DUMMY D Probability' Parameter
+#### Logic
+PARAM['DUMMY D Probability'] chance of picking D, (1-['D Probability']) / 2 chance for the other two
 

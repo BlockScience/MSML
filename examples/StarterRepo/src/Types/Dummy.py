@@ -10,3 +10,11 @@ DummyCompoundType = {
     "type": "DummyCompoundType",
     "notes": "",
 }
+
+EntityType = {
+    "name": "Entity Type",
+    "type": "EntityType",
+    "notes": "",
+}
+
+dummy_types = [DummyType1, DummyType2, DummyCompoundType, EntityType]
