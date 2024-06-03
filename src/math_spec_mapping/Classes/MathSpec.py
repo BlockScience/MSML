@@ -857,3 +857,17 @@ class MathSpecImplementation:
         if len(wiring) > 0:
             wiring = [x.name for x in wiring]
             print("The following wirings were not loading: {}".format(wiring))
+
+    def validate_state_and_params(self, state, parameters):
+
+        k1 = state.keys()
+        k2 = [x.name for x in self.ms.state["Global State"].variables]
+
+        not_in_state = [x for x in k2 if x not in k1]
+        shouldnt_be_in_state = [x for x in k1 if x not in k2]
+        assert (
+            len(not_in_state) == 0
+        ), "The following state variables are missing: {}".format(not_in_state)
+        assert (
+            len(shouldnt_be_in_state) == 0
+        ), "The following state variables are extra: {}".format(shouldnt_be_in_state)
