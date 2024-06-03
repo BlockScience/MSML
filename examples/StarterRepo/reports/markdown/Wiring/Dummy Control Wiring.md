@@ -12,7 +12,7 @@ end
 subgraph X4["Dummy Control Wiring"]
 direction TB
 X1["Dummy Control Action"]
-X2["Dummy Policy"]
+X2["DUMMY Letter Count Policy"]
 X3["Dummy Mechanism"]
 X3 --> EES0
 X1--"Dummy Space 1"--->X2
@@ -26,13 +26,13 @@ Block Type: Stack Block
 Dummy Control Block
 ## Components
 1. [[Dummy Control Action]]
-2. [[Dummy Policy]]
+2. [[DUMMY Letter Count Policy]]
 3. [[Dummy Mechanism]]
 
 ## All Blocks
-1. [[Dummy Control Action]]
-2. [[Dummy Mechanism]]
-3. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
+2. [[Dummy Control Action]]
+3. [[Dummy Mechanism]]
 
 ## Constraints
 
@@ -48,7 +48,7 @@ Dummy Control Block
 
 ## Parameters Used
 1. [[DUMMY D Probability]]
-2. [[dummy_parameter2]]
+2. [[DUMMY Length Multiplier]]
 
 ## Called By
 

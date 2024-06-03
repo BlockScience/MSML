@@ -2,7 +2,7 @@
 
 Randomly returns any length 1 string of combinations of D, E, F
 ## Followed By
-1. [[Dummy Policy]]
+1. [[DUMMY Letter Count Policy]]
 
 ## Constraints
 ## Codomain Spaces
