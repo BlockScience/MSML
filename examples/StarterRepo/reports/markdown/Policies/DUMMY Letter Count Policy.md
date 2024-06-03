@@ -8,8 +8,8 @@ The policy returns the original variable for the passed string as well as all un
 ## Domain Spaces
 1. [[Dummy Space 1]]
 ## Followed By
-1. [[Dummy Mechanism]]
-2. [[Dummy Mechanism]]
+1. [[DUMMY Log Results Mechanism]]
+2. [[DUMMY Log Results Mechanism]]
 ## Codomain Spaces
 1. [[Dummy Space 2]]
 ## Constraints

@@ -8,8 +8,8 @@ cssclasses:
 │   ├──[[Global]]
 ├──**State**
 │   ├──[[Dummy State]]
-│   │   ├──[[Dummy State-Variable A\|Variable A]]
-│   │   ├──[[Dummy State-Variable B\|Variable B]]
+│   │   ├──[[Dummy State-Words\|Words]]
+│   │   ├──[[Dummy State-Total Length\|Total Length]]
 │   │   ├──[[Dummy State-Variable C\|Variable C]]
 │   ├──[[Global State]]
 ├──**Stateful Metrics**
@@ -36,4 +36,4 @@ cssclasses:
 ├──**Policies**
 │   ├──[[DUMMY Letter Count Policy]]
 ├──**Mechanisms**
-│   ├──[[Dummy Mechanism]]
+│   ├──[[DUMMY Log Results Mechanism]]
