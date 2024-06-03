@@ -1,4 +1,4 @@
-Description: 
+Description: The probability that D is chosen
 
 Symbol: None
 

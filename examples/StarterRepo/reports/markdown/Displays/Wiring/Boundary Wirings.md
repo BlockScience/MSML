@@ -54,5 +54,5 @@ The wirings related to only boundary type actions.
 4. [[Dummy Policy]]
 
 ## Unique Parameters Used
-1. [[dummy_parameter]]
+1. [[dummy_parameter2]]
 

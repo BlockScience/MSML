@@ -6,8 +6,8 @@ dummy_control_action_v1_option = {
 
 dummy_control_action_v2_option = {
     "name": "V2 Dummy Control",
-    "description": "50% \chance of choosing D, 25% \chance of choosing E or 25% \of eachoosing F each time",
-    "logic": "Select D, E, F with those probabilities",
+    "description": "Randomly picks between D, E, F based on the 'DUMMY D Probability' Parameter",
+    "logic": "PARAM['DUMMY D Probability'] chance of picking D, (1-['D Probability']) / 2 chance for the other two",
 }
 
 
@@ -22,5 +22,5 @@ dummy_control_action = {
     "codomain": [
         "Dummy Space 1",
     ],
-    "parameters_used": [],
+    "parameters_used": ["DUMMY D Probability"],
 }

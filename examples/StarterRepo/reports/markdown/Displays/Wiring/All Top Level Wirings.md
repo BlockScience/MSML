@@ -76,5 +76,6 @@ The wirings which are not components of other wirings.
 5. [[Dummy Policy]]
 
 ## Unique Parameters Used
-1. [[dummy_parameter]]
+1. [[DUMMY D Probability]]
+2. [[dummy_parameter2]]
 

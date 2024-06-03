@@ -26,7 +26,7 @@ cssclasses:
 │   ├──[[Dummy Space 2]]
 ├──**Parameters**
 │   ├──Dummy Parameter Set
-│   │   ├──[[dummy_parameter]]
+│   │   ├──[[DUMMY D Probability]]
 │   │   ├──[[dummy_parameter2]]
 ├──**Boundary Actions**
 │   ├──[[Dummy Boundary Action]]

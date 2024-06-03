@@ -4,8 +4,8 @@ dummy_parameter_set = {
     "parameters": [
         {
             "variable_type": "Dummy Type 1",
-            "name": "dummy_parameter",
-            "description": "",
+            "name": "DUMMY D Probability",
+            "description": "The probability that D is chosen",
             "symbol": None,
             "domain": None,
             "parameter_class": "Behavioral",
