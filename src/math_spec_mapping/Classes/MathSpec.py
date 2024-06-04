@@ -773,10 +773,10 @@ class MathSpecImplementation:
 
             spaces_mapping = {}
 
-            for y in [x.name for x in wiring.domain_blocks]:
+            for y in [x.name for x in wiring.domain_blocks2]:
                 spaces_mapping[y] = []
 
-            for i, x in enumerate([x.name for x in wiring.domain_blocks]):
+            for i, x in enumerate([x.name for x in wiring.domain_blocks2]):
                 spaces_mapping[x].append(i)
 
             def wiring(state, params, spaces):
