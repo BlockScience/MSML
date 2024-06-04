@@ -772,8 +772,9 @@ class MathSpecImplementation:
         elif wiring.block_type == "Parallel Block":
 
             spaces_mapping = {}
-            for x in wiring.components:
-                spaces_mapping[x.name] = []
+
+            for y in [x.name for x in wiring.domain_blocks]:
+                spaces_mapping[y] = []
 
             for i, x in enumerate([x.name for x in wiring.domain_blocks]):
                 spaces_mapping[x].append(i)
