@@ -191,6 +191,9 @@ class ParallelBlock(Block):
         self.domain_blocks = tuple(
             [i for x in self.components for i in x.domain_blocks]
         )
+        self.domain_blocks2 = tuple(
+            [x for x in self.components for i in x.domain_blocks]
+        )
         self.codomain_blocks = tuple(
             [i for x in self.components for i in x.codomain_blocks]
         )
