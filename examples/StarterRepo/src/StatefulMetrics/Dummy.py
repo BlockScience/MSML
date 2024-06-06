@@ -5,9 +5,9 @@ dummy_stateful_metric = {
         {
             "type": "Dummy Type 2",
             "name": "dummy_metric",
-            "description": "Dummy Dummy",
+            "description": "The number of letters after the multiplier is taken off",
             "variables_used": [("Dummy State", "Total Length")],
-            "parameters_used": [],
+            "parameters_used": ["DUMMY Length Multiplier"],
             "symbol": None,
             "domain": None,
         }
