@@ -903,3 +903,10 @@ class MathSpecImplementation:
         assert (
             len(shouldnt_be_in_params) == 0
         ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
+
+    def prepare_state_and_params(self, state, params):
+        self.validate_state_and_params(state, params)
+        state = deepcopy(state)
+        params = deepcopy(params)
+        state["Stateful Metrics"] = self.stateful_metrics
+        return state, params
