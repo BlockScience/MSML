@@ -1,0 +1,6 @@
+[submodule "examples/Root-Finding-Simulation"]
+	path = examples/Root-Finding-Simulation
+	url = https://github.com/SeanMcOwen/Root-Finding-Simulation
+[submodule "examples/rideshare-model"]
+	path = examples/rideshare-model
+	url = https://github.com/BlockScience/rideshare-model
