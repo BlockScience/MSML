@@ -762,6 +762,7 @@ class MathSpecImplementation:
         return mechanisms
 
     def load_single_wiring(self, wiring):
+        hold = wiring
         components = [x.name for x in wiring.components]
         if wiring.block_type == "Stack Block":
 
@@ -783,7 +784,15 @@ class MathSpecImplementation:
             def wiring(state, params, spaces):
                 codomain = []
                 for component in components:
-                    spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    if component in spaces_mapping:
+                        spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    else:
+                        assert component in [
+                            x.name for x in hold.domain_blocks_empty
+                        ], "{} not in domain_blocks_empty of wiring {}".format(
+                            component, hold
+                        )
+                        spaces_i = []
                     spaces_i = self.blocks[component](state, params, spaces_i)
                     if spaces_i:
                         codomain.extend(spaces_i)
