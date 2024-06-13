@@ -10,8 +10,8 @@ cssclasses:
 │   ├──[[Dummy State]]
 │   │   ├──[[Dummy State-Words\|Words]]
 │   │   ├──[[Dummy State-Total Length\|Total Length]]
-│   │   ├──[[Dummy State-Dummy\|Dummy]]
 │   ├──[[Global State]]
+│   │   ├──[[Global State-Dummy\|Dummy]]
 ├──**Stateful Metrics**
 │   ├──Dummy Stateful Metrics
 │   │   ├──[[dummy_metric]]

@@ -45,6 +45,7 @@ class MathSpec:
         self._check_dictionary_names()
         self._build_functional_parameters()
         self._build_parameter_types()
+        self._crawl_spaces()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -405,6 +406,17 @@ class MathSpec:
         self.system_parameters_types = system_parameters_types
         self.behavioral_parameters_types = behavioral_parameters_types
         self.functional_parameters_types = functional_parameters_types
+
+    def _crawl_spaces(self):
+        self._used_spaces = []
+        self._used_spaces.extend([x.codomain for x in self.control_actions.values()])
+        self._used_spaces.extend([x.codomain for x in self.boundary_actions.values()])
+        self._used_spaces.extend([x.domain for x in self.policies.values()])
+        self._used_spaces.extend([x.codomain for x in self.policies.values()])
+        self._used_spaces.extend([x.domain for x in self.mechanisms.values()])
+
+        self._used_spaces = list(set().union(*self._used_spaces))
+        self._unused_spaces = []
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
