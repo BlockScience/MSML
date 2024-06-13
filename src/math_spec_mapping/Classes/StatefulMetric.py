@@ -16,6 +16,7 @@ class StatefulMetric:
         else:
             self.label = self.name
         self.metadata = data["metadata"]
+        self.implementations = data["implementations"]
 
 
 class StatefulMetricSet:

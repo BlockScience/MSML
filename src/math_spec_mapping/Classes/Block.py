@@ -37,6 +37,7 @@ class Block:
                 )
             ]
         )
+        self.domain_blocks2 = self.domain_blocks[:]
         self.codomain_blocks = tuple(
             [
                 self
@@ -191,6 +192,9 @@ class ParallelBlock(Block):
         self.domain_blocks = tuple(
             [i for x in self.components for i in x.domain_blocks]
         )
+        self.domain_blocks2 = tuple(
+            [x for x in self.components for i in x.domain_blocks2]
+        )
         self.codomain_blocks = tuple(
             [i for x in self.components for i in x.codomain_blocks]
         )
@@ -320,6 +324,7 @@ class StackBlock(Block):
         )
 
         self.domain_blocks = self.components[0].domain_blocks
+        self.domain_blocks2 = self.components[0].domain_blocks2
         self.codomain_blocks = self.components[-1].codomain_blocks
         self.domain_blocks_empty = self.components[0].domain_blocks_empty
         self.codomain_blocks_empty = self.components[-1].codomain_blocks_empty
