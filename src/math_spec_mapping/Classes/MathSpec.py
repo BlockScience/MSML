@@ -416,7 +416,8 @@ class MathSpec:
         self._used_spaces.extend([x.domain for x in self.mechanisms.values()])
 
         self._used_spaces = list(set().union(*self._used_spaces))
-        self._unused_spaces = []
+        us_names = [y.name for y in self._used_spaces]
+        self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
