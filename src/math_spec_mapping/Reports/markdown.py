@@ -538,7 +538,7 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
     out += "Domain: {}\n\n".format(metric.domain)
 
     out += "## Parameters Used\n"
-    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x.name)):
+    for i, x in enumerate(sorted(metric.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
