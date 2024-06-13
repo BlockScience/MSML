@@ -45,6 +45,7 @@ class MathSpec:
         self._check_dictionary_names()
         self._build_functional_parameters()
         self._build_parameter_types()
+        self._crawl_spaces()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -406,6 +407,18 @@ class MathSpec:
         self.behavioral_parameters_types = behavioral_parameters_types
         self.functional_parameters_types = functional_parameters_types
 
+    def _crawl_spaces(self):
+        self._used_spaces = []
+        self._used_spaces.extend([x.codomain for x in self.control_actions.values()])
+        self._used_spaces.extend([x.codomain for x in self.boundary_actions.values()])
+        self._used_spaces.extend([x.domain for x in self.policies.values()])
+        self._used_spaces.extend([x.codomain for x in self.policies.values()])
+        self._used_spaces.extend([x.domain for x in self.mechanisms.values()])
+
+        self._used_spaces = list(set().union(*self._used_spaces))
+        us_names = [y.name for y in self._used_spaces]
+        self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
+
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"
         if not overwrite:
@@ -683,6 +696,7 @@ class MathSpecImplementation:
         self.boundary_actions = self.load_boundary_actions()
         self.policies = self.load_policies()
         self.mechanisms = self.load_mechanisms()
+        self.stateful_metrics = self.load_stateful_metrics()
         self.load_wiring()
 
     def load_control_actions(self):
@@ -761,6 +775,7 @@ class MathSpecImplementation:
         return mechanisms
 
     def load_single_wiring(self, wiring):
+        hold = wiring
         components = [x.name for x in wiring.components]
         if wiring.block_type == "Stack Block":
 
@@ -772,16 +787,25 @@ class MathSpecImplementation:
         elif wiring.block_type == "Parallel Block":
 
             spaces_mapping = {}
-            for x in wiring.components:
-                spaces_mapping[x.name] = []
 
-            for i, x in enumerate([x.name for x in wiring.domain_blocks]):
+            for y in [x.name for x in wiring.domain_blocks2]:
+                spaces_mapping[y] = []
+
+            for i, x in enumerate([x.name for x in wiring.domain_blocks2]):
                 spaces_mapping[x].append(i)
 
             def wiring(state, params, spaces):
                 codomain = []
                 for component in components:
-                    spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    if component in spaces_mapping:
+                        spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    else:
+                        assert component in [
+                            x.name for x in hold.domain_blocks_empty
+                        ], "{} not in domain_blocks_empty of wiring {}".format(
+                            component, hold
+                        )
+                        spaces_i = []
                     spaces_i = self.blocks[component](state, params, spaces_i)
                     if spaces_i:
                         codomain.extend(spaces_i)
@@ -821,6 +845,22 @@ class MathSpecImplementation:
                 else:
                     policies[p.name] = opt.implementations["python"]
         return policies
+
+    def load_stateful_metrics(self):
+        stateful_metrics = {}
+
+        for sm in self.ms.stateful_metrics_map:
+            sm = self.ms.stateful_metrics_map[sm]
+            if "python" not in sm.implementations:
+                print(
+                    "No python implementation for {}. To fix this, go to Implementations/Python/StatefulMetrics and add {}".format(
+                        sm.name, sm.name
+                    )
+                )
+            else:
+                stateful_metrics[sm.name] = sm.implementations["python"]
+
+        return stateful_metrics
 
     def load_wiring(
         self,
@@ -885,3 +925,10 @@ class MathSpecImplementation:
         assert (
             len(shouldnt_be_in_params) == 0
         ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
+
+    def prepare_state_and_params(self, state, params):
+        self.validate_state_and_params(state, params)
+        state = deepcopy(state)
+        params = deepcopy(params)
+        state["Stateful Metrics"] = self.stateful_metrics
+        return state, params

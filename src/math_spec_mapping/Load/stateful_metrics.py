@@ -39,6 +39,15 @@ def convert_stateful_metric(ms, data: Dict) -> StatefulMetricSet:
             ), "Variable '{}' not in variable map for stateful metrics variables used".format(
                 x[1]
             )
+
+    var["implementations"] = {}
+
+    if "python" in ms["Implementations"]:
+        if "stateful_metrics" in ms["Implementations"]["python"]:
+            if var["name"] in ms["Implementations"]["python"]["stateful_metrics"]:
+                var["implementations"]["python"] = ms["Implementations"]["python"][
+                    "stateful_metrics"
+                ][var["name"]]
         new_variables.append(StatefulMetric(var))
     data["metrics"] = new_variables
 
