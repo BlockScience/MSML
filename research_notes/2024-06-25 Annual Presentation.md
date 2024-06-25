@@ -37,6 +37,14 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ## Client Deployment Retrospective
 
+- There were 4 client projects where MSML was utilized for creating a mathematical specification and 1 which is currently using it for specification plus the new executable blocks functionality for running simulations before moving to a cadCAD model
+- Overall the deployments went well but there is room for improvement with:
+    - Improving clarity, especially for less technical stakeholders
+    - Improving onboarding for those using the library
+    - Improving the GUI and interfaces for easier development of specs
+    - Improving documentation and boilerplate "Introduction to MSML" materials for those not familiar with GDS or MSML
+
+
 ## Research Notes Roster
 
 ## Canonical Examples Roster
