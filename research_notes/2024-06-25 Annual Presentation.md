@@ -5,6 +5,8 @@ Author: Sean McOwen
 
 ## Executive Summary
 
+The mathematical specification mapping library is now being used across many projects and is evolving very quickly. For example, as of late, it can run full simulations by binding python implementations of blocks and a lot of time is going into perfecting it. This presentation will give a full overview of the last year as quickly as possible. To that end, please save questions until the end as the presentation time slot is only 15 minutes.
+
 ## The Evolving Objectives of the Mathematical Specification Mapping Library Project
 
 ### Prior Objectives
@@ -24,8 +26,9 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ### Evolving Objectives
 
-- MSML as a Rosetta Stone between groups, programming languages and paradigms
-- MSML as a tool to enhance iterative development in end-to-end / full life-cycle systems engineering
+- All prior objectives as well as:
+- Treating MSML as a Rosetta Stone between groups, programming languages and paradigms
+- Thinking of MSML as a tool to enhance iterative development in end-to-end / full life-cycle systems engineering with capabilities for all phases of the engineering lifecycle
 
 The most recent version of MSML architecture:
 
