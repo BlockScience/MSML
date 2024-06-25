@@ -69,8 +69,22 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ## Canonical Examples Roster
 
+1. Starter Repo: A repo that is meant to be used/forked to begin the process of writing a spec. Has one component for each component class and shows how to use the executable block functionality.
+2. Root Finding Simulation: One of the most fleshed out canonical examples which shows a specification for testing root finding algorithms, some progress is being made on finalizing the spec and early progress on executable blocks
+3. Retirement Planning: Canonical example which will serve as a guided example in the future, implemented in a very basic spec form but is going to be heavily improved upon for an easy user experience of doing a first example
+4. Rideshare Model: A canonical example that Sayer Tindall is creating and I am helping on which should serve as a very deep example of the entire process of end-to-end model building
+
 ## Future Plans
 
+1. Clear out the remaining 165 issues (which will inevitably become much more as new ideas or bugs are discovered)
+2. Continue testing the library with client projects
+3. Finish all 4 canonical examples and consider any other future canonical examples
+4. Finish creating the bridge to cadCAD so that a model can easily be handed off from spec to cadCAD
+5. Create a GUI for easy spec creation
+6. Promote the project and community build
+
 ## A Thank You to All Supporters
+
+It takes a village, and there are too many of you to name. Thank you to everyone who has patiently tested out features with me, provided feedback and otherwise been a supporter of the project!
 
 ## Questions?
