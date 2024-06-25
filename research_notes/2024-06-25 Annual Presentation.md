@@ -33,7 +33,17 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 - 619 Commits of Code
 - 28 releases on pypi over the last year
 
-## Year in Review, by the Topics
+## Year in Review, by the Topics (High Level Only)
+
+- MSML migrated to wirings and GDS; stack block, parallel block, and split block are now all fully functional and composable with specialized checking for domain/codomain of inner components
+- Graphics engine was completely overhauled and replaced with Mermaid which just need some scripting code and then can run be rendered in any markdown enviroment
+- An Obsidian/Wikilinks styled directory is automatically created now which builds all components as their own pages and backlinks between all the connections
+- A JSON specification was built for both validation purposes of the JSON as well as auto-created documentation
+- Four canonical examples in progress
+- Variety of completed tasks around quality of life improvements, documentation and debugging
+- Implementations/Code Enabled Blocks were created whereby a user can now write out python functions that implement a block's policy option, mechanism, etc. and they can be run as actual code. This works as well with entire wirings that will automatically pass the domains/codomains between the blocks as long as they are properly defined in the implemenetations.
+- Some progress has been made on metaprogramming / cadCAD bridges for automatically writing an entire cadCAD model in both julia or python given the implementations are there. Future work involves things such as auto-generated documentation from the component data and automatic assertions/checking added for domain/codomain.
+- A large roster of research notes have been produced as part of the project and are detailed below
 
 ## Client Deployment Retrospective
 
