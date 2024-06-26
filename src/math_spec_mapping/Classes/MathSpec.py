@@ -926,9 +926,15 @@ class MathSpecImplementation:
             len(shouldnt_be_in_params) == 0
         ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
 
-    def prepare_state_and_params(self, state, params):
+    def prepare_state_and_params(self, state, params, state_preperation_functions=None):
         self.validate_state_and_params(state, params)
         state = deepcopy(state)
         params = deepcopy(params)
         state["Stateful Metrics"] = self.stateful_metrics
+        if state_preperation_functions:
+            for f in state_preperation_functions:
+                state = f(state)
+                assert (
+                    state is not None
+                ), "A state must be returned from the state preperation functions"
         return state, params
