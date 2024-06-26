@@ -776,6 +776,9 @@ class MathSpecImplementation:
 
     def load_single_wiring(self, wiring):
         hold = wiring
+        domain_sizes = {}
+        for x in wiring.components:
+            domain_sizes[x.name] = len(x.domain)
         components = [x.name for x in wiring.components]
         if wiring.block_type == "Stack Block":
 
@@ -795,10 +798,17 @@ class MathSpecImplementation:
                 spaces_mapping[x].append(i)
 
             def wiring(state, params, spaces):
+                spaces_mapping_temp = deepcopy(spaces_mapping)
                 codomain = []
                 for component in components:
-                    if component in spaces_mapping:
-                        spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    if component in spaces_mapping_temp:
+                        spaces_i = [spaces[i] for i in spaces_mapping_temp[component]][
+                            : domain_sizes[component]
+                        ]
+                        # Fix for repeated block names
+                        spaces_mapping_temp[component] = spaces_mapping[component][
+                            domain_sizes[component] :
+                        ]
                     else:
                         assert component in [
                             x.name for x in hold.domain_blocks_empty
