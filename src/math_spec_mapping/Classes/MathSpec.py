@@ -710,6 +710,7 @@ class MathSpecImplementation:
         self.mechanisms = self.load_mechanisms()
         self.stateful_metrics = self.load_stateful_metrics()
         self.load_wiring()
+        self.load_components()
 
     def load_control_actions(self):
         control_actions = {}
@@ -960,3 +961,11 @@ class MathSpecImplementation:
                     state is not None
                 ), "A state must be returned from the state preperation functions"
         return state, params
+
+    def load_components(self):
+        self.components = {}
+        self.components.update(self.control_actions)
+        self.components.update(self.boundary_actions)
+        self.components.update(self.policies)
+        self.components.update(self.mechanisms)
+        self.components.update(self.wiring)
