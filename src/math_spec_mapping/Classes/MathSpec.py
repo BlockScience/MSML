@@ -806,7 +806,7 @@ class MathSpecImplementation:
                             : domain_sizes[component]
                         ]
                         # Fix for repeated block names
-                        spaces_mapping_temp[component] = spaces_mapping[component][
+                        spaces_mapping_temp[component] = spaces_mapping_temp[component][
                             domain_sizes[component] :
                         ]
                     else:
