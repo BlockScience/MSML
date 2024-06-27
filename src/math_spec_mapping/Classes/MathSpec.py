@@ -478,6 +478,7 @@ class MathSpec:
             params_base,
             state_preperation_functions=state_preperation_functions,
         )
+        state = msi.execute_blocks(state, params, experiment["Blocks"])
 
         return state, params, msi
 
@@ -969,3 +970,8 @@ class MathSpecImplementation:
         self.components.update(self.policies)
         self.components.update(self.mechanisms)
         self.components.update(self.wiring)
+
+    def execute_blocks(self, state, params, blocks):
+        for block in blocks:
+            self.components[block](state, params, [])
+        return state
