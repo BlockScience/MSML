@@ -498,6 +498,41 @@ class MathSpec:
 
         return state, params, msi, df, metrics
 
+    def run_experiments(
+        self,
+        experiments,
+        params_base,
+        state_base,
+        post_processing_function,
+        state_preperation_functions=None,
+        metrics_functions=None,
+    ):
+        state_l = []
+        params_l = []
+        df_l = []
+        metrics_l = []
+        for experiment in experiments:
+            for i in range(experiment["Monte Carlo Runs"]):
+                state, params, msi, df, metrics = self.run_experiment(
+                    experiment,
+                    params_base,
+                    state_base,
+                    post_processing_function,
+                    state_preperation_functions=state_preperation_functions,
+                    metrics_functions=metrics_functions,
+                )
+                df["Monte Carlo Run"] = i + 1
+                df["Experiment"] = experiment["Name"]
+                metrics.loc["Monte Carlo Run"] = i + 1
+                metrics.loc["Experiment"] = experiment["Name"]
+                state_l.append(state)
+                params_l.append(params)
+                df_l.append(df)
+                metrics_l.append(metrics)
+        df = pd.concat(df_l)
+        metrics = pd.concat(metrics_l)
+        return df, metrics, state_l, params_l
+
     def metaprogramming_python_states(
         self, model_directory, overwrite=False, default_values=None
     ):
