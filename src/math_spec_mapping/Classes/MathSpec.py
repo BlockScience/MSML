@@ -470,7 +470,13 @@ class MathSpec:
             f.write(out)
 
     def run_experiment(
-        self, experiment, params_base, state_base, state_preperation_functions=None
+        self,
+        experiment,
+        params_base,
+        state_base,
+        post_processing_function,
+        state_preperation_functions=None,
+        metrics_functions=None,
     ):
         msi = self.build_implementation(params_base)
         state, params = msi.prepare_state_and_params(
@@ -479,8 +485,9 @@ class MathSpec:
             state_preperation_functions=state_preperation_functions,
         )
         state = msi.execute_blocks(state, params, experiment["Blocks"])
+        df = post_processing_function(state, params)
 
-        return state, params, msi
+        return state, params, msi, df
 
     def metaprogramming_python_states(
         self, model_directory, overwrite=False, default_values=None
