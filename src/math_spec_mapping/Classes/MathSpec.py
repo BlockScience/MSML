@@ -7,6 +7,7 @@ from .BoundaryAction import BoundaryAction
 import os
 from copy import deepcopy
 import shutil
+import pandas as pd
 
 
 class MathSpec:
@@ -469,6 +470,75 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def run_experiment(
+        self,
+        experiment,
+        params_base,
+        state_base,
+        post_processing_function,
+        state_preperation_functions=None,
+        metrics_functions=None,
+    ):
+        if experiment["Param Modifications"]:
+            params_base = deepcopy(params_base)
+            for key in experiment["Param Modifications"]:
+                params_base[key] = experiment["Param Modifications"][key]
+        msi = self.build_implementation(params_base)
+        state, params = msi.prepare_state_and_params(
+            state_base,
+            params_base,
+            state_preperation_functions=state_preperation_functions,
+        )
+
+        state = msi.execute_blocks(state, params, experiment["Blocks"])
+        df = post_processing_function(state, params)
+
+        if metrics_functions:
+            metrics = {}
+            for metrics_function in metrics_functions:
+                metrics_function(metrics, state, params, df)
+            metrics = pd.Series(metrics)
+        else:
+            metrics = None
+
+        return state, params, msi, df, metrics
+
+    def run_experiments(
+        self,
+        experiments,
+        params_base,
+        state_base,
+        post_processing_function,
+        state_preperation_functions=None,
+        metrics_functions=None,
+    ):
+        state_l = []
+        params_l = []
+        df_l = []
+        metrics_l = []
+        for experiment in experiments:
+            for i in range(experiment["Monte Carlo Runs"]):
+                state, params, msi, df, metrics = self.run_experiment(
+                    experiment,
+                    params_base,
+                    state_base,
+                    post_processing_function,
+                    state_preperation_functions=state_preperation_functions,
+                    metrics_functions=metrics_functions,
+                )
+                df["Monte Carlo Run"] = i + 1
+                df["Experiment"] = experiment["Name"]
+                metrics.loc["Monte Carlo Run"] = i + 1
+                metrics.loc["Experiment"] = experiment["Name"]
+                metrics.name = "{}-{}".format(experiment["Name"], i + 1)
+                state_l.append(state)
+                params_l.append(params)
+                df_l.append(df)
+                metrics_l.append(metrics)
+        df = pd.concat(df_l)
+        metrics = pd.concat(metrics_l, axis=1).T
+        return df, metrics, state_l, params_l
+
     def metaprogramming_python_states(
         self, model_directory, overwrite=False, default_values=None
     ):
@@ -698,6 +768,7 @@ class MathSpecImplementation:
         self.mechanisms = self.load_mechanisms()
         self.stateful_metrics = self.load_stateful_metrics()
         self.load_wiring()
+        self.load_components()
 
     def load_control_actions(self):
         control_actions = {}
@@ -776,6 +847,9 @@ class MathSpecImplementation:
 
     def load_single_wiring(self, wiring):
         hold = wiring
+        domain_sizes = {}
+        for x in wiring.components:
+            domain_sizes[x.name] = len(x.domain)
         components = [x.name for x in wiring.components]
         if wiring.block_type == "Stack Block":
 
@@ -795,10 +869,17 @@ class MathSpecImplementation:
                 spaces_mapping[x].append(i)
 
             def wiring(state, params, spaces):
+                spaces_mapping_temp = deepcopy(spaces_mapping)
                 codomain = []
                 for component in components:
-                    if component in spaces_mapping:
-                        spaces_i = [spaces[i] for i in spaces_mapping[component]]
+                    if component in spaces_mapping_temp:
+                        spaces_i = [spaces[i] for i in spaces_mapping_temp[component]][
+                            : domain_sizes[component]
+                        ]
+                        # Fix for repeated block names
+                        spaces_mapping_temp[component] = spaces_mapping_temp[component][
+                            domain_sizes[component] :
+                        ]
                     else:
                         assert component in [
                             x.name for x in hold.domain_blocks_empty
@@ -926,9 +1007,28 @@ class MathSpecImplementation:
             len(shouldnt_be_in_params) == 0
         ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
 
-    def prepare_state_and_params(self, state, params):
+    def prepare_state_and_params(self, state, params, state_preperation_functions=None):
         self.validate_state_and_params(state, params)
         state = deepcopy(state)
         params = deepcopy(params)
         state["Stateful Metrics"] = self.stateful_metrics
+        if state_preperation_functions:
+            for f in state_preperation_functions:
+                state = f(state)
+                assert (
+                    state is not None
+                ), "A state must be returned from the state preperation functions"
         return state, params
+
+    def load_components(self):
+        self.components = {}
+        self.components.update(self.control_actions)
+        self.components.update(self.boundary_actions)
+        self.components.update(self.policies)
+        self.components.update(self.mechanisms)
+        self.components.update(self.wiring)
+
+    def execute_blocks(self, state, params, blocks):
+        for block in blocks:
+            self.components[block](state, params, [])
+        return state
