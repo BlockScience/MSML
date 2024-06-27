@@ -469,6 +469,18 @@ class MathSpec:
         with open(path, "w") as f:
             f.write(out)
 
+    def run_experiment(
+        self, experiment, params_base, state_base, state_preperation_functions=None
+    ):
+        msi = self.build_implementation(params_base)
+        state, params = msi.prepare_state_and_params(
+            state_base,
+            params_base,
+            state_preperation_functions=state_preperation_functions,
+        )
+
+        return state, params, msi
+
     def metaprogramming_python_states(
         self, model_directory, overwrite=False, default_values=None
     ):
