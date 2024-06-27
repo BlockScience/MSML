@@ -530,12 +530,13 @@ class MathSpec:
                 df["Experiment"] = experiment["Name"]
                 metrics.loc["Monte Carlo Run"] = i + 1
                 metrics.loc["Experiment"] = experiment["Name"]
+                metrics.name = "{}-{}".format(experiment["Name"], i + 1)
                 state_l.append(state)
                 params_l.append(params)
                 df_l.append(df)
                 metrics_l.append(metrics)
         df = pd.concat(df_l)
-        metrics = pd.concat(metrics_l)
+        metrics = pd.concat(metrics_l, axis=1).T
         return df, metrics, state_l, params_l
 
     def metaprogramming_python_states(
