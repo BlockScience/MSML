@@ -7,6 +7,7 @@ from .BoundaryAction import BoundaryAction
 import os
 from copy import deepcopy
 import shutil
+import pandas as pd
 
 
 class MathSpec:
@@ -487,7 +488,15 @@ class MathSpec:
         state = msi.execute_blocks(state, params, experiment["Blocks"])
         df = post_processing_function(state, params)
 
-        return state, params, msi, df
+        if metrics_functions:
+            metrics = {}
+            for metrics_function in metrics_functions:
+                metrics_function(metrics, state, params, df)
+            metrics = pd.Series(metrics)
+        else:
+            metrics = None
+
+        return state, params, msi, df, metrics
 
     def metaprogramming_python_states(
         self, model_directory, overwrite=False, default_values=None
