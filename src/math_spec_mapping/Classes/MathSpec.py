@@ -479,12 +479,17 @@ class MathSpec:
         state_preperation_functions=None,
         metrics_functions=None,
     ):
+        if experiment["Param Modifications"]:
+            params_base = deepcopy(params_base)
+            for key in experiment["Param Modifications"]:
+                params_base[key] = experiment["Param Modifications"][key]
         msi = self.build_implementation(params_base)
         state, params = msi.prepare_state_and_params(
             state_base,
             params_base,
             state_preperation_functions=state_preperation_functions,
         )
+
         state = msi.execute_blocks(state, params, experiment["Blocks"])
         df = post_processing_function(state, params)
 
