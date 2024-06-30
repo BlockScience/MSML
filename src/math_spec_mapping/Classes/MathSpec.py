@@ -477,6 +477,7 @@ class MathSpec:
         state_base,
         post_processing_function,
         state_preperation_functions=None,
+        parameter_preperation_functions=None,
         metrics_functions=None,
     ):
         if experiment["Param Modifications"]:
@@ -488,6 +489,7 @@ class MathSpec:
             state_base,
             params_base,
             state_preperation_functions=state_preperation_functions,
+            parameter_preperation_functions=parameter_preperation_functions,
         )
 
         state = msi.execute_blocks(state, params, experiment["Blocks"])
@@ -1007,7 +1009,13 @@ class MathSpecImplementation:
             len(shouldnt_be_in_params) == 0
         ), "The following parameters are extra: {}".format(shouldnt_be_in_params)
 
-    def prepare_state_and_params(self, state, params, state_preperation_functions=None):
+    def prepare_state_and_params(
+        self,
+        state,
+        params,
+        state_preperation_functions=None,
+        parameter_preperation_functions=None,
+    ):
         self.validate_state_and_params(state, params)
         state = deepcopy(state)
         params = deepcopy(params)
@@ -1018,6 +1026,12 @@ class MathSpecImplementation:
                 assert (
                     state is not None
                 ), "A state must be returned from the state preperation functions"
+        if parameter_preperation_functions:
+            for f in parameter_preperation_functions:
+                params = f(params)
+                assert (
+                    params is not None
+                ), "A parameter set must be returned from the parameter preperation functions"
         return state, params
 
     def load_components(self):
