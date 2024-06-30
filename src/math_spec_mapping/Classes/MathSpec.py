@@ -512,6 +512,7 @@ class MathSpec:
         state_base,
         post_processing_function,
         state_preperation_functions=None,
+        parameter_preperation_functions=None,
         metrics_functions=None,
     ):
         state_l = []
@@ -526,6 +527,7 @@ class MathSpec:
                     state_base,
                     post_processing_function,
                     state_preperation_functions=state_preperation_functions,
+                    parameter_preperation_functions=parameter_preperation_functions,
                     metrics_functions=metrics_functions,
                 )
                 df["Monte Carlo Run"] = i + 1
