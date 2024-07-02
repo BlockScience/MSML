@@ -21,21 +21,6 @@ While it will be weaved in throughout this presentation, the high level relation
 
 ## Agenda
 
-## An Introductory Example - Model Governance at Banks... Tales from my First Job
-
-The Federal Deposit Insurance Corporation (FDIC) has a great [guide for model governance](https://www.fdic.gov/regulations/examinations/supervisory/insights/siwin05/siwinter05-article1.pdf) which I will cite below mixed with personal experiences. Model risk is what good model governance aims to mitigate, which the FDIC describes as "the potential for model output to incorrectly inform management decisions."
-
-The important thing to note here is that banks have more than just themselves to worry about. Prior the financial crisis, quants created a slew of complex derivatives that forced the need to recruit physics PhD and math olympiad winners to model them (these two traits are still to this day highly sought after, some recruiters will explicitly ask for math olympiad winners and "The Big Short" had a scene dedicated to it). Unfortunately most of them failed to correctly model correlations being non-static (or were asked not to by their managers to make the model look much more attractive). The thing is, these banks are not holding the assets on their books (or at least are not the majority holders of it), they are creating them to <i>sell</i> usually. And the buyers are often times large institutional investors such as pension funds, Michael Lewis gives some of the finer points of it in his book "Flash Boys". When these models were wrong and the market blew up, it wasn't just the banks who were in trouble, so were the pensions of millions of people where there were now funding shortfalls.
-
-So they actually have stakeholders in who they sell to, but does that translate into action? Even if pessimistically we might think they will shirk the responsibility, through regulatory and legal channels they can be fined, banned from operating in markets, etc. Anecdotally when I first started my career I wanted to be a quant working on complex derivatives. However, when I asked around I found out two things. One, the market is so highly regulated that as one senior person said: "You need twice as many people for the same work because the regulatory and model governance takes up just as much time as modeling". And two, as a result of one, the market had shrank significantly.
-
-At my first job, I did quantitative modeling for the Comprehensive Capital Analysis and Review (CCAR) submission which the Fed mandates large banks undergo to stress test in case of a future financial crisis scenario. Many of the things I learned there are things which not only are a part of good end-to-end modeling but also can be improved upon using Obsidian and MSML. Some of the examples are:
-1. The requirement of having economic intuition behind how the model works; a statistically signficant p-value doesn't count if you are predicting the volume of bank deposits by using an independent variable of the number of streams that Drake has on Spotify.
-2. Ensuring robustness by testing through a range of regimes and scenarios, in CCAR the final scenarios are not known beforehand but the models are "locked in" so it is essential to test that a model is robust and not just giving one the results they want in a given scenario
-3. Creating a testing and validation process with both automation and coverage of edge cases in mind
-4. Meeting with stakeholders (in this case the business unit heads) to source the information and data that will provide the strongest model
-5. Documenting extensively how decisions were come to, in this case keeping minutes of every single meeting with business unit heads and presentations to committees on proposed models
-
 ## Introduction to End-to-End Modeling / the Engineering Lifecycle
 
 The engineering lifecycle as defined and visualized in ["Block by Block: Managing Complexity with Model-Based Systems Engineering"
@@ -51,25 +36,115 @@ End-to-end modeling is building through the full lifecycle; some of the tasks th
 5. Building a simulation framework of the model
 6. ...and so on
 
+## An Introductory Example - Model Governance at Banks... Tales from my First Job
+
+The Federal Deposit Insurance Corporation (FDIC) has a great [guide for model governance](https://www.fdic.gov/regulations/examinations/supervisory/insights/siwin05/siwinter05-article1.pdf) which I will cite below mixed with personal experiences. Model risk is what good model governance aims to mitigate, which the FDIC describes as "the potential for model output to incorrectly inform management decisions."
+
+The important thing to note here is that banks have more than just themselves to worry about. Prior the financial crisis, quants created a slew of complex derivatives that forced the need to recruit physics PhD and math olympiad winners to model them (these two traits are still to this day highly sought after, some recruiters will explicitly ask for math olympiad winners and "The Big Short" had a scene dedicated to it). Unfortunately most of them failed to correctly model correlations being non-static (or were asked not to by their managers to make the model look much more attractive). The thing is, these banks are not holding the assets on their books (or at least are not the majority holders of it), they are creating them to <i>sell</i> usually. And the buyers are often times large institutional investors such as pension funds, Michael Lewis gives some of the finer points of it in his book "Flash Boys". When these models were wrong and the market blew up, it wasn't just the banks who were in trouble, so were the pensions of millions of people where there were now funding shortfalls.
+
+So they actually have stakeholders in who they sell to, but does that translate into action? Even if pessimistically we might think they will shirk the responsibility, through regulatory and legal channels they can be fined, banned from operating in markets, etc. Anecdotally when I first started my career I wanted to be a quant working on complex derivatives. However, when I asked around I found out two things. One, the market is so highly regulated that as one senior person said: "You need twice as many people for the same work because the regulatory and model governance takes up just as much time as modeling". And two, as a result of one, the market had shrank significantly.
+
+At my first job, I did quantitative modeling for the Comprehensive Capital Analysis and Review (CCAR) submission which the Fed mandates large banks undergo to stress test in case of a future financial crisis scenario. Many of the things I learned there are things which not only are a part of good end-to-end modeling but also can be improved upon using Obsidian and MSML. Some of the examples are:
+1. The requirement of having economic intuition behind how the model works; a statistically signficant p-value doesn't count if you are predicting the volume of bank deposits by using an independent variable of the number of streams that Drake has on Spotify.
+2. Ensuring robustness by testing through a range of regimes and scenarios, in CCAR the final scenarios are not known beforehand but the models are "locked in" so it is essential to test that a model is robust and not just giving one the results they want in a given scenario
+3. Creating a testing and validation process with both automation and coverage of edge cases in mind
+4. Meeting with stakeholders (in this case the business unit heads) to source the information and data that will provide the strongest model
+5. Documenting extensively how decisions were come to, in this case keeping minutes of every single meeting with business unit heads and presentations to committees on proposed models
+
+
 ## Introduction to Obsidian for Networked Thinking
+
+TBD
 
 ## Introduction to MSML
 
+### What is the Mathematical Specification Mapping Library (MSML)?
+
+MSML is a library for standardizing the creation of mathematical specifications as JSON objects as well as aiding in the automation of report and visualization creation from these standardized JSON. 
+
+It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
+
+### What are some of the solutions offered?
+
+- **Automation**: Automate writing of a specification
+- **Standardization**: Ensure standardization across teams working to spec out a system
+- **Flexibility**: Allow for creating views on the fly and in multiple ways depending on what stakeholders find important
+- **Trackability**: Keep a repository of a JSON file to track changes to the spec with the same enhancements git provides for projects already
+
+### How does MSML work?
+
+
+```mermaid
+graph TD
+A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to the json specification \n Defines all aspects of the spec including blocks, spaces and actions] -->B[MSML Object \n\n JSON file is parsed, with validations and mappings along the way \n Can show different views on the fly]
+    B --> C[Report Outputs & Obsidian Directory \n\n Automatically build reports for the full spec or subviews \n Example: all blocks with an effect on variable XYZ\n Also builds an entire Obsidian directory of all components as linked notes]
+D[Python Function Implementations \n\n Optional enhancement to actually execute code\n Done for each referenced policy option, mechanism, etc. \n Just needs a function definition for each] --> B 
+B --> E[Python Wirings & Simulations \n\n MSML can be used to run blocks \n Wirings automatically work to pass between domain/codomains \n Entire simulations can be built up as composed wirings]
+```
+
+
 ## MSML in the Engineering Lifecycle
+
+![Systems Engineering Diagram](../SystemsEngineering.png)
+
+MSML can aid in all five of these phases in different ways.
+
+### Ideation and Conceptualization
+
+During ideation phases, users of MSML can leverage the markdown writing tool to begin organizing different thoughts into components. For example, if one were trying to model a system that has multiple currencies, i.e. USD and the Euro, those could be added in as MSML types as they are discovered. The markdown report writing supports wiki-links for use in Obsidian or a similar tool allowing users to iteratively catalog different components they find in their research and ideation. 
+
+### Requirements and Design
+
+When moving into requirements and design, MSML provides a suite of reports so that presentations to stakeholders can be insightful but tailored to the different audiences. Feedback can be iteratively incorporated into the spec with reports being re-run.
+
+### Implementation, Integration, and Testing
+
+In its basic form, a spec from MSML can be used to guide implementations because blocks can be transformed into actual code/functions and spaces act as the parameterizations of those functions. There is also experimental work being done on meta-programming so that MSML could either template simulation models or even be used to hold and write code where applicable for things such as A/B testing.
+
+### Operations and Maintenance
+
+Thanks to some of the more advanced features, MSML can be used as an aid for debugging and system validation. The functionality around seeing what parameters effect which blocks directly or downstream indirectly helps developers quickly identify root causes of issues. The linkages between mechanisms and what pieces of state they update allows for developers to quickly see all possible paths to variable changes there are in case something looks amiss.
+
+### Governance and Evolution
+
+The ability to fork the repository of an MSML spec as well as the ability to use it for A/B testing with the policy options makes it well suited for iterating on model evolution. 
 
 ## Rapid Prototyping with Obsidian and MSML
 
-- Show how one might build up to the 2024-04-15 guided example
-- Create a data table of sourcing documents
-- Work through the sourcing process
+### Rideshare Model Canonical Example
+
+To-Do:
+1. Show sourcing process
+2. Show how it is being used for iterative development
+
+### Retirement Planning Canonical Example
+
+To-Do:
+1. Show how scaffolding and ideation translates into going into spec
+2. Show how there are "recursive" requirements and as you move to define one thing you realize you need to define something else
 
 ## Governance Considerations
 
 ### MSML as a Living Document of Policy Proposals and Changes
 
+- Given policies, we know the broad scaffold of how things look and then we can define out different policy options that might be used. Different stakeholders may respond differently to different solutions but MSML allows for tracking the options as well as potentilly simulating the different options.
+- Git history allows an extra benefit of knowing when different things were added in, changed, etc.
+- Because of the ways that the system can be zoomed in on, one can automatically create different reports tailored to different stakeholder groups
+
 ### Obsidian x MSML for Tracking of Ideas
 
+- Together both of these resources can be used for collating ideas
+- Different proposals can be saved for potential future discussion by being added in
 
 ## Extending Obsidian with Plugins
 
+TBD
+
 ## Further Ideas & Thoughts for Future Experimentation
+
+TBD
+
+
+Notes:
+1. Possibly show an example repo like root finding
+2. Show datatables plugin
