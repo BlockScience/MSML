@@ -39,19 +39,27 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
-    """if "Displays" in directory_folders:
+    if "Displays" in directory_folders:
         path2 = path + "/Displays"
         contents = os.listdir(path2)
-        if "Dummy.py" in contents:
-            os.remove(path2 + "/Dummy.py")
-        if "__init__.py" in contents:
-            with open(path2 + "/__init__.py", "r") as f:
+        if "wiring.py" in contents:
+            with open(path2 + "/wiring.py", "r") as f:
                 contents = f.read()
-                contents = contents.replace("from .Dummy import metrics_x\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)", "")
-            with open(path2 + "/__init__.py", "w") as f:
-                f.write(contents)"""
+
+                contents = contents.replace('"Dummy Boundary Wiring 2",\n', "")
+                contents = contents.replace('"Dummy Boundary Wiring 2",', "")
+                contents = contents.replace('"Dummy Boundary Wiring 2"', "")
+
+                contents = contents.replace('"Dummy Boundary Wiring",\n', "")
+                contents = contents.replace('"Dummy Boundary Wiring",', "")
+                contents = contents.replace('"Dummy Boundary Wiring"', "")
+
+                contents = contents.replace('"Dummy Control Wiring",\n', "")
+                contents = contents.replace('"Dummy Control Wiring",', "")
+                contents = contents.replace('"Dummy Control Wiring"', "")
+
+            with open(path2 + "/wiring.py", "w") as f:
+                f.write(contents)
 
     if "Wiring" in directory_folders:
         path2 = path + "/Wiring"
@@ -104,8 +112,14 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/__init__.py", "r") as f:
                 contents = f.read()
                 contents = contents.replace(
-                    "from .Dummy import dummy_boundary_action\n", ""
+                    "from .Dummy import dummy_boundary_action, dummy_boundary_action2\n",
+                    "",
                 )
+
+                contents = contents.replace("dummy_boundary_action2,\n", "")
+                contents = contents.replace("dummy_boundary_action2,", "")
+                contents = contents.replace("dummy_boundary_action2", "")
+
                 contents = contents.replace("dummy_boundary_action,\n", "")
                 contents = contents.replace("dummy_boundary_action,", "")
                 contents = contents.replace("dummy_boundary_action", "")
