@@ -124,17 +124,27 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 
 ## Rapid Prototyping with Obsidian and MSML
 
+- A tight feedback loop can be executed with Obsidian and MSML for prototyping and model development
+- The key is to use Obsidian for the bulk of the information and curation which can then be parsed into MSML components as more clarity is derived
+
 ### Rideshare Model Canonical Example
 
-To-Do:
-1. Show sourcing process
-2. Show how it is being used for iterative development
+- The [Rideshare Model](https://github.com/BlockScience/rideshare-model) is a work in progress canonical example that Sayer Tindall is leading with help/advisory from Sean McOwen to model how the economics of a rideshare platform might be modeled
+- Notes can be added with work in progress thoughts as markdown files, i.e. information gleaned from talking with subject matter experts such as the below note:
+![alt text](rideshare1.png)
+- Proposals can also be created to present to stakeholders on implementation/modeling choices, for example the following below shows a proposal for how to model request a ride. Note the backlinks which can be clicked to go to the notes referenced.
+![alt text](rideshare2.png)
+- Before jumping into actually creating a spec, one can make a scaffold in the Obsidian vault to try and work through conceptually what components will be required.
+![alt text](rideshare3.png)
+- Then, iteration can begin on the spec. MSML will take in JSON representations, then build the spec from it and do all validations plus report creation. One of those reporting outputs is the Obsidian markdown directory that creates and links automatically all the different components. Below we can see (1) the JSON that created the pricing policy (2) the outputted MSML note on the policy (3) the spec tree at the current time which shows all the components so far implemented.
 
-### Retirement Planning Canonical Example
+- A note on recursive requirements: 
 
-To-Do:
-1. Show how scaffolding and ideation translates into going into spec
-2. Show how there are "recursive" requirements and as you move to define one thing you realize you need to define something else
+- The wiring diagram
+
+- Implementations
+
+- Simulation
 
 ## Governance Considerations
 
@@ -152,7 +162,3 @@ To-Do:
 ## Further Ideas & Thoughts for Future Experimentation
 
 TBD
-
-
-Notes:
-1. Possibly show an example repo like root finding
