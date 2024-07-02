@@ -21,6 +21,14 @@ While it will be weaved in throughout this presentation, the high level relation
 
 ## Agenda
 
+1. Introduction to End-to-End Modeling / the Engineering Lifecycle
+2. An Introductory Example - Model Governance at Banks... Tales from my First Job
+3. Introduction to Obsidian for Networked Thinking
+4. Introduction to MSML
+5. MSML in the Engineering Lifecycle
+6. Governance Considerations
+7. Further Ideas & Thoughts for Future Experimentation
+
 ## Introduction to End-to-End Modeling / the Engineering Lifecycle
 
 The engineering lifecycle as defined and visualized in ["Block by Block: Managing Complexity with Model-Based Systems Engineering"
@@ -54,7 +62,12 @@ At my first job, I did quantitative modeling for the Comprehensive Capital Analy
 
 ## Introduction to Obsidian for Networked Thinking
 
-TBD
+- Obsidian is a note taking app that allows one to make "wikilinks" that connect different notes to one and other
+- With the edge connections between notes, there are graph features to explore the relation of different concepts and ideas
+- As well there is support for creating canvases for brainstorming and ideation
+- Finally, it can be extended with plugins from the community
+    - For example, the plugin [dataview](https://blacksmithgu.github.io/obsidian-dataview/) allows one to create queries on the documents in the vault to do things like pull notes that link to a given note or pull all notes that contain a certain tag
+- In the rapid prototyping section we will show specifics of how it can be utilized
 
 ## Introduction to MSML
 
@@ -136,10 +149,6 @@ To-Do:
 - Together both of these resources can be used for collating ideas
 - Different proposals can be saved for potential future discussion by being added in
 
-## Extending Obsidian with Plugins
-
-TBD
-
 ## Further Ideas & Thoughts for Future Experimentation
 
 TBD
@@ -147,4 +156,3 @@ TBD
 
 Notes:
 1. Possibly show an example repo like root finding
-2. Show datatables plugin
