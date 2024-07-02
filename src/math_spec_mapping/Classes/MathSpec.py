@@ -484,6 +484,10 @@ class MathSpec:
             params_base = deepcopy(params_base)
             for key in experiment["Param Modifications"]:
                 params_base[key] = experiment["Param Modifications"][key]
+        if experiment["State Modifications"]:
+            state_base = deepcopy(state_base)
+            for key in experiment["State Modifications"]:
+                state_base[key] = experiment["State Modifications"][key]
         msi = self.build_implementation(params_base)
         state, params = msi.prepare_state_and_params(
             state_base,
