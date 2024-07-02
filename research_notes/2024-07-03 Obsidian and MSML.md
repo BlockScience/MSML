@@ -26,8 +26,9 @@ While it will be weaved in throughout this presentation, the high level relation
 3. Introduction to Obsidian for Networked Thinking
 4. Introduction to MSML
 5. MSML in the Engineering Lifecycle
-6. Governance Considerations
-7. Further Ideas & Thoughts for Future Experimentation
+6. Rapid Prototyping with Obsidian and MSML
+7. Governance Considerations
+8. Questions?
 
 ## Introduction to End-to-End Modeling / the Engineering Lifecycle
 
@@ -136,15 +137,28 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 ![alt text](rideshare2.png)
 - Before jumping into actually creating a spec, one can make a scaffold in the Obsidian vault to try and work through conceptually what components will be required.
 ![alt text](rideshare3.png)
+- A note on recursive requirements - as you can see this policy scaffold references two other notes which are spaces passed in as domain and out as codomain. As one writes out the scaffold they will often find it uncovers the other pieces that are needed for the full pipeline such as the types, spaces and other components.
 - Then, iteration can begin on the spec. MSML will take in JSON representations, then build the spec from it and do all validations plus report creation. One of those reporting outputs is the Obsidian markdown directory that creates and links automatically all the different components. Below we can see (1) the JSON that created the pricing policy (2) the outputted MSML note on the policy (3) the spec tree at the current time which shows all the components so far implemented.
 
-- A note on recursive requirements: 
+![alt text](rideshare4.png)
+![alt text](rideshare5.png)
+![alt text](rideshare6.png)
 
-- The wiring diagram
+- As more components are produced, wirings can be built which encapsulate the way in which execution across the blocks ought to flow. For example, the wiring below shows all the behaviors, policies and mechanisms related to requesting a ride. The graphic is automatically created from the data on the wirings. The first image shows all that is needed to declare a wiring and the second image shows the output for that wiring's obsidian note. Also note the composability of having the mechanism wirings as a component of the request ride wiring.
 
-- Implementations
+![alt text](rideshare7.png)
+![alt text](rideshare8.png)
+![alt text](rideshare9.png)
+- Implementations can be added to bind code to the different blocks, allowing them to be executed as code. For example, the (1) code below is bound to the blocks and then in (2) we see how these blocks can be run either individually or as part of a wiring (which automatically passes all the spaces between)
 
-- Simulation
+![alt text](rideshare10.png)
+![alt text](rideshare11.png)
+
+- Finally, MSML has functionality to run single experiments or large scale simulations with multiple experiments. For example, the following is the (1) code to set up a test that runs two blocks and (2) the code needed to execute the block.
+
+![alt text](rideshare12.png)
+![alt text](rideshare13.png)
+
 
 ## Governance Considerations
 
@@ -159,6 +173,4 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 - Together both of these resources can be used for collating ideas
 - Different proposals can be saved for potential future discussion by being added in
 
-## Further Ideas & Thoughts for Future Experimentation
-
-TBD
+## Questions?
