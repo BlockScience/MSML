@@ -33,8 +33,13 @@ def write_state_variable_table(target_state, links=False):
     return table
 
 
-def write_state_variable_table_markdown(target_state, links=False):
-    table = """| Name | Description | Type | Symbol | Domain |
+def write_state_variable_table_markdown(target_state, initial_values=None, links=False):
+    if initial_values:
+        table = """| Name | Description | Type | Symbol | Domain | Initial Value |
+| --- | --- | --- | --- | --- | --- |
+"""
+    else:
+        table = """| Name | Description | Type | Symbol | Domain |
 | --- | --- | --- | --- | --- |
 """
 
@@ -56,6 +61,8 @@ def write_state_variable_table_markdown(target_state, links=False):
                 else:
                     table += "{}".format(tv)
             table += "|"
+        if initial_values:
+            table += " {} |".format(initial_values[var.name])
 
         table += "\n"
 
