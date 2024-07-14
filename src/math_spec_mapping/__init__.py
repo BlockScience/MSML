@@ -26,6 +26,7 @@ from .Reports import (
     write_all_markdown_reports,
     write_state_variable_table_markdown,
     write_initial_state_variables_tables,
+    write_parameter_table_markdown,
 )
 from .schema import schema
 from .Convenience import remove_dummy_repo_components
