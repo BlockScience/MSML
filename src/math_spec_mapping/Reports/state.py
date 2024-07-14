@@ -69,6 +69,25 @@ def write_state_variable_table_markdown(target_state, initial_values=None, links
     return table
 
 
+def write_initial_state_variables_tables(ms, initial_values, links=False):
+    out = "### Global State"
+    out += "\n\n"
+    out += write_state_variable_table_markdown(
+        ms.state["Global State"], initial_values=initial_values, links=links
+    )
+    out += "\n"
+    for x in ms.state:
+        if x == "Global State":
+            continue
+
+        out += "### {}".format(x)
+        out += "\n\n"
+        out += write_state_variable_table_markdown(ms.state[x], links=links)
+        out += "\n"
+
+    return out
+
+
 def write_global_state_variable_table(state):
     out = ""
     out += "<h3>Global State</h3>"
