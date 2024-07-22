@@ -13,3 +13,38 @@ def write_out_params(ms: MathSpec, params: List[str]) -> str:
         out += "<p>Parameter Class: {}</p>".format(param.parameter_class)
 
     return out
+
+
+def write_parameter_table_markdown(ms, initial_values=None, links=False):
+    if initial_values:
+        table = """| Name | Description | Parameter Class | Symbol | Domain | Initial Value |
+| --- | --- | --- | --- | --- | --- |
+"""
+    else:
+        table = """| Name | Description | Parameter Class | Symbol | Domain |
+| --- | --- | --- | --- | --- |
+"""
+
+    for name in ms.parameters.parameter_map:
+        var = ms.parameters.parameter_map[name]
+        table_vars = [
+            var.name,
+            var.description,
+            var.parameter_class,
+            var.symbol,
+            var.domain,
+        ]
+        table += "|"
+        for i, tv in enumerate(table_vars):
+            if tv:
+                if links and i == 0:
+                    table += "[[{}\|{}]]".format(tv, tv)
+                else:
+                    table += "{}".format(tv)
+            table += "|"
+        if initial_values:
+            table += " {} |".format(initial_values[var.name])
+
+        table += "\n"
+
+    return table

@@ -8,6 +8,7 @@ from .Reports import (
     write_basic_report_full,
     write_action_chain_reports,
     write_spec_tree,
+    write_parameter_table,
     create_parameter_impact_table,
     write_entity_reports,
     write_wiring_report,
@@ -24,6 +25,9 @@ from .Reports import (
     write_parameter_markdown_report,
     write_stateful_metrics_markdown_report,
     write_all_markdown_reports,
+    write_state_variable_table_markdown,
+    write_initial_state_variables_tables,
+    write_parameter_table_markdown,
 )
 from .schema import schema
 from .Convenience import remove_dummy_repo_components
