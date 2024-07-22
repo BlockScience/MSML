@@ -6,7 +6,7 @@ from .policies import write_out_policies
 from .mechanisms import write_out_mechanisms
 from .general import load_svg_graphviz, write_header
 from .node_map import create_action_chains_graph
-from .parameters import write_out_params
+from .parameters import write_out_params, write_parameter_table_markdown
 from .state import write_local_state_variable_tables, write_global_state_variable_table
 from typing import List
 import os
@@ -267,3 +267,12 @@ def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None)
     out += write_spec_tree(ms, readme=True)
     with open(file_path, "w") as f:
         f.write(out)
+
+
+def write_parameter_table(ms: MathSpec, path=None, linking=False) -> str:
+    out = write_parameter_table_markdown(ms, links=linking)
+    if path:
+        with open("{}/Paramter Table.md".format(path), "w") as f:
+            f.write(out)
+    else:
+        return out

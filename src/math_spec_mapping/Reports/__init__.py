@@ -7,6 +7,7 @@ from .html import (
     write_basic_report_full,
     write_action_chain_reports,
     write_spec_tree,
+    write_parameter_table,
     write_entity_reports,
     write_overview,
 )
