@@ -86,6 +86,8 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace("from .Dummy import dummy_mechanisms\n", "")
                 contents = contents.replace("mechanism.extend(dummy_mechanisms)\n", "")
                 contents = contents.replace("mechanism.extend(dummy_mechanisms)", "")
+                contents = contents.replace("mechanisms.extend(dummy_mechanisms)\n", "")
+                contents = contents.replace("mechanisms.extend(dummy_mechanisms)", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
@@ -115,6 +117,15 @@ def remove_dummy_repo_components(path):
                     "from .Dummy import dummy_boundary_action, dummy_boundary_action2\n",
                     "",
                 )
+                contents = contents.replace(
+                    "from .Dummy import dummy_boundary_actions\n",
+                    "",
+                )
+
+                contents = contents.replace(
+                    "boundary_actions.extend(dummy_boundary_actions)",
+                    "",
+                )
 
                 contents = contents.replace("dummy_boundary_action2,\n", "")
                 contents = contents.replace("dummy_boundary_action2,", "")
@@ -137,6 +148,13 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace(
                     "from .Dummy import dummy_control_action\n", ""
                 )
+                contents = contents.replace(
+                    "from .Dummy import dummy_control_actions\n", ""
+                )
+                contents = contents.replace(
+                    "control_actions.extend(dummy_control_actions)", ""
+                )
+
                 contents = contents.replace("dummy_control_action,\n", "")
                 contents = contents.replace("dummy_control_action,", "")
                 contents = contents.replace("dummy_control_action", "")
@@ -214,6 +232,8 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace(
                     "from .Dummy import DummyCompoundType, DummyType1, DummyType2\n", ""
                 )
+                contents = contents.replace("from .Dummy import dummy_types\n", "")
+                contents = contents.replace("types.extend(dummy_types)", "")
                 contents = contents.replace(
                     """    DummyType1,
     DummyType2,
