@@ -38,7 +38,7 @@ def write_parameter_table_markdown(ms, initial_values=None, links=False):
         for i, tv in enumerate(table_vars):
             if tv:
                 if links and i == 0:
-                    table += "[[{}|{}]]".format(tv, tv)
+                    table += "[[{}\|{}]]".format(tv, tv)
                 else:
                     table += "{}".format(tv)
             table += "|"

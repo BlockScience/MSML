@@ -8,6 +8,7 @@ from .Reports import (
     write_basic_report_full,
     write_action_chain_reports,
     write_spec_tree,
+    write_parameter_table,
     create_parameter_impact_table,
     write_entity_reports,
     write_wiring_report,
