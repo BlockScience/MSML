@@ -13,8 +13,10 @@ def convert_space(ms, data: Dict) -> Space:
     data = data.copy()
 
     for x in data["schema"]:
-        assert data["schema"][x] in ms["Types"], "Type {} not in ms".format(
-            data["schema"][x]
+        assert (
+            data["schema"][x] in ms["Types"]
+        ), "Type {} not in ms for space {} at attribute {}".format(
+            data["schema"][x], data["name"], x
         )
         data["schema"][x] = ms["Types"][data["schema"][x]]
 

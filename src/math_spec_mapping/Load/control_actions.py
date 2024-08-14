@@ -49,6 +49,7 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
     data["control_action_options"] = new_cao
 
     data["codomain"] = tuple(ms["Spaces"][x] for x in data["codomain"])
+    data["domain"] = (ms["Spaces"]["Empty Space"],)
 
     # Build the control action object
     return ControlAction(data)
