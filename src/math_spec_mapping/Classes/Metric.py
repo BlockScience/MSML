@@ -15,3 +15,4 @@ class Metric:
         else:
             self.label = self.name
         self.metadata = data["metadata"]
+        self.implementations = data["implementations"]
