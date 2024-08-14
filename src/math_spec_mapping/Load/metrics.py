@@ -91,7 +91,9 @@ def load_metrics(ms: Dict, json: Dict, stateful_metrics_map) -> None:
             for z in y["metrics_used"]:
                 assert (
                     z in ms["Metrics"] or z in names or z in stateful_metrics_map
-                ), "{} is not defined in the spec".format(z)
+                ), "{} is not defined in the spec, but it is referenced in {}".format(
+                    z, y["name"]
+                )
         assert len(metrics) == 0, "There are circular references"
 
     # Load the metrics into the policies
