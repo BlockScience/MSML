@@ -775,6 +775,7 @@ class MathSpecImplementation:
         self.policies = self.load_policies()
         self.mechanisms = self.load_mechanisms()
         self.stateful_metrics = self.load_stateful_metrics()
+        self.metrics = self.load_metrics()
         self.load_wiring()
         self.load_components()
 
@@ -950,6 +951,22 @@ class MathSpecImplementation:
                 stateful_metrics[sm.name] = sm.implementations["python"]
 
         return stateful_metrics
+
+    def load_metrics(self):
+        metrics = {}
+
+        for m in self.ms.metrics:
+            m = self.ms.metrics[m]
+            if "python" not in m.implementations:
+                print(
+                    "No python implementation for {}. To fix this, go to Implementations/Python/Metrics and add {}".format(
+                        m.name, m.name
+                    )
+                )
+            else:
+                metrics[m.name] = m.implementations["python"]
+
+        return metrics
 
     def load_wiring(
         self,
