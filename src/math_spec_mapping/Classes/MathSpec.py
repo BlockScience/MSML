@@ -1043,6 +1043,7 @@ class MathSpecImplementation:
         state = deepcopy(state)
         params = deepcopy(params)
         state["Stateful Metrics"] = self.stateful_metrics
+        state["Metrics"] = self.metrics
         if state_preperation_functions:
             for f in state_preperation_functions:
                 state = f(state)
