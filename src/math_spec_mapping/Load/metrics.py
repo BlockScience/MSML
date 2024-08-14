@@ -50,6 +50,14 @@ def convert_metric(ms, data: Dict, stateful_metrics_map) -> Metric:
         for x in data["metrics_used"]
     )
 
+    data["implementations"] = {}
+    if "python" in ms["Implementations"]:
+        if "metrics" in ms["Implementations"]["python"]:
+            if data["name"] in ms["Implementations"]["python"]["metrics"]:
+                data["implementations"]["python"] = ms["Implementations"]["python"][
+                    "metrics"
+                ][data["name"]]
+
     # Build the metric object
     return Metric(data)
 
