@@ -8,6 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
+from inspect import signature
 
 
 class MathSpec:
@@ -1046,13 +1047,27 @@ class MathSpecImplementation:
         state["Metrics"] = self.metrics
         if state_preperation_functions:
             for f in state_preperation_functions:
-                state = f(state)
+                if len(signature(f).parameters) == 1:
+                    state = f(state)
+                elif len(signature(f).parameters) == 2:
+                    state = f(state, params)
+                else:
+                    assert (
+                        False
+                    ), "Incorrect number of parameters for the state preperation function"
                 assert (
                     state is not None
                 ), "A state must be returned from the state preperation functions"
         if parameter_preperation_functions:
             for f in parameter_preperation_functions:
-                params = f(params)
+                if len(signature(f).parameters) == 1:
+                    params = f(params)
+                elif len(signature(f).parameters) == 2:
+                    params = f(params, state)
+                else:
+                    assert (
+                        False
+                    ), "Incorrect number of parameters for the state preperation function"
                 assert (
                     params is not None
                 ), "A parameter set must be returned from the parameter preperation functions"
