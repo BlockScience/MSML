@@ -1091,3 +1091,11 @@ class MathSpecImplementation:
         self.source_files = {}
         for key in self.components:
             self.source_files[key] = getsource(self.components[key])
+
+    def print_source_code_files(self, keys = None):
+        if not keys:
+            keys = list(self.source_files.keys())
+        for key in keys:
+            print("-"*20+key+"-"*20)
+            print(self.source_files[key])
+            print("\n\n\n")
