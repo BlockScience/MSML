@@ -40,6 +40,7 @@ Dummy Control Block
 ## Constraints
 
 ## Domain Spaces
+1. [[Empty Space]]
 
 ## Codomain Spaces
 1. [[Terminating Space]]
@@ -47,7 +48,8 @@ Dummy Control Block
 ## All Spaces Used
 1. [[Dummy Space 1]]
 2. [[Dummy Space 2]]
-3. [[Terminating Space]]
+3. [[Empty Space]]
+4. [[Terminating Space]]
 
 ## Parameters Used
 1. [[DUMMY D Probability]]

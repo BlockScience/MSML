@@ -8,7 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
-from inspect import signature
+from inspect import signature, getsource
 
 
 class MathSpec:
@@ -779,6 +779,7 @@ class MathSpecImplementation:
         self.metrics = self.load_metrics()
         self.load_wiring()
         self.load_components()
+        self.load_source_files()
 
     def load_control_actions(self):
         control_actions = {}
@@ -1085,3 +1086,8 @@ class MathSpecImplementation:
         for block in blocks:
             self.components[block](state, params, [])
         return state
+
+    def load_source_files(self):
+        self.source_files = {}
+        for key in self.components:
+            self.source_files[key] = getsource(self.components[key])
