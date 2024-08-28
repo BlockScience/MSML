@@ -8,6 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
+from inspect import signature, getsource
 
 
 class MathSpec:
@@ -47,6 +48,7 @@ class MathSpec:
         self._build_functional_parameters()
         self._build_parameter_types()
         self._crawl_spaces()
+        self._set_source_code()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -765,6 +767,15 @@ using .Spaces: generate_space_type
     def build_implementation(self, params):
         return MathSpecImplementation(self, params)
 
+    def _set_source_code(self):
+        if "python" not in self.implementations:
+            self.source_code = None
+            return
+        self.source_code = deepcopy(self.implementations["python"])
+        for x in self.source_code:
+            for y in self.source_code[x]:
+                self.source_code[x][y] = getsource(self.source_code[x][y])
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params):
@@ -778,6 +789,7 @@ class MathSpecImplementation:
         self.metrics = self.load_metrics()
         self.load_wiring()
         self.load_components()
+        self.load_source_files()
 
     def load_control_actions(self):
         control_actions = {}
@@ -1046,13 +1058,27 @@ class MathSpecImplementation:
         state["Metrics"] = self.metrics
         if state_preperation_functions:
             for f in state_preperation_functions:
-                state = f(state)
+                if len(signature(f).parameters) == 1:
+                    state = f(state)
+                elif len(signature(f).parameters) == 2:
+                    state = f(state, params)
+                else:
+                    assert (
+                        False
+                    ), "Incorrect number of parameters for the state preperation function"
                 assert (
                     state is not None
                 ), "A state must be returned from the state preperation functions"
         if parameter_preperation_functions:
             for f in parameter_preperation_functions:
-                params = f(params)
+                if len(signature(f).parameters) == 1:
+                    params = f(params)
+                elif len(signature(f).parameters) == 2:
+                    params = f(params, state)
+                else:
+                    assert (
+                        False
+                    ), "Incorrect number of parameters for the state preperation function"
                 assert (
                     params is not None
                 ), "A parameter set must be returned from the parameter preperation functions"
@@ -1070,3 +1096,16 @@ class MathSpecImplementation:
         for block in blocks:
             self.components[block](state, params, [])
         return state
+
+    def load_source_files(self):
+        self.source_files = {}
+        for key in self.components:
+            self.source_files[key] = getsource(self.components[key])
+
+    def print_source_code_files(self, keys=None):
+        if not keys:
+            keys = list(self.source_files.keys())
+        for key in keys:
+            print("-" * 20 + key + "-" * 20)
+            print(self.source_files[key])
+            print("\n\n\n")
