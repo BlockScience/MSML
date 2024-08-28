@@ -48,6 +48,7 @@ class MathSpec:
         self._build_functional_parameters()
         self._build_parameter_types()
         self._crawl_spaces()
+        self._set_source_code()
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -766,6 +767,15 @@ using .Spaces: generate_space_type
     def build_implementation(self, params):
         return MathSpecImplementation(self, params)
 
+    def _set_source_code(self):
+        if "python" not in self.implementations:
+            self.source_code = None
+            return
+        self.source_code = deepcopy(self.implementations["python"])
+        for x in self.source_code:
+            for y in self.source_code[x]:
+                self.source_code[x][y] = getsource(self.source_code[x][y])
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params):
@@ -1092,10 +1102,10 @@ class MathSpecImplementation:
         for key in self.components:
             self.source_files[key] = getsource(self.components[key])
 
-    def print_source_code_files(self, keys = None):
+    def print_source_code_files(self, keys=None):
         if not keys:
             keys = list(self.source_files.keys())
         for key in keys:
-            print("-"*20+key+"-"*20)
+            print("-" * 20 + key + "-" * 20)
             print(self.source_files[key])
             print("\n\n\n")
