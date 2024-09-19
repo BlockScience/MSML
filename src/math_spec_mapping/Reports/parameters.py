@@ -15,7 +15,9 @@ def write_out_params(ms: MathSpec, params: List[str]) -> str:
     return out
 
 
-def write_parameter_table_markdown(ms, initial_values=None, links=False):
+def write_parameter_table_markdown(
+    ms, initial_values=None, links=False, compress_arrays=False
+):
     if initial_values:
         table = """| Name | Description | Parameter Class | Symbol | Domain | Initial Value |
 | --- | --- | --- | --- | --- | --- |
@@ -43,7 +45,16 @@ def write_parameter_table_markdown(ms, initial_values=None, links=False):
                     table += "{}".format(tv)
             table += "|"
         if initial_values:
-            table += " {} |".format(initial_values[var.name])
+            if compress_arrays:
+                iv = initial_values[var.name]
+                if type(iv) == list:
+                    if len(iv) > 4:
+                        iv = "[{}, {}, ... , {}, {}]".format(
+                            iv[0], iv[1], iv[-2], iv[-1]
+                        )
+                table += " {} |".format(iv)
+            else:
+                table += " {} |".format(initial_values[var.name])
 
         table += "\n"
 

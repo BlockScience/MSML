@@ -33,7 +33,9 @@ def write_state_variable_table(target_state, links=False):
     return table
 
 
-def write_state_variable_table_markdown(target_state, initial_values=None, links=False):
+def write_state_variable_table_markdown(
+    target_state, initial_values=None, links=False, compress_arrays=False
+):
     if initial_values:
         table = """| Name | Description | Type | Symbol | Domain | Initial Value |
 | --- | --- | --- | --- | --- | --- |
@@ -62,18 +64,32 @@ def write_state_variable_table_markdown(target_state, initial_values=None, links
                     table += "{}".format(tv)
             table += "|"
         if initial_values:
-            table += " {} |".format(initial_values[var.name])
+            if compress_arrays:
+                iv = initial_values[var.name]
+                if type(iv) == list:
+                    if len(iv) > 4:
+                        iv = "[{}, {}, ... , {}, {}]".format(
+                            iv[0], iv[1], iv[-2], iv[-1]
+                        )
+                table += " {} |".format(iv)
+            else:
+                table += " {} |".format(initial_values[var.name])
 
         table += "\n"
 
     return table
 
 
-def write_initial_state_variables_tables(ms, initial_values, links=False):
+def write_initial_state_variables_tables(
+    ms, initial_values, links=False, compress_arrays=False
+):
     out = "### Global State"
     out += "\n\n"
     out += write_state_variable_table_markdown(
-        ms.state["Global State"], initial_values=initial_values, links=links
+        ms.state["Global State"],
+        initial_values=initial_values,
+        links=links,
+        compress_arrays=compress_arrays,
     )
     out += "\n"
     for x in ms.state:
@@ -82,7 +98,9 @@ def write_initial_state_variables_tables(ms, initial_values, links=False):
 
         out += "### {}".format(x)
         out += "\n\n"
-        out += write_state_variable_table_markdown(ms.state[x], links=links)
+        out += write_state_variable_table_markdown(
+            ms.state[x], links=links, compress_arrays=compress_arrays
+        )
         out += "\n"
 
     return out
