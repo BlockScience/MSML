@@ -9,10 +9,15 @@
 
 ## MSML Template Purpose
 
+- Standardize the workflow of writing MSML models
+- Serve as an easy to understand repository for getting set up an MSML repository
+- Perform integration testing by re-loading the repository on any major library updates
+
 ## MSML Template Repository Presentation
+
+- We can jump over to the MSML template repository [here](https://github.com/BlockScience/MSML-Template) to learn more about the specifics
 
 ## Next Steps
 
 - Updating the remove stater repository functionality to be able to remove the new template components
 - Gathering feedback and integrating into the template
-
