@@ -258,11 +258,22 @@ cssclasses:
         return out
 
 
-def write_overview(ms: MathSpec, name: str, file_path: str, summary: str = None):
+def write_overview(
+    ms: MathSpec,
+    name: str,
+    file_path: str,
+    summary: str = None,
+    base_folder: str = None,
+):
     out = "<h1>{}</h1>".format(name)
     if summary:
         out += "<h2>Summary</h2>"
         out += "<p>{}</p>".format(summary)
+    if base_folder:
+        with open(base_folder, "r") as file:
+            content = file.read()
+        out += content
+        out += "\n"
     out += "<h2>Specification Tree</h2>"
     out += write_spec_tree(ms, readme=True)
     with open(file_path, "w") as f:

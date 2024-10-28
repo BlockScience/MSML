@@ -134,4 +134,14 @@ def load_type_keys(ms):
     if os.path.exists(julia_path):
         type_keys["julia"] = load_julia_type_key(julia_path)
 
+    python_path = "../src/TypeMappings/types.py"
+    typescript_path = "../src/TypeMappings/types.ts"
+    julia_path = "../src/TypeMappings/types.jl"
+    if os.path.exists(python_path):
+        type_keys["python"] = load_python_type_key()
+    if os.path.exists(typescript_path):
+        type_keys["typescript"] = load_typescript_type_key(typescript_path)
+    if os.path.exists(julia_path):
+        type_keys["julia"] = load_julia_type_key(julia_path)
+
     ms["Type Keys"] = type_keys
