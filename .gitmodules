@@ -4,3 +4,6 @@
 [submodule "examples/rideshare-model"]
 	path = examples/rideshare-model
 	url = https://github.com/BlockScience/rideshare-model
+[submodule "examples/MSML-Template"]
+	path = examples/MSML-Template
+	url = https://github.com/BlockScience/MSML-Template
