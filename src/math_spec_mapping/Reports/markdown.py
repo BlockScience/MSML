@@ -374,6 +374,12 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
         out += "\n"
     out += "\n"
 
+    out += "## Parameters Used\n"
+    for i, x in enumerate(sorted(control_action.parameters_used, key=lambda x: x)):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
     if control_action.control_action_options:
         out += "## Control Action Options:\n"
         for i, x in enumerate(control_action.control_action_options):
