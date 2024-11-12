@@ -509,6 +509,7 @@ def write_parameter_markdown_report(ms, path, parameter, add_metadata=True):
             )
 
     out += "Description: {}\n\n".format(param.description)
+    out += "Type: [[{}]]\n\n".format(param.variable_type.name)
     out += "Symbol: {}\n\n".format(param.symbol)
     out += "Domain: {}\n\n".format(param.domain)
     out += "Parameter Class: {}\n\n".format(param.parameter_class)
