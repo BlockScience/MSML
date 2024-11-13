@@ -43,3 +43,36 @@
 - And code can be copied into specific notes, such as the wiring shown below
 ![Wiring](Wiring.png)
 - Some more notes were added to the scaffold but if you look it will not be complete, rather we can refine once we finish porting all the code and baseline structure we want
+
+### MSML Scaffold 2
+
+- The second scaffold is where refinement and going deeper happens
+- The first thing that was done was breaking down each wiring into the specific components and showcasing it using an Obsidian canvas
+- The linked notes will show filled in notes at this point, but in the beginning most of these notes will be empty or close to empty (and also can have #WIP added to flag what still needs to be finished)
+- The canvas looks like (it is too large to display the entire thing):
+![Obsidian Canvas](ObsidianCanvas.png)
+- Notes then can be filled in with the components of what will become the JSON representation, such as the "Agent Reproduction Boundary Action":
+![Agent Reproduction](AgentReproduction.png)
+
+### Issue Writing
+- By using the "write_issues.ipynb" which is a wrapper around MSML's new feature for github issue writing, one can automatically write github issues to the MSML repository (or the same repository)
+- In the [Predator-Prey-MSML Repository](https://github.com/BlockScience/Predator-Prey-MSML) one can see the issues (which at the time of this writing are in progress)
+- The issues that were automatically written are shown below:
+![MSML Git Issues](MSMLGitIssues.png)
+- The automatic issue writer also creates a checklist of components for each issues that need to be solved, shown below:
+![Git Issue](GitIssue.png)
+- One can also convert a checkbox into its own issue if they choose using the git functionality displayed above by moving their mouse into that location
+
+### Moving on to MSML
+- Now one can take the scaffold repository and move it into the Obsidian report folder if they want
+- By disabling the folder overwriting in the "Write Spec" notebook, you can even have it be that you are only overwriting notes which you have filled in the spec components for
+- And the github issues make it nice and easy to track what you still need to implement
+- Let's take a look at the current Predator-Prey-MSML repository!
+
+## Conclusion
+
+- This is only one potential way to go about ideation but it proves to be a powerful method
+- Moving forward the MSML specification is going to be completed for use as the second phase of the canonical example
+
+## Questions?
+- Feel free to ask any questions or give any thoughts!
