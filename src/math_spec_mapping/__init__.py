@@ -30,6 +30,6 @@ from .Reports import (
     write_parameter_table_markdown,
 )
 from .schema import schema
-from .Convenience import remove_dummy_repo_components
+from .Convenience import remove_dummy_repo_components, write_scaffold_to_github_issues
 
 # from .Convenience import write_top_level_json_description
