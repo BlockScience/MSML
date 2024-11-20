@@ -4,6 +4,24 @@
 
 - The following research note deals with research into what multi-processing paradigms exist in Python and which ones might serve MSML and cadCAD the best
 
+## Past Exploration
+
+- There has been use of `Ray` in the past in the fork of cadCAD called radCAD
+- `Ray` shares the same underlying api at the `multiprocessing` module but can be distributed and scaled
+- In the past, we have struggled with the time taken for pickling and unpickling which has hurt performance time
+
+## Primary Objectives of Multi-Processing
+
+- Provide a way to parallelize simulations
+- Speed up the simulation process significantly
+- Provide a simple interface to use and debug
+
+## Secondary Objectives
+
+- Allow for ease of debugging simulations
+- Allow for distribution to multiple machines automatically
+- Easily support cloud runs of the multi-processing
+
 ## Appendix
 
 ### ChatGPT Response 1
