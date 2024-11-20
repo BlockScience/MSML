@@ -9,6 +9,7 @@
 - There has been use of `Ray` in the past in the fork of cadCAD called radCAD
 - `Ray` shares the same underlying api at the `multiprocessing` module but can be distributed and scaled
 - In the past, we have struggled with the time taken for pickling and unpickling which has hurt performance time
+- The `multiprocessing` is currently used but is running very slow when there are simulations with large data structures
 
 ## Primary Objectives of Multi-Processing
 
@@ -21,6 +22,27 @@
 - Allow for ease of debugging simulations
 - Allow for distribution to multiple machines automatically
 - Easily support cloud runs of the multi-processing
+
+## High Level Options
+
+1. **`multiprocessing` Module**: Python's built in module which creates separate processes to be run on different CPU cores
+2. **`concurrent.futures.ProcessPoolExecutor`**: A higher-level API for managing process pools, however, it has less fine-grained control and also the same overhead as `multiprocessing` so we will not explore more
+3. **`joblib`**: A library optimized for parallelism, commonly used in data science and machine learning, but it is more geared towards python/numpy objects so we will ignore for this exploration
+4. **`dask`**: A parallel computing library for dynamic task scheduling, which while more complex, can be better for scalability
+5. **`Ray`**: A flexible, distributed framework for parallel and distributed Python applications which does come with a steeper learning curve
+6. **`subprocess` Module**: Used for running external processes, however it spawns shell processes so we will ignore for this exploration as it might get too complicated
+7. **`Celery`**: A distributed task queue library with support for parallel task execution, however it requires a message broker which likely makes it overkill for use in simple location simulations
+
+
+## Candidate 1: **`multiprocessing` Module**
+
+## Candidate 2: **`dask`**
+
+## Candidate 3: **`Ray`**
+
+## Objectives Comparison Table
+
+## Conclusion
 
 ## Appendix
 
