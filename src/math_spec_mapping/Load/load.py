@@ -78,4 +78,7 @@ def load_from_json(json: Dict) -> MathSpec:
     check_json_keys(ms, "Math Spec")
 
     ms = MathSpec(ms, json)
+    for space in ms.spaces.values():
+        space.domain_blocks = list(set(space.domain_blocks))
+        space.codomain_blocks = list(set(space.codomain_blocks))
     return ms
