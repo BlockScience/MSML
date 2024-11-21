@@ -157,6 +157,18 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
+    out += "## Metrics Used\n"
+    for i, x in enumerate(boundary_action.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(sorted(boundary_action.parameters_used, key=lambda x: x)):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
     if boundary_action.boundary_action_options:
         out += "## Boundary Action Options:\n"
         for i, x in enumerate(boundary_action.boundary_action_options):
@@ -288,6 +300,18 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
 
+    out += "## Metrics Used\n"
+    for i, x in enumerate(mechanism.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(sorted(mechanism.parameters_used, key=lambda x: x)):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
     out += "## Logic\n"
     out += mechanism.logic
 
@@ -329,6 +353,20 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
     )
     d = "{" + d + "}"
     out += d
+    out += "\n\n"
+
+    out += "## Blocks with Space in Domain"
+    out += "\n"
+    for i, x in enumerate(space.domain_blocks):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Blocks with Space in Codomain"
+    out += "\n"
+    for i, x in enumerate(space.codomain_blocks):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
     out += "\n"
 
     with open("{}/Spaces/{}.md".format(path, space.name), "w") as f:
@@ -370,6 +408,12 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     out += "\n"
     out += "## Codomain Spaces\n"
     for i, x in enumerate(control_action.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(control_action.metrics_used):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
@@ -459,6 +503,12 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 
     out += "## All Spaces Used\n"
     for i, x in enumerate(sorted(wiring.all_spaces_used, key=lambda x: x.name)):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(wiring.metrics_used):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
