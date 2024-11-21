@@ -36,9 +36,63 @@
 
 ## Candidate 1: **`multiprocessing` Module**
 
+- Python's built in module for multi-processing
+- Separate processes are created that can run on different CPU cores, avoiding Python's Global Interpreter Lock (GIL).
+- Process-based parallelism.
+- Allows sharing data using `Queue`, `Pipe`, `Value`, and `Array`.
+
+- **Strengths**:
+  - True parallelism across multiple CPU cores.
+  - Easy to use, with a simple API similar to `threading`.
+  - Built into Python, no external dependencies.
+  - Supports shared memory with `multiprocessing.Array` or `multiprocessing.Value`
+  - Well-documented and widely supported
+
+- **Weaknesses**:
+  - Higher memory overhead because each process has its own memory space.
+  - Inter-process communication (IPC) can be slower than in-thread communication.
+  - Starting processes can have higher latency compared to threads.
+  - Limited support for handling large datasets due to pickling/unpickling overhead
+  - Debugging is harder compared to single-threaded solutions
+
 ## Candidate 2: **`dask`**
 
+A parallel computing library for dynamic task scheduling.
+
+- Scales from a single machine to a distributed cluster, with support for task-based and data parallelism.
+- Handles both in-memory computation and out-of-core processing for large datasets.
+- Integrates well with pandas, numpy, and scikit-learn.
+
+- **Strengths**:
+  - Great for big data tasks.
+  - Scalable from single-core to distributed systems.
+  - Can handle complex, directed acyclic graphs (DAGs) for computations.
+
+- **Weaknesses**:
+  - More complex than other options for simple tasks.
+  - Requires additional setup for distributed usage.
+
+
 ## Candidate 3: **`Ray`**
+
+A flexible, distributed framework for parallel and distributed Python applications.
+
+- Provides parallelism across CPUs and GPUs, making it suitable for machine learning and AI workloads.
+- Supports actors, tasks, and scalable scheduling.
+- Integrates with TensorFlow, PyTorch, etc.
+
+- **Strengths**:
+  - Highly scalable for advanced workloads.
+  - Supports a wide variety of computational patterns.
+  - Simple API for parallel and distributed execution.
+  - Built-in tools for handling failures, scheduling, and monitoring.
+  - Integrates well with machine learning frameworks like PyTorch and TensorFlow.
+
+
+- **Weaknesses**:
+  - Steeper learning curve for beginners.
+  - Heavier dependency and setup.
+  - Overkill for simple simulations on a single machine.
 
 ## Objectives Comparison Table
 
