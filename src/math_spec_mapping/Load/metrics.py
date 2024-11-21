@@ -116,3 +116,4 @@ def load_metrics(ms: Dict, json: Dict, stateful_metrics_map) -> None:
             block.metrics_used.append(
                 ms["Metrics"][x] if x in ms["Metrics"] else stateful_metrics_map[x]
             )
+        block.metrics_used = sorted(block.metrics_used, key=lambda x: x.name)
