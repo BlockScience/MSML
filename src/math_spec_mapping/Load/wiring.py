@@ -34,6 +34,11 @@ def load_single_wiring(data, ms):
     else:
         assert False
 
+    data["metrics_used"] = []
+    for x in data["components"]:
+        data["metrics_used"].extend(x.metrics_used)
+    data["metrics_used"] = list(set(data["metrics_used"]))
+
     return block
 
 
