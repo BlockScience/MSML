@@ -79,3 +79,9 @@ def load_boundary_actions(ms: Dict, json: Dict) -> None:
         ms["Boundary Actions"][key] = convert_boundary_action(ba, ms)
         for entity in ms["Boundary Actions"][key].called_by:
             entity.add_boundary_action(ms["Boundary Actions"][key])
+
+        for space in ms["Boundary Actions"][key].domain:
+            space.domain_blocks.append(ms["Boundary Actions"][key])
+
+        for space in ms["Boundary Actions"][key].codomain:
+            space.codomain_blocks.append(ms["Boundary Actions"][key])
