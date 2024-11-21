@@ -24,6 +24,11 @@ def load_single_wiring(data, ms):
     # Map components
     data["components"] = [ms["Blocks"][x] for x in data["components"]]
 
+    data["metrics_used"] = []
+    for x in data["components"]:
+        data["metrics_used"].extend(x.metrics_used)
+    data["metrics_used"] = list(set(data["metrics_used"]))
+
     # Map to the correct block
     if block_type == "Stack":
         block = StackBlock(data)

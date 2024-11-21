@@ -68,4 +68,11 @@ def load_mechanisms(ms: Dict, json: Dict) -> None:
     for m in json["Mechanisms"]:
         ms["Mechanisms"][m["name"]], new_channels = convert_mechanism(m, ms)
         state_update_transmission_channels.extend(new_channels)
+
+        key = m["name"]
+        for space in ms["Mechanisms"][key].domain:
+            space.domain_blocks.append(ms["Mechanisms"][key])
+
+        for space in ms["Mechanisms"][key].codomain:
+            space.codomain_blocks.append(ms["Mechanisms"][key])
     return state_update_transmission_channels

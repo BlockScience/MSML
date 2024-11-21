@@ -66,3 +66,10 @@ def load_control_actions(ms: Dict, json: Dict) -> None:
     ms["Control Actions"] = {}
     for ca in json["Control Actions"]:
         ms["Control Actions"][ca["name"]] = convert_control_action(ca, ms)
+
+        key = ca["name"]
+        for space in ms["Control Actions"][key].domain:
+            space.domain_blocks.append(ms["Control Actions"][key])
+
+        for space in ms["Control Actions"][key].codomain:
+            space.codomain_blocks.append(ms["Control Actions"][key])

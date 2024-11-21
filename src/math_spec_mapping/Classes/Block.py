@@ -11,6 +11,10 @@ class Block:
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
         self.metadata = data["metadata"]
+        if "metrics_used" in data:
+            self.metrics_used = data["metrics_used"]
+        else:
+            self.metrics_used = []
         if "label" in data:
             self.label = data["label"]
         else:
@@ -163,6 +167,10 @@ class ParallelBlock(Block):
         self.components = data["components"]
         self.description = data["description"]
         self.constraints = data["constraints"]
+        if "metrics_used" in data:
+            self.metrics_used = data["metrics_used"]
+        else:
+            self.metrics_used = []
         self.mermaid_show_name = data["mermaid_show_name"]
         self.domain = tuple(
             [
@@ -316,6 +324,10 @@ class StackBlock(Block):
         self.mermaid_show_name = data["mermaid_show_name"]
         self.optional_indices = data["optional_indices"]
         self.loop = data["loop"]
+        if "metrics_used" in data:
+            self.metrics_used = data["metrics_used"]
+        else:
+            self.metrics_used = []
         self._check_domain_mapping()
         self.domain = self.components[0].domain
         self.codomain = self.components[-1].codomain
@@ -470,6 +482,10 @@ class SplitBlock(Block):
         self.description = data["description"]
         self.constraints = data["constraints"]
         self.mermaid_show_name = data["mermaid_show_name"]
+        if "metrics_used" in data:
+            self.metrics_used = data["metrics_used"]
+        else:
+            self.metrics_used = []
         self.domain = tuple(
             [
                 i
