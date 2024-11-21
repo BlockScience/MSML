@@ -495,6 +495,12 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
+    out += "## Metrics Used\n"
+    for i, x in enumerate(wiring.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
     out += "## Parameters Used\n"
     for i, x in enumerate(sorted(wiring.parameters_used, key=lambda x: x)):
         out += "{}. [[{}]]".format(i + 1, x)
