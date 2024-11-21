@@ -92,3 +92,10 @@ def load_policies(ms: Dict, json: Dict) -> None:
     ms["Policies"] = {}
     for policy in json["Policies"]:
         ms["Policies"][policy["name"]] = convert_policy(policy, ms)
+
+        key = policy["name"]
+        for space in ms["Policies"][key].domain:
+            space.domain_blocks.append(ms["Policies"][key])
+
+        for space in ms["Policies"][key].codomain:
+            space.codomain_blocks.append(ms["Policies"][key])
