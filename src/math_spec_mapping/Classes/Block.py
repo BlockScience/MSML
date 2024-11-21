@@ -11,6 +11,10 @@ class Block:
         self.codomain = data["codomain"]
         self.parameters_used = data["parameters_used"]
         self.metadata = data["metadata"]
+        if "metrics_used" in data:
+            self.metrics_used = data["metrics_used"]
+        else:
+            self.metrics_used = []
         if "label" in data:
             self.label = data["label"]
         else:
