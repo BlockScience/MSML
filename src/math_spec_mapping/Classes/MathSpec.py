@@ -32,7 +32,9 @@ class MathSpec:
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
         self.wiring = ms_dict["Wiring"]
-        self.blocks = ms_dict["Blocks"]
+        # self.blocks = ms_dict["Blocks"]
+        self._load_blocks()
+        self._load_components()
         self.types = ms_dict["Types"]
         self.metrics = ms_dict["Metrics"]
         self.displays = ms_dict["Displays"]
@@ -205,6 +207,21 @@ class MathSpec:
         out = list(set(out))
 
         return out
+
+    def _load_blocks(self):
+        self.blocks = {}
+        self.blocks.update(self.control_actions)
+        self.blocks.update(self.boundary_actions)
+        self.blocks.update(self.policies)
+        self.blocks.update(self.mechanisms)
+        self.blocks.update(self.wiring)
+
+    def _load_components(self):
+        self.components = {}
+        self.components.update(self.control_actions)
+        self.components.update(self.boundary_actions)
+        self.components.update(self.policies)
+        self.components.update(self.mechanisms)
 
     def crawl_action_chains(self, action_keys: List[str]) -> dict:
         """Crawl the graph of the actions to find all policies, entities, edges, etc.
