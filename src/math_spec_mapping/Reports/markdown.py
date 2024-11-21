@@ -329,6 +329,20 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
     )
     d = "{" + d + "}"
     out += d
+    out += "\n\n"
+
+    out += "## Blocks with Space in Domain"
+    out += "\n"
+    for i, x in enumerate(space.domain_blocks):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Blocks with Space in Codomain"
+    out += "\n"
+    for i, x in enumerate(space.codomain_blocks):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
     out += "\n"
 
     with open("{}/Spaces/{}.md".format(path, space.name), "w") as f:
