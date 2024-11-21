@@ -157,6 +157,12 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
+    out += "## Metrics Used\n"
+    for i, x in enumerate(boundary_action.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
     if boundary_action.boundary_action_options:
         out += "## Boundary Action Options:\n"
         for i, x in enumerate(boundary_action.boundary_action_options):
@@ -288,6 +294,12 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
         out += "{}. {}".format(i + 1, x)
         out += "\n"
 
+    out += "## Metrics Used\n"
+    for i, x in enumerate(mechanism.metrics_used):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
     out += "## Logic\n"
     out += mechanism.logic
 
@@ -384,6 +396,12 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
     out += "\n"
     out += "## Codomain Spaces\n"
     for i, x in enumerate(control_action.codomain):
+        out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Metrics Used\n"
+    for i, x in enumerate(control_action.metrics_used):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
