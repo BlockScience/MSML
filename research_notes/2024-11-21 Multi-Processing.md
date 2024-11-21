@@ -57,8 +57,7 @@
 
 ## Candidate 2: **`dask`**
 
-A parallel computing library for dynamic task scheduling.
-
+- A parallel computing library for dynamic task scheduling.
 - Scales from a single machine to a distributed cluster, with support for task-based and data parallelism.
 - Handles both in-memory computation and out-of-core processing for large datasets.
 - Integrates well with pandas, numpy, and scikit-learn.
@@ -75,8 +74,7 @@ A parallel computing library for dynamic task scheduling.
 
 ## Candidate 3: **`Ray`**
 
-A flexible, distributed framework for parallel and distributed Python applications.
-
+- A flexible, distributed framework for parallel and distributed Python applications.
 - Provides parallelism across CPUs and GPUs, making it suitable for machine learning and AI workloads.
 - Supports actors, tasks, and scalable scheduling.
 - Integrates with TensorFlow, PyTorch, etc.
@@ -96,7 +94,17 @@ A flexible, distributed framework for parallel and distributed Python applicatio
 
 ## Objectives Comparison Table
 
-## Conclusion
+| **Approach**                 | **Parallelism** | **Ease of Use** | **Performance Overhead** | **Debugging Ease** | **Scaling Across Machines Ease** | **Cloud Integration** |
+|------------------------------|-----------------|-----------------|--------------------------|--------------------------|--------------------------|--------------------------|
+| `multiprocessing`            | High            | Moderate        | High                    | High | Low | Low |
+| `dask`                       | High            | Low to Moderate        | Moderate to High        | Moderate | Moderate to High | Moderate |
+| `Ray`                        | High            | Low to Moderate        | Moderate to High        | Low to Moderate | High | High |
+
+
+## Conclusion & Next Steps
+
+- All three are potential solutons but really we can break it down into higher ease of use without scalability for using `multiprocessing` vs. higher scalability and power with `dask` / `Ray` if we are willing to put more effort in
+- It might be prudent to try all three solutions with MSML and clock performance time on a test case so that we can compare local machine performance and also get an idea of how hard it would be to set up workflows with any of these
 
 ## Appendix
 
