@@ -105,14 +105,14 @@ def load_metrics(ms: Dict, json: Dict, stateful_metrics_map) -> None:
         assert len(metrics) == 0, "There are circular references"
 
     # Load the metrics into the policies
-    for key in ms["Policies"]:
-        policy = ms["Policies"][key]
-        hold = policy.metrics_used[:]
-        policy.metrics_used = []
+    for key in ms["Blocks"]:
+        block = ms["Blocks"][key]
+        hold = block.metrics_used[:]
+        block.metrics_used = []
         for x in hold:
             assert (
                 x in ms["Metrics"] or x in stateful_metrics_map
             ), "{} not a valid metric or stateful metric".format(x)
-            policy.metrics_used.append(
+            block.metrics_used.append(
                 ms["Metrics"][x] if x in ms["Metrics"] else stateful_metrics_map[x]
             )
