@@ -163,6 +163,12 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
         out += "\n"
     out += "\n"
 
+    out += "## Parameters Used\n"
+    for i, x in enumerate(sorted(boundary_action.parameters_used, key=lambda x: x)):
+        out += "{}. [[{}]]".format(i + 1, x)
+        out += "\n"
+    out += "\n"
+
     if boundary_action.boundary_action_options:
         out += "## Boundary Action Options:\n"
         for i, x in enumerate(boundary_action.boundary_action_options):
@@ -297,6 +303,12 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
     out += "## Metrics Used\n"
     for i, x in enumerate(mechanism.metrics_used):
         out += "{}. [[{}]]".format(i + 1, x.name)
+        out += "\n"
+    out += "\n"
+
+    out += "## Parameters Used\n"
+    for i, x in enumerate(sorted(mechanism.parameters_used, key=lambda x: x)):
+        out += "{}. [[{}]]".format(i + 1, x)
         out += "\n"
     out += "\n"
 
