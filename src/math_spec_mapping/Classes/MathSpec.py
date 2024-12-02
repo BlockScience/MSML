@@ -8,7 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
-from inspect import signature, getsource
+from inspect import signature, getsource, getfile
 
 
 class MathSpec:
@@ -1116,8 +1116,10 @@ class MathSpecImplementation:
 
     def load_source_files(self):
         self.source_files = {}
+        self.file_names = {}
         for key in self.components:
             self.source_files[key] = getsource(self.components[key])
+            self.file_names[key] = getfile(self.components[key])
 
     def print_source_code_files(self, keys=None):
         if not keys:
@@ -1125,4 +1127,6 @@ class MathSpecImplementation:
         for key in keys:
             print("-" * 20 + key + "-" * 20)
             print(self.source_files[key])
+            print("\n")
+            print("File path: {}".format(self.file_names[key]))
             print("\n\n\n")
