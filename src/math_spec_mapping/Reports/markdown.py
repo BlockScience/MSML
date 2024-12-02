@@ -1,5 +1,20 @@
 import os
 from .state import write_state_section
+from inspect import signature, getsource, getfile
+
+
+def get_source_code(ms, component_type, implementation_name):
+    if implementation_name in ms.implementations["python"][component_type]:
+        code = ms.implementations["python"][component_type][implementation_name]
+    else:
+        return None
+    source_code = """```python
+{}
+```""".format(
+        getsource(code)
+    )
+    file_path = getfile(code)
+    return source_code, file_path
 
 
 def write_entity_markdown_report(ms, path, entity, add_metadata=True):
@@ -435,6 +450,14 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
             out += "#### Logic\n"
             out += x.logic
             out += "\n\n"
+
+            temp = get_source_code(ms, "control_action_options", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = "./" + os.path.relpath(
+                    file_path, "{}/Control Actions".format(path)
+                )
+                print(source_code, file_path)
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
         f.write(out)
