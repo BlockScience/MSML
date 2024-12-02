@@ -9,8 +9,7 @@ def get_source_code(ms, component_type, implementation_name):
     else:
         return None
     source_code = """```python
-{}
-```""".format(
+{}```""".format(
         getsource(code)
     )
     file_path = getfile(code)
@@ -449,15 +448,23 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
 
             temp = get_source_code(ms, "control_action_options", x.name)
             if temp:
                 source_code, file_path = temp
-                file_path = "./" + os.path.relpath(
-                    file_path, "{}/Control Actions".format(path)
+                # file_path = os.path.relpath(
+                #    file_path, "{}/Control Actions".format(path)
+                # )
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path: [{}](file://{})".format(
+                    file_path, file_path
                 )
-                print(source_code, file_path)
+                out += "\n"
+
+            out += "\n"
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
         f.write(out)
