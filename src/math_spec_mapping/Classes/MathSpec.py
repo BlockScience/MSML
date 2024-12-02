@@ -1118,7 +1118,7 @@ class MathSpecImplementation:
     def load_source_files(self):
         self.source_files = {}
         self.file_names = {}
-        for key in self.components:
+        for key in self.blocks:
             self.source_files[key] = getsource(self.components[key])
             self.file_names[key] = getfile(self.components[key])
 
@@ -1126,6 +1126,9 @@ class MathSpecImplementation:
         if not keys:
             keys = list(self.source_files.keys())
         for key in keys:
+            # Skip wirings
+            if key not in self.ms.components:
+                continue
             print("-" * 20 + key + "-" * 20)
             if markdown:
                 display(
