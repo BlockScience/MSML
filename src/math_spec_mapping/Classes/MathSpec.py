@@ -9,6 +9,7 @@ from copy import deepcopy
 import shutil
 import pandas as pd
 from inspect import signature, getsource, getfile
+from IPython.display import display, Markdown
 
 
 class MathSpec:
@@ -1121,12 +1122,23 @@ class MathSpecImplementation:
             self.source_files[key] = getsource(self.components[key])
             self.file_names[key] = getfile(self.components[key])
 
-    def print_source_code_files(self, keys=None):
+    def print_source_code_files(self, keys=None, markdown=True):
         if not keys:
             keys = list(self.source_files.keys())
         for key in keys:
             print("-" * 20 + key + "-" * 20)
-            print(self.source_files[key])
+            if markdown:
+                display(
+                    Markdown(
+                        """```python
+{}
+```""".format(
+                            self.source_files[key]
+                        )
+                    )
+                )
+            else:
+                print(self.source_files[key])
             print("\n")
             full_path = self.file_names[key]
             print("File path: {}".format(full_path))
