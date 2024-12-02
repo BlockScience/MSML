@@ -1128,5 +1128,8 @@ class MathSpecImplementation:
             print("-" * 20 + key + "-" * 20)
             print(self.source_files[key])
             print("\n")
-            print("File path: {}".format(self.file_names[key]))
+            full_path = self.file_names[key]
+            print("File path: {}".format(full_path))
+            relative_path = "./" + os.path.relpath(full_path, os.getcwd())
+            print("Relative file path: {}".format(relative_path))
             print("\n\n\n")
