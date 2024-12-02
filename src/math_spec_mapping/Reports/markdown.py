@@ -453,13 +453,13 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
             temp = get_source_code(ms, "control_action_options", x.name)
             if temp:
                 source_code, file_path = temp
-                # file_path = os.path.relpath(
-                #    file_path, "{}/Control Actions".format(path)
-                # )
+                file_path = os.path.relpath(
+                    file_path, "{}/Control Actions".format(path)
+                )
                 out += "#### Python Implementation\n"
                 out += source_code
                 out += "\n"
-                out += "Implementation Path: [{}](file://{})".format(
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
                     file_path, file_path
                 )
                 out += "\n"
