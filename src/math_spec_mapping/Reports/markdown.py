@@ -193,7 +193,23 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
+
+            temp = get_source_code(ms, "boundary_action_options", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = os.path.relpath(
+                    file_path, "{}/Boundary Actions".format(path)
+                )
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+                    file_path, file_path
+                )
+                out += "\n"
+
+            out += "\n"
 
     with open(
         "{}/Boundary Actions/{}.md".format(path, boundary_action.label), "w"
@@ -270,7 +286,21 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
+
+            temp = get_source_code(ms, "policies", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = os.path.relpath(file_path, "{}/Policies".format(path))
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+                    file_path, file_path
+                )
+                out += "\n"
+
+            out += "\n"
 
     with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
         f.write(out)
