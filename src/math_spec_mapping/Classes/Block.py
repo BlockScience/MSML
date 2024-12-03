@@ -121,12 +121,20 @@ class Block:
         out = """```mermaid\ngraph TB\n"""
         add, entity_variable_mapping = self.render_ending_entities()
         out += add
-        out += self.render_mermaid(0)[0]
+        new, i = self.render_mermaid(0)
+        out += new
 
         for key in entity_variable_mapping:
             out = out.replace(key, entity_variable_mapping[key])
+        out += "\n"
+        for x in range(1, i):
+            if (
+                "X{}[Domain]".format(x) not in out
+                and "X{}[Codomain]".format(x) not in out
+                and "subgraph X{}".format(x) not in out
+            ):
+                out += "class X{} internal-link;\n".format(x)
         out += "\n```"
-
         return out
 
     def find_all_spaces_used(self, data):
