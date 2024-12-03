@@ -69,7 +69,7 @@ class Block:
 
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
         if self.block_type == "Mechanism":
@@ -87,7 +87,7 @@ class Block:
         elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
             updates = self.all_updates
         else:
-            return "\n", {}
+            return "\n", {}, 0
         updates = sorted(updates, key=lambda x: x[0].name + "-" + x[1].name)
 
         out = "\n"
@@ -115,18 +115,30 @@ class Block:
             out += "\n"
         out += "end\n"
         out += "\n"
-        return out, entity_variable_mapping
+        return out, entity_variable_mapping, len(entities)
 
-    def render_mermaid_root(self):
+    def render_mermaid_root(self, go_deep=True):
         out = """```mermaid\ngraph TB\n"""
-        add, entity_variable_mapping = self.render_ending_entities()
+        add, entity_variable_mapping, n_entities = self.render_ending_entities()
         out += add
-        out += self.render_mermaid(0)[0]
+        new, i = self.render_mermaid(0, go_deep=go_deep)
+        out += new
 
         for key in entity_variable_mapping:
             out = out.replace(key, entity_variable_mapping[key])
-        out += "\n```"
+        out += "\n"
+        for x in range(1, i):
+            if (
+                "X{}[Domain]".format(x) not in out
+                and "X{}[Codomain]".format(x) not in out
+                and "subgraph X{}".format(x) not in out
+            ):
+                out += "class X{} internal-link;\n".format(x)
 
+        for x in range(n_entities):
+            out += "class EE{} internal-link;\n".format(x)
+
+        out += "\n```"
         return out
 
     def find_all_spaces_used(self, data):
@@ -223,7 +235,19 @@ class ParallelBlock(Block):
         self.metadata = data["metadata"]
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
+        if go_deep == "First":
+            go_deep = False
+        elif go_deep == False:
+            i += 1
+            out = 'X{}["{}"]'.format(i, self.name)
+            for u in self.all_updates:
+                out += "\n"
+                out += "X{} --> {}".format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                )
+            return out, i
         multi = None
         if type(i) == list:
             multi = i
@@ -251,7 +275,7 @@ class ParallelBlock(Block):
                 if x.name not in ["Empty Space", "Terminating Space"]
             ]
 
-            component, i = component.render_mermaid(i)
+            component, i = component.render_mermaid(i, go_deep=go_deep)
             out += component
             out += "\n"
             domain_map[i] = domain
@@ -404,7 +428,19 @@ class StackBlock(Block):
                     )
         return channels
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
+        if go_deep == "First":
+            go_deep = False
+        elif go_deep == False:
+            i += 1
+            out = 'X{}["{}"]'.format(i, self.name)
+            for u in self.all_updates:
+                out += "\n"
+                out += "X{} --> {}".format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                )
+            return out, i
         multi = None
         if type(i) == list:
             multi = i
@@ -423,7 +459,7 @@ class StackBlock(Block):
                 for x in domain
                 if x.name not in ["Empty Space", "Terminating Space"]
             ]
-            component, i = component.render_mermaid(i)
+            component, i = component.render_mermaid(i, go_deep=go_deep)
             domain_map[i] = domain
             out += component
             out += "\n"
@@ -535,7 +571,7 @@ class SplitBlock(Block):
         self.metadata = data["metadata"]
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         multi = None
         if type(i) == list:
             multi = i

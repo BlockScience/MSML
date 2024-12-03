@@ -1,5 +1,19 @@
 import os
 from .state import write_state_section
+from inspect import signature, getsource, getfile
+
+
+def get_source_code(ms, component_type, implementation_name):
+    if implementation_name in ms.implementations["python"][component_type]:
+        code = ms.implementations["python"][component_type][implementation_name]
+    else:
+        return None
+    source_code = """```python
+{}```""".format(
+        getsource(code)
+    )
+    file_path = getfile(code)
+    return source_code, file_path
 
 
 def write_entity_markdown_report(ms, path, entity, add_metadata=True):
@@ -179,7 +193,23 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
+
+            temp = get_source_code(ms, "boundary_action_options", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = os.path.relpath(
+                    file_path, "{}/Boundary Actions".format(path)
+                )
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+                    file_path, file_path
+                )
+                out += "\n"
+
+            out += "\n"
 
     with open(
         "{}/Boundary Actions/{}.md".format(path, boundary_action.label), "w"
@@ -256,7 +286,21 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
+
+            temp = get_source_code(ms, "policies", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = os.path.relpath(file_path, "{}/Policies".format(path))
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+                    file_path, file_path
+                )
+                out += "\n"
+
+            out += "\n"
 
     with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
         f.write(out)
@@ -322,6 +366,20 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
             i + 1, x[0].name, x[0].state.name + "-" + x[1].name, x[1].name
         )
         out += "\n"
+
+    temp = get_source_code(ms, "mechanisms", mechanism.name)
+    if temp:
+        source_code, file_path = temp
+        file_path = os.path.relpath(file_path, "{}/Mechanisms".format(path))
+        out += "## Python Implementation\n"
+        out += source_code
+        out += "\n"
+        out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+            file_path, file_path
+        )
+        out += "\n"
+
+    out += "\n"
 
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
         f.write(out)
@@ -434,7 +492,23 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
 
             out += "#### Logic\n"
             out += x.logic
-            out += "\n\n"
+            out += "\n"
+
+            temp = get_source_code(ms, "control_action_options", x.name)
+            if temp:
+                source_code, file_path = temp
+                file_path = os.path.relpath(
+                    file_path, "{}/Control Actions".format(path)
+                )
+                out += "#### Python Implementation\n"
+                out += source_code
+                out += "\n"
+                out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+                    file_path, file_path
+                )
+                out += "\n"
+
+            out += "\n"
 
     with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
         f.write(out)
@@ -454,6 +528,13 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
+    out += "## Wiring Diagram (Zoomed Out)"
+    out += "\n"
+    out += "\n"
+    out += "- For display of only depth of 1 in the components/nested wirings\n"
+    out += wiring.render_mermaid_root(go_deep="First")
+    out += "\n"
+    out += "\n"
 
     out += "## Wiring Diagram"
     out += "\n"
