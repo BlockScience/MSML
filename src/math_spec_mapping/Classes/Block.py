@@ -87,7 +87,7 @@ class Block:
         elif self.block_type in ["Parallel Block", "Stack Block", "Split Block"]:
             updates = self.all_updates
         else:
-            return "\n", {}
+            return "\n", {}, 0
         updates = sorted(updates, key=lambda x: x[0].name + "-" + x[1].name)
 
         out = "\n"
@@ -115,11 +115,11 @@ class Block:
             out += "\n"
         out += "end\n"
         out += "\n"
-        return out, entity_variable_mapping
+        return out, entity_variable_mapping, len(entities)
 
     def render_mermaid_root(self):
         out = """```mermaid\ngraph TB\n"""
-        add, entity_variable_mapping = self.render_ending_entities()
+        add, entity_variable_mapping, n_entities = self.render_ending_entities()
         out += add
         new, i = self.render_mermaid(0)
         out += new
@@ -134,6 +134,10 @@ class Block:
                 and "subgraph X{}".format(x) not in out
             ):
                 out += "class X{} internal-link;\n".format(x)
+
+        for x in range(n_entities):
+            out += "class EE{} internal-link;\n".format(x)
+
         out += "\n```"
         return out
 
