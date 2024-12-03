@@ -241,6 +241,12 @@ class ParallelBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
+            for u in self.all_updates:
+                out += "\n"
+                out += "X{} --> {}".format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                )
             return out, i
         multi = None
         if type(i) == list:
@@ -428,6 +434,12 @@ class StackBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
+            for u in self.all_updates:
+                out += "\n"
+                out += "X{} --> {}".format(
+                    i,
+                    (u[0].name + "-" + u[1].name).replace(" ", "-"),
+                )
             return out, i
         multi = None
         if type(i) == list:
