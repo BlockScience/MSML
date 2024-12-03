@@ -69,7 +69,7 @@ class Block:
 
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
         if self.block_type == "Mechanism":
@@ -117,11 +117,11 @@ class Block:
         out += "\n"
         return out, entity_variable_mapping, len(entities)
 
-    def render_mermaid_root(self):
+    def render_mermaid_root(self, go_deep=True):
         out = """```mermaid\ngraph TB\n"""
         add, entity_variable_mapping, n_entities = self.render_ending_entities()
         out += add
-        new, i = self.render_mermaid(0)
+        new, i = self.render_mermaid(0, go_deep=go_deep)
         out += new
 
         for key in entity_variable_mapping:
@@ -235,7 +235,7 @@ class ParallelBlock(Block):
         self.metadata = data["metadata"]
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         multi = None
         if type(i) == list:
             multi = i
@@ -263,7 +263,7 @@ class ParallelBlock(Block):
                 if x.name not in ["Empty Space", "Terminating Space"]
             ]
 
-            component, i = component.render_mermaid(i)
+            component, i = component.render_mermaid(i, go_deep=go_deep)
             out += component
             out += "\n"
             domain_map[i] = domain
@@ -416,7 +416,7 @@ class StackBlock(Block):
                     )
         return channels
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         multi = None
         if type(i) == list:
             multi = i
@@ -435,7 +435,7 @@ class StackBlock(Block):
                 for x in domain
                 if x.name not in ["Empty Space", "Terminating Space"]
             ]
-            component, i = component.render_mermaid(i)
+            component, i = component.render_mermaid(i, go_deep=go_deep)
             domain_map[i] = domain
             out += component
             out += "\n"
@@ -547,7 +547,7 @@ class SplitBlock(Block):
         self.metadata = data["metadata"]
         self.find_all_spaces_used(data)
 
-    def render_mermaid(self, i):
+    def render_mermaid(self, i, go_deep=True):
         multi = None
         if type(i) == list:
             multi = i

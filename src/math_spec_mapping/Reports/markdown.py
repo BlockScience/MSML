@@ -528,6 +528,13 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
+    out += "## Wiring Diagram (Zoomed Out)"
+    out += "\n"
+    out += "\n"
+    out += "- For display of only depth of 1 in the components/nested wirings\n"
+    out += wiring.render_mermaid_root(go_deep=False)
+    out += "\n"
+    out += "\n"
 
     out += "## Wiring Diagram"
     out += "\n"
