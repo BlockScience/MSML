@@ -367,6 +367,20 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
         )
         out += "\n"
 
+    temp = get_source_code(ms, "mechanisms", mechanism.name)
+    if temp:
+        source_code, file_path = temp
+        file_path = os.path.relpath(file_path, "{}/Mechanisms".format(path))
+        out += "## Python Implementation\n"
+        out += source_code
+        out += "\n"
+        out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+            file_path, file_path
+        )
+        out += "\n"
+
+    out += "\n"
+
     with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
         f.write(out)
 
