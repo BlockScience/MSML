@@ -532,7 +532,7 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
     out += "\n"
     out += "\n"
     out += "- For display of only depth of 1 in the components/nested wirings\n"
-    out += wiring.render_mermaid_root(go_deep=False)
+    out += wiring.render_mermaid_root(go_deep="First")
     out += "\n"
     out += "\n"
 

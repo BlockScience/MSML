@@ -236,6 +236,12 @@ class ParallelBlock(Block):
         self.find_all_spaces_used(data)
 
     def render_mermaid(self, i, go_deep=True):
+        if go_deep == "First":
+            go_deep = False
+        elif go_deep == False:
+            i += 1
+            out = 'X{}["{}"]'.format(i, self.name)
+            return out, i
         multi = None
         if type(i) == list:
             multi = i
@@ -417,6 +423,12 @@ class StackBlock(Block):
         return channels
 
     def render_mermaid(self, i, go_deep=True):
+        if go_deep == "First":
+            go_deep = False
+        elif go_deep == False:
+            i += 1
+            out = 'X{}["{}"]'.format(i, self.name)
+            return out, i
         multi = None
         if type(i) == list:
             multi = i
