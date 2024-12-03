@@ -8,7 +8,8 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
-from inspect import signature, getsource
+from inspect import signature, getsource, getfile
+from IPython.display import display, Markdown
 
 
 class MathSpec:
@@ -1116,13 +1117,34 @@ class MathSpecImplementation:
 
     def load_source_files(self):
         self.source_files = {}
-        for key in self.components:
+        self.file_names = {}
+        for key in self.blocks:
             self.source_files[key] = getsource(self.components[key])
+            self.file_names[key] = getfile(self.components[key])
 
-    def print_source_code_files(self, keys=None):
+    def print_source_code_files(self, keys=None, markdown=True):
         if not keys:
             keys = list(self.source_files.keys())
         for key in keys:
+            # Skip wirings
+            if key not in self.ms.components:
+                continue
             print("-" * 20 + key + "-" * 20)
-            print(self.source_files[key])
+            if markdown:
+                display(
+                    Markdown(
+                        """```python
+{}
+```""".format(
+                            self.source_files[key]
+                        )
+                    )
+                )
+            else:
+                print(self.source_files[key])
+            print("\n")
+            full_path = self.file_names[key]
+            print("File path: {}".format(full_path))
+            relative_path = "./" + os.path.relpath(full_path, os.getcwd())
+            print("Relative file path: {}".format(relative_path))
             print("\n\n\n")
