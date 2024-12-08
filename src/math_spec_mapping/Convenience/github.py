@@ -1,5 +1,7 @@
 import os
 import requests
+from github import Github
+import pandas as pd
 
 
 def write_scaffold_to_github_issues(
@@ -32,3 +34,23 @@ def write_scaffold_to_github_issues(
             headers=headers,
             json={"title": issue_name, "body": checklist},
         )
+
+
+def find_open_issues():
+    g = Github()
+    repo = g.get_repo("BlockScience/MSML")
+    open_issues = repo.get_issues(state="open")
+    open_issues = list(open_issues)
+
+    df = pd.DataFrame(
+        [[x.title, x.labels, open_issues[0].html_url] for x in open_issues],
+        columns=["Name", "Labels", "URL"],
+    )
+    df = df.join(
+        df["Labels"]
+        .apply(lambda x: {y.name: True for y in x})
+        .apply(pd.Series)
+        .fillna(False)
+    )
+
+    return df
