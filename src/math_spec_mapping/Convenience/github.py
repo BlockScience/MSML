@@ -45,9 +45,10 @@ def find_open_issues():
     open_issues = list(open_issues)
 
     df = pd.DataFrame(
-        [[x.title, x.labels, open_issues[0].html_url] for x in open_issues],
-        columns=["Name", "Labels", "URL"],
+        [[x.title, x.labels, x.html_url, x.milestone] for x in open_issues],
+        columns=["Name", "Labels", "URL", "Milestone"],
     )
+    df["Milestone"] = df["Milestone"].apply(lambda x: x.title if x else None)
     df = df.join(
         df["Labels"]
         .apply(lambda x: {y.name: True for y in x})
@@ -55,12 +56,14 @@ def find_open_issues():
         .fillna(False)
     )
 
-    return df
+    return df, open_issues
 
 
-def create_priority_label_matrix(df):
+def create_priority_label_matrix(df, exclude_milestones=None):
+    if exclude_milestones:
+        df = df[~df["Milestone"].isin(exclude_milestones)]
     priority_labels = ["High Priority", "Medium Priority", "Low Priority"]
-    labels = list(df.columns[3:])
+    labels = list(df.columns[4:])
     labels = sorted([x for x in labels if x not in priority_labels])
 
     table = []
