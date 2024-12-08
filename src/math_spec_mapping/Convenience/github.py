@@ -54,3 +54,23 @@ def find_open_issues():
     )
 
     return df
+
+
+def create_priority_label_matrix(df):
+    priority_labels = ["High Priority", "Medium Priority", "Low Priority"]
+    labels = list(df.columns[3:])
+    labels = sorted([x for x in labels if x not in priority_labels])
+
+    table = []
+    for label in labels:
+        row = []
+        for priority in priority_labels:
+            row.append(df[(df[priority]) & (df[label])])
+        table.append(row)
+    table = pd.DataFrame(table, index=labels, columns=priority_labels)
+    table = table.applymap(
+        lambda y: "\n".join(
+            y.apply(lambda x: "[{}]({})".format(x["Name"], x["URL"]), axis=1).values
+        )
+    )
+    return table
