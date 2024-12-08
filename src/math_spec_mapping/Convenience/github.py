@@ -1,7 +1,8 @@
 import os
 import requests
-from github import Github
+from github import Github, Auth
 import pandas as pd
+from dotenv import load_dotenv
 
 
 def write_scaffold_to_github_issues(
@@ -37,7 +38,8 @@ def write_scaffold_to_github_issues(
 
 
 def find_open_issues():
-    g = Github()
+    load_dotenv()
+    g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
     repo = g.get_repo("BlockScience/MSML")
     open_issues = repo.get_issues(state="open")
     open_issues = list(open_issues)
