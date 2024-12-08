@@ -56,6 +56,10 @@ def find_open_issues():
         .fillna(False)
     )
 
+    empty = df[df["Labels"].apply(lambda x: len(x)) == 0]
+    empty = empty[~empty["URL"].str.contains("MSML/pull")]
+    assert len(empty) == 0, "Some issues do not have labels"
+
     return df, open_issues
 
 
