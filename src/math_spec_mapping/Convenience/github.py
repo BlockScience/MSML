@@ -83,3 +83,26 @@ def create_priority_label_matrix(df, exclude_milestones=None):
         )
     )
     return table
+
+
+def create_milestone_label_matrix(df, exclude_milestones=None):
+    if exclude_milestones:
+        df = df[~df["Milestone"].isin(exclude_milestones)]
+    priority_labels = ["High Priority", "Medium Priority", "Low Priority"]
+    labels = list(df.columns[4:])
+    labels = sorted([x for x in labels if x not in priority_labels])
+    milestones = sorted(list(df[~pd.isnull(df["Milestone"])]["Milestone"].unique()))
+
+    table = []
+    for label in labels:
+        row = []
+        for milestone in milestones:
+            row.append(df[(df["Milestone"] == milestone) & (df[label])])
+        table.append(row)
+    table = pd.DataFrame(table, index=labels, columns=milestones)
+    table = table.applymap(
+        lambda y: "\n".join(
+            y.apply(lambda x: "[{}]({})".format(x["Name"], x["URL"]), axis=1).values
+        )
+    )
+    return table
