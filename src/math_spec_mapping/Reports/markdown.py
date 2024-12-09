@@ -788,6 +788,12 @@ def write_state_variables_markdown_reports(ms, path, state, add_metadata=True):
             out += variable.domain
         out += "\n\n"
 
+        out += "Updated By:\n"
+        for i, x in enumerate(sorted(variable.updated_by, key=lambda x: x.name)):
+            out += "{}. [[{}]]".format(i + 1, x.name)
+            out += "\n"
+        out += "\n"
+
         with open(
             "{}/State Variables/{}.md".format(
                 path, "{}-{}".format(state.name, variable.name)
