@@ -756,6 +756,20 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
 
+    temp = get_source_code(ms, "metrics", metric.name)
+    if temp:
+        source_code, file_path = temp
+        file_path = os.path.relpath(file_path, "{}/Metrics".format(path))
+        out += "## Python Implementation\n"
+        out += source_code
+        out += "\n"
+        out += "Implementation Path (only works if vault is opened at level including the src folder): [{}]({})".format(
+            file_path, file_path
+        )
+        out += "\n"
+
+    out += "\n"
+
     with open("{}/Metrics/{}.md".format(path, metric.name), "w") as f:
         f.write(out)
 
