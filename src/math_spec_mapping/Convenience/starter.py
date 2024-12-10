@@ -33,9 +33,9 @@ def remove_dummy_repo_components(path):
         if "__init__.py" in contents:
             with open(path2 + "/__init__.py", "r") as f:
                 contents = f.read()
-                contents = contents.replace("from .Dummy import metrics_x\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)", "")
+                contents = contents.replace("from .Dummy import dummy_metrics\n", "")
+                contents = contents.replace("metrics.extend(dummy_metrics)\n", "")
+                contents = contents.replace("metrics.extend(dummy_metrics)", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
@@ -271,7 +271,7 @@ def remove_dummy_repo_components(path):
         path2 = path + "/TypeMappings"
         contents = os.listdir(path2)
 
-        if "types.py" in contents:
+        if "types.jl" in contents:
             with open(path2 + "/types.jl", "r") as f:
                 contents = f.read()
                 contents = contents.replace(
