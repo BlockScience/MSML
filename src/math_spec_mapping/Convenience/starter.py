@@ -283,12 +283,15 @@ def remove_dummy_repo_components(path):
         if "types.py" in contents:
             with open(path2 + "/types.py", "r") as f:
                 contents = f.read()
-                contents = contents.replace(
-                    """    "DummyType1": str,
-    "DummyType2": int,
-    "DummyCompoundType": {"A": "Dummy Type 1", "B": "Dummy Type 2"},""",
-                    "",
-                )
+                for x in [
+                    '"DummyABCDEFType": str',
+                    '"DummyIntegerType": int',
+                    '"DummyDecimalType": float',
+                ]:
+                    contents = contents.replace("{},\n".format(x), "")
+                    contents = contents.replace("{}\n".format(x), "")
+                    contents = contents.replace("{},".format(x), "")
+                    contents = contents.replace("{}".format(x), "")
 
             with open(path2 + "/types.py", "w") as f:
                 f.write(contents)
@@ -321,9 +324,15 @@ end""",
             with open(path2 + "/types.ts", "r") as f:
                 contents = f.read()
                 contents = contents.replace(
-                    """type DummyType1 = string
-type DummyType2 = number
-type DummyCompoundType = {"A": DummyType1, "B": DummyType2}""",
+                    """type DummyABCDEFType = string""",
+                    "",
+                )
+                contents = contents.replace(
+                    """type DummyIntegerType = number""",
+                    "",
+                )
+                contents = contents.replace(
+                    """type DummyDecimalType = number""",
                     "",
                 )
 
