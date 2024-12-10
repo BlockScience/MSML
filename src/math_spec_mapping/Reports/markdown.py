@@ -415,14 +415,14 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
 
     out += "## Blocks with Space in Domain"
     out += "\n"
-    for i, x in enumerate(space.domain_blocks):
+    for i, x in enumerate(sorted(space.domain_blocks, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
 
     out += "## Blocks with Space in Codomain"
     out += "\n"
-    for i, x in enumerate(space.codomain_blocks):
+    for i, x in enumerate(sorted(space.codomain_blocks, key=lambda x: x.name)):
         out += "{}. [[{}]]".format(i + 1, x.name)
         out += "\n"
     out += "\n"
