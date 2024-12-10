@@ -73,7 +73,7 @@ class Block:
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
         if self.block_type == "Mechanism":
-            for u in self.updates:
+            for u in sorted(self.updates, key=lambda x: x[0].name + "-" + x[1].name):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
