@@ -305,6 +305,7 @@ class ParallelBlock(Block):
             d = domain_map[ix1]
             if len(d) > 0:
                 d_length = len(d)
+                d = ["<a href='{}' class=internal-link>{}</a>".format(x, x) for x in d]
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
                 out += "X{} --{}{}-> X{}".format(domain_i, d, "-" * d_length, ix1)
@@ -486,6 +487,10 @@ class StackBlock(Block):
                     optional = global_optional
                     if len(d) > 0:
                         d_length = len(d)
+                        d = [
+                            "<a href='{}' class=internal-link>{}</a>".format(x, x)
+                            for x in d
+                        ]
                         d = "\n".join(d)
                         d = '"{}"'.format(d)
                         if optional:
