@@ -46,17 +46,17 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/wiring.py", "r") as f:
                 contents = f.read()
 
-                contents = contents.replace('"Dummy Boundary Wiring 2",\n', "")
-                contents = contents.replace('"Dummy Boundary Wiring 2",', "")
-                contents = contents.replace('"Dummy Boundary Wiring 2"', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring",\n', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring",', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring"', "")
 
-                contents = contents.replace('"Dummy Boundary Wiring",\n', "")
-                contents = contents.replace('"Dummy Boundary Wiring",', "")
-                contents = contents.replace('"Dummy Boundary Wiring"', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring",\n', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring",', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring"', "")
 
-                contents = contents.replace('"Dummy Control Wiring",\n', "")
-                contents = contents.replace('"Dummy Control Wiring",', "")
-                contents = contents.replace('"Dummy Control Wiring"', "")
+                contents = contents.replace('"DUMMY Control Wiring",\n', "")
+                contents = contents.replace('"DUMMY Control Wiring",', "")
+                contents = contents.replace('"DUMMY Control Wiring"', "")
 
             with open(path2 + "/wiring.py", "w") as f:
                 f.write(contents)
@@ -187,6 +187,32 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace("dummy_state,", "")
                 contents = contents.replace("dummy_state", "")
             with open(path2 + "/__init__.py", "w") as f:
+                f.write(contents)
+        contents = os.listdir(path2)
+        if "Global.py" in contents:
+            with open(path2 + "/Global.py", "r") as f:
+                contents = f.read()
+            for x in [
+                """        {
+            "type": "DUMMY Integer Type",
+            "name": "Time",
+            "description": "The clock time",
+            "symbol": None,
+            "domain": None,
+        }""",
+                """        {
+            "type": "Entity Type",
+            "name": "Dummy",
+            "description": "The dummy entity",
+            "symbol": None,
+            "domain": None,
+        }""",
+            ]:
+                contents = contents.replace("{},\n".format(x), "")
+                contents = contents.replace("{}\n".format(x), "")
+                contents = contents.replace("{},".format(x), "")
+                contents = contents.replace("{}".format(x), "")
+            with open(path2 + "/Global.py", "w") as f:
                 f.write(contents)
 
     if "Parameters" in directory_folders:
