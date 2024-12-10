@@ -241,7 +241,9 @@ class ParallelBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
-            for u in self.all_updates:
+            for u in sorted(
+                self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
+            ):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
@@ -435,7 +437,10 @@ class StackBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
-            for u in self.all_updates:
+
+            for u in sorted(
+                self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
+            ):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
