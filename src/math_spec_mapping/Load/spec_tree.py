@@ -18,9 +18,9 @@ def load_spec_tree(path):
         "Parameters",
         "Entities",
     ]:
-        file_path = path + "/" + folder + "/__init__.py"
-        with open(file_path, "r") as file:
-            tree2 = ast.parse(file.read(), filename=file_path)
+        init_path = path + "/" + folder + "/__init__.py"
+        with open(init_path, "r") as file:
+            tree2 = ast.parse(file.read(), filename=init_path)
             imports = []
             for node in ast.walk(tree2):
                 if isinstance(node, ast.Import):
@@ -30,4 +30,6 @@ def load_spec_tree(path):
                 elif isinstance(node, ast.ImportFrom):
                     if node.module:
                         for name in node.names:
-                            print(node.module, name.name)
+                            file_path = "{}/{}/{}.py".format(path, folder, node.module)
+                            print(file_path)
+                            print(name.name)
