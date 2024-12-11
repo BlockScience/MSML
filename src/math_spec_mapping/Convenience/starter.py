@@ -33,9 +33,9 @@ def remove_dummy_repo_components(path):
         if "__init__.py" in contents:
             with open(path2 + "/__init__.py", "r") as f:
                 contents = f.read()
-                contents = contents.replace("from .Dummy import metrics_x\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)\n", "")
-                contents = contents.replace("metrics.extend(metrics_x)", "")
+                contents = contents.replace("from .Dummy import dummy_metrics\n", "")
+                contents = contents.replace("metrics.extend(dummy_metrics)\n", "")
+                contents = contents.replace("metrics.extend(dummy_metrics)", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
 
@@ -46,17 +46,17 @@ def remove_dummy_repo_components(path):
             with open(path2 + "/wiring.py", "r") as f:
                 contents = f.read()
 
-                contents = contents.replace('"Dummy Boundary Wiring 2",\n', "")
-                contents = contents.replace('"Dummy Boundary Wiring 2",', "")
-                contents = contents.replace('"Dummy Boundary Wiring 2"', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring",\n', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring",', "")
+                contents = contents.replace('"DUMMY Length-1 Boundary Wiring"', "")
 
-                contents = contents.replace('"Dummy Boundary Wiring",\n', "")
-                contents = contents.replace('"Dummy Boundary Wiring",', "")
-                contents = contents.replace('"Dummy Boundary Wiring"', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring",\n', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring",', "")
+                contents = contents.replace('"DUMMY Length-2 Boundary Wiring"', "")
 
-                contents = contents.replace('"Dummy Control Wiring",\n', "")
-                contents = contents.replace('"Dummy Control Wiring",', "")
-                contents = contents.replace('"Dummy Control Wiring"', "")
+                contents = contents.replace('"DUMMY Control Wiring",\n', "")
+                contents = contents.replace('"DUMMY Control Wiring",', "")
+                contents = contents.replace('"DUMMY Control Wiring"', "")
 
             with open(path2 + "/wiring.py", "w") as f:
                 f.write(contents)
@@ -188,6 +188,32 @@ def remove_dummy_repo_components(path):
                 contents = contents.replace("dummy_state", "")
             with open(path2 + "/__init__.py", "w") as f:
                 f.write(contents)
+        contents = os.listdir(path2)
+        if "Global.py" in contents:
+            with open(path2 + "/Global.py", "r") as f:
+                contents = f.read()
+            for x in [
+                """        {
+            "type": "DUMMY Integer Type",
+            "name": "Time",
+            "description": "The clock time",
+            "symbol": None,
+            "domain": None,
+        }""",
+                """        {
+            "type": "Entity Type",
+            "name": "Dummy",
+            "description": "The dummy entity",
+            "symbol": None,
+            "domain": None,
+        }""",
+            ]:
+                contents = contents.replace("{},\n".format(x), "")
+                contents = contents.replace("{}\n".format(x), "")
+                contents = contents.replace("{},".format(x), "")
+                contents = contents.replace("{}".format(x), "")
+            with open(path2 + "/Global.py", "w") as f:
+                f.write(contents)
 
     if "Parameters" in directory_folders:
         path2 = path + "/Parameters"
@@ -257,12 +283,15 @@ def remove_dummy_repo_components(path):
         if "types.py" in contents:
             with open(path2 + "/types.py", "r") as f:
                 contents = f.read()
-                contents = contents.replace(
-                    """    "DummyType1": str,
-    "DummyType2": int,
-    "DummyCompoundType": {"A": "Dummy Type 1", "B": "Dummy Type 2"},""",
-                    "",
-                )
+                for x in [
+                    '"DummyABCDEFType": str',
+                    '"DummyIntegerType": int',
+                    '"DummyDecimalType": float',
+                ]:
+                    contents = contents.replace("{},\n".format(x), "")
+                    contents = contents.replace("{}\n".format(x), "")
+                    contents = contents.replace("{},".format(x), "")
+                    contents = contents.replace("{}".format(x), "")
 
             with open(path2 + "/types.py", "w") as f:
                 f.write(contents)
@@ -271,7 +300,7 @@ def remove_dummy_repo_components(path):
         path2 = path + "/TypeMappings"
         contents = os.listdir(path2)
 
-        if "types.py" in contents:
+        if "types.jl" in contents:
             with open(path2 + "/types.jl", "r") as f:
                 contents = f.read()
                 contents = contents.replace(
@@ -295,11 +324,102 @@ end""",
             with open(path2 + "/types.ts", "r") as f:
                 contents = f.read()
                 contents = contents.replace(
-                    """type DummyType1 = string
-type DummyType2 = number
-type DummyCompoundType = {"A": DummyType1, "B": DummyType2}""",
+                    """type DummyABCDEFType = string""",
+                    "",
+                )
+                contents = contents.replace(
+                    """type DummyIntegerType = number""",
+                    "",
+                )
+                contents = contents.replace(
+                    """type DummyDecimalType = number""",
                     "",
                 )
 
             with open(path2 + "/types.ts", "w") as f:
                 f.write(contents)
+
+    remove_dummy_repo_implementations(path)
+
+
+def remove_implementation_folder(path, folder, component_names, import_statement):
+    path = path + "/" + folder
+    contents = os.listdir(path)
+    if "Dummy.py" in contents:
+        os.remove(path + "/Dummy.py")
+    if "__init__.py" in contents:
+        with open(path + "/__init__.py", "r") as f:
+            contents = f.read()
+            contents = contents.replace(import_statement + "\n", "")
+            contents = contents.replace(import_statement, "")
+            for x in component_names:
+                contents = contents.replace("{},\n".format(x), "")
+                contents = contents.replace("{}\n".format(x), "")
+                contents = contents.replace("{},".format(x), "")
+                contents = contents.replace("{}".format(x), "")
+        with open(path + "/__init__.py", "w") as f:
+            f.write(contents)
+
+
+def remove_dummy_repo_implementations(path):
+    path = path + "/Implementations/Python"
+    directory_folders = os.listdir(path)
+
+    if "BoundaryActions" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "BoundaryActions",
+            [
+                '"Length-1 ABC Equal Weight Option": v1_dummy_boundary',
+                '"DUMMY Length-2 ABC Equal Weight Option": v1_dummy_boundary2',
+                '"DUMMY Length-2 ABC Equal Weight 2 Option": v2_dummy_boundary2',
+            ],
+            "from .Dummy import v1_dummy_boundary, v1_dummy_boundary2, v2_dummy_boundary2",
+        )
+    if "ControlActions" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "ControlActions",
+            [
+                '"DUMMY Length-1 DEF Equal Weight Option": v1_dummy_control',
+                '"DUMMY Length-1 DEF D Probability Option": v2_dummy_control',
+            ],
+            "from .Dummy import v1_dummy_control, v2_dummy_control",
+        )
+    if "Policies" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Policies",
+            ['"DUMMY Letter Count Policy V1": dummy_letter_count_policy'],
+            "from .Dummy import dummy_letter_count_policy",
+        )
+    if "Mechanisms" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Mechanisms",
+            [
+                '"DUMMY Update Dummy Entity Mechanism": dummy_update_dummy_entity_mechanism',
+                '"DUMMY Increment Time Mechanism": dummy_increment_time_mechanism',
+                '"DUMMY Log Simulation Data Mechanism": dummy_log_simulation_data_mechanism',
+            ],
+            """from .Dummy import (
+    dummy_update_dummy_entity_mechanism,
+    dummy_increment_time_mechanism,
+    dummy_log_simulation_data_mechanism,
+)""",
+        )
+
+    if "StatefulMetrics" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "StatefulMetrics",
+            ['"DUMMY Nominal Length Stateful Metric": dummy_metric'],
+            """from .Dummy import dummy_metric""",
+        )
+    if "Metrics" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Metrics",
+            ['"DUMMY Multiplied Length Metric": dummy_multiplied_length_metric'],
+            """from .Dummy import dummy_multiplied_length_metric""",
+        )

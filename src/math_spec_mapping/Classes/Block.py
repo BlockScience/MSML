@@ -73,7 +73,7 @@ class Block:
         i += 1
         out = 'X{}["{}"]'.format(i, self.name)
         if self.block_type == "Mechanism":
-            for u in self.updates:
+            for u in sorted(self.updates, key=lambda x: x[0].name + "-" + x[1].name):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
@@ -241,7 +241,9 @@ class ParallelBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
-            for u in self.all_updates:
+            for u in sorted(
+                self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
+            ):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
@@ -305,6 +307,7 @@ class ParallelBlock(Block):
             d = domain_map[ix1]
             if len(d) > 0:
                 d_length = len(d)
+                d = ["<a href='{}' class=internal-link>{}</a>".format(x, x) for x in d]
                 d = "\n".join(d)
                 d = '"{}"'.format(d)
                 out += "X{} --{}{}-> X{}".format(domain_i, d, "-" * d_length, ix1)
@@ -434,7 +437,10 @@ class StackBlock(Block):
         elif go_deep == False:
             i += 1
             out = 'X{}["{}"]'.format(i, self.name)
-            for u in self.all_updates:
+
+            for u in sorted(
+                self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
+            ):
                 out += "\n"
                 out += "X{} --> {}".format(
                     i,
@@ -486,6 +492,10 @@ class StackBlock(Block):
                     optional = global_optional
                     if len(d) > 0:
                         d_length = len(d)
+                        d = [
+                            "<a href='{}' class=internal-link>{}</a>".format(x, x)
+                            for x in d
+                        ]
                         d = "\n".join(d)
                         d = '"{}"'.format(d)
                         if optional:

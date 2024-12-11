@@ -17,9 +17,10 @@ from .type import load_types, load_type_keys
 from .metrics import load_metrics
 from .displays import load_displays
 from .implementations import load_implementations
+from .spec_tree import load_spec_tree
 
 
-def load_from_json(json: Dict) -> MathSpec:
+def load_from_json(json: Dict, spec_path=None) -> MathSpec:
     """Function to load a math spec from a json format
 
     Args:
@@ -81,4 +82,8 @@ def load_from_json(json: Dict) -> MathSpec:
     for space in ms.spaces.values():
         space.domain_blocks = list(set(space.domain_blocks))
         space.codomain_blocks = list(set(space.codomain_blocks))
+
+    if spec_path:
+        tree = load_spec_tree(spec_path, ms)
+        ms._add_spec_tree(tree)
     return ms
