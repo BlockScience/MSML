@@ -1,4 +1,5 @@
 import ast
+import os
 
 
 def load_spec_tree(path, ms):
@@ -66,5 +67,5 @@ def load_spec_tree(path, ms):
                                 contents = file2.read()
                             for key in keys:
                                 if key in contents:
-                                    tree[folder][key] = file_path
+                                    tree[folder][key] = os.path.abspath(file_path)
     return tree
