@@ -20,10 +20,34 @@ def load_spec_tree(path, ms):
     ]:
         if folder == "StatefulMetrics":
             keys = ms.get_all_stateful_metric_names()
-            tree[folder] = {}
+        elif folder == "Metrics":
+            keys = ms.metrics.keys()
+        elif folder == "Mechanisms":
+            keys = ms.mechanisms.keys()
+        elif folder == "BoundaryActions":
+            keys = ms.boundary_actions.keys()
+        elif folder == "Types":
+            keys = ms.types.keys()
+        elif folder == "ControlActions":
+            keys = ms.control_actions.keys()
+        elif folder == "Displays":
+            keys = [x["name"] for x in ms.displays["Wiring"]]
+        elif folder == "Spaces":
+            keys = ms.spaces.keys()
+        elif folder == "State":
+            keys = ms.state.keys()
+        elif folder == "Policies":
+            keys = ms.policies.keys()
+        elif folder == "Wiring":
+            keys = ms.wiring.keys()
+        elif folder == "Parameters":
+            keys = ms.parameters.all_parameters
+        elif folder == "Entities":
+            keys = ms.entities.keys()
         else:
             assert False
         keys = list(keys)
+        tree[folder] = {}
 
         init_path = path + "/" + folder + "/__init__.py"
         with open(init_path, "r") as file:
@@ -43,4 +67,3 @@ def load_spec_tree(path, ms):
                             for key in keys:
                                 if key in contents:
                                     tree[folder][key] = file_path
-            print(tree)
