@@ -3,7 +3,11 @@ from .state import write_state_section
 from inspect import signature, getsource, getfile
 
 
-def get_source_code(ms, component_type, implementation_name):
+def get_source_code(
+    ms,
+    component_type,
+    implementation_name,
+):
     if implementation_name in ms.implementations["python"][component_type]:
         code = ms.implementations["python"][component_type][implementation_name]
     else:
@@ -55,12 +59,17 @@ def write_entity_markdown_report(ms, path, entity, add_metadata=True):
         out += "### [[{}]]".format(ac.name)
         out += "\n"
 
-    with open("{}/Entities/{}.md".format(path, entity.name), "w") as f:
+    path = "{}/Entities/{}.md".format(path, entity.name)
+    out = write_source_code_block(entity, out, path)
+
+    with open(path, "w") as f:
         f.write(out)
 
 
-def write_source_code_block(component, text):
+def write_source_code_block(component, text, path=None):
     file_path = component.source_code_location
+    if path:
+        file_path = os.path.relpath(file_path, path)
     if file_path:
         text += "## Spec Source Code Location\n\n"
         text += "Spec Path (only works if vault is opened at level including the src folder): [{}]({})".format(
