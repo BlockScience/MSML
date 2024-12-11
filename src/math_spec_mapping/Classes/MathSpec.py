@@ -458,39 +458,107 @@ class MathSpec:
             "Parameters",
             "Entities",
         ]:
+            tree = self.tree[folder]
             if folder == "StatefulMetrics":
-                tree = self.tree[folder]
                 for component in self.stateful_metrics_map:
                     if component not in tree:
                         print("Can't find component code source")
+                        self.stateful_metrics_map[component].source_code_location = None
                     else:
                         self.stateful_metrics_map[component].source_code_location = (
                             tree[component]
                         )
             elif folder == "Metrics":
-                keys = ms.metrics.keys()
+                for component in self.metrics:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.metrics[component].source_code_location = None
+                    else:
+                        self.metrics[component].source_code_location = tree[component]
             elif folder == "Mechanisms":
-                keys = ms.mechanisms.keys()
+                for component in self.mechanisms:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.mechanisms[component].source_code_location = None
+                    else:
+                        self.mechanisms[component].source_code_location = tree[
+                            component
+                        ]
             elif folder == "BoundaryActions":
-                keys = ms.boundary_actions.keys()
+                for component in self.boundary_actions:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.boundary_actions[component].source_code_location = None
+                    else:
+                        self.boundary_actions[component].source_code_location = tree[
+                            component
+                        ]
             elif folder == "Types":
-                keys = ms.types.keys()
+                for component in self.types:
+                    if component not in tree:
+
+                        print("Can't find component code source")
+                        self.types[component].source_code_location = None
+                    else:
+                        self.types[component].source_code_location = tree[component]
             elif folder == "ControlActions":
-                keys = ms.control_actions.keys()
+                for component in self.control_actions:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.control_actions[component].source_code_location = None
+                    else:
+                        self.control_actions[component].source_code_location = tree[
+                            component
+                        ]
             elif folder == "Displays":
-                keys = [x["name"] for x in ms.displays["Wiring"]]
+                print("Displays not implemented")
+                # keys = [x["name"] for x in ms.displays["Wiring"]]
             elif folder == "Spaces":
-                keys = ms.spaces.keys()
+                for component in self.spaces:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.spaces[component].source_code_location = None
+                    else:
+                        self.spaces[component].source_code_location = tree[component]
             elif folder == "State":
-                keys = ms.state.keys()
+                for component in self.state:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.state[component].source_code_location = None
+                    else:
+                        self.state[component].source_code_location = tree[component]
             elif folder == "Policies":
-                keys = ms.policies.keys()
+                for component in self.policies:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.policies[component].source_code_location = None
+                    else:
+                        self.policies[component].source_code_location = tree[component]
             elif folder == "Wiring":
-                keys = ms.wiring.keys()
+                for component in self.wiring:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.wiring[component].source_code_location = None
+                    else:
+                        self.wiring[component].source_code_location = tree[component]
             elif folder == "Parameters":
-                keys = ms.parameters.all_parameters
+                for component in self.parameters.parameter_map:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.parameters.parameter_map[
+                            component
+                        ].source_code_location = None
+                    else:
+                        self.parameters.parameter_map[
+                            component
+                        ].source_code_location = tree[component]
             elif folder == "Entities":
-                keys = ms.entities.keys()
+                for component in self.entities:
+                    if component not in tree:
+                        print("Can't find component code source")
+                        self.entities[component].source_code_location = None
+                    else:
+                        self.entities[component].source_code_location = tree[component]
             else:
                 assert False
 
