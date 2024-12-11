@@ -66,11 +66,10 @@ def write_entity_markdown_report(ms, path, entity, add_metadata=True):
         f.write(out)
 
 
-def write_source_code_block(component, text, path=None):
+def write_source_code_block(component, text, path):
     file_path = component.source_code_location
-    if path:
-        file_path = os.path.relpath(file_path, path)
     if file_path:
+        file_path = os.path.relpath(file_path, path)
         text += "## Spec Source Code Location\n\n"
         text += "Spec Path (only works if vault is opened at level including the src folder): [{}]({})".format(
             file_path, file_path
@@ -103,9 +102,10 @@ def write_state_markdown_report(ms, path, state, add_metadata=True):
         out += "### [[{}]]".format(ba.name)
         out += "\n"
 
-    out = write_source_code_block(state, out)
+    path = "{}/States/{}.md".format(path, state.name)
+    out = write_source_code_block(state, out, path)
 
-    with open("{}/States/{}.md".format(path, state.name), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -144,9 +144,10 @@ def write_types_markdown_report(ms, path, t, add_metadata=True):
     out += "\n\n"
     out += t.notes
     out += "\n"
-    out = write_source_code_block(t, out)
 
-    with open("{}/Types/{}.md".format(path, t.name), "w") as f:
+    path = "{}/Types/{}.md".format(path, t.name)
+    out = write_source_code_block(t, out, path)
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -235,11 +236,10 @@ def write_boundary_action_markdown_report(ms, path, boundary_action, add_metadat
 
             out += "\n"
 
-    out = write_source_code_block(boundary_action, out)
+    path = "{}/Boundary Actions/{}.md".format(path, boundary_action.label)
+    out = write_source_code_block(boundary_action, out, path)
 
-    with open(
-        "{}/Boundary Actions/{}.md".format(path, boundary_action.label), "w"
-    ) as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -328,9 +328,10 @@ def write_policy_markdown_report(ms, path, policy, add_metadata=True):
 
             out += "\n"
 
-    out = write_source_code_block(policy, out)
+    path = "{}/Policies/{}.md".format(path, policy.label)
+    out = write_source_code_block(policy, out, path)
 
-    with open("{}/Policies/{}.md".format(path, policy.label), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -409,9 +410,10 @@ def write_mechanism_markdown_report(ms, path, mechanism, add_metadata=True):
 
     out += "\n"
 
-    out = write_source_code_block(mechanism, out)
+    path = "{}/Mechanisms/{}.md".format(path, mechanism.label)
+    out = write_source_code_block(mechanism, out, path)
 
-    with open("{}/Mechanisms/{}.md".format(path, mechanism.label), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -457,9 +459,10 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
         out += "\n"
     out += "\n"
 
-    out = write_source_code_block(space, out)
+    path = "{}/Spaces/{}.md".format(path, space.name)
+    out = write_source_code_block(space, out, path)
 
-    with open("{}/Spaces/{}.md".format(path, space.name), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -542,9 +545,10 @@ def write_control_action_markdown_report(ms, path, control_action, add_metadata=
 
             out += "\n"
 
-    out = write_source_code_block(control_action, out)
+    path = "{}/Control Actions/{}.md".format(path, control_action.label)
+    out = write_source_code_block(control_action, out, path)
 
-    with open("{}/Control Actions/{}.md".format(path, control_action.label), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -660,9 +664,10 @@ def write_wiring_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
-    out = write_source_code_block(wiring, out)
+    path = "{}/Wiring/{}.md".format(path, wiring.name)
+    out = write_source_code_block(wiring, out, path)
 
-    with open("{}/Wiring/{}.md".format(path, wiring.name), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -687,9 +692,10 @@ def write_parameter_markdown_report(ms, path, parameter, add_metadata=True):
     out += "Domain: {}\n\n".format(param.domain)
     out += "Parameter Class: {}\n\n".format(param.parameter_class)
 
-    out = write_source_code_block(param, out)
+    path = "{}/Parameters/{}.md".format(path, param.name)
+    out = write_source_code_block(param, out, path)
 
-    with open("{}/Parameters/{}.md".format(path, param.name), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -739,9 +745,11 @@ def write_stateful_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     out += "\n"
 
-    out = write_source_code_block(metric, out)
+    path = "{}/Stateful Metrics/{}.md".format(path, metric.name)
 
-    with open("{}/Stateful Metrics/{}.md".format(path, metric.name), "w") as f:
+    out = write_source_code_block(metric, out, path)
+
+    with open(path, "w") as f:
         f.write(out)
 
 
@@ -810,9 +818,10 @@ def write_metrics_markdown_report(ms, path, metric, add_metadata=True):
 
     out += "\n"
 
-    out = write_source_code_block(metric, out)
+    path = "{}/Metrics/{}.md".format(path, metric.name)
+    out = write_source_code_block(metric, out, path)
 
-    with open("{}/Metrics/{}.md".format(path, metric.name), "w") as f:
+    with open(path, "w") as f:
         f.write(out)
 
 
