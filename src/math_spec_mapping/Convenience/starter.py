@@ -338,3 +338,41 @@ end""",
 
             with open(path2 + "/types.ts", "w") as f:
                 f.write(contents)
+
+    remove_dummy_repo_implementations(path)
+
+
+def remove_implementation_folder(path, folder, component_names, import_statement):
+    path = path + "/" + folder
+    contents = os.listdir(path)
+    if "Dummy.py" in contents:
+        os.remove(path + "/Dummy.py")
+    if "__init__.py" in contents:
+        with open(path + "/__init__.py", "r") as f:
+            contents = f.read()
+            contents = contents.replace(import_statement + "\n", "")
+            contents = contents.replace(import_statement, "")
+            for x in component_names:
+                contents = contents.replace("{},\n".format(x), "")
+                contents = contents.replace("{}\n".format(x), "")
+                contents = contents.replace("{},".format(x), "")
+                contents = contents.replace("{}".format(x), "")
+        with open(path + "/__init__.py", "w") as f:
+            f.write(contents)
+
+
+def remove_dummy_repo_implementations(path):
+    path = path + "/Implementations/Python"
+    directory_folders = os.listdir(path)
+    print(directory_folders)
+    if "BoundaryActions" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "BoundaryActions",
+            [
+                '"Length-1 ABC Equal Weight Option": v1_dummy_boundary',
+                '"DUMMY Length-2 ABC Equal Weight Option": v1_dummy_boundary2',
+                '"DUMMY Length-2 ABC Equal Weight 2 Option": v2_dummy_boundary2',
+            ],
+            "from .Dummy import v1_dummy_boundary, v1_dummy_boundary2, v2_dummy_boundary2",
+        )
