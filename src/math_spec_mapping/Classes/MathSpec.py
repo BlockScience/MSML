@@ -540,6 +540,7 @@ class MathSpec:
             elif folder == "Spaces":
                 for component in self.spaces:
                     if component in ["Terminating Space", "Empty Space"]:
+                        self.spaces[component].source_code_location = None
                         continue
                     if component not in tree:
                         print(
