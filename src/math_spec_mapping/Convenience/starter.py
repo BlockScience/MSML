@@ -364,7 +364,7 @@ def remove_implementation_folder(path, folder, component_names, import_statement
 def remove_dummy_repo_implementations(path):
     path = path + "/Implementations/Python"
     directory_folders = os.listdir(path)
-    print(directory_folders)
+
     if "BoundaryActions" in directory_folders:
         remove_implementation_folder(
             path,
@@ -407,4 +407,19 @@ def remove_dummy_repo_implementations(path):
     dummy_increment_time_mechanism,
     dummy_log_simulation_data_mechanism,
 )""",
+        )
+
+    if "StatefulMetrics" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "StatefulMetrics",
+            ['"DUMMY Nominal Length Stateful Metric": dummy_metric'],
+            """from .Dummy import dummy_metric""",
+        )
+    if "Metrics" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Metrics",
+            ['"DUMMY Multiplied Length Metric": dummy_multiplied_length_metric'],
+            """from .Dummy import dummy_multiplied_length_metric""",
         )
