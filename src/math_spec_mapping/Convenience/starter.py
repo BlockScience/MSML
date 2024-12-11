@@ -376,3 +376,35 @@ def remove_dummy_repo_implementations(path):
             ],
             "from .Dummy import v1_dummy_boundary, v1_dummy_boundary2, v2_dummy_boundary2",
         )
+    if "ControlActions" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "ControlActions",
+            [
+                '"DUMMY Length-1 DEF Equal Weight Option": v1_dummy_control',
+                '"DUMMY Length-1 DEF D Probability Option": v2_dummy_control',
+            ],
+            "from .Dummy import v1_dummy_control, v2_dummy_control",
+        )
+    if "Policies" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Policies",
+            ['"DUMMY Letter Count Policy V1": dummy_letter_count_policy'],
+            "from .Dummy import dummy_letter_count_policy",
+        )
+    if "Mechanisms" in directory_folders:
+        remove_implementation_folder(
+            path,
+            "Mechanisms",
+            [
+                '"DUMMY Update Dummy Entity Mechanism": dummy_update_dummy_entity_mechanism',
+                '"DUMMY Increment Time Mechanism": dummy_increment_time_mechanism',
+                '"DUMMY Log Simulation Data Mechanism": dummy_log_simulation_data_mechanism',
+            ],
+            """from .Dummy import (
+    dummy_update_dummy_entity_mechanism,
+    dummy_increment_time_mechanism,
+    dummy_log_simulation_data_mechanism,
+)""",
+        )
