@@ -33,6 +33,7 @@ class MathSpec:
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
         self.wiring = ms_dict["Wiring"]
+        self.tree = None
         # self.blocks = ms_dict["Blocks"]
         self._load_blocks()
         self._load_components()
@@ -439,6 +440,178 @@ class MathSpec:
         self._used_spaces = list(set().union(*self._used_spaces))
         us_names = [y.name for y in self._used_spaces]
         self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
+
+    def _add_spec_tree(self, tree):
+        self.tree = tree
+        for folder in [
+            "StatefulMetrics",
+            "Metrics",
+            "Mechanisms",
+            "BoundaryActions",
+            "Types",
+            "ControlActions",
+            "Displays",
+            "Spaces",
+            "State",
+            "Policies",
+            "Wiring",
+            "Parameters",
+            "Entities",
+        ]:
+            tree = self.tree[folder]
+            if folder == "StatefulMetrics":
+                for component in self.stateful_metrics_map:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.stateful_metrics_map[component].source_code_location = None
+                    else:
+                        self.stateful_metrics_map[component].source_code_location = (
+                            tree[component]
+                        )
+            elif folder == "Metrics":
+                for component in self.metrics:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.metrics[component].source_code_location = None
+                    else:
+                        self.metrics[component].source_code_location = tree[component]
+            elif folder == "Mechanisms":
+                for component in self.mechanisms:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.mechanisms[component].source_code_location = None
+                    else:
+                        self.mechanisms[component].source_code_location = tree[
+                            component
+                        ]
+            elif folder == "BoundaryActions":
+                for component in self.boundary_actions:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.boundary_actions[component].source_code_location = None
+                    else:
+                        self.boundary_actions[component].source_code_location = tree[
+                            component
+                        ]
+            elif folder == "Types":
+                for component in self.types:
+                    if component not in tree:
+
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.types[component].source_code_location = None
+                    else:
+                        self.types[component].source_code_location = tree[component]
+            elif folder == "ControlActions":
+                for component in self.control_actions:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.control_actions[component].source_code_location = None
+                    else:
+                        self.control_actions[component].source_code_location = tree[
+                            component
+                        ]
+            elif folder == "Displays":
+                print("Displays not implemented")
+                # keys = [x["name"] for x in ms.displays["Wiring"]]
+            elif folder == "Spaces":
+                for component in self.spaces:
+                    if component in ["Terminating Space", "Empty Space"]:
+                        self.spaces[component].source_code_location = None
+                        continue
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.spaces[component].source_code_location = None
+                    else:
+                        self.spaces[component].source_code_location = tree[component]
+            elif folder == "State":
+                for component in self.state:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.state[component].source_code_location = None
+                    else:
+                        self.state[component].source_code_location = tree[component]
+            elif folder == "Policies":
+                for component in self.policies:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.policies[component].source_code_location = None
+                    else:
+                        self.policies[component].source_code_location = tree[component]
+            elif folder == "Wiring":
+                for component in self.wiring:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.wiring[component].source_code_location = None
+                    else:
+                        self.wiring[component].source_code_location = tree[component]
+            elif folder == "Parameters":
+                for component in self.parameters.parameter_map:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.parameters.parameter_map[
+                            component
+                        ].source_code_location = None
+                    else:
+                        self.parameters.parameter_map[
+                            component
+                        ].source_code_location = tree[component]
+            elif folder == "Entities":
+                for component in self.entities:
+                    if component not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
+                        self.entities[component].source_code_location = None
+                    else:
+                        self.entities[component].source_code_location = tree[component]
+            else:
+                assert False
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"

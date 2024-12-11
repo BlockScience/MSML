@@ -1,4 +1,4 @@
-from .Load import load_from_json
+from .Load import load_from_json, load_spec_tree
 from .Reports import (
     create_action_chains_graph,
     write_out_boundary_actions,
