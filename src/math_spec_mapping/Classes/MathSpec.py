@@ -462,7 +462,11 @@ class MathSpec:
             if folder == "StatefulMetrics":
                 for component in self.stateful_metrics_map:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.stateful_metrics_map[component].source_code_location = None
                     else:
                         self.stateful_metrics_map[component].source_code_location = (
@@ -471,14 +475,22 @@ class MathSpec:
             elif folder == "Metrics":
                 for component in self.metrics:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.metrics[component].source_code_location = None
                     else:
                         self.metrics[component].source_code_location = tree[component]
             elif folder == "Mechanisms":
                 for component in self.mechanisms:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.mechanisms[component].source_code_location = None
                     else:
                         self.mechanisms[component].source_code_location = tree[
@@ -487,7 +499,11 @@ class MathSpec:
             elif folder == "BoundaryActions":
                 for component in self.boundary_actions:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.boundary_actions[component].source_code_location = None
                     else:
                         self.boundary_actions[component].source_code_location = tree[
@@ -497,14 +513,22 @@ class MathSpec:
                 for component in self.types:
                     if component not in tree:
 
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.types[component].source_code_location = None
                     else:
                         self.types[component].source_code_location = tree[component]
             elif folder == "ControlActions":
                 for component in self.control_actions:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.control_actions[component].source_code_location = None
                     else:
                         self.control_actions[component].source_code_location = tree[
@@ -515,36 +539,58 @@ class MathSpec:
                 # keys = [x["name"] for x in ms.displays["Wiring"]]
             elif folder == "Spaces":
                 for component in self.spaces:
+                    if component in ["Terminating Space", "Empty Space"]:
+                        continue
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.spaces[component].source_code_location = None
                     else:
                         self.spaces[component].source_code_location = tree[component]
             elif folder == "State":
                 for component in self.state:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.state[component].source_code_location = None
                     else:
                         self.state[component].source_code_location = tree[component]
             elif folder == "Policies":
                 for component in self.policies:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.policies[component].source_code_location = None
                     else:
                         self.policies[component].source_code_location = tree[component]
             elif folder == "Wiring":
                 for component in self.wiring:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.wiring[component].source_code_location = None
                     else:
                         self.wiring[component].source_code_location = tree[component]
             elif folder == "Parameters":
                 for component in self.parameters.parameter_map:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.parameters.parameter_map[
                             component
                         ].source_code_location = None
@@ -555,7 +601,11 @@ class MathSpec:
             elif folder == "Entities":
                 for component in self.entities:
                     if component not in tree:
-                        print("Can't find component code source")
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component
+                            )
+                        )
                         self.entities[component].source_code_location = None
                     else:
                         self.entities[component].source_code_location = tree[component]
