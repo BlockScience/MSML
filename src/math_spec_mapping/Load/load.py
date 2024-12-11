@@ -17,6 +17,7 @@ from .type import load_types, load_type_keys
 from .metrics import load_metrics
 from .displays import load_displays
 from .implementations import load_implementations
+from .spec_tree import load_spec_tree
 
 
 def load_from_json(json: Dict) -> MathSpec:
