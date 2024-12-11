@@ -1,7 +1,7 @@
 import ast
 
 
-def load_spec_tree(path):
+def load_spec_tree(path, ms):
     tree = {}
     for folder in [
         "StatefulMetrics",
@@ -18,6 +18,13 @@ def load_spec_tree(path):
         "Parameters",
         "Entities",
     ]:
+        if folder == "StatefulMetrics":
+            keys = ms.get_all_stateful_metric_names()
+            tree[folder] = {}
+        else:
+            assert False
+        keys = list(keys)
+
         init_path = path + "/" + folder + "/__init__.py"
         with open(init_path, "r") as file:
             tree2 = ast.parse(file.read(), filename=init_path)
@@ -31,5 +38,9 @@ def load_spec_tree(path):
                     if node.module:
                         for name in node.names:
                             file_path = "{}/{}/{}.py".format(path, folder, node.module)
-                            print(file_path)
-                            print(name.name)
+                            with open(file_path, "r") as file2:
+                                contents = file2.read()
+                            for key in keys:
+                                if key in contents:
+                                    tree[folder][key] = file_path
+            print(tree)
