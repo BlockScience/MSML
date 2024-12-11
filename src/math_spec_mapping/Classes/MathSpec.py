@@ -33,6 +33,7 @@ class MathSpec:
         ]
         self.stateful_metrics = ms_dict["Stateful Metrics"]
         self.wiring = ms_dict["Wiring"]
+        self.tree = None
         # self.blocks = ms_dict["Blocks"]
         self._load_blocks()
         self._load_components()
@@ -439,6 +440,59 @@ class MathSpec:
         self._used_spaces = list(set().union(*self._used_spaces))
         us_names = [y.name for y in self._used_spaces]
         self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
+
+    def _add_spec_tree(self, tree):
+        self.tree = tree
+        for folder in [
+            "StatefulMetrics",
+            "Metrics",
+            "Mechanisms",
+            "BoundaryActions",
+            "Types",
+            "ControlActions",
+            "Displays",
+            "Spaces",
+            "State",
+            "Policies",
+            "Wiring",
+            "Parameters",
+            "Entities",
+        ]:
+            if folder == "StatefulMetrics":
+                tree = self.tree[folder]
+                for component in self.stateful_metrics_map:
+                    if component not in tree:
+                        print("Can't find component code source")
+                    else:
+                        self.stateful_metrics_map[component].source_code_location = (
+                            tree[component]
+                        )
+            elif folder == "Metrics":
+                keys = ms.metrics.keys()
+            elif folder == "Mechanisms":
+                keys = ms.mechanisms.keys()
+            elif folder == "BoundaryActions":
+                keys = ms.boundary_actions.keys()
+            elif folder == "Types":
+                keys = ms.types.keys()
+            elif folder == "ControlActions":
+                keys = ms.control_actions.keys()
+            elif folder == "Displays":
+                keys = [x["name"] for x in ms.displays["Wiring"]]
+            elif folder == "Spaces":
+                keys = ms.spaces.keys()
+            elif folder == "State":
+                keys = ms.state.keys()
+            elif folder == "Policies":
+                keys = ms.policies.keys()
+            elif folder == "Wiring":
+                keys = ms.wiring.keys()
+            elif folder == "Parameters":
+                keys = ms.parameters.all_parameters
+            elif folder == "Entities":
+                keys = ms.entities.keys()
+            else:
+                assert False
 
     def metaprogramming_python_types(self, model_directory, overwrite=False):
         path = model_directory + "/types.py"

@@ -67,3 +67,4 @@ def load_spec_tree(path, ms):
                             for key in keys:
                                 if key in contents:
                                     tree[folder][key] = file_path
+    return tree
