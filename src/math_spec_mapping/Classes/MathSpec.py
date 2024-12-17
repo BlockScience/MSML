@@ -1010,6 +1010,14 @@ class MathSpecImplementation:
                     )
                 else:
                     control_actions[ca.name] = opt.implementations["python"]
+
+                for opt_i in [x for x in ca.control_action_options if x != opt]:
+                    if "python" not in opt_i.implementations:
+                        print(
+                            "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(
+                                ca.name, opt_i.name, opt_i.name
+                            )
+                        )
         return control_actions
 
     def load_boundary_actions(self):
@@ -1041,6 +1049,14 @@ class MathSpecImplementation:
                     )
                 else:
                     boundary_actions[ba.name] = opt.implementations["python"]
+
+                for opt_i in [x for x in ba.boundary_action_options if x != opt]:
+                    if "python" not in opt_i.implementations:
+                        print(
+                            "No python implementation for {} / {}. To fix this, go to Implementations/Python/BoundaryActions and add {}".format(
+                                ba.name, opt_i.name, opt_i.name
+                            )
+                        )
         return boundary_actions
 
     def load_mechanisms(self):
@@ -1137,6 +1153,14 @@ class MathSpecImplementation:
                     )
                 else:
                     policies[p.name] = opt.implementations["python"]
+            for opt_i in [x for x in p.policy_options if x != opt]:
+                if "python" not in opt_i.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/Policies and add {}".format(
+                            p.name, opt_i.name, opt_i.name
+                        )
+                    )
+
         return policies
 
     def load_stateful_metrics(self):
