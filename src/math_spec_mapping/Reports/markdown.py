@@ -67,7 +67,10 @@ def write_entity_markdown_report(ms, path, entity, add_metadata=True):
 
 
 def write_source_code_block(component, text, path):
-    file_path = component.source_code_location
+    if hasattr(component, "source_code_location"):
+        file_path = component.source_code_location
+    else:
+        file_path = component["Source Code Location"]
     if file_path:
         file_path = os.path.relpath(file_path, path)
         text += "## Spec Source Code Location\n\n"
