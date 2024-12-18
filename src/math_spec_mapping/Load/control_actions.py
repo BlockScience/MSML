@@ -1,6 +1,6 @@
 from typing import Dict
 from ..Classes import ControlAction, ControlActionOption
-from .general import check_json_keys
+from .general import check_json_keys, check_domain_codomain_spaces
 
 
 def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
@@ -24,6 +24,8 @@ def convert_control_action(data: Dict, ms: Dict) -> ControlAction:
     assert type(data["codomain"]) == tuple, "{} codomain is not a tuple".format(
         data["name"]
     )
+
+    check_domain_codomain_spaces(data, ms)
 
     if len(data["codomain"]) == 0:
         data["codomain"] = ("Empty Space",)
