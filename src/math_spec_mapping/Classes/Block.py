@@ -172,6 +172,9 @@ class Block:
         out = list(set(out))
         return out
 
+    def __repr__(self):
+        return "<{}>".format(self.name)
+
 
 class ParallelBlock(Block):
     def __init__(self, data: Dict):
