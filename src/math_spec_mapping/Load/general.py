@@ -159,3 +159,12 @@ def check_json_keys(json: Dict, check_set_key: str) -> None:
 
 def validate_json_schema(json):
     validate(json, schema)
+
+
+def check_domain_codomain_spaces(json: Dict, ms) -> None:
+    if "domain" in json:
+        for key in json["domain"]:
+            assert key in ms["Spaces"], "{} not in spaces".format(key)
+    if "codomain" in json:
+        for key in json["codomain"]:
+            assert key in ms["Spaces"], "{} not in spaces".format(key)

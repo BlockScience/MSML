@@ -50,8 +50,14 @@ def convert_action_transmission_channel(
         data["target"] = ms["Mechanisms"][target]
 
     # Add in called by and called here with origin and target
-    data["origin"].calls.append((data["target"], data["optional"], data["space"]))
-    data["target"].called_by.append((data["origin"], data["optional"], data["space"]))
+    if (data["target"], data["optional"], data["space"]) not in data["origin"].calls:
+        data["origin"].calls.append((data["target"], data["optional"], data["space"]))
+    if (data["origin"], data["optional"], data["space"]) not in data[
+        "target"
+    ].called_by:
+        data["target"].called_by.append(
+            (data["origin"], data["optional"], data["space"])
+        )
 
     # Build the action transmission channel object
     return ActionTransmissionChannel(data)

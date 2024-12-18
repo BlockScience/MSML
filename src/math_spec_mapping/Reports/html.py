@@ -169,6 +169,13 @@ cssclasses:
             else:
                 out += symbol3 + "{}".format(var.name) + "\n"
 
+    out += symbol1 + "**Metrics**\n"
+    for name in ms.metrics.keys():
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + "{}".format(name) + "\n"
+
     out += symbol1 + "**Types**\n"
     for name in ms.types.keys():
         if linking:
@@ -217,6 +224,12 @@ cssclasses:
 
     out += symbol1 + "**Mechanisms**\n"
     for name in ms.mechanisms.keys():
+        if linking:
+            out += symbol2 + "[[{}]]".format(name) + "\n"
+        else:
+            out += symbol2 + name + "\n"
+    out += symbol1 + "**Wirings**\n"
+    for name in ms.wiring.keys():
         if linking:
             out += symbol2 + "[[{}]]".format(name) + "\n"
         else:

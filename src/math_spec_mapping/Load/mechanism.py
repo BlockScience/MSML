@@ -1,6 +1,6 @@
 from typing import Dict
 from ..Classes import Mechanism
-from .general import check_json_keys
+from .general import check_json_keys, check_domain_codomain_spaces
 
 
 def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
@@ -25,6 +25,8 @@ def convert_mechanism(data: Dict, ms: Dict) -> Mechanism:
     )
     if len(data["domain"]) == 0:
         data["domain"] = ("Empty Space",)
+
+    check_domain_codomain_spaces(data, ms)
 
     # Copy
     data = data.copy()

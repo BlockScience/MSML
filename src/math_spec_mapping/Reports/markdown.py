@@ -67,7 +67,10 @@ def write_entity_markdown_report(ms, path, entity, add_metadata=True):
 
 
 def write_source_code_block(component, text, path):
-    file_path = component.source_code_location
+    if hasattr(component, "source_code_location"):
+        file_path = component.source_code_location
+    else:
+        file_path = component["Source Code Location"]
     if file_path:
         file_path = os.path.relpath(file_path, path)
         text += "## Spec Source Code Location\n\n"
@@ -939,7 +942,10 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
-    with open("{}/Displays/Wiring/{}.md".format(path, wiring["name"]), "w") as f:
+    path = "{}/Displays/Wiring/{}.md".format(path, wiring["name"])
+    out = write_source_code_block(wiring, out, path)
+
+    with open(path, "w") as f:
         f.write(out)
 
 
