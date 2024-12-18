@@ -542,8 +542,17 @@ class MathSpec:
                             component
                         ]
             elif folder == "Displays":
-                print("Displays not implemented")
-                # keys = [x["name"] for x in ms.displays["Wiring"]]
+
+                for component in self.displays["Wiring"]:
+                    if component["name"] not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component["name"]
+                            )
+                        )
+                        component["Source Code Location"] = None
+                    else:
+                        component["Source Code Location"] = tree[component["name"]]
             elif folder == "Spaces":
                 for component in self.spaces:
                     if component in ["Terminating Space", "Empty Space"]:
