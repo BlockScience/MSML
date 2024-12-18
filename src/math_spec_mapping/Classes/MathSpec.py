@@ -439,7 +439,14 @@ class MathSpec:
 
         self._used_spaces = list(set().union(*self._used_spaces))
         us_names = [y.name for y in self._used_spaces]
-        self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
+        self._unused_spaces = [
+            self.spaces[x]
+            for x in self.spaces
+            if x not in us_names and x not in ["Terminating Space", "Empty Space"]
+        ]
+
+        if len(self._unused_spaces) > 0:
+            print("The following spaces are not used: {}".format(self._unused_spaces))
 
     def _add_spec_tree(self, tree):
         self.tree = tree
@@ -535,8 +542,17 @@ class MathSpec:
                             component
                         ]
             elif folder == "Displays":
-                print("Displays not implemented")
-                # keys = [x["name"] for x in ms.displays["Wiring"]]
+
+                for component in self.displays["Wiring"]:
+                    if component["name"] not in tree:
+                        print(
+                            "Can't find component code source in {} for {}".format(
+                                folder, component["name"]
+                            )
+                        )
+                        component["Source Code Location"] = None
+                    else:
+                        component["Source Code Location"] = tree[component["name"]]
             elif folder == "Spaces":
                 for component in self.spaces:
                     if component in ["Terminating Space", "Empty Space"]:
@@ -1010,6 +1026,14 @@ class MathSpecImplementation:
                     )
                 else:
                     control_actions[ca.name] = opt.implementations["python"]
+
+                for opt_i in [x for x in ca.control_action_options if x != opt]:
+                    if "python" not in opt_i.implementations:
+                        print(
+                            "No python implementation for {} / {}. To fix this, go to Implementations/Python/ControlActions and add {}".format(
+                                ca.name, opt_i.name, opt_i.name
+                            )
+                        )
         return control_actions
 
     def load_boundary_actions(self):
@@ -1041,6 +1065,14 @@ class MathSpecImplementation:
                     )
                 else:
                     boundary_actions[ba.name] = opt.implementations["python"]
+
+                for opt_i in [x for x in ba.boundary_action_options if x != opt]:
+                    if "python" not in opt_i.implementations:
+                        print(
+                            "No python implementation for {} / {}. To fix this, go to Implementations/Python/BoundaryActions and add {}".format(
+                                ba.name, opt_i.name, opt_i.name
+                            )
+                        )
         return boundary_actions
 
     def load_mechanisms(self):
@@ -1137,6 +1169,14 @@ class MathSpecImplementation:
                     )
                 else:
                     policies[p.name] = opt.implementations["python"]
+            for opt_i in [x for x in p.policy_options if x != opt]:
+                if "python" not in opt_i.implementations:
+                    print(
+                        "No python implementation for {} / {}. To fix this, go to Implementations/Python/Policies and add {}".format(
+                            p.name, opt_i.name, opt_i.name
+                        )
+                    )
+
         return policies
 
     def load_stateful_metrics(self):

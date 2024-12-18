@@ -40,6 +40,12 @@ def convert_stateful_metric(ms, data: Dict) -> StatefulMetricSet:
                 x[1]
             )
 
+        assert (
+            var["type"] in ms["Types"]
+        ), "{} type referenced by {} is not present in math spec".format(
+            var["type"], var["name"]
+        )
+
         var["implementations"] = {}
         if "python" in ms["Implementations"]:
             if "stateful_metrics" in ms["Implementations"]["python"]:

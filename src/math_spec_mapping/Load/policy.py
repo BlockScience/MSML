@@ -2,7 +2,7 @@ from typing import Dict
 from ..Classes import Policy, PolicyOption
 
 
-from .general import check_json_keys
+from .general import check_json_keys, check_domain_codomain_spaces
 
 
 def convert_policy_options(data: Dict, ms) -> PolicyOption:
@@ -58,6 +58,7 @@ def convert_policy(data: Dict, ms: Dict) -> Policy:
     assert type(data["domain"]) == tuple, "{} domain is not a tuple".format(
         data["name"]
     )
+    check_domain_codomain_spaces(data, ms)
 
     if len(data["codomain"]) == 0:
         data["codomain"] = ("Empty Space",)
