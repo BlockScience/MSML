@@ -939,7 +939,10 @@ def write_wiring_display_markdown_report(ms, path, wiring, add_metadata=True):
         out += "\n"
     out += "\n"
 
-    with open("{}/Displays/Wiring/{}.md".format(path, wiring["name"]), "w") as f:
+    path = "{}/Displays/Wiring/{}.md".format(path, wiring["name"])
+    out = write_source_code_block(wiring, out, path)
+
+    with open(path, "w") as f:
         f.write(out)
 
 
