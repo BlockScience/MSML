@@ -439,7 +439,14 @@ class MathSpec:
 
         self._used_spaces = list(set().union(*self._used_spaces))
         us_names = [y.name for y in self._used_spaces]
-        self._unused_spaces = [self.spaces[x] for x in self.spaces if x not in us_names]
+        self._unused_spaces = [
+            self.spaces[x]
+            for x in self.spaces
+            if x not in us_names and x not in ["Terminating Space", "Empty Space"]
+        ]
+
+        if len(self._unused_spaces) > 0:
+            print("The following spaces are not used: {}".format(self._unused_spaces))
 
     def _add_spec_tree(self, tree):
         self.tree = tree
