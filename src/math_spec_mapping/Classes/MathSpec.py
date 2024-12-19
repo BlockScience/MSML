@@ -983,10 +983,10 @@ using .Spaces: generate_space_type
         for x in self.source_code:
             self.source_code_lines[x] = {}
             for y in self.source_code[x]:
-                self.source_code[x][y] = getsource(
-                    self.source_code[x][y]
+                self.source_code_lines[x][y] = "#L{}".format(
+                    getsourcelines(self.source_code[x][y])[1]
                 )
-                self.source_code_lines[x][y] = "#L{}".format(getsourcelines(self.source_code[x][y])[1])
+                self.source_code[x][y] = getsource(self.source_code[x][y])
 
 
 class MathSpecImplementation:
