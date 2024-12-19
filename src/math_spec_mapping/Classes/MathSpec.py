@@ -8,7 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
-from inspect import signature, getsource, getfile
+from inspect import signature, getsource, getfile, getsourcelines
 from IPython.display import display, Markdown
 
 
@@ -979,9 +979,14 @@ using .Spaces: generate_space_type
             self.source_code = None
             return
         self.source_code = deepcopy(self.implementations["python"])
+        self.source_code_lines = {}
         for x in self.source_code:
+            self.source_code_lines[x] = {}
             for y in self.source_code[x]:
-                self.source_code[x][y] = getsource(self.source_code[x][y])
+                self.source_code[x][y] = getsource(
+                    self.source_code[x][y]
+                )
+                self.source_code_lines[x][y] = "#L{}".format(getsourcelines(self.source_code[x][y])[1])
 
 
 class MathSpecImplementation:
