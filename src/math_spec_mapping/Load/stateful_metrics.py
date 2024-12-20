@@ -41,8 +41,8 @@ def convert_stateful_metric(ms, data: Dict) -> StatefulMetricSet:
             )
 
         assert (
-            var["type"] in ms["Types"]
-        ), "{} type referenced by {} is not present in math spec".format(
+            var["type"] in ms["Types"] or var["type"] in ms["Spaces"]
+        ), "{} type/space referenced by {} is not present in math spec".format(
             var["type"], var["name"]
         )
 
