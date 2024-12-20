@@ -1,6 +1,6 @@
 import os
 from .state import write_state_section
-from inspect import signature, getsource, getfile
+from inspect import signature, getsource, getfile, getsourcelines
 
 
 def get_source_code(
@@ -16,7 +16,7 @@ def get_source_code(
 {}```""".format(
         getsource(code)
     )
-    file_path = getfile(code)
+    file_path = getfile(code) + "#L{}".format(getsourcelines(code)[1])
     return source_code, file_path
 
 
