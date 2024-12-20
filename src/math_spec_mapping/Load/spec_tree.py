@@ -2,6 +2,18 @@ import ast
 import os
 
 
+def index_to_line_and_column(lines, index):
+    cumulative_length = 0
+    for line_number, line in enumerate(lines):
+        line_length = len(line) + 1  # +1 for the newline character
+        if cumulative_length + line_length > index:
+            column = index - cumulative_length
+            return line_number, column
+        cumulative_length += line_length
+
+    raise ValueError("Index out of range")
+
+
 def load_spec_tree(path, ms):
     tree = {}
     for folder in [
@@ -61,11 +73,20 @@ def load_spec_tree(path, ms):
                     assert False, "Not implemented for imports that are not import from"
                 elif isinstance(node, ast.ImportFrom):
                     if node.module:
-                        for name in node.names:
-                            file_path = "{}/{}/{}.py".format(path, folder, node.module)
-                            with open(file_path, "r") as file2:
-                                contents = file2.read()
-                            for key in keys:
-                                if key in contents:
-                                    tree[folder][key] = os.path.abspath(file_path)
+                        file_path = "{}/{}/{}.py".format(path, folder, node.module)
+
+                        with open(file_path, "r") as file2:
+                            contents = file2.read()
+                        split = contents.split("\n")
+                        for key in keys:
+                            if key in contents:
+                                line_number = (
+                                    index_to_line_and_column(
+                                        split, contents.index(key)
+                                    )[0]
+                                    + 1
+                                )
+                                tree[folder][key] = os.path.abspath(
+                                    file_path
+                                ) + "#L{}".format(line_number)
     return tree
