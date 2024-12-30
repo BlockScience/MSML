@@ -1340,8 +1340,21 @@ class MathSpecImplementation:
                 spaces,
                 domain_codomain_checking=self.domain_codomain_checking,
             ):
-                print(component)
                 domain = spaces
+                if domain_codomain_checking:
+                    prototype_spaces = self.ms.blocks[component].domain
+                    prototype_spaces = [
+                        x.schema for x in prototype_spaces if x.name != "Empty Space"
+                    ]
+                    assert len(prototype_spaces) == len(
+                        domain
+                    ), "Length of domain incorrect for {}".format(component)
+                    for space1, space2 in zip(domain, prototype_spaces):
+                        assert set(space1.keys()) == set(
+                            space2.keys()
+                        ), "Keys for schema of {} is not matched by {} in {} component".format(
+                            space2, space1, component
+                        )
                 codomain = self.components[component](state, params, spaces)
                 return codomain
 
