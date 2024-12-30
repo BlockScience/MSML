@@ -1331,8 +1331,27 @@ class MathSpecImplementation:
         self.components.update(self.mechanisms)
         self.components.update(self.wiring)
 
-        if self.domain_codomain_checking:
-            print("AAA")
+        self.components_enhanced = {}
+
+        def create_wrapper(component, domain_codomain_checking):
+            def wrapper(
+                state,
+                params,
+                spaces,
+                domain_codomain_checking=self.domain_codomain_checking,
+            ):
+                print(component)
+                domain = spaces
+                codomain = self.components[component](state, params, spaces)
+                return codomain
+
+            return wrapper
+
+        for component in self.components:
+
+            self.components_enhanced[component] = create_wrapper(
+                component, self.domain_codomain_checking
+            )
 
     def execute_blocks(self, state, params, blocks):
         for block in blocks:
