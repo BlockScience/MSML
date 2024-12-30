@@ -971,8 +971,10 @@ using .Spaces: generate_space_type
         with open(path, "w") as f:
             f.write(out)
 
-    def build_implementation(self, params):
-        return MathSpecImplementation(self, params)
+    def build_implementation(self, params, domain_codomain_checking=False):
+        return MathSpecImplementation(
+            self, params, domain_codomain_checking=domain_codomain_checking
+        )
 
     def _set_source_code(self):
         if "python" not in self.implementations:
@@ -990,9 +992,10 @@ using .Spaces: generate_space_type
 
 
 class MathSpecImplementation:
-    def __init__(self, ms: MathSpec, params):
+    def __init__(self, ms: MathSpec, params, domain_codomain_checking):
         self.ms = deepcopy(ms)
         self.params = params
+        self.domain_codomain_checking = domain_codomain_checking
         self.control_actions = self.load_control_actions()
         self.boundary_actions = self.load_boundary_actions()
         self.policies = self.load_policies()
@@ -1327,6 +1330,9 @@ class MathSpecImplementation:
         self.components.update(self.policies)
         self.components.update(self.mechanisms)
         self.components.update(self.wiring)
+
+        if self.domain_codomain_checking:
+            print("AAA")
 
     def execute_blocks(self, state, params, blocks):
         for block in blocks:
