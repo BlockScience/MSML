@@ -20,6 +20,9 @@ def convert_space(ms, data: Dict) -> Space:
         )
         data["schema"][x] = ms["Types"][data["schema"][x]]
 
+    if "description" not in data:
+        data["description"] = None
+
     # Build the space object
     return Space(data)
 
