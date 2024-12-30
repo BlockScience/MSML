@@ -1341,6 +1341,8 @@ class MathSpecImplementation:
                 domain_codomain_checking=self.domain_codomain_checking,
             ):
                 domain = spaces
+
+                # Domain Checking
                 if domain_codomain_checking:
                     prototype_spaces = self.ms.blocks[component].domain
                     prototype_spaces = [
@@ -1352,10 +1354,27 @@ class MathSpecImplementation:
                     for space1, space2 in zip(domain, prototype_spaces):
                         assert set(space1.keys()) == set(
                             space2.keys()
-                        ), "Keys for schema of {} is not matched by {} in {} component".format(
-                            space2, space1, component
+                        ), "Keys for domain schema of {} is not matched by {} in {} component".format(
+                            set(space2.keys()), set(space1.keys()), component
                         )
+
                 codomain = self.components[component](state, params, spaces)
+
+                # Codomain Checking
+                if domain_codomain_checking and codomain:
+                    prototype_spaces = self.ms.blocks[component].codomain
+                    prototype_spaces = [
+                        x.schema for x in prototype_spaces if x.name != "Empty Space"
+                    ]
+                    assert len(prototype_spaces) == len(
+                        codomain
+                    ), "Length of codomain incorrect for {}".format(component)
+                    for space1, space2 in zip(codomain, prototype_spaces):
+                        assert set(space1.keys()) == set(
+                            space2.keys()
+                        ), "Keys for codomain schema of {} is not matched by {} in {} component".format(
+                            set(space2.keys()), set(space1.keys()), component
+                        )
                 return codomain
 
             return wrapper
