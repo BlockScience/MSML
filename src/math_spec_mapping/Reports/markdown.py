@@ -437,6 +437,13 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
 
+    if space.description:
+        out += "## Description"
+        out += "\n"
+        out += space.description
+        out += "\n"
+        out += "\n"
+
     out += "## Schema"
     out += "\n"
     out += "\n"
