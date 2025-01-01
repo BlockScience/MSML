@@ -1,6 +1,6 @@
 import os
 from .state import write_state_section
-from inspect import signature, getsource, getfile
+from inspect import signature, getsource, getfile, getsourcelines
 
 
 def get_source_code(
@@ -16,7 +16,7 @@ def get_source_code(
 {}```""".format(
         getsource(code)
     )
-    file_path = getfile(code)
+    file_path = getfile(code) + "#L{}".format(getsourcelines(code)[1])
     return source_code, file_path
 
 
@@ -436,6 +436,13 @@ def write_space_markdown_report(ms, path, space, add_metadata=True):
 """.format(
                 "\n".join(["{}: {}".format(x, metadata[x]) for x in metadata])
             )
+
+    if space.description:
+        out += "## Description"
+        out += "\n"
+        out += space.description
+        out += "\n"
+        out += "\n"
 
     out += "## Schema"
     out += "\n"
@@ -857,6 +864,8 @@ def write_state_variables_markdown_reports(ms, path, state, add_metadata=True):
                 )
         out += "Description: "
         out += variable.description
+        out += "\n\n"
+        out += "Underlying state: [[{}]]".format(state.name)
         out += "\n\n"
         out += "Type: [["
         out += variable.type.name

@@ -6,6 +6,7 @@ class Space:
         self.name = data["name"]
         self.schema = data["schema"]
         self.metadata = data["metadata"]
+        self.description = data["description"]
         self.name_variable = self.name.replace(" ", "").replace("-", "_")
         self.domain_blocks = []
         self.codomain_blocks = []
@@ -14,5 +15,19 @@ class Space:
         return self.name
 
 
-TerminatingSpace = Space({"name": "Terminating Space", "schema": {}, "metadata": {}})
-EmptySpace = Space({"name": "Empty Space", "schema": {}, "metadata": {}})
+TerminatingSpace = Space(
+    {
+        "name": "Terminating Space",
+        "schema": {},
+        "metadata": {},
+        "description": "Built-in space for denoting termination of block",
+    }
+)
+EmptySpace = Space(
+    {
+        "name": "Empty Space",
+        "schema": {},
+        "metadata": {},
+        "description": "Built-in space for denoting returning no data",
+    }
+)
