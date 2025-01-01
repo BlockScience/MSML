@@ -441,6 +441,9 @@
                 "name": {
                     "type": "string"
                 },
+                "description": {
+                    "type": "string"
+                },
                 "schema": {
                     "$ref": "./schema.schema.json/#/definitions/Schema"
                 }

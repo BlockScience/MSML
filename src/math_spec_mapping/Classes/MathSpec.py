@@ -8,7 +8,7 @@ import os
 from copy import deepcopy
 import shutil
 import pandas as pd
-from inspect import signature, getsource, getfile
+from inspect import signature, getsource, getfile, getsourcelines
 from IPython.display import display, Markdown
 
 
@@ -971,23 +971,31 @@ using .Spaces: generate_space_type
         with open(path, "w") as f:
             f.write(out)
 
-    def build_implementation(self, params):
-        return MathSpecImplementation(self, params)
+    def build_implementation(self, params, domain_codomain_checking=False):
+        return MathSpecImplementation(
+            self, params, domain_codomain_checking=domain_codomain_checking
+        )
 
     def _set_source_code(self):
         if "python" not in self.implementations:
             self.source_code = None
             return
         self.source_code = deepcopy(self.implementations["python"])
+        self.source_code_lines = {}
         for x in self.source_code:
+            self.source_code_lines[x] = {}
             for y in self.source_code[x]:
+                self.source_code_lines[x][y] = "#L{}".format(
+                    getsourcelines(self.source_code[x][y])[1]
+                )
                 self.source_code[x][y] = getsource(self.source_code[x][y])
 
 
 class MathSpecImplementation:
-    def __init__(self, ms: MathSpec, params):
+    def __init__(self, ms: MathSpec, params, domain_codomain_checking):
         self.ms = deepcopy(ms)
         self.params = params
+        self.domain_codomain_checking = domain_codomain_checking
         self.control_actions = self.load_control_actions()
         self.boundary_actions = self.load_boundary_actions()
         self.policies = self.load_policies()
@@ -1322,6 +1330,60 @@ class MathSpecImplementation:
         self.components.update(self.policies)
         self.components.update(self.mechanisms)
         self.components.update(self.wiring)
+
+        self.components_enhanced = {}
+
+        def create_wrapper(component, domain_codomain_checking):
+            def wrapper(
+                state,
+                params,
+                spaces,
+                domain_codomain_checking=self.domain_codomain_checking,
+            ):
+                domain = spaces
+
+                # Domain Checking
+                if domain_codomain_checking:
+                    prototype_spaces = self.ms.blocks[component].domain
+                    prototype_spaces = [
+                        x.schema for x in prototype_spaces if x.name != "Empty Space"
+                    ]
+                    assert len(prototype_spaces) == len(
+                        domain
+                    ), "Length of domain incorrect for {}".format(component)
+                    for space1, space2 in zip(domain, prototype_spaces):
+                        assert set(space1.keys()) == set(
+                            space2.keys()
+                        ), "Keys for domain schema of {} is not matched by {} in {} component".format(
+                            set(space2.keys()), set(space1.keys()), component
+                        )
+
+                codomain = self.components[component](state, params, spaces)
+
+                # Codomain Checking
+                if domain_codomain_checking and codomain:
+                    prototype_spaces = self.ms.blocks[component].codomain
+                    prototype_spaces = [
+                        x.schema for x in prototype_spaces if x.name != "Empty Space"
+                    ]
+                    assert len(prototype_spaces) == len(
+                        codomain
+                    ), "Length of codomain incorrect for {}".format(component)
+                    for space1, space2 in zip(codomain, prototype_spaces):
+                        assert set(space1.keys()) == set(
+                            space2.keys()
+                        ), "Keys for codomain schema of {} is not matched by {} in {} component".format(
+                            set(space2.keys()), set(space1.keys()), component
+                        )
+                return codomain
+
+            return wrapper
+
+        for component in self.components:
+
+            self.components_enhanced[component] = create_wrapper(
+                component, self.domain_codomain_checking
+            )
 
     def execute_blocks(self, state, params, blocks):
         for block in blocks:
