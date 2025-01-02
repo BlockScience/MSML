@@ -1,1 +1,8 @@
+title: Mathematical Specification Mapping Library Documentation
+description: Documentation for getting started modeling with MSML
 theme: just-the-docs
+
+url: https://blockscience.github.io/MSML/
+
+aux_links:
+  MSML Repository Repository: https://github.com/BlockScience/MSML
