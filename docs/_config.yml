@@ -4,5 +4,12 @@ theme: just-the-docs
 
 url: https://blockscience.github.io/MSML/
 
+defaults:
+  - scope:
+      path: "docs" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
+
 aux_links:
   MSML Repository Repository: https://github.com/BlockScience/MSML
