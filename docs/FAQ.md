@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: FAQ
 nav_order: 2
 ---
