@@ -4,4 +4,4 @@ nav_order: 2
 layout: page
 ---
 
-Getting started
+Placeholder for getting started guide
