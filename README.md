@@ -1,4 +1,6 @@
-# MSML
+# Mathematical Specification Mapping Library (MSML)
+
+For documentation and getting started with MSML, please refer to the site for MSML [here](https://blockscience.github.io/MSML/).
 
 ## What is the Mathematical Specification Mapping Library (MSML)?
 
@@ -6,7 +8,7 @@ MSML is a library for standardizing the creation of mathematical specifications 
 
 It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
 
-One good example is the [wiring report](https://github.com/SeanMcOwen/Root-Finding-Simulation/blob/main/MSML/reports/Simulation%20Block.md) for the Root Finding Simulation canonical example.
+One good example is the [wiring report](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Hunt%20Prey%20Wiring.md) for hunt prey wiring in the predator prey example (although it is best viewed in Obsidian where all the linking will work).
 
 ## Installing the library
 
@@ -16,6 +18,12 @@ To install the library, simply pip install by running "pip install math_spec_map
 
 Writing mathematical specifications can be a difficult process, especially when variable names are changed or new mechanisms are introduced. MSML seeks to streamline the process with automations as well as enhance the abilities of static math specs to deliver deeper insights. Because it is automated, one can write specifications at different levels of details or for different purposes.
 
+### Stakeholder Communications
+
+- In organizations, senior people / non-developers don't always have as intimate a view of the underlying code as the primary developers in a system because of time constraints and not working as directly with the code as the primary developers
+- Often this means that there is a reliance on asking the primary developers for clarifications and relying on "front-end" kinds of stuff such as visualizations or outputs of the model as opposed to combing through the underlying code
+- MSML seeks to help bridge this gap by allowing for the Obsidian markdown vault that can showcase every component and its dependencies for easier consumption.... this reduces the barriers to entry on understanding the back-end/underlying model
+- Also through things such as code linking, MSML allows for those with code fluency to jump into underlying code if they need to without even opening up the actual project repository
 
 ## What are some of the solutions offered?
 
@@ -64,9 +72,6 @@ Thanks to some of the more advanced features, MSML can be used as an aid for deb
 
 The ability to fork the repository of an MSML spec as well as the ability to use it for A/B testing with the policy options makes it well suited for iterating on model evolution. 
 
-## Technical Details
-
-The documentation on the technical details of using the MSML can be found [here](https://github.com/BlockScience/MSML/tree/main/docs)
 
 
 ##  Other Related Repositories
