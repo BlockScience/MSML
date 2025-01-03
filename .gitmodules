@@ -7,3 +7,9 @@
 [submodule "examples/MSML-Template"]
 	path = examples/MSML-Template
 	url = https://github.com/BlockScience/MSML-Template
+[submodule "examples/Retirement-Planning-MSML"]
+	path = examples/Retirement-Planning-MSML
+	url = https://github.com/BlockScience/Retirement-Planning-MSML
+[submodule "examples/Predator-Prey-MSML"]
+	path = examples/Predator-Prey-MSML
+	url = https://github.com/BlockScience/Predator-Prey-MSML
