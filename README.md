@@ -73,7 +73,6 @@ Thanks to some of the more advanced features, MSML can be used as an aid for deb
 The ability to fork the repository of an MSML spec as well as the ability to use it for A/B testing with the policy options makes it well suited for iterating on model evolution. 
 
 
-
 ##  Other Related Repositories
 
 [GDS-MSML-cadCAD Repository](https://github.com/BlockScience/GDS-MSML-cadCAD)
