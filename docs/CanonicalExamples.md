@@ -7,12 +7,7 @@ nav_order: 4
 As part of MSML, there are multiple canonical examples which are meant to showcase how the library gets used. The table below describes the features that each one has as well as the level of completion for each.
 
 
-## Canonical Examples
-
-[Dummy/Starter Repository](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo)
-[Root Finding Simulation](https://github.com/SeanMcOwen/Root-Finding-Simulation)
-
-### Comparison of Canonical Example Features
+## Comparison of Canonical Examples
 
 | Feature/Attribute | [MSML Template](https://github.com/BlockScience/MSML-Template) | [Predator Prey](https://github.com/BlockScience/Predator-Prey-MSML) | [Root Finding](https://github.com/SeanMcOwen/Root-Finding-Simulation) | [Retirement Planning](https://github.com/BlockScience/Retirement-Planning-MSML) |
 | --- | --- | --- | --- | --- |
@@ -21,19 +16,14 @@ As part of MSML, there are multiple canonical examples which are meant to showca
 | Code Implementations Complete? | X | X |  | WIP |
 | Simulations/Experiments Complete? | X | WIP|  | |
 | Comes with tutorial? |  |  |  | WIP |
-
-| Action Transmission Channels | X | X |
-| Stack Block | X | X |
-| Parallel Block |  | X |
-| Split Block |  |  |
-| Boundary Actions | X |  |
-| Control Actions | X | X |
-| Entities | X |  |
-| Mechanisms | X | X |
-| Parameters | X | X |
-| Policies | X | X |
-| Spaces | X | X |
-| State | X | X |
-| Stateful Metrics |  |  |
-| State Update Transmission Channels | X | X |
-| Reports | X | X |
+| Boundary Actions | X | X |  | X |
+| Control Actions | X | X | X | X |
+| Policies | X | X | X | X |
+| Mechanisms | X | X | X | X |
+| Displays | X | X | X | X |
+| Parallel Block | X | X | X | X |
+| Stack Block | X | X | X | X |
+| Split Block |  |  |  |  |
+| Looping Block |  |  |  | WIP |
+| Stateful Metrics| X | X | X | X |
+| Metrics | X | X | X | X |
