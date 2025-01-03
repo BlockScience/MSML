@@ -68,30 +68,6 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 
 The documentation on the technical details of using the MSML can be found [here](https://github.com/BlockScience/MSML/tree/main/docs)
 
-## Canonical Examples
-
-[Dummy/Starter Repository](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo)
-[Root Finding Simulation](https://github.com/SeanMcOwen/Root-Finding-Simulation)
-
-### Comparison of Canonical Example Features
-
-| Feature | Dummy | Root Finding |
-| --- | --- | --- |
-| Action Transmission Channels | X | X |
-| Stack Block | X | X |
-| Parallel Block |  | X |
-| Split Block |  |  |
-| Boundary Actions | X |  |
-| Control Actions | X | X |
-| Entities | X |  |
-| Mechanisms | X | X |
-| Parameters | X | X |
-| Policies | X | X |
-| Spaces | X | X |
-| State | X | X |
-| Stateful Metrics |  |  |
-| State Update Transmission Channels | X | X |
-| Reports | X | X |
 
 ##  Other Related Repositories
 
