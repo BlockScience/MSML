@@ -75,7 +75,7 @@ class Block:
         if self.block_type == "Mechanism":
             for u in sorted(self.updates, key=lambda x: x[0].name + "-" + x[1].name):
                 out += "\n"
-                out += "X{} --> {}".format(
+                out += 'X{} --"State Update"--> {}'.format(
                     i,
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
                 )
@@ -248,7 +248,7 @@ class ParallelBlock(Block):
                 self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
             ):
                 out += "\n"
-                out += "X{} --> {}".format(
+                out += 'X{} --"State Update"--> {}'.format(
                     i,
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
                 )
@@ -445,7 +445,7 @@ class StackBlock(Block):
                 self.all_updates, key=lambda x: x[0].name + "-" + x[1].name
             ):
                 out += "\n"
-                out += "X{} --> {}".format(
+                out += 'X{} --"State Update"--> {}'.format(
                     i,
                     (u[0].name + "-" + u[1].name).replace(" ", "-"),
                 )
