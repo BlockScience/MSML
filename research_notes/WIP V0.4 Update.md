@@ -1,6 +1,6 @@
 # MSML v0.4 Update
 
-Updated through V0.3.10
+Updated through V0.3.14
 
 ## MSML Review
 
@@ -18,6 +18,7 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - Stateful metrics were implemented and now are passed in as a module in the state that implementations can access and use
 - State and parameter preparation function paradigms were added into MSML to allow for setting up parameters and state prior to simulations / executable codes
 - Metrics were added into implementations to allow for mapping code to them
+- Functionality was added in for linking source code to the blocks for easy viewing and writing into markdown reports; as well a source code printing function was added
 
 ### Metaprogramming
 
@@ -33,9 +34,11 @@ A total of XX issues were closed out over the development cycle, which broadly f
 
 ### Canonical Examples
 
+- The MSML template was added as both a canonical example as well as a forkable template for getting started quickly with MSML
+- The predator prey canonical example was created and has been completed up to simulations
 - Introduction of the retirement planning canonical example as a guided walk through example
 - Introduction of the Rideshare Modeling canonical example for building a massive end-to-end model of a rideshare simulation
-- Big improvements to the starter repo including adding in executable code blocks and better naming
+- Big improvements to the starter repo including adding in executable code blocks and better naming, which was later rolled into the MSML template
 
 ## Research Notes
 
@@ -51,11 +54,15 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - New convenience functions such as one to remove dummy repo components after the starter repo scaffolding is no longer needed
 - A parameter table creation function was built which automatically creates a markdown table of parameters, descriptions, and default values for experiment notebooks
 - Improvements of assertions
+- An automatic README writer was added in
+- A functionality that automatically writes issues from an MSML scaffold into a github issues was built out
 
 ## Presentations
 
 - The annual presentation was given in June 2024 during the town hall
 - A governance pod presentation titled "Obsidian, the Mathematical Specification Mapping Library, and End-to-End Modeling" was given
+- October seminar presentation
+- A research note on Predator-Prey-Ideation through reverse engineering was completed which shows how to turn legacy code into an MSML scaffold then automatically port it into github issues for easy organization of the next step (the actual MSML spec), presented in seminar
 
 ## Future Research Arc
 
