@@ -1,6 +1,6 @@
-# MSML v0.3 Update
+# MSML v0.4 Update
 
-Updated through V0.3.6
+Updated through V0.3.10
 
 ## MSML Review
 
@@ -8,7 +8,7 @@ MSML is a library for standardizing the creation of mathematical specifications 
 
 ## Updates from to v0.3.0 to V0.4.0
 
-A total of XX issues were closed out over the development cycle, which broadly fall into the following categories:
+A total of XX issues were closed out over the development cycle, which broadly fall into the following categories below. However, for brevity, only the main updates will be covered, many smaller updates such as bug fixes, small improvements, etc. will not be noted here but can be found in the research journal.
 
 ### Implementations / Executable Code Blocks
 
@@ -16,11 +16,20 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - Full wiring runs are now working/executing
 - New functionality for validation of state and params before running wiring or blocks
 - Stateful metrics were implemented and now are passed in as a module in the state that implementations can access and use
+- State and parameter preparation function paradigms were added into MSML to allow for setting up parameters and state prior to simulations / executable codes
+- Metrics were added into implementations to allow for mapping code to them
 
 ### Metaprogramming
 
 - Initial R&D into metaprogramming for Julia has yielded some success on metaprogramming for spaces and types in cadCAD.jl from MSML
 - Boundary action metaprogramming has been started
+
+### Simulations
+
+- The mini-simulation runner was created
+- Post-processing function paradigm was added into the mini-simulation runner
+- Metric functions were added to the runner for post processing of data
+- Ability to run lists of blocks built out
 
 ### Canonical Examples
 
@@ -40,6 +49,13 @@ A total of XX issues were closed out over the development cycle, which broadly f
 - A lot of bugs were discovered and fixed through dogfooding on client work and canonical examples
 - Some major improvements across the board in terms of quality of life stuff; a lot of new assertions that are more descriptive added to easily see where the issues are
 - New convenience functions such as one to remove dummy repo components after the starter repo scaffolding is no longer needed
+- A parameter table creation function was built which automatically creates a markdown table of parameters, descriptions, and default values for experiment notebooks
+- Improvements of assertions
+
+## Presentations
+
+- The annual presentation was given in June 2024 during the town hall
+- A governance pod presentation titled "Obsidian, the Mathematical Specification Mapping Library, and End-to-End Modeling" was given
 
 ## Future Research Arc
 
