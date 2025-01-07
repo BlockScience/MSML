@@ -727,11 +727,13 @@ class MathSpec:
         state_preperation_functions=None,
         parameter_preperation_functions=None,
         metrics_functions=None,
+        append_param_change_columns=False,
     ):
         state_l = []
         params_l = []
         df_l = []
         metrics_l = []
+        param_mods = set()
         for experiment in experiments:
             for i in range(experiment["Monte Carlo Runs"]):
                 state, params, msi, df, metrics = self.run_experiment(
@@ -743,6 +745,11 @@ class MathSpec:
                     parameter_preperation_functions=parameter_preperation_functions,
                     metrics_functions=metrics_functions,
                 )
+                if append_param_change_columns:
+                    if experiment["Param Modifications"]:
+                        for key in experiment["Param Modifications"]:
+                            df[key] = experiment["Param Modifications"][key]
+                            param_mods.add(key)
                 df["Monte Carlo Run"] = i + 1
                 df["Experiment"] = experiment["Name"]
                 metrics.loc["Monte Carlo Run"] = i + 1
@@ -753,6 +760,9 @@ class MathSpec:
                 df_l.append(df)
                 metrics_l.append(metrics)
         df = pd.concat(df_l)
+        if append_param_change_columns:
+            for key in param_mods:
+                df[key] = df[key].fillna(params_base[key])
         metrics = pd.concat(metrics_l, axis=1).T
         return df, metrics, state_l, params_l
 
@@ -1022,6 +1032,12 @@ class MathSpecImplementation:
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         ca.name, "FP " + ca.name, [x.name for x in opts]
                     )
+                    assert (
+                        self.params["FP {}".format(ca.name)]
+                        in self.ms.functional_parameters["FP {}".format(ca.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(ca.name)], ca.name
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(ca.name)][
                         self.params["FP {}".format(ca.name)]
                     ]
@@ -1059,6 +1075,13 @@ class MathSpecImplementation:
                         "FP {}".format(ba.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         ba.name, "FP " + ba.name, [x.name for x in opts]
+                    )
+
+                    assert (
+                        self.params["FP {}".format(ba.name)]
+                        in self.ms.functional_parameters["FP {}".format(ba.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(ba.name)], ba.name
                     )
 
                     opt = self.ms.functional_parameters["FP {}".format(ba.name)][
@@ -1164,6 +1187,12 @@ class MathSpecImplementation:
                         "FP {}".format(p.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         p.name, "FP " + p.name, [x.name for x in opts]
+                    )
+                    assert (
+                        self.params["FP {}".format(p.name)]
+                        in self.ms.functional_parameters["FP {}".format(p.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(p.name)], p.name
                     )
                     opt = self.ms.functional_parameters["FP {}".format(p.name)][
                         self.params["FP {}".format(p.name)]
