@@ -254,4 +254,102 @@ state, params, msi, df, metrics= ms.run_experiment(experiment,
 
 ## 7. Create Experiments
 
+- To create sets of experiments (for reproducibility), first go into the file at "simulation/config/experiment.py"
+- The full code looks like:
+
+```python
+blocks = ["DUMMY Log Simulation Data Mechanism"]
+blocks.extend(["DUMMY Length-2 Boundary Wiring", "DUMMY Length-1 Boundary Wiring"] * 10)
+blocks.extend(
+    [
+        "DUMMY Length-2 Boundary Wiring",
+        "DUMMY Length-1 Boundary Wiring",
+        "DUMMY Control Wiring",
+    ]
+    * 10
+)
+
+experiments_map = {}
+
+
+experiments_map["Baseline"] = {
+    "Name": "Baseline",
+    "Param Modifications": None,
+    "State Modifications": None,
+    "Blocks": blocks,
+    "Monte Carlo Runs": 5,
+}
+
+experiments_map["Control Option V2 Low D Probability"] = {
+    "Name": "Control Option V2 Low D Probability",
+    "Param Modifications": {
+        "FP DUMMY Length-1 DEF Control Action": "DUMMY Length-1 DEF D Probability Option",
+        "DUMMY D Probability": 0.1,
+    },
+    "State Modifications": None,
+    "Blocks": blocks,
+    "Monte Carlo Runs": 5,
+}
+
+experiments_map["Control Option V2 High D Probability"] = {
+    "Name": "Control Option V2 High D Probability",
+    "Param Modifications": {
+        "FP DUMMY Length-1 DEF Control Action": "DUMMY Length-1 DEF D Probability Option",
+        "DUMMY D Probability": 0.9,
+    },
+    "State Modifications": None,
+    "Blocks": blocks,
+    "Monte Carlo Runs": 5,
+}
+```
+- To add new experiments we add keys into the experiments_map dictionary
+- Each new experiment needs the following:
+    - A name
+    - Any modifications to the base parameter set through "Param Modifications"
+    - Any state modifications with "State Modifications"
+    - Passing in the blocks to execute
+    - A number of monte carlo runs to execute on this experiment
+- Within "notebooks/Experiment%20Simulations.ipynb" there is the following code which shows how to run multiple simulations
+
+```python
+import sys
+import os
+
+sys.path.append(os.path.abspath('..'))
+
+
+from simulation import (params_base, state_base, compute_starting_total_length, check_d_probability, post_processing_function,
+                        percent_ending_in_d_metric, average_d_count_metric, plot_length_experiment_simulation, plot_d_count_experiment_simulation,
+                        experiments_map)
+from IPython.display import display, Markdown
+from math_spec_mapping import load_from_json, write_initial_state_variables_tables, write_parameter_table_markdown
+
+"""# For development purposes
+sys.path.append(os.path.abspath('../..'))
+from MSML.src.math_spec_mapping import (load_from_json, write_initial_state_variables_tables, write_parameter_table_markdown)"""
+
+from copy import deepcopy
+from src import math_spec_json
+
+ms = load_from_json(deepcopy(math_spec_json))
+
+experiment_names = ["Baseline", "Control Option V2 Low D Probability", "Control Option V2 High D Probability"]
+experiments = [experiments_map[x] for x in experiment_names]
+
+
+df, metrics, state_l, params_l = ms.run_experiments(experiments,
+                    params_base,
+                    state_base,
+                    post_processing_function,
+                    state_preperation_functions=[compute_starting_total_length],
+                    parameter_preperation_functions=[check_d_probability],
+                    metrics_functions=[percent_ending_in_d_metric,
+                                        average_d_count_metric,
+                                        ])
+```
+- The primary differences are that:
+    - One must modify the experiment_names variable to define out what experiments to run
+    - The function run_experiments is used instead of run_experiment
+    - The output is a dataframe of results with metadata on which simulations were run, the metrics and lists of ending states and parameters
+
 ## 8. Add Analytics & Metrics
