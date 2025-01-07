@@ -64,3 +64,28 @@ spaces.extend(dummy_spaces)
 
 - You would import something like user_spaces from .User and then add "spaces.extend(user_spaces)" to make sure the new spaces are integrated in
 - After adding a new component, kernel restart and re-run the Obsidian creation notebook and make sure it runs successfully
+
+## 5. Bind Code to Components
+
+- MSML has extended capabilities that allow for binding code to different components
+- Go to the folder "src/Implementations/Python"
+- For whichever components you want to define code for, move to that folder, for example "BoundaryActions.py"
+- The "\_\_init\_\_" file looks like:
+
+```python
+from .Dummy import v1_dummy_boundary, v1_dummy_boundary2, v2_dummy_boundary2
+
+boundary_action_options = {
+    "Length-1 ABC Equal Weight Option": v1_dummy_boundary,
+    "DUMMY Length-2 ABC Equal Weight Option": v1_dummy_boundary2,
+    "DUMMY Length-2 ABC Equal Weight 2 Option": v2_dummy_boundary2,
+}
+```
+
+- Each key here corresponds to the name of a boundary action option defined out in the specification, for any new boundary action options without functions you will simply add the key and a function representing it in the same format as the other functions (with three parameters of state, parameters and spaces)
+- The only special cases are metrics and stateful metrics which have a slightly different set of arguments but are defined out the same way, by adding a key with the exact name of the metric/stateful metric
+- Mechanisms also do not have options, so instead the key for these functions should be the mechanism name
+- The "Implementation Playground.ipynb" can be used to test out the functions after creation
+- Test cases can also be built up from these functions
+- Wiring functionality is automatically created as long as every single component has a function definition (and if not a warning will be given when loading)
+- You may need to update the base state and parameters to get the notebook running which is covered in the next section
