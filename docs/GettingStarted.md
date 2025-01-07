@@ -353,3 +353,20 @@ df, metrics, state_l, params_l = ms.run_experiments(experiments,
     - The output is a dataframe of results with metadata on which simulations were run, the metrics and lists of ending states and parameters
 
 ## 8. Add Analytics & Metrics
+
+- In the folder "simulation/analytics", one can add visualizations and other convenience functions for repeated analytics
+- This folder is completely flexible to whatever the user wants to do and also can be ignored if it is preferred to write all analytics directly into the notebook
+- The recommended paradigm is to write visualizations for single simulations in single.py and visualizations for experiments into experiments.py but it is only a recommendation
+- In "simulation/postprocessing/metrics.py", metric functions can be written which define out metrics at the simulation run level (to see which simulations pass certain thresholds)
+- The format is to have a dataframe passed with single simulation results and then assign values to the metric dictionary based on whatever logic one wants, for example, here are two metric functions defined out currently in the template:
+
+```python
+def percent_ending_in_d_metric(metrics, state, params, df):
+    metrics["Percent Ending in D"] = (
+        df["Word"].apply(lambda x: x[-1] == "D" if len(x) > 0 else None).mean()
+    )
+
+
+def average_d_count_metric(metrics, state, params, df):
+    metrics["Average D Count"] = df["D Count"].mean()
+```
