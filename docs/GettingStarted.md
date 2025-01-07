@@ -89,3 +89,169 @@ boundary_action_options = {
 - Test cases can also be built up from these functions
 - Wiring functionality is automatically created as long as every single component has a function definition (and if not a warning will be given when loading)
 - You may need to update the base state and parameters to get the notebook running which is covered in the next section
+
+## 6. Create a Basic Simulation
+
+### State and Parameters
+
+- For a basic simulation, what is needed first of all is either one or multiple base states and base parameters
+- Ensure the base parameter and state have all the components defined out in the spec and nothing extra (if there are any functional parameterizations missing then MSML will alert you)
+- Under simulation/config/params.py, you can define out as many parameter sets that will be used as baselines in experiments and simulations. The template repository looks like:
+
+```python
+from copy import deepcopy
+
+params_base = {
+    "DUMMY D Probability": 0.5,
+    "DUMMY Length Multiplier": 3,
+    "FP DUMMY Length-1 DEF Control Action": "DUMMY Length-1 DEF Equal Weight Option",
+    "FP DUMMY Length-2 ABC Combo Boundary Action": "DUMMY Length-2 ABC Equal Weight Option",
+}
+
+params_test1 = deepcopy(params_base)
+params_test1["DUMMY D Probability"] = 1
+params_test1["FP DUMMY Length-1 DEF Control Action"] = (
+    "DUMMY Length-1 DEF D Probability Option"
+)
+
+
+params_test2 = deepcopy(params_base)
+params_test2["DUMMY D Probability"] = 0
+params_test2["FP DUMMY Length-1 DEF Control Action"] = (
+    "DUMMY Length-1 DEF D Probability Option"
+)
+```
+- If you add any new paramter sets, make sure to add them to the "\_\_init\_\_.py" file in the config folder as well as one level up in the simulation folder
+- Do the same for the state, found in simulation/config/state.py, which looks like:
+
+```python
+from copy import deepcopy
+
+state_base = {
+    "Dummy": {"Words": "", "Total Length": None},
+    "Time": 0,
+    "Simulation Log": [],
+}
+
+state_test1 = deepcopy(state_base)
+state_test1["Time"] = 100
+```
+
+### Pre and Post Processing
+- The file "simulation/postprocessing/post.py" holds the post processing function that is applied after simulation runs to piece together simulation data
+- The code below from the template shows a very basic version that takes a simulation log and transforms it into a dataframe
+
+```python
+import pandas as pd
+
+
+def post_processing_function(state, params):
+    df = pd.DataFrame(state["Simulation Log"])
+    df["Length (Nominal)"] = (
+        df["Length (Multiplied)"] / params["DUMMY Length Multiplier"]
+    )
+    df["D Count"] = df["Word"].apply(lambda x: x.count("D") if len(x) > 0 else None)
+    return df
+```
+
+- The functions in "simulation/preprocessing/param_preperation.py" are for writing out functions that prepare pieces of the parameters before running (i.e. if you want to make sure assertions are true or if you want something like PARAM_A = 1 - PARAM_B instead of manually setting PARAM_A)
+- The examples from the template:
+
+```python
+def check_d_probability(params):
+    # If the functional parameterization is set to equal weight, override the D probability parameter to always be 1/3
+    if (
+        params["FP DUMMY Length-1 DEF Control Action"]
+        == "DUMMY Length-1 DEF Equal Weight Option"
+    ):
+        params["DUMMY D Probability"] = 1 / 3
+    return params
+```
+
+- The functions in "simulation/preprocessing/state_preperation.py" are for writing out functions that prepare pieces of state before running a simulation such as if you have a parameter of "number_of_agents" and want a function which actually creates the class instances of those agents before running
+- The examples from the template:
+
+```python
+def compute_starting_total_length(state, params):
+    state["Dummy"]["Total Length"] = params["DUMMY Length Multiplier"] * len(
+        state["Dummy"]["Words"]
+    )
+    return state
+```
+
+- For all make sure to add the functions to both the folder and one level up's "\_\_init\_\_.py" file
+
+### Running a Simulation
+
+- In "notebooks/Single%20Simulation.ipynb", the first code block defined below shows what happends for defining out a simulation
+
+```python
+import sys
+import os
+
+sys.path.append(os.path.abspath('..'))
+
+
+from simulation import (params_base, state_base, compute_starting_total_length, check_d_probability, post_processing_function,
+                        percent_ending_in_d_metric, average_d_count_metric, plot_length_single_simulation)
+
+from math_spec_mapping import load_from_json
+
+"""# For development purposes
+sys.path.append(os.path.abspath('../..'))
+from MSML.src.math_spec_mapping import (load_from_json)"""
+
+from copy import deepcopy
+from src import math_spec_json
+
+ms = load_from_json(deepcopy(math_spec_json))
+
+# Start by logging the starting state
+blocks = ["DUMMY Log Simulation Data Mechanism"]
+
+# Add in 20 blocks alternating between the 2 boundary action wirings
+blocks.extend(["DUMMY Length-2 Boundary Wiring",
+               "DUMMY Length-1 Boundary Wiring"] * 10)
+
+# Add in 30 blocks alternating between the 2 boundary action wirings and the control action wirings
+blocks.extend(["DUMMY Length-2 Boundary Wiring",
+               "DUMMY Length-1 Boundary Wiring",
+               "DUMMY Control Wiring"] * 10)
+
+# Define an experiment
+experiment = {"Name": "Baseline",
+               "Param Modifications": {"FP DUMMY Length-1 DEF Control Action": "DUMMY Length-1 DEF D Probability Option"},
+               "State Modifications": {"Dummy": {"Words": "AA",
+                                                 "Total Length": 1 # This is incorrect but we will see that it is in fact corrected by the state preperation function
+                                                 }},
+               "Blocks": blocks}
+
+state, params, msi, df, metrics= ms.run_experiment(experiment,
+                  params_base,
+                  state_base,
+                  post_processing_function,
+                  state_preperation_functions=[compute_starting_total_length],
+                  parameter_preperation_functions=[check_d_probability],
+                  metrics_functions=[percent_ending_in_d_metric,
+                                     average_d_count_metric])
+```
+
+- Import any new functionality defined from the prior steps in "from simultion import ...."
+- Create a list of blocks that should be sequentially exexcuted for your simulation, these can be wirings or individual components, or a mix of both
+- Define out an experiment object with:
+    - A name
+    - Any modifications to the base parameter set through "Param Modifications"
+    - Any state modifications with "State Modifications"
+    - Passing in the blocks to execute
+- For the function, we pass in:
+    - The defined experiment object
+    - The base parameter set
+    - The base state set
+    - Any state preparation functions we want to apply
+    - Any parameter preparation functions we want to apply
+    - Any metric functions we want to apply (covered in section 8)
+- The outputs are the ending state, the ending parameter set (only should be modified by parameter preparation functions), the math spec implementation object, the dataframe built from our post-processing function, and the metrics built from our metric functions (covered later)
+
+## 7. Create Experiments
+
+## 8. Add Analytics & Metrics
