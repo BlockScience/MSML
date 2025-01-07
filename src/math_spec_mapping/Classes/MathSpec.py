@@ -1022,6 +1022,12 @@ class MathSpecImplementation:
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         ca.name, "FP " + ca.name, [x.name for x in opts]
                     )
+                    assert (
+                        self.params["FP {}".format(ca.name)]
+                        in self.ms.functional_parameters["FP {}".format(ca.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(ca.name)], ca.name
+                    )
                     opt = self.ms.functional_parameters["FP {}".format(ca.name)][
                         self.params["FP {}".format(ca.name)]
                     ]
@@ -1059,6 +1065,13 @@ class MathSpecImplementation:
                         "FP {}".format(ba.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         ba.name, "FP " + ba.name, [x.name for x in opts]
+                    )
+
+                    assert (
+                        self.params["FP {}".format(ba.name)]
+                        in self.ms.functional_parameters["FP {}".format(ba.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(ba.name)], ba.name
                     )
 
                     opt = self.ms.functional_parameters["FP {}".format(ba.name)][
@@ -1164,6 +1177,12 @@ class MathSpecImplementation:
                         "FP {}".format(p.name) in self.params
                     ), "No functional parameterization for {}. To fix this error, add {} to the parameters passed to ms.build_implementation. Option can be: {}".format(
                         p.name, "FP " + p.name, [x.name for x in opts]
+                    )
+                    assert (
+                        self.params["FP {}".format(p.name)]
+                        in self.ms.functional_parameters["FP {}".format(p.name)]
+                    ), "{} is not a valid functional parameterization for {}".format(
+                        self.params["FP {}".format(p.name)], p.name
                     )
                     opt = self.ms.functional_parameters["FP {}".format(p.name)][
                         self.params["FP {}".format(p.name)]
