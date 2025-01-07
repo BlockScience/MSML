@@ -37,13 +37,7 @@ Writing mathematical specifications can be a difficult process, especially when 
 ## How does MSML work?
 
 
-```mermaid
-graph TD
-A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to the json specification \n Defines all aspects of the spec including blocks, spaces and actions] -->B[MSML Object \n\n JSON file is parsed, with validations and mappings along the way \n Can show different views on the fly]
-    B --> C[Report Outputs & Obsidian Directory \n\n Automatically build reports for the full spec or subviews \n Example: all blocks with an effect on variable XYZ\n Also builds an entire Obsidian directory of all components as linked notes]
-D[Python Function Implementations \n\n Optional enhancement to actually execute code\n Done for each referenced policy option, mechanism, etc. \n Just needs a function definition for each] --> B 
-B --> E[Python Wirings & Simulations \n\n MSML can be used to run blocks \n Wirings automatically work to pass between domain/codomains \n Entire simulations can be built up as composed wirings]
-```
+![mermaid](mermaid.png)
 
 ## MSML in the Engineering Lifecycle
 
