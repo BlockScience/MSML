@@ -727,11 +727,13 @@ class MathSpec:
         state_preperation_functions=None,
         parameter_preperation_functions=None,
         metrics_functions=None,
+        append_param_change_columns=False,
     ):
         state_l = []
         params_l = []
         df_l = []
         metrics_l = []
+        param_mods = set()
         for experiment in experiments:
             for i in range(experiment["Monte Carlo Runs"]):
                 state, params, msi, df, metrics = self.run_experiment(
@@ -743,6 +745,11 @@ class MathSpec:
                     parameter_preperation_functions=parameter_preperation_functions,
                     metrics_functions=metrics_functions,
                 )
+                if append_param_change_columns:
+                    if experiment["Param Modifications"]:
+                        for key in experiment["Param Modifications"]:
+                            df[key] = experiment["Param Modifications"][key]
+                            param_mods.add(key)
                 df["Monte Carlo Run"] = i + 1
                 df["Experiment"] = experiment["Name"]
                 metrics.loc["Monte Carlo Run"] = i + 1
@@ -753,6 +760,9 @@ class MathSpec:
                 df_l.append(df)
                 metrics_l.append(metrics)
         df = pd.concat(df_l)
+        if append_param_change_columns:
+            for key in param_mods:
+                df[key] = df[key].fillna(params_base[key])
         metrics = pd.concat(metrics_l, axis=1).T
         return df, metrics, state_l, params_l
 
