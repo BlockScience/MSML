@@ -92,6 +92,15 @@ def create_milestone_label_matrix(df, exclude_milestones=None):
     labels = list(df.columns[4:])
     labels = sorted([x for x in labels if x not in priority_labels])
     milestones = sorted(list(df[~pd.isnull(df["Milestone"])]["Milestone"].unique()))
+    try:
+        milestones = sorted(
+            milestones,
+            key=lambda x: int(x.split(".")[0][1:]) * 10000
+            + int(x.split(".")[1]) * 100
+            + int(x.split(".")[2]),
+        )
+    except:
+        pass
 
     table = []
     for label in labels:
