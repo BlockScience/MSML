@@ -1040,6 +1040,16 @@ class MathSpecImplementation:
         self.load_components()
         self.load_source_files()
 
+        self.boundary_actions = ValidKeyDict(self.boundary_actions)
+        self.control_actions = ValidKeyDict(self.control_actions)
+        self.mechanisms = ValidKeyDict(self.mechanisms)
+        self.policies = ValidKeyDict(self.policies)
+        self.stateful_metrics = ValidKeyDict(self.stateful_metrics)
+        self.wiring = ValidKeyDict(self.wiring)
+        self.metrics = ValidKeyDict(self.metrics)
+        self.blocks = ValidKeyDict(self.blocks)
+        self.components = ValidKeyDict(self.components)
+
     def load_control_actions(self):
         control_actions = {}
         for ca in self.ms.control_actions:
