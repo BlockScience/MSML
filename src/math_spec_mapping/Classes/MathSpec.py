@@ -12,6 +12,15 @@ from inspect import signature, getsource, getfile, getsourcelines
 from IPython.display import display, Markdown
 
 
+class ValidKeyDict(dict):
+    def __getitem__(self, key):
+        # Add an assertion to check if the key exists
+        assert key in self, "Key not valid, valid options are: {}".format(
+            ", ".join(self.keys())
+        )
+        return super().__getitem__(key)
+
+
 class MathSpec:
     def __init__(self, ms_dict: Dict, json: Dict):
         # Internal variables to keep track
@@ -53,6 +62,21 @@ class MathSpec:
         self._build_parameter_types()
         self._crawl_spaces()
         self._set_source_code()
+
+        self.boundary_actions = ValidKeyDict(self.boundary_actions)
+        self.control_actions = ValidKeyDict(self.control_actions)
+        self.entities = ValidKeyDict(self.entities)
+        self.mechanisms = ValidKeyDict(self.mechanisms)
+        self.parameters.parameter_map = ValidKeyDict(self.parameters.parameter_map)
+        self.policies = ValidKeyDict(self.policies)
+        self.spaces = ValidKeyDict(self.spaces)
+        self.state = ValidKeyDict(self.state)
+        self.stateful_metrics_map = ValidKeyDict(self.stateful_metrics_map)
+        self.wiring = ValidKeyDict(self.wiring)
+        self.metrics = ValidKeyDict(self.metrics)
+        self.displays = ValidKeyDict(self.displays)
+        self.blocks = ValidKeyDict(self.blocks)
+        self.components = ValidKeyDict(self.components)
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
