@@ -1059,7 +1059,7 @@ using .Spaces: generate_space_type
                 parameter_preperation_functions=parameter_preperation_functions,
                 metrics_functions=metrics_functions,
             )
-            return state, params, msi, df, metrics
+            return df
 
         return model
 
