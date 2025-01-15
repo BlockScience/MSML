@@ -1,7 +1,7 @@
 from .general import check_json_keys
 from ..Classes import Type
 import os
-from typing import _UnionGenericAlias
+from typing import _UnionGenericAlias, List, _GenericAlias
 
 
 def convert_type(data, ms):
@@ -35,6 +35,8 @@ def convert_type(data, ms):
                     out[key] = val
                 data["type_name"]["python"] = str(out)
             elif type(data["type"]["python"]) == _UnionGenericAlias:
+                data["type_name"]["python"] = data["type"]["python"].__repr__()
+            elif type(data["type"]["python"]) == _GenericAlias:
                 data["type_name"]["python"] = data["type"]["python"].__repr__()
             else:
                 data["type_name"]["python"] = data["type"]["python"].__name__
