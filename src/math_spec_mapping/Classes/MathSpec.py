@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Literal
 from .Entity import Entity
 from .Policy import Policy
 from .Mechanism import Mechanism
@@ -1021,9 +1021,24 @@ using .Spaces: generate_space_type
 
         return state_map
 
+    def _build_parameter_space(self):
+        parameter_space = {}
+        for parameter in self.parameters.all_parameters:
+            parameter = self.parameters.parameter_map[parameter]
+            if "python" in parameter.variable_type.type:
+                parameter_space[parameter.name] = parameter.variable_type.type["python"]
+            else:
+                parameter_space[parameter.name] = None
+        for name in self.functional_parameters.keys():
+            fp = self.functional_parameters[name]
+            fp = tuple(fp.keys())
+            parameter_space[name] = Literal[fp]
+        return parameter_space
+
     def build_cadCAD(self, domain_codomain_checking=False):
         out = {}
         out["StateSpace"] = self._build_state_space()
+        out["ParameterSpace"] = self._build_parameter_space()
         return out
 
     def _set_source_code(self):
