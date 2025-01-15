@@ -1010,8 +1010,21 @@ using .Spaces: generate_space_type
             self, params, domain_codomain_checking=domain_codomain_checking
         )
 
+    def _build_state_space(self):
+        state = self.state["Global State"]
+        state_map = {}
+        for variable in state.variables:
+            if "python" in variable.type.type:
+                state_map[variable.name] = variable.type.type["python"]
+            else:
+                state_map[variable.name] = None
+
+        return state_map
+
     def build_cadCAD(self, domain_codomain_checking=False):
-        print(self.state)
+        out = {}
+        out["StateSpace"] = self._build_state_space()
+        return out
 
     def _set_source_code(self):
         if "python" not in self.implementations:
