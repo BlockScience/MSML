@@ -1010,6 +1010,9 @@ using .Spaces: generate_space_type
             self, params, domain_codomain_checking=domain_codomain_checking
         )
 
+    def build_cadCAD(self, domain_codomain_checking=False):
+        print(self.state)
+
     def _set_source_code(self):
         if "python" not in self.implementations:
             self.source_code = None
