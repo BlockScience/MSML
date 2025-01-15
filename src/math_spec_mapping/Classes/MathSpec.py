@@ -1035,10 +1035,51 @@ using .Spaces: generate_space_type
             parameter_space[name] = Literal[fp]
         return parameter_space
 
-    def build_cadCAD(self, domain_codomain_checking=False):
+    def _build_cadCAD_model(
+        self,
+        blocks,
+        post_processing_function,
+        state_preperation_functions=[],
+        parameter_preperation_functions=[],
+        metrics_functions=[],
+    ):
+        def model(state, parameters):
+            experiment = {
+                "Name": "cadCAD",
+                "Param Modifications": {},
+                "State Modifications": {},
+                "Blocks": blocks,
+            }
+            state, params, msi, df, metrics = self.run_experiment(
+                experiment,
+                params,
+                state,
+                post_processing_function,
+                state_preperation_functions=state_preperation_functions,
+                parameter_preperation_functions=parameter_preperation_functions,
+                metrics_functions=metrics_functions,
+            )
+            return state, params, msi, df, metrics
+        return model
+
+    def build_cadCAD(
+        self,
+        blocks,
+        post_processing_function,
+        state_preperation_functions=[],
+        parameter_preperation_functions=[],
+        metrics_functions=[],
+    ):
         out = {}
         out["StateSpace"] = self._build_state_space()
         out["ParameterSpace"] = self._build_parameter_space()
+        out["Model"] = self._build_cadCAD_model(
+            blocks,
+            post_processing_function,
+            state_preperation_functions=state_preperation_functions,
+            parameter_preperation_functions=parameter_preperation_functions,
+            metrics_functions=metrics_functions,
+        )
         return out
 
     def _set_source_code(self):
