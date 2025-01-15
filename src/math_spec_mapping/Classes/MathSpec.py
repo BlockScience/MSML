@@ -1043,7 +1043,7 @@ using .Spaces: generate_space_type
         parameter_preperation_functions=[],
         metrics_functions=[],
     ):
-        def model(state, parameters):
+        def model(state, params):
             experiment = {
                 "Name": "cadCAD",
                 "Param Modifications": {},
@@ -1060,6 +1060,7 @@ using .Spaces: generate_space_type
                 metrics_functions=metrics_functions,
             )
             return state, params, msi, df, metrics
+
         return model
 
     def build_cadCAD(
