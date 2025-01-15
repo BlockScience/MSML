@@ -1097,6 +1097,9 @@ using .Spaces: generate_space_type
                 )
                 self.source_code[x][y] = getsource(self.source_code[x][y])
 
+class cadCADModel:
+    def __init__(self):
+        pass
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params, domain_codomain_checking):
