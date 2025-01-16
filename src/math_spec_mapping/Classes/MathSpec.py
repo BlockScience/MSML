@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Literal
 from .Entity import Entity
 from .Policy import Policy
 from .Mechanism import Mechanism
@@ -10,6 +10,16 @@ import shutil
 import pandas as pd
 from inspect import signature, getsource, getfile, getsourcelines
 from IPython.display import display, Markdown
+from copy import copy, deepcopy
+
+
+class ValidKeyDict(dict):
+    def __getitem__(self, key):
+        # Add an assertion to check if the key exists
+        assert key in self, "Key not valid, valid options are: {}".format(
+            ", ".join(self.keys())
+        )
+        return super().__getitem__(key)
 
 
 class MathSpec:
@@ -53,6 +63,21 @@ class MathSpec:
         self._build_parameter_types()
         self._crawl_spaces()
         self._set_source_code()
+
+        self.boundary_actions = ValidKeyDict(self.boundary_actions)
+        self.control_actions = ValidKeyDict(self.control_actions)
+        self.entities = ValidKeyDict(self.entities)
+        self.mechanisms = ValidKeyDict(self.mechanisms)
+        self.parameters.parameter_map = ValidKeyDict(self.parameters.parameter_map)
+        self.policies = ValidKeyDict(self.policies)
+        self.spaces = ValidKeyDict(self.spaces)
+        self.state = ValidKeyDict(self.state)
+        self.stateful_metrics_map = ValidKeyDict(self.stateful_metrics_map)
+        self.wiring = ValidKeyDict(self.wiring)
+        self.metrics = ValidKeyDict(self.metrics)
+        self.displays = ValidKeyDict(self.displays)
+        self.blocks = ValidKeyDict(self.blocks)
+        self.components = ValidKeyDict(self.components)
 
     def _check_dictionary_names(self):
         for key in self.boundary_actions:
@@ -986,6 +1011,50 @@ using .Spaces: generate_space_type
             self, params, domain_codomain_checking=domain_codomain_checking
         )
 
+    def _build_state_space(self):
+        state = self.state["Global State"]
+        state_map = {}
+        for variable in state.variables:
+            if "python" in variable.type.type:
+                state_map[variable.name] = variable.type.type["python"]
+            else:
+                state_map[variable.name] = None
+
+        return state_map
+
+    def _build_parameter_space(self):
+        parameter_space = {}
+        for parameter in self.parameters.all_parameters:
+            parameter = self.parameters.parameter_map[parameter]
+            if "python" in parameter.variable_type.type:
+                parameter_space[parameter.name] = parameter.variable_type.type["python"]
+            else:
+                parameter_space[parameter.name] = None
+        for name in self.functional_parameters.keys():
+            fp = self.functional_parameters[name]
+            fp = tuple(fp.keys())
+            parameter_space[name] = Literal[fp]
+        return parameter_space
+
+    def build_cadCAD(
+        self,
+        blocks,
+        state_preperation_functions=[],
+        parameter_preperation_functions=[],
+    ):
+        out = {}
+        out["StateSpace"] = self._build_state_space()
+        out["ParameterSpace"] = self._build_parameter_space()
+        out["Model"] = cadCADModel(
+            self,
+            out["StateSpace"],
+            out["ParameterSpace"],
+            blocks,
+            state_preperation_functions=state_preperation_functions,
+            parameter_preperation_functions=parameter_preperation_functions,
+        )
+        return out
+
     def _set_source_code(self):
         if "python" not in self.implementations:
             self.source_code = None
@@ -999,6 +1068,126 @@ using .Spaces: generate_space_type
                     getsourcelines(self.source_code[x][y])[1]
                 )
                 self.source_code[x][y] = getsource(self.source_code[x][y])
+
+
+class cadCADModel:
+    def __init__(
+        self,
+        ms,
+        state_space,
+        parameter_space,
+        blocks,
+        state_preperation_functions=[],
+        parameter_preperation_functions=[],
+    ):
+        self.ms = ms
+        self.state_space = state_space
+        self.parameter_space = parameter_space
+        self.blocks = blocks
+        self.state_preperation_functions = state_preperation_functions
+        self.parameter_preperation_functions = parameter_preperation_functions
+
+    def create_experiment(
+        self, state, params, record_trajectory=False, use_deepcopy=True
+    ):
+        return Experiment(
+            self,
+            state,
+            params,
+            self.ms,
+            record_trajectory=record_trajectory,
+            use_deepcopy=use_deepcopy,
+        )
+
+    def create_batch_experiments(
+        self, state, params, record_trajectory=False, use_deepcopy=True
+    ):
+        return BatchExperiments(
+            self,
+            state,
+            params,
+            self.ms,
+            record_trajectory=record_trajectory,
+            use_deepcopy=use_deepcopy,
+        )
+
+    def __repr__(self):
+        return f"Model({self.parameter_space}, {self.state_space}, {self.blocks})"
+
+
+class Experiment:
+    def __init__(self, model, state, params, ms, record_trajectory, use_deepcopy=True):
+        self.model = model
+        self.state = deepcopy(state)
+        self.params = deepcopy(params)
+        self._use_deepcopy = use_deepcopy
+        self.msi = ms.build_implementation(self.params)
+        self.state, self.params = self.msi.prepare_state_and_params(
+            self.state,
+            self.params,
+            state_preperation_functions=self.model.state_preperation_functions,
+            parameter_preperation_functions=self.model.parameter_preperation_functions,
+        )
+
+        if record_trajectory:
+            if self._use_deepcopy:
+                self.trajectories = [deepcopy(self.state)]
+            else:
+                self.trajectories = [copy(self.state)]
+            self.trajectories[-1].pop("Stateful Metrics")
+            self.trajectories[-1].pop("Metrics")
+        else:
+            self.trajectories = None
+        self._record_trajectory = record_trajectory
+        self._iteration_count = 0
+
+    def step(self):
+        self.msi.execute_blocks(self.state, self.params, self.model.blocks)
+        self._iteration_count += 1
+        if self._record_trajectory:
+            if self._use_deepcopy:
+                self.trajectories.append(deepcopy(self.state))
+            else:
+                self.trajectories.append(copy(self.state))
+            self.trajectories[-1].pop("Stateful Metrics")
+            self.trajectories[-1].pop("Metrics")
+
+    def run(self, t):
+        for _ in range(t):
+            self.step()
+
+
+class BatchExperiments:
+    def __init__(self, model, state, params, ms, record_trajectory, use_deepcopy=True):
+        assert type(state) == list, "Input for state must be a list of states"
+        assert type(params) == list, "Input for params must be a list of states"
+        assert len(state) == len(
+            params
+        ), "Length of state and parameters has to be the same"
+
+        self.experiments = [
+            Experiment(
+                model,
+                s,
+                p,
+                ms,
+                record_trajectory=record_trajectory,
+                use_deepcopy=use_deepcopy,
+            )
+            for s, p in zip(state, params)
+        ]
+
+    def step(self):
+        for experiment in self.experiments:
+            experiment.step()
+    
+    def run(self, t):
+        for experiment in self.experiments:
+            experiment.run(t)
+    
+    @property
+    def trajectories(self):
+        return [experiment.trajectories for experiment in self.experiments]
 
 
 class MathSpecImplementation:
@@ -1015,6 +1204,16 @@ class MathSpecImplementation:
         self.load_wiring()
         self.load_components()
         self.load_source_files()
+
+        self.boundary_actions = ValidKeyDict(self.boundary_actions)
+        self.control_actions = ValidKeyDict(self.control_actions)
+        self.mechanisms = ValidKeyDict(self.mechanisms)
+        self.policies = ValidKeyDict(self.policies)
+        self.stateful_metrics = ValidKeyDict(self.stateful_metrics)
+        self.wiring = ValidKeyDict(self.wiring)
+        self.metrics = ValidKeyDict(self.metrics)
+        self.blocks = ValidKeyDict(self.blocks)
+        self.components = ValidKeyDict(self.components)
 
     def load_control_actions(self):
         control_actions = {}

@@ -1,0 +1,38 @@
+{
+	"nodes":[
+		{"id":"a6d1c3438e3eb4e1","x":280,"y":-280,"width":500,"height":640,"type":"group","label":"cadCAD User View"},
+		{"id":"b70dd39c3d751786","x":-100,"y":-280,"width":360,"height":580,"type":"group","label":"MSML-cadCAD Bridge Outputs"},
+		{"id":"a66ae27ec1859b01","x":-420,"y":-280,"width":260,"height":580,"type":"group","label":"MSML Dev View"},
+		{"id":"0c7ae0c823c829a9","x":-400,"y":-260,"width":220,"height":60,"type":"text","text":"MSML Object"},
+		{"id":"bbb1312697692952","x":-80,"y":-260,"width":240,"height":140,"type":"text","text":"cadCAD Model\n- Acts as a factory for generating experiments"},
+		{"id":"8e9e9cd0f2ed4507","x":-400,"y":160,"width":220,"height":120,"type":"text","text":"Blocks (Dynamics) -Will execute all sequentially for one \"step\" in MVP"},
+		{"id":"317162b129f622fd","x":-400,"y":80,"width":220,"height":60,"type":"text","text":"Parameter Preparation Functions"},
+		{"id":"cac35864b7b623bd","x":-400,"y":-20,"width":220,"height":80,"type":"text","text":"State Preparation Functions"},
+		{"id":"0a251eec55fbadaf","x":-400,"y":-150,"width":220,"height":70,"type":"text","text":"build_cadCAD(...)"},
+		{"id":"7a45b3e55b34f1a1","x":-40,"y":80,"width":250,"height":60,"type":"text","text":"State Space - Dictionary of state variables + types"},
+		{"id":"83ac341b0997ed52","x":-40,"y":180,"width":250,"height":60,"type":"text","text":"Parameter Space"},
+		{"id":"73de437b0ce0b423","x":-85,"y":-40,"width":250,"height":60,"type":"text","text":"build_experiment(state, parameters)"},
+		{"id":"eed778cc1965413f","x":360,"y":-260,"width":250,"height":60,"type":"text","text":"Writes state with type of StateSpace"},
+		{"id":"7a2060681be96243","x":360,"y":-175,"width":250,"height":60,"type":"text","text":"Writes parameters with type of ParameterSpace"},
+		{"id":"e1005f3dcf8fd223","x":360,"y":-70,"width":250,"height":180,"type":"text","text":"ExperimentObject\n- At init, sets parameter and state variable of object and runs state prep and param prep if present"},
+		{"id":"0fc9eb986c037b77","x":540,"y":190,"width":220,"height":150,"type":"text","text":"Run\n- State updated w/ multiple runs\n- Option to log all trajectory in list"},
+		{"id":"dd3b639fb23c6a14","x":300,"y":190,"width":185,"height":150,"type":"text","text":"Step\n- State updated w/ one run"}
+	],
+	"edges":[
+		{"id":"e26408cf783df197","fromNode":"0c7ae0c823c829a9","fromSide":"bottom","toNode":"0a251eec55fbadaf","toSide":"top","label":"class function"},
+		{"id":"1ef5bc8548306642","fromNode":"cac35864b7b623bd","fromSide":"left","toNode":"0a251eec55fbadaf","toSide":"left"},
+		{"id":"3bce4a56fce2ce4f","fromNode":"8e9e9cd0f2ed4507","fromSide":"left","toNode":"0a251eec55fbadaf","toSide":"left"},
+		{"id":"43ed4e3de30ccb1a","fromNode":"317162b129f622fd","fromSide":"left","toNode":"0a251eec55fbadaf","toSide":"left"},
+		{"id":"3a34b35e83d033fe","fromNode":"0a251eec55fbadaf","fromSide":"right","toNode":"bbb1312697692952","toSide":"left"},
+		{"id":"fd0fa4f5e8ee691a","fromNode":"0a251eec55fbadaf","fromSide":"right","toNode":"7a45b3e55b34f1a1","toSide":"left"},
+		{"id":"6fa7f5ea7310aecc","fromNode":"0a251eec55fbadaf","fromSide":"right","toNode":"83ac341b0997ed52","toSide":"left"},
+		{"id":"5faa2e303bc57a8a","fromNode":"bbb1312697692952","fromSide":"bottom","toNode":"73de437b0ce0b423","toSide":"top","label":"class function"},
+		{"id":"810922f3beef1a5a","fromNode":"83ac341b0997ed52","fromSide":"right","toNode":"7a2060681be96243","toSide":"right"},
+		{"id":"a6454fc03296dd06","fromNode":"7a45b3e55b34f1a1","fromSide":"right","toNode":"eed778cc1965413f","toSide":"right"},
+		{"id":"75eae6f79f689eb8","fromNode":"7a2060681be96243","fromSide":"left","toNode":"73de437b0ce0b423","toSide":"right"},
+		{"id":"daeae34e4a7c0624","fromNode":"eed778cc1965413f","fromSide":"left","toNode":"73de437b0ce0b423","toSide":"right"},
+		{"id":"52f937f41817fbf3","fromNode":"73de437b0ce0b423","fromSide":"right","toNode":"e1005f3dcf8fd223","toSide":"left"},
+		{"id":"02a6b575176162d1","fromNode":"e1005f3dcf8fd223","fromSide":"bottom","toNode":"dd3b639fb23c6a14","toSide":"top","label":"Class Fx"},
+		{"id":"26d6af604c11e792","fromNode":"e1005f3dcf8fd223","fromSide":"bottom","toNode":"0fc9eb986c037b77","toSide":"top","label":"Class Fx"}
+	]
+}

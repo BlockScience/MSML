@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "ebb1f7af23941637",
+    "type": "split",
+    "children": [
+      {
+        "id": "568d45caa507431d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "104134b1d981b567",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "MSML cadCAD Architecture.canvas",
+                "viewState": {
+                  "x": 173.7321486342915,
+                  "y": 92.17958112430901,
+                  "zoom": -0.2988097469011942
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "MSML cadCAD Architecture"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e73f36936028d6e3",
+    "type": "split",
+    "children": [
+      {
+        "id": "029ed6d83ddc23dd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe4ee760909ef1a7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b005d680dfdcd155",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8bbe726fc7efc331",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a1ed7db625cdcfe6",
+    "type": "split",
+    "children": [
+      {
+        "id": "7dc8de8390d07cad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9391e977b1f9e192",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "MSML cadCAD Architecture.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for MSML cadCAD Architecture"
+            }
+          },
+          {
+            "id": "de8681df02472c23",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "MSML cadCAD Architecture.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from MSML cadCAD Architecture"
+            }
+          },
+          {
+            "id": "e2678bce3695cc31",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5439647b15bdca32",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "MSML cadCAD Architecture.canvas"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of MSML cadCAD Architecture"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "104134b1d981b567",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "MSML cadCAD Architecture.canvas"
+  ]
+}
