@@ -3,4 +3,4 @@ ipython>=7.7.0
 pandas>=1.4
 jsonschema>=4.21.1
 PyGithub==2.5.0
-dotenv
+python-dotenv>=1.0.0
