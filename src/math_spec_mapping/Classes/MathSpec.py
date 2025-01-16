@@ -1035,51 +1035,21 @@ using .Spaces: generate_space_type
             parameter_space[name] = Literal[fp]
         return parameter_space
 
-    def _build_cadCAD_model(
-        self,
-        blocks,
-        post_processing_function,
-        state_preperation_functions=[],
-        parameter_preperation_functions=[],
-        metrics_functions=[],
-    ):
-        def model(state, params):
-            experiment = {
-                "Name": "cadCAD",
-                "Param Modifications": {},
-                "State Modifications": {},
-                "Blocks": blocks,
-            }
-            state, params, msi, df, metrics = self.run_experiment(
-                experiment,
-                params,
-                state,
-                post_processing_function,
-                state_preperation_functions=state_preperation_functions,
-                parameter_preperation_functions=parameter_preperation_functions,
-                metrics_functions=metrics_functions,
-            )
-            return df
-
-        return model
-
     def build_cadCAD(
         self,
         blocks,
-        post_processing_function,
         state_preperation_functions=[],
         parameter_preperation_functions=[],
-        metrics_functions=[],
     ):
         out = {}
         out["StateSpace"] = self._build_state_space()
         out["ParameterSpace"] = self._build_parameter_space()
-        out["Model"] = self._build_cadCAD_model(
+        out["Model"] = cadCADModel(
+            out["StateSpace"],
+            out["ParameterSpace"],
             blocks,
-            post_processing_function,
             state_preperation_functions=state_preperation_functions,
             parameter_preperation_functions=parameter_preperation_functions,
-            metrics_functions=metrics_functions,
         )
         return out
 
@@ -1097,9 +1067,22 @@ using .Spaces: generate_space_type
                 )
                 self.source_code[x][y] = getsource(self.source_code[x][y])
 
+
 class cadCADModel:
-    def __init__(self):
-        pass
+    def __init__(
+        self,
+        state_space,
+        parameter_space,
+        blocks,
+        state_preperation_functions=[],
+        parameter_preperation_functions=[],
+    ):
+        self.state_space = state_space
+        self.parameter_space = parameter_space
+        self.blocks = blocks
+        self.state_preperation_functions = state_preperation_functions
+        self.parameter_preperation_functions = parameter_preperation_functions
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params, domain_codomain_checking):
