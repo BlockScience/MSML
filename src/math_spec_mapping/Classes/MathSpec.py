@@ -1045,6 +1045,7 @@ using .Spaces: generate_space_type
         out["StateSpace"] = self._build_state_space()
         out["ParameterSpace"] = self._build_parameter_space()
         out["Model"] = cadCADModel(
+            self,
             out["StateSpace"],
             out["ParameterSpace"],
             blocks,
@@ -1071,17 +1072,36 @@ using .Spaces: generate_space_type
 class cadCADModel:
     def __init__(
         self,
+        ms,
         state_space,
         parameter_space,
         blocks,
         state_preperation_functions=[],
         parameter_preperation_functions=[],
     ):
+        self.ms = ms
         self.state_space = state_space
         self.parameter_space = parameter_space
         self.blocks = blocks
         self.state_preperation_functions = state_preperation_functions
         self.parameter_preperation_functions = parameter_preperation_functions
+
+    def create_experiment(self, state, params):
+        return Experiment(self, state, params, self.ms)
+
+
+class Experiment:
+    def __init__(self, model, state, params, ms):
+        self.model = model
+        self.state = state
+        self.params = params
+        self.msi = ms.build_implementation(self.params)
+        self.state, self.params = self.msi.prepare_state_and_params(
+            self.state,
+            self.params,
+            state_preperation_functions=self.model.state_preperation_functions,
+            parameter_preperation_functions=self.model.parameter_preperation_functions,
+        )
 
 
 class MathSpecImplementation:
