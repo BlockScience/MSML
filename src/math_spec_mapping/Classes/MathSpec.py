@@ -10,6 +10,7 @@ import shutil
 import pandas as pd
 from inspect import signature, getsource, getfile, getsourcelines
 from IPython.display import display, Markdown
+from copy import copy, deepcopy
 
 
 class ValidKeyDict(dict):
@@ -1086,15 +1087,25 @@ class cadCADModel:
         self.state_preperation_functions = state_preperation_functions
         self.parameter_preperation_functions = parameter_preperation_functions
 
-    def create_experiment(self, state, params):
-        return Experiment(self, state, params, self.ms)
+    def create_experiment(
+        self, state, params, record_trajectory=False, use_deepcopy=True
+    ):
+        return Experiment(
+            self,
+            state,
+            params,
+            self.ms,
+            record_trajectory=record_trajectory,
+            use_deepcopy=use_deepcopy,
+        )
 
 
 class Experiment:
-    def __init__(self, model, state, params, ms):
+    def __init__(self, model, state, params, ms, record_trajectory, use_deepcopy=True):
         self.model = model
         self.state = state
         self.params = params
+        self._use_deepcopy = use_deepcopy
         self.msi = ms.build_implementation(self.params)
         self.state, self.params = self.msi.prepare_state_and_params(
             self.state,
@@ -1102,6 +1113,33 @@ class Experiment:
             state_preperation_functions=self.model.state_preperation_functions,
             parameter_preperation_functions=self.model.parameter_preperation_functions,
         )
+
+        if record_trajectory:
+            if self._use_deepcopy:
+                self.trajectories = [deepcopy(self.state)]
+            else:
+                self.trajectories = [copy(self.state)]
+            self.trajectories[-1].pop("Stateful Metrics")
+            self.trajectories[-1].pop("Metrics")
+        else:
+            self.trajectories = None
+        self._record_trajectory = record_trajectory
+        self._iteration_count = 0
+
+    def step(self):
+        self.msi.execute_blocks(self.state, self.params, self.model.blocks)
+        self._iteration_count += 1
+        if self._record_trajectory:
+            if self._use_deepcopy:
+                self.trajectories.append(deepcopy(self.state))
+            else:
+                self.trajectories.append(copy(self.state))
+            self.trajectories[-1].pop("Stateful Metrics")
+            self.trajectories[-1].pop("Metrics")
+
+    def run(self, t):
+        for _ in range(t):
+            self.step()
 
 
 class MathSpecImplementation:
