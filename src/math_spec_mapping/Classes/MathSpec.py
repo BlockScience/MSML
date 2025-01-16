@@ -1177,6 +1177,18 @@ class BatchExperiments:
             for s, p in zip(state, params)
         ]
 
+    def step(self):
+        for experiment in self.experiments:
+            experiment.step()
+    
+    def run(self, t):
+        for experiment in self.experiments:
+            experiment.run(t)
+    
+    @property
+    def trajectories(self):
+        return [experiment.trajectories for experiment in self.experiments]
+
 
 class MathSpecImplementation:
     def __init__(self, ms: MathSpec, params, domain_codomain_checking):
