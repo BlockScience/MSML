@@ -1099,12 +1099,27 @@ class cadCADModel:
             use_deepcopy=use_deepcopy,
         )
 
+    def create_batch_experiments(
+        self, state, params, record_trajectory=False, use_deepcopy=True
+    ):
+        return BatchExperiments(
+            self,
+            state,
+            params,
+            self.ms,
+            record_trajectory=record_trajectory,
+            use_deepcopy=use_deepcopy,
+        )
+
+    def __repr__(self):
+        return f"Model({self.parameter_space}, {self.state_space}, {self.blocks})"
+
 
 class Experiment:
     def __init__(self, model, state, params, ms, record_trajectory, use_deepcopy=True):
         self.model = model
-        self.state = state
-        self.params = params
+        self.state = deepcopy(state)
+        self.params = deepcopy(params)
         self._use_deepcopy = use_deepcopy
         self.msi = ms.build_implementation(self.params)
         self.state, self.params = self.msi.prepare_state_and_params(
@@ -1140,6 +1155,27 @@ class Experiment:
     def run(self, t):
         for _ in range(t):
             self.step()
+
+
+class BatchExperiments:
+    def __init__(self, model, state, params, ms, record_trajectory, use_deepcopy=True):
+        assert type(state) == list, "Input for state must be a list of states"
+        assert type(params) == list, "Input for params must be a list of states"
+        assert len(state) == len(
+            params
+        ), "Length of state and parameters has to be the same"
+
+        self.experiments = [
+            Experiment(
+                model,
+                s,
+                p,
+                ms,
+                record_trajectory=record_trajectory,
+                use_deepcopy=use_deepcopy,
+            )
+            for s, p in zip(state, params)
+        ]
 
 
 class MathSpecImplementation:
