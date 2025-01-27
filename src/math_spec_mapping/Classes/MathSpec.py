@@ -1111,6 +1111,12 @@ class cadCADModel:
     def create_experiment(
         self, state, params, record_trajectory=False, use_deepcopy=True
     ):
+        if self.fixed_state:
+            for x in self.fixed_state:
+                state[x] = self.fixed_state[x]
+        if self.fixed_parameters:
+            for x in self.fixed_parameters:
+                params[x] = self.fixed_parameters[x]
         return Experiment(
             self,
             state,
