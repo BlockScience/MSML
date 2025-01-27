@@ -12,7 +12,7 @@ One good example is the [wiring report](https://github.com/BlockScience/Predator
 
 ## Installing the library
 
-To install the library, simply pip install by running "pip install math_spec_mapping"
+To install the library, simply pip install by running "pip install math-spec-mapping". The pypi package can be found [here](https://pypi.org/project/math-spec-mapping/).
 
 ## Why MSML?
 
