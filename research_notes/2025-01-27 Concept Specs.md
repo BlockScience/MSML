@@ -55,3 +55,78 @@
 - A stack block wiring has domain of the first component and codomain of the last component
 - A parallel block has the summation of component domains and component codomains
 - There are future potential wiring types such as a looping block or having a notation for multiple outputs of the spaces, i.e. similar to if we have 1-N outputs that are variable between a block but they all follow the same codomain space schema
+
+
+## Proposed Relational Schema V2
+
+### Space
+
+1. ID: PrimaryKey
+2. Name: string
+3. Description: Optional, string
+
+### Block
+
+1. ID: PrimaryKey
+2. Name: string
+3. Description: Optional, string
+
+### Ports
+
+1. ID: PrimaryKey
+2. Name: string
+3. Index: Integer
+4. Space: ForeignKey to Space.Name, string
+
+### Terminals
+
+1. ID: PrimaryKey
+2. Name: string
+3. Index: Integer
+4. Space: ForeignKey to Space.Name, string
+
+## Proposed Schema V2
+
+### Space
+
+{"ID": PrimaryKey,
+"Name": string,
+"Description": string}
+
+### Block
+
+{"ID": PrimaryKey,
+"Name": string,
+"Description": string,
+"Domain": List[Space.ID],
+"Codomain": List[Space.ID]}
+
+## Concrete Block
+
+{"ID": PrimaryKey,
+"Name": string,
+"Description": string,
+"Parent": Block.ID}
+
+- It is legal to have many to one concrete blocks of abstract blocks
+
+## Wire (Concrete Space)
+
+{"ID": PrimaryKey,
+"Parent": Space.ID,
+"SourceBlock": ConcreteBlock.ID,
+"TargetBlock": ConcreteBlock.ID,
+"SourceIndex": int,
+"TargetIndex": int}
+
+- Check matches up
+
+## System
+
+{"ConcreteBlocks": List[ConcreteBlock.ID],
+"Wires": List[Wire.ID]}
+
+- Check that:
+    - All of the ports/domain need to be filled
+    - All domain ports only get one input
+    - Terminals can go 0...N ports (and they would just be sending replicas of the same output)
