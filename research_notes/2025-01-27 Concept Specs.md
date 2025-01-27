@@ -22,6 +22,9 @@
 
 ### Wiring
 
+- Might need a name or something for IDs
+- Might want to consider allowing multiple target and source ports
+
 #### Option 1:
 
 1. Source: string, such as "BlockA-1" for second port of BlockA codomain
@@ -33,6 +36,13 @@
 2. TargetBlock: ForeignKey to Block.Name, string
 3. Source Port: Related to SourceBlock.Codomain as the index, integer
 4. Target Port: Related to TargetBlock.Domain as the index, integer
+
+
+### Systems
+
+1. Name: PrimaryKey, string
+2. Description: Optional, string
+3. Wirings: ForeignKeys to Wiring, List[strings]
 
 
 ## Current MSML Wiring & Comparison
