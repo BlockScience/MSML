@@ -86,4 +86,8 @@ def load_from_json(json: Dict, spec_path=None) -> MathSpec:
     if spec_path:
         tree = load_spec_tree(spec_path, ms)
         ms._add_spec_tree(tree)
+    else:
+        print(
+            "Add spec path to load_from_json to load spec tree and allow linking to the code in Obsidian"
+        )
     return ms

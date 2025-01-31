@@ -70,7 +70,10 @@ def write_source_code_block(component, text, path):
     if hasattr(component, "source_code_location"):
         file_path = component.source_code_location
     else:
-        file_path = component["Source Code Location"]
+        try:
+            file_path = component["Source Code Location"]
+        except:
+            file_path = None
     if file_path:
         file_path = os.path.relpath(file_path, path)
         text += "## Spec Source Code Location\n\n"
