@@ -36,6 +36,7 @@ from .Convenience import (
     find_open_issues,
     create_priority_label_matrix,
     create_milestone_label_matrix,
+    get_nested_types,
 )
 
 # from .Convenience import write_top_level_json_description
