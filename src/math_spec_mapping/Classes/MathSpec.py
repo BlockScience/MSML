@@ -1041,10 +1041,25 @@ using .Spaces: generate_space_type
         blocks,
         state_preperation_functions=[],
         parameter_preperation_functions=[],
+        fixed_parameters=None,
+        fixed_state=None,
     ):
         out = {}
         out["StateSpace"] = self._build_state_space()
+        if fixed_state:
+            for key in fixed_state:
+                assert (
+                    key in out["StateSpace"]
+                ), "The fixed parameter {} is not in the state space".format(key)
+                out["StateSpace"].pop(key)
+
         out["ParameterSpace"] = self._build_parameter_space()
+        if fixed_parameters:
+            for key in fixed_parameters:
+                assert (
+                    key in out["ParameterSpace"]
+                ), "The fixed parameter {} is not in the parameter space".format(key)
+                out["ParameterSpace"].pop(key)
         out["Model"] = cadCADModel(
             self,
             out["StateSpace"],
@@ -1052,6 +1067,8 @@ using .Spaces: generate_space_type
             blocks,
             state_preperation_functions=state_preperation_functions,
             parameter_preperation_functions=parameter_preperation_functions,
+            fixed_parameters=fixed_parameters,
+            fixed_state=fixed_state,
         )
         return out
 
@@ -1079,6 +1096,8 @@ class cadCADModel:
         blocks,
         state_preperation_functions=[],
         parameter_preperation_functions=[],
+        fixed_parameters=None,
+        fixed_state=None,
     ):
         self.ms = ms
         self.state_space = state_space
@@ -1086,10 +1105,18 @@ class cadCADModel:
         self.blocks = blocks
         self.state_preperation_functions = state_preperation_functions
         self.parameter_preperation_functions = parameter_preperation_functions
+        self.fixed_parameters = fixed_parameters
+        self.fixed_state = fixed_state
 
     def create_experiment(
         self, state, params, record_trajectory=False, use_deepcopy=True
     ):
+        if self.fixed_state:
+            for x in self.fixed_state:
+                state[x] = self.fixed_state[x]
+        if self.fixed_parameters:
+            for x in self.fixed_parameters:
+                params[x] = self.fixed_parameters[x]
         return Experiment(
             self,
             state,
@@ -1180,11 +1207,11 @@ class BatchExperiments:
     def step(self):
         for experiment in self.experiments:
             experiment.step()
-    
+
     def run(self, t):
         for experiment in self.experiments:
             experiment.run(t)
-    
+
     @property
     def trajectories(self):
         return [experiment.trajectories for experiment in self.experiments]
