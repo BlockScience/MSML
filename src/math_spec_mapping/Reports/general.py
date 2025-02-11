@@ -1,5 +1,6 @@
 from graphviz import Digraph
 import os
+import pypandoc
 
 
 def load_svg_graphviz(graph: Digraph, overwrite: bool = False) -> str:
@@ -23,7 +24,7 @@ def load_svg_graphviz(graph: Digraph, overwrite: bool = False) -> str:
         assert "{}.gv".format(graph.name) not in os.listdir(".")
 
     # Render the graph
-    graph.render(directory=".", format='svg')
+    graph.render(directory=".", format="svg")
 
     # Read the svg
     with open("./{}.gv.svg".format(graph.name), "r") as f:
@@ -35,6 +36,7 @@ def load_svg_graphviz(graph: Digraph, overwrite: bool = False) -> str:
 
     return svg
 
+
 def write_header() -> str:
     out = '<p>For explanations of generalized dynamical systems as well as how the mathematical specification library works in detail, please consult the documentation <a href="https://github.com/BlockScience/MSML/tree/main/docs">here</a></p>'
     out += "Graph Legend:<br/>"
@@ -44,3 +46,19 @@ def write_header() -> str:
     out += "Blue Circle: Mechanism<br/>"
     out += "Transparent Circle: State Variable"
     return out
+
+
+def convert_markdown_to_pdf(md_path, pdf_path, pdflatex_path=None):
+    if pdflatex_path:
+        pypandoc.convert_file(
+            md_path,
+            "pdf",
+            outputfile=pdf_path,
+            extra_args=["--pdf-engine={}".format(pdflatex_path)],
+        )
+    else:
+        pypandoc.convert_file(
+            md_path,
+            "pdf",
+            outputfile=pdf_path,
+        )
