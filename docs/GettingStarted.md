@@ -6,6 +6,8 @@ layout: page
 
 Getting started with your first MSML specification can seem like a daunting task but this short guide will hopefully make it easier.
 
+If you want to view the in-depth JSON specification you can find it here [here](./JSON-Specification/README). This is what is passed to MSML to create the specification object.
+
 ## 1. Review the Concepts
 
 - Within this documentation, you can find specific technical documentation including the background theory and the components under "Technical Documentation"
