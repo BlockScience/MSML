@@ -28,6 +28,7 @@ from .Reports import (
     write_state_variable_table_markdown,
     write_initial_state_variables_tables,
     write_parameter_table_markdown,
+    write_glossary_report,
 )
 from .schema import schema
 from .Convenience import (
