@@ -30,6 +30,25 @@ def write_glossary_report(ms: MathSpec, directory: str) -> None:
         out += "\n\n"
     out += "\n\n"
 
+    for name, component in [
+        ["Types", ms.types],
+        ["Spaces", ms.spaces],
+        ["Boundary Actions", ms.boundary_actions],
+        ["Control Actions", ms.control_actions],
+        ["Policies", ms.policies],
+        ["Mechanisms", ms.mechanisms],
+        ["Wiring", ms.wiring],
+    ]:
+        out += "## {}\n\n".format(name)
+        for key in component:
+            if hasattr(component[key], "description"):
+                desc = component[key].description
+            else:
+                desc = component[key].notes
+
+            out += "**{}**: {}\n\n".format(key, desc)
+        out += "\n\n"
+
     path = directory + "/Glossary.md"
     with open(path, "w") as f:
         f.write(out)
