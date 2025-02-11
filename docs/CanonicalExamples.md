@@ -1,7 +1,7 @@
 ---
 title: Canonical Examples
 layout: page
-nav_order: 4
+nav_order: 5
 ---
 
 As part of MSML, there are multiple canonical examples which are meant to showcase how the library gets used. The table below describes the features that each one has as well as the level of completion for each.
