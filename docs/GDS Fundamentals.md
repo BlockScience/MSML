@@ -1,3 +1,9 @@
+---
+title: GDS Fundamentals
+nav_order: 2
+layout: page
+---
+
 # GDS Fundamentals
 
 For more information with regards to the GDS fundamentals, one can look at this [repository](https://github.com/BlockScience/GDS-MSML-cadCAD). Below is abbreviated documentation describing the fundamentals of Generalized Dynamical Systems (GDS).

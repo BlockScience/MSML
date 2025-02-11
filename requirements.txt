@@ -4,3 +4,4 @@ pandas>=1.4
 jsonschema>=4.21.1
 PyGithub==2.5.0
 python-dotenv>=1.0.0
+pypandoc>=1.15
