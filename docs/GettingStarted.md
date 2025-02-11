@@ -1,10 +1,12 @@
 ---
 title: Getting Started
-nav_order: 2
+nav_order: 4
 layout: page
 ---
 
 Getting started with your first MSML specification can seem like a daunting task but this short guide will hopefully make it easier.
+
+If you want to view the in-depth JSON specification you can find it here [here](./JSON-Specification/README). This is what is passed to MSML to create the specification object.
 
 ## 1. Review the Concepts
 

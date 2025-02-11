@@ -1,3 +1,9 @@
+---
+title: MSML Enhancements
+nav_order: 3
+layout: page
+---
+
 # MSML Enhancements
 
 MSML provides certain enhancements beyond the generalized blocks and spaces that can be utilized when building out specifications.
