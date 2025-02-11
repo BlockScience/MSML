@@ -38,6 +38,9 @@ def write_glossary_report(ms: MathSpec, directory: str) -> None:
         ["Policies", ms.policies],
         ["Mechanisms", ms.mechanisms],
         ["Wiring", ms.wiring],
+        ["Parameters", ms.parameters.parameter_map],
+        ["Stateful Metrics", ms.stateful_metrics],
+        ["Metrics", ms.metrics],
     ]:
         out += "## {}\n\n".format(name)
         for key in component:
