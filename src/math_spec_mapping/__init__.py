@@ -29,6 +29,7 @@ from .Reports import (
     write_initial_state_variables_tables,
     write_parameter_table_markdown,
     write_glossary_report,
+    convert_markdown_to_pdf,
 )
 from .schema import schema
 from .Convenience import (
