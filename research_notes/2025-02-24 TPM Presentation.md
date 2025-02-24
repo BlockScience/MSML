@@ -3,7 +3,8 @@
 ## Executive Summary
 
 - This research note covers the important aspects of MSML as they relate to the technical project manager pod at BlockScience
-- The primary question is how can TPMs support building of an MSML spec
+- The primary question is how can TPMs support building of an MSML spec?
+- The first few sections cover some of the concepts and then we move into an example of the flow
 
 ## Internal Communications
 
@@ -30,12 +31,6 @@
 - MSML's engine for running a simulation allows for defining out in great detail all the experiments to run, for example, this [notebook](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Experiment%20Simulations.ipynb) shows how in the template a bunch of simulations can be run
 - The other option is to create a cadCAD export model which then gives a data scientist an object to use for testing that just needs a state space and parameter space but has all the logic bound into it, for example the template has an example of how to build it [here](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Build%20cadCAD.ipynb)
 - The documentation covers a lot of what needs to be done for running these so we won't dive into details any further
-
-## Where TPMs can be Involved (High Level)
-
-- Information sourcing and curation
-- Interfacing with clients
-- Validation
 
 ## An Example TPM Aided Flow
 
@@ -68,9 +63,45 @@
 - Notes then can be filled in with the components of what will become the JSON representation, such as the "Agent Reproduction Boundary Action":
 ![Agent Reproduction](AgentReproduction.png)
 
+### Phase 3 - Writing the Spec
+
+- During this phase the components are built out taking information from the past two phases into account
+- The two ways generally that the spec is built out are (or a combination of them):
+    - Breadth first: Writing all the components out, wiring them up, and only once that is set filling them in
+    - Depth first: Going through one high level wiring at a time, decomposing it, filling in all details including descriptions and only once complete moving on to another one
+- 🎯 Alignment sessions with the Obsidian vault here are useful
+    - Internal alignment should be for going through either wiring scaffolds or filled out wirings and components to ensure the current work done is aligning with the TPM's vision
+    - Pull requests with reviews requested are one way to standardize adding groups of new components but still ensuring TPMs are "checking off" on validity
+    - For external client meetings, the reports and Obsidian vaults can be used to show whichever parts of the system are currently in question or scope
+- Writing a spec is iterative, the MSML engineer can plan check-ins based on their comfort; the frequency could be literally every time a new component is created or something longer term like only after one or a few new wirings are added
+- As an example, in predator prey, you might just handle the wiring of "Increase Agent Age" first by writing the components of "Increase Age Control Action", "Increase Age Policy" and "Age & Food Mechanisms" then showcasing the [Obsidian page](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Increase%20Agent%20Age%20Wiring.md) for it and getting feedback
+    - And then further iterating on things like definitions
+
+### Phase 4 - Binding Code
+
+- Without going into technical details, MSML allows you to bind code to different components and run individual components, wires or groups of wires
+- 🎯 Giving user stories can help here to ensure that the components/code accurately process whatever information needs to be processed
+    - For example, we might prescribe a scenario for food growth with expected outputs given starting state and parameters which the MSML engineer can create into a test case like [this](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/tests/Food%20Growth%20Test.ipynb)
+- 🎯 Creating economic test cases (which soon will be native to MSML) can be helpful
+    - For example, in this [MSML template test](https://github.com/BlockScience/MSML-Template/blob/main/tests/DUMMY%20Economic%20Test.ipynb), we check that certain metrics are within ranges that we know they should be if the system is functioning properly
+
+### Phase 5 - Simulation
+
+- This phase is where simulations in either cadCAD or MSML's specific engine are created, the details here for the engineer are not as important as the ways in which TPMs can aid it
+- 🎯 Writing out scenarios that should be tested and what parameters to sweep in order to satisfy the scientific questions
+- 🎯 Aiding in writing the conclusions and analysis after running models
+- 🎯 Working with the client to understand what kinds of simulations would be most useful for them
+- For example, with predator-prey, there might be one simulation that only has prey first to simulate basic things like equilibriums of number of prey and food growth rate and then other simulations that add in predators to test out what happens when they are introduced 
 
 ## A Future Flow: BDP -> MSML -> Code Enabled Specs -> MSML Simulations / cadCAD Simulations
 
+- A workflow is emerging now that is being iterated on which would have phases to the lifecycle of modeling
+- The phases would be broken out into:
+
+1. Block Diagram Protocol: Writing block diagrams that only at a high level explain what kinds of blocks, spaces and wirings there are for a system
+2. MSML: Enhancing the block diagrams with extra information such as states, the types of blocks (boundary action vs. policy, etc.), parameters and other enhancements
+3. Code Enabled Specs: MSML specs with code bound to them for running wirings and doing user stories and smaller investigations
+4. Full-scale MSML Simulations or cadCAD Simulations: Computational engines for running full scale simulations for querying scientific questions
 
 ## Additional Resource
 
