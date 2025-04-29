@@ -30,8 +30,12 @@ class Entity:
     def add_impacted_by_mechanism(self, mechanism) -> None:
         self.impacted_by_mechanism.append(mechanism)
         q = [mechanism]
+        seen = []
         while len(q) > 0:
             cur = q.pop()
+            if cur in seen:
+                continue
+            seen.append(cur)
             if type(cur) == ControlAction or type(cur) == BoundaryAction:
                 if cur not in self.impacted_by_actions:
                     self.impacted_by_actions.append(cur)
