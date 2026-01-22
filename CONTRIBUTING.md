@@ -142,7 +142,7 @@ MSML/
 ### Example Code Style
 
 ```python
-from typing import List, Dict, Optional
+from typing import Dict, Optional
 
 class MyClass:
     """Brief description of the class.
