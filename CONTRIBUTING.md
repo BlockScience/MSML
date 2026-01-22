@@ -1,6 +1,6 @@
 # Contributing to MSML
 
-Thank you for your interest in contributing to the Mathematical Specification Mapping Library (MSML)! This guide will help you get started.
+Thank you for your interest in contributing to the Mathematical Specification Mapping Library (MSML). This guide will help you get started.
 
 ## Table of Contents
 
@@ -151,7 +151,7 @@ class MyClass:
     and usage of the class.
     """
     
-    def my_method(self, param: str, optional_param: Optional[int] = None) -> Dict[str, any]:
+    def my_method(self, param: str, optional_param: Optional[int] = None) -> Dict[str, Any]:
         """Brief description of what the method does.
         
         Args:
@@ -293,7 +293,3 @@ Add screenshots for UI changes
 - Open an issue for questions or discussions
 - Check existing issues and documentation first
 - Be specific about your environment and the problem
-
-## Recognition
-
-Contributors will be recognized in release notes and project documentation. Thank you for helping make MSML better!
