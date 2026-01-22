@@ -1,7 +1,7 @@
 from .general import check_json_keys
 from ..Classes import Type
 import os
-from typing import List, get_origin
+from typing import get_origin
 
 
 def convert_type(data, ms):
