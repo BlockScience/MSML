@@ -126,7 +126,7 @@ MSML/
 
 ### Python Style
 
-- Follow [PEP 8](https://pep8.org/) style guide
+- Follow [PEP 8](https://peps.python.org/pep-0008/) style guide
 - Use meaningful variable and function names
 - Keep functions focused and single-purpose
 - Add docstrings to classes and public methods
