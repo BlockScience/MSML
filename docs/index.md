@@ -16,6 +16,28 @@ One good example is the [wiring report](https://github.com/BlockScience/Predator
 
 To install the library, simply pip install by running "pip install math_spec_mapping"
 
+For development setup, see the [main repository](https://github.com/BlockScience/MSML) for instructions using [uv](https://docs.astral.sh/uv/).
+
+## Documentation Guide
+
+### Getting Started
+- **[Getting Started](GettingStarted.md)** - Installation and first steps
+- **[Usage Guidelines](UsageGuidelines.md)** - When and how to use MSML
+- **[Best Practices](BestPractices.md)** - Opinionated design recommendations
+- **[Architectural Patterns](ArchitecturalPatterns.md)** - Common design patterns
+
+### Reference
+- **[GDS Fundamentals](GDS%20Fundamentals.md)** - Generalized Dynamical Systems basics
+- **[JSON Specification](JSON-Specification/schema.md)** - Complete JSON schema reference
+- **[Technical Documentation](TechnicalDocumentation.md)** - API and technical details
+- **[MSML Enhancements](MSML%20Enhancements.md)** - Advanced features
+
+### Examples and Tools
+- **[Canonical Examples](CanonicalExamples.md)** - Annotated example specifications
+- **[Reports](Reports.md)** - Report generation guide
+- **[cadCAD Builder](cadCADBuilder.md)** - Integration with cadCAD
+- **[FAQ](FAQ.md)** - Frequently asked questions
+
 ## Why MSML?
 
 Writing mathematical specifications can be a difficult process, especially when variable names are changed or new mechanisms are introduced. MSML seeks to streamline the process with automations as well as enhance the abilities of static math specs to deliver deeper insights. Because it is automated, one can write specifications at different levels of details or for different purposes.
