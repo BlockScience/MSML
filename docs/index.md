@@ -22,9 +22,6 @@ For development setup, see the [main repository](https://github.com/BlockScience
 
 ### Getting Started
 - **[Getting Started](GettingStarted.md)** - Installation and first steps
-- **[Usage Guidelines](UsageGuidelines.md)** - When and how to use MSML
-- **[Best Practices](BestPractices.md)** - Opinionated design recommendations
-- **[Architectural Patterns](ArchitecturalPatterns.md)** - Common design patterns
 
 ### Reference
 - **[GDS Fundamentals](GDS%20Fundamentals.md)** - Generalized Dynamical Systems basics
