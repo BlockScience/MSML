@@ -14,6 +14,8 @@ One good example is the [wiring report](https://github.com/BlockScience/Predator
 
 To install the library, simply pip install by running "pip install math-spec-mapping". The pypi package can be found [here](https://pypi.org/project/math-spec-mapping/).
 
+For development setup instructions, including using [uv](https://docs.astral.sh/uv/) for faster, reproducible dependency management, see [SETUP.md](SETUP.md).
+
 ## Why MSML?
 
 Writing mathematical specifications can be a difficult process, especially when variable names are changed or new mechanisms are introduced. MSML seeks to streamline the process with automations as well as enhance the abilities of static math specs to deliver deeper insights. Because it is automated, one can write specifications at different levels of details or for different purposes.
