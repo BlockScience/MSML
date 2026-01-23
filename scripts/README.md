@@ -46,7 +46,7 @@ uv run python scripts/generate_reports.py --verbose spec.json
 
 **Use cases:**
 - Automated documentation generation in CI
-- Batch report generation for multiple specs
+- Report generation for a single spec in automated workflows
 - Integration with documentation sites
 
 ## Scripts vs Notebooks
