@@ -37,7 +37,7 @@ def load_and_validate(spec_path: Path, verbose: bool = False) -> bool:
             spec_data = json.load(f)
         
         # Parse with MSML
-        ms = load_from_json(spec_data)
+        ms = load_from_json(spec_data, spec_path=spec_path)
         
         if verbose:
             print(f"✓ Specification loaded successfully")
