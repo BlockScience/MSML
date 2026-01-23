@@ -43,7 +43,7 @@ def generate_reports(
         with open(spec_path, 'r') as f:
             spec_data = json.load(f)
         
-        ms = load_from_json(spec_data)
+        _ms = load_from_json(spec_data)
         
         # Create output directory
         output_dir.mkdir(parents=True, exist_ok=True)
