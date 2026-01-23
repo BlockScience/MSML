@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate reports from an MSML specification.
 
-This script generates various reports (Markdown, HTML, Obsidian vault)
+This script generates various reports (Markdown, Obsidian vault)
 from an MSML specification. Useful for automated documentation generation
 in CI/CD pipelines.
 
