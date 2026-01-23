@@ -55,15 +55,13 @@ def generate_reports(
         if report_format in ('markdown', 'all'):
             if verbose:
                 print("  Generating Markdown reports...")
-            # Add report generation logic here
-            # ms.write_markdown_reports(output_dir)
+            ms.write_markdown_reports(output_dir)
             print(f"  ✓ Markdown reports generated")
         
         if report_format in ('obsidian', 'all'):
             if verbose:
                 print("  Generating Obsidian vault...")
-            # Add Obsidian vault generation logic here
-            # ms.write_obsidian_vault(output_dir / "obsidian")
+            ms.write_obsidian_vault(output_dir / "obsidian")
             print(f"  ✓ Obsidian vault generated")
         
         print(f"✓ Reports generated successfully in {output_dir}")
