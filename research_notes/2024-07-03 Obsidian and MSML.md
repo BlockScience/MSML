@@ -3,7 +3,7 @@
 <p><b>7/3/2024</b></p>
 <p><b>Sean McOwen</b></p>
 
-Created as a presentation for the BlockScience governance pod.
+Created as a presentation for the DynamicalSystemsGroup governance pod.
 
 ## Executive Summary
 
@@ -32,8 +32,7 @@ While it will be weaved in throughout this presentation, the high level relation
 
 ## Introduction to End-to-End Modeling / the Engineering Lifecycle
 
-The engineering lifecycle as defined and visualized in ["Block by Block: Managing Complexity with Model-Based Systems Engineering"
-](https://blog.block.science/block-by-block-managing-complexity-with-model-based-systems-engineering/) is depicted below.
+The engineering lifecycle as defined and visualized in "Block by Block: Managing Complexity with Model-Based Systems Engineering"is depicted below.
 
 ![Systems Engineering Diagram](../SystemsEngineering.png)
 
@@ -76,7 +75,7 @@ At my first job, I did quantitative modeling for the Comprehensive Capital Analy
 
 MSML is a library for standardizing the creation of mathematical specifications as JSON objects as well as aiding in the automation of report and visualization creation from these standardized JSON. 
 
-It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
+It uses block diagram wirings and spaces to represent the actions in complex systems in line with current DynamicalSystemsGroup research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
 
 ### What are some of the solutions offered?
 
@@ -130,7 +129,7 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 
 ### Rideshare Model Canonical Example
 
-- The [Rideshare Model](https://github.com/BlockScience/rideshare-model) is a work in progress canonical example that Sayer Tindall is leading with help/advisory from Sean McOwen to model how the economics of a rideshare platform might be modeled
+- The [Rideshare Model](https://github.com/DynamicalSystemsGroup/rideshare-model) is a work in progress canonical example that Sayer Tindall is leading with help/advisory from Sean McOwen to model how the economics of a rideshare platform might be modeled
 - Notes can be added with work in progress thoughts as markdown files, i.e. information gleaned from talking with subject matter experts such as the below note:
 ![alt text](rideshare1.png)
 - Proposals can also be created to present to stakeholders on implementation/modeling choices, for example the following below shows a proposal for how to model request a ride. Note the backlinks which can be clicked to go to the notes referenced.

@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/domain
 ```
 
 The spaces which are passed in as inputs to the policy

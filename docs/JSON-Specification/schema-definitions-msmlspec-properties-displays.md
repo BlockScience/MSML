@@ -1,7 +1,7 @@
 # Untitled object in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays
 ```
 
 
@@ -18,7 +18,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpe
 
 | Property          | Type    | Required | Nullable       | Defined by                                                                                                                                                                                             |
 | :---------------- | :------ | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [wiring](#wiring) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-displays-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays/properties/wiring") |
+| [wiring](#wiring) | `array` | Required | cannot be null | [MSML](schema-definitions-msmlspec-properties-displays-properties-wiring.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays/properties/wiring") |
 
 ## wiring
 
@@ -32,7 +32,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpe
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-msmlspec-properties-displays-properties-wiring.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays/properties/wiring")
+*   defined in: [MSML](schema-definitions-msmlspec-properties-displays-properties-wiring.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/MSMLSpec/properties/Displays/properties/wiring")
 
 ### wiring Type
 

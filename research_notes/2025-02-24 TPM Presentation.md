@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-- This research note covers the important aspects of MSML as they relate to the technical project manager pod at BlockScience
+- This research note covers the important aspects of MSML as they relate to the technical project manager pod at DynamicalSystemsGroup
 - The primary question is how can TPMs support building of an MSML spec?
 - The first few sections cover some of the concepts and then we move into an example of the flow
 
@@ -21,15 +21,15 @@
 
 ## Documentation & Reporting Outputs
 
-- **Obsidian Vault**: An obsidian vault can automatically be created to have all system components written as markdown files with linking between them. They are best viewed in Obsidian, but this document can be used to quickly jump between high level wirings and atomic components to align either internally or externally. An example of it is the [predator-prey vault](https://github.com/BlockScience/Predator-Prey-MSML/tree/main/reports/obsidian).
-- **Glossary Report**: MSML can write markdown files and then translate them into PDFs. One of those reports is the glossary report which just gives the overall inventory of all components and their descriptions. An example is [here on the MSML template](https://github.com/BlockScience/MSML-Template/blob/main/reports/Glossary.pdf).
+- **Obsidian Vault**: An obsidian vault can automatically be created to have all system components written as markdown files with linking between them. They are best viewed in Obsidian, but this document can be used to quickly jump between high level wirings and atomic components to align either internally or externally. An example of it is the [predator-prey vault](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML/tree/main/reports/obsidian).
+- **Glossary Report**: MSML can write markdown files and then translate them into PDFs. One of those reports is the glossary report which just gives the overall inventory of all components and their descriptions. An example is [here on the MSML template](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/reports/Glossary.pdf).
 - **Additional Work-in-Progress Reports**: There are many other PDF reports in progress including ones that wrap everything needed to understand a wiring into one single report.
 
 ## Design, Modeling & Simulation
 
 - Without going too into technical details, there are two ways to use MSML for simulations, both require binding code to the blocks, but are slightly different
-- MSML's engine for running a simulation allows for defining out in great detail all the experiments to run, for example, this [notebook](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Experiment%20Simulations.ipynb) shows how in the template a bunch of simulations can be run
-- The other option is to create a cadCAD export model which then gives a data scientist an object to use for testing that just needs a state space and parameter space but has all the logic bound into it, for example the template has an example of how to build it [here](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Build%20cadCAD.ipynb)
+- MSML's engine for running a simulation allows for defining out in great detail all the experiments to run, for example, this [notebook](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/notebooks/Experiment%20Simulations.ipynb) shows how in the template a bunch of simulations can be run
+- The other option is to create a cadCAD export model which then gives a data scientist an object to use for testing that just needs a state space and parameter space but has all the logic bound into it, for example the template has an example of how to build it [here](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/notebooks/Build%20cadCAD.ipynb)
 - The documentation covers a lot of what needs to be done for running these so we won't dive into details any further
 
 ## An Example TPM Aided Flow
@@ -56,7 +56,7 @@
 - Writing a high level listing of the wirings (and possibly adding in some of the component specific rough draft) can be useful for alignment with the desire to make sure everything is represented
     - 🎯 TPMs can give a validation or check that the current set of high level wirings would cover all the necesary behaviors
     - 🎯 Presenting to clients for acceptance is also useful
-- The MSML engineer might want to start out by creating a scaffold, for example the [scaffold for the predator prey example](https://github.com/BlockScience/Predator-Prey-Ideation/tree/main/Predator-Prey-Obsidian-Legacy-Code/MSML%20Scaffold%202) looks like the following below
+- The MSML engineer might want to start out by creating a scaffold, for example the [scaffold for the predator prey example](https://github.com/DynamicalSystemsGroup/Predator-Prey-Ideation/tree/main/Predator-Prey-Obsidian-Legacy-Code/MSML%20Scaffold%202) looks like the following below
     - There is also a feature of MSML that can take this scaffold in terms of folders/files and translate it directly into github issues to make it even more streamlined going from rough sketch in Obsidian to an MSML spec
     - **None of these are required and should only be used if one feels that they are value-add**
 ![Obsidian Canvas](ObsidianCanvas.png)
@@ -74,16 +74,16 @@
     - Pull requests with reviews requested are one way to standardize adding groups of new components but still ensuring TPMs are "checking off" on validity
     - For external client meetings, the reports and Obsidian vaults can be used to show whichever parts of the system are currently in question or scope
 - Writing a spec is iterative, the MSML engineer can plan check-ins based on their comfort; the frequency could be literally every time a new component is created or something longer term like only after one or a few new wirings are added
-- As an example, in predator prey, you might just handle the wiring of "Increase Agent Age" first by writing the components of "Increase Age Control Action", "Increase Age Policy" and "Age & Food Mechanisms" then showcasing the [Obsidian page](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Increase%20Agent%20Age%20Wiring.md) for it and getting feedback
+- As an example, in predator prey, you might just handle the wiring of "Increase Agent Age" first by writing the components of "Increase Age Control Action", "Increase Age Policy" and "Age & Food Mechanisms" then showcasing the [Obsidian page](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Increase%20Agent%20Age%20Wiring.md) for it and getting feedback
     - And then further iterating on things like definitions
 
 ### Phase 4 - Binding Code
 
 - Without going into technical details, MSML allows you to bind code to different components and run individual components, wires or groups of wires
 - 🎯 Giving user stories can help here to ensure that the components/code accurately process whatever information needs to be processed
-    - For example, we might prescribe a scenario for food growth with expected outputs given starting state and parameters which the MSML engineer can create into a test case like [this](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/tests/Food%20Growth%20Test.ipynb)
+    - For example, we might prescribe a scenario for food growth with expected outputs given starting state and parameters which the MSML engineer can create into a test case like [this](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML/blob/main/tests/Food%20Growth%20Test.ipynb)
 - 🎯 Creating economic test cases (which soon will be native to MSML) can be helpful
-    - For example, in this [MSML template test](https://github.com/BlockScience/MSML-Template/blob/main/tests/DUMMY%20Economic%20Test.ipynb), we check that certain metrics are within ranges that we know they should be if the system is functioning properly
+    - For example, in this [MSML template test](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/tests/DUMMY%20Economic%20Test.ipynb), we check that certain metrics are within ranges that we know they should be if the system is functioning properly
 
 ### Phase 5 - Simulation
 
@@ -105,5 +105,5 @@
 
 ## Additional Resource
 
-- [MSML Website](https://blockscience.github.io/MSML/)
+- [MSML Website](https://dynamicalsystemsgroup.github.io/MSML/)
 - [Predator Prey Reverse Engineering Research Note](./2024-11-13%20Predator-Prey%20Reverse%20Engineering.md)

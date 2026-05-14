@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain
 ```
 
 The output spaces of the control action

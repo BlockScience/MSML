@@ -1,7 +1,7 @@
 # Untitled object in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar
 ```
 
 
@@ -18,13 +18,13 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Statefu
 
 | Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                                         |
 | :----------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)                        | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/type")                       |
-| [name](#name)                        | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/name")                       |
-| [description](#description)          | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/description")         |
-| [variables\_used](#variables_used)   | `array`  | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used")   |
-| [parameters\_used](#parameters_used) | `array`  | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used") |
-| [symbol](#symbol)                    | `string` | Optional | can be null    | [MSML](schema-definitions-statefulmetricvar-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/symbol")                   |
-| [domain](#domain)                    | `string` | Optional | can be null    | [MSML](schema-definitions-statefulmetricvar-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/domain")                   |
+| [type](#type)                        | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/type")                       |
+| [name](#name)                        | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/name")                       |
+| [description](#description)          | `string` | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/description")         |
+| [variables\_used](#variables_used)   | `array`  | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-variables_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used")   |
+| [parameters\_used](#parameters_used) | `array`  | Optional | cannot be null | [MSML](schema-definitions-statefulmetricvar-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used") |
+| [symbol](#symbol)                    | `string` | Optional | can be null    | [MSML](schema-definitions-statefulmetricvar-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/symbol")                   |
+| [domain](#domain)                    | `string` | Optional | can be null    | [MSML](schema-definitions-statefulmetricvar-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/domain")                   |
 
 ## type
 
@@ -38,7 +38,7 @@ The type of the metric variable
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/type")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/type")
 
 ### type Type
 
@@ -56,7 +56,7 @@ The name of the stateful metric variable
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/name")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/name")
 
 ### name Type
 
@@ -74,7 +74,7 @@ The description of the computation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/description")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/description")
 
 ### description Type
 
@@ -92,7 +92,7 @@ The variables used for computation of the form (state, variable)
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-variables_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used")
 
 ### variables\_used Type
 
@@ -110,7 +110,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used")
 
 ### parameters\_used Type
 
@@ -128,7 +128,7 @@ The symbol associated with the stateful metric (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/symbol")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/symbol")
 
 ### symbol Type
 
@@ -146,7 +146,7 @@ The mathematical domain of the stateful metric (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/domain")
+*   defined in: [MSML](schema-definitions-statefulmetricvar-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/domain")
 
 ### domain Type
 

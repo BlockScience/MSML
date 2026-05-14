@@ -1,7 +1,7 @@
 # Untitled object in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay
 ```
 
 
@@ -18,9 +18,9 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringD
 
 | Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                         |
 | :-------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/name")               |
-| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/description") |
-| [components](#components)   | `array`  | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/components")   |
+| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/name")               |
+| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/description") |
+| [components](#components)   | `array`  | Required | cannot be null | [MSML](schema-definitions-wiringdisplay-properties-components.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/components")   |
 
 ## name
 
@@ -34,7 +34,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringD
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiringdisplay-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/name")
+*   defined in: [MSML](schema-definitions-wiringdisplay-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringD
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiringdisplay-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/description")
+*   defined in: [MSML](schema-definitions-wiringdisplay-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/description")
 
 ### description Type
 
@@ -70,7 +70,7 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringD
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiringdisplay-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/components")
+*   defined in: [MSML](schema-definitions-wiringdisplay-properties-components.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/WiringDisplay/properties/components")
 
 ### components Type
 

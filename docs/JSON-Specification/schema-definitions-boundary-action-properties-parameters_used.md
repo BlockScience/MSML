@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/parameters_used
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/parameters_used
 ```
 
 The string keys of parameters which have an effect on the boundary action

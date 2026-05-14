@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/name
 ```
 
 The name of the entity

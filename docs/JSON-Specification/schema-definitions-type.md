@@ -1,7 +1,7 @@
 # Type Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type
 ```
 
 This is for defining what a type might in its most basic form. These could be single typings or compound typings. The point here is to allow for changing typing in one single place and having it flow through anywhere else. I.e. if one were to define the currency type as USD, but then the project switched to using EUR, it would just require changing currency to be EUR.
@@ -18,10 +18,10 @@ This is for defining what a type might in its most basic form. These could be si
 
 | Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                 |
 | :-------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")         |
-| [type](#type)         | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")         |
-| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes")       |
-| [metadata](#metadata) | `object` | Optional | cannot be null | [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata") |
+| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/name")         |
+| [type](#type)         | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/type")         |
+| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-type-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/notes")       |
+| [metadata](#metadata) | `object` | Optional | cannot be null | [MSML](schema-definitions-type-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/metadata") |
 
 ## name
 
@@ -35,7 +35,7 @@ This is for defining what a type might in its most basic form. These could be si
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-type-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/name")
+*   defined in: [MSML](schema-definitions-type-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/name")
 
 ### name Type
 
@@ -53,7 +53,7 @@ This is for defining what a type might in its most basic form. These could be si
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-type-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/type")
+*   defined in: [MSML](schema-definitions-type-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/type")
 
 ### type Type
 
@@ -71,7 +71,7 @@ This is for defining what a type might in its most basic form. These could be si
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-type-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/notes")
+*   defined in: [MSML](schema-definitions-type-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/notes")
 
 ### notes Type
 
@@ -89,7 +89,7 @@ This is for defining what a type might in its most basic form. These could be si
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-type-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Type/properties/metadata")
+*   defined in: [MSML](schema-definitions-type-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Type/properties/metadata")
 
 ### metadata Type
 

@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/called_by
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/called_by
 ```
 
 The entities which are allowed to call this boundary action

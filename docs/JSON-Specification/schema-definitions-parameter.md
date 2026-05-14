@@ -1,7 +1,7 @@
 # Parameter Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter
 ```
 
 Both local and global parameter sets in the system that could be set
@@ -18,9 +18,9 @@ Both local and global parameter sets in the system that could be set
 
 | Property                  | Type     | Required | Nullable       | Defined by                                                                                                                                                               |
 | :------------------------ | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)             | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")             |
-| [notes](#notes)           | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")           |
-| [parameters](#parameters) | `array`  | Required | cannot be null | [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters") |
+| [name](#name)             | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")             |
+| [notes](#notes)           | `string` | Required | cannot be null | [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")           |
+| [parameters](#parameters) | `array`  | Required | cannot be null | [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters") |
 
 ## name
 
@@ -34,7 +34,7 @@ The name of the parameter set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameter-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")
+*   defined in: [MSML](schema-definitions-parameter-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ Any notes about the parameter set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")
+*   defined in: [MSML](schema-definitions-parameter-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes")
 
 ### notes Type
 
@@ -70,7 +70,7 @@ All parameters that are a part of this parameter set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters")
+*   defined in: [MSML](schema-definitions-parameter-properties-parameters.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters")
 
 ### parameters Type
 

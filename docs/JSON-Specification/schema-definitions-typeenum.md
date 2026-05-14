@@ -1,7 +1,7 @@
 # TypeEnum Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/TypeEnum
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/TypeEnum
 ```
 
 

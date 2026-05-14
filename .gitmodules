@@ -3,13 +3,13 @@
 	url = https://github.com/SeanMcOwen/Root-Finding-Simulation
 [submodule "examples/rideshare-model"]
 	path = examples/rideshare-model
-	url = https://github.com/BlockScience/rideshare-model
+	url = https://github.com/DynamicalSystemsGroup/rideshare-model
 [submodule "examples/MSML-Template"]
 	path = examples/MSML-Template
-	url = https://github.com/BlockScience/MSML-Template
+	url = https://github.com/DynamicalSystemsGroup/MSML-Template
 [submodule "examples/Retirement-Planning-MSML"]
 	path = examples/Retirement-Planning-MSML
-	url = https://github.com/BlockScience/Retirement-Planning-MSML
+	url = https://github.com/DynamicalSystemsGroup/Retirement-Planning-MSML
 [submodule "examples/Predator-Prey-MSML"]
 	path = examples/Predator-Prey-MSML
-	url = https://github.com/BlockScience/Predator-Prey-MSML
+	url = https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML

@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/state
 ```
 
 The string key for the state associated with the entity

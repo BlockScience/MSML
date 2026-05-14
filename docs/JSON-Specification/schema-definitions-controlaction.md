@@ -1,7 +1,7 @@
 # ControlAction Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction
 ```
 
 The definition of actions that the system might call, such as an action to refill the stock of an item when reserves run too low or something that could get triggered from a sensor. The key differentiator from boundary actions is that there is no entity calling it and it is not done with randomness.
@@ -18,12 +18,12 @@ The definition of actions that the system might call, such as an action to refil
 
 | Property                                            | Type     | Required | Nullable       | Defined by                                                                                                                                                                                               |
 | :-------------------------------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                                       | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")                                     |
-| [description](#description)                         | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")                       |
-| [constraints](#constraints)                         | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")                       |
-| [control\_action\_options](#control_action_options) | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options") |
-| [codomain](#codomain)                               | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")                             |
-| [parameters\_used](#parameters_used)                | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")               |
+| [name](#name)                                       | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")                                     |
+| [description](#description)                         | `string` | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")                       |
+| [constraints](#constraints)                         | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")                       |
+| [control\_action\_options](#control_action_options) | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options") |
+| [codomain](#codomain)                               | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")                             |
+| [parameters\_used](#parameters_used)                | `array`  | Required | cannot be null | [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")               |
 
 ## name
 
@@ -37,7 +37,7 @@ The name of the control action
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")
+*   defined in: [MSML](schema-definitions-controlaction-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/name")
 
 ### name Type
 
@@ -55,7 +55,7 @@ The description of the control action
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")
+*   defined in: [MSML](schema-definitions-controlaction-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/description")
 
 ### description Type
 
@@ -73,7 +73,7 @@ Any constraints which the control action must respect
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")
+*   defined in: [MSML](schema-definitions-controlaction-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/constraints")
 
 ### constraints Type
 
@@ -91,7 +91,7 @@ Possible implementations of the control action
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options")
+*   defined in: [MSML](schema-definitions-controlaction-properties-control_action_options.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options")
 
 ### control\_action\_options Type
 
@@ -109,7 +109,7 @@ The output spaces of the control action
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")
+*   defined in: [MSML](schema-definitions-controlaction-properties-codomain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/codomain")
 
 ### codomain Type
 
@@ -127,7 +127,7 @@ The parameters which the control action uses in its implenetations
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-controlaction-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used")
 
 ### parameters\_used Type
 

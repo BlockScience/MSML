@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic
 ```
 
 The logic related to the implementation

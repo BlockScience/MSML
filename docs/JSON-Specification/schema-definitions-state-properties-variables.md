@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/variables
 ```
 
 All the attatched state variables for the component

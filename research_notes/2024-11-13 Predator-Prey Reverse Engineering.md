@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-- As part of an effort to make high quality canonical examples, a predator-prey model is being iterated on to show a full end-to-end modeling workflow and the repository can be found [here](https://github.com/BlockScience/Predator-Prey-Canonical-Example)
+- As part of an effort to make high quality canonical examples, a predator-prey model is being iterated on to show a full end-to-end modeling workflow and the repository can be found [here](https://github.com/DynamicalSystemsGroup/Predator-Prey-Canonical-Example)
 - Today we will go through the process of reverse engineering a past repository of code and updating it to be an MSML-compliant spec
 - This specific type of ideation is often done when presented with a system that is already in a production enviroment but needs to be modeled through simulations or digital twins
 
@@ -16,7 +16,7 @@
 
 ## Predator-Prey Reverse Engineering Ideation
 
-- The [Predator-Prey-Ideation repository](https://github.com/BlockScience/Predator-Prey-Ideation/tree/main) is the repository for the ideation phase of the canonical example. Currently reverse engineering code is the only example but there will be more in the future.
+- The [Predator-Prey-Ideation repository](https://github.com/DynamicalSystemsGroup/Predator-Prey-Ideation/tree/main) is the repository for the ideation phase of the canonical example. Currently reverse engineering code is the only example but there will be more in the future.
 - Legacy code review is done to take a current version of a system and break it down into MSML/GDS style blocks and spaces
 - It can be free form but overall the goal should be piecing together the beginning of a scaffold to be ported into MSML
 - This can also be done in tandem with a literature review
@@ -56,7 +56,7 @@
 
 ### Issue Writing
 - By using the "write_issues.ipynb" which is a wrapper around MSML's new feature for github issue writing, one can automatically write github issues to the MSML repository (or the same repository)
-- In the [Predator-Prey-MSML Repository](https://github.com/BlockScience/Predator-Prey-MSML) one can see the issues (which at the time of this writing are in progress)
+- In the [Predator-Prey-MSML Repository](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML) one can see the issues (which at the time of this writing are in progress)
 - The issues that were automatically written are shown below:
 ![MSML Git Issues](MSMLGitIssues.png)
 - The automatic issue writer also creates a checklist of components for each issues that need to be solved, shown below:

@@ -1,7 +1,7 @@
 # Mechanism Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism
 ```
 
 Anything that updates state in the system, usually policies will call these with the outputs of logic. The reasoning to split them out is so that if at some point you want to add a recording variable every time an account is changed or do something like have a variable listener, you can just change the mechanism responsible for it in only one place.
@@ -18,14 +18,14 @@ Anything that updates state in the system, usually policies will call these with
 
 | Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                         |
 | :----------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")         |
-| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")         |
-| [logic](#logic)                      | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")                     |
-| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
-| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
-| [updates](#updates)                  | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
-| [metadata](#metadata)                | `object` | Optional | cannot be null | [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")               |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")         |
+| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")         |
+| [logic](#logic)                      | `string` | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")                     |
+| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")                   |
+| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used") |
+| [updates](#updates)                  | `array`  | Required | cannot be null | [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")                 |
+| [metadata](#metadata)                | `object` | Optional | cannot be null | [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")               |
 
 ## name
 
@@ -39,7 +39,7 @@ The name of the mechanism
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")
+*   defined in: [MSML](schema-definitions-mechanism-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/name")
 
 ### name Type
 
@@ -57,7 +57,7 @@ The description of what the mechanism does
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")
+*   defined in: [MSML](schema-definitions-mechanism-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/description")
 
 ### description Type
 
@@ -75,7 +75,7 @@ Any constraints which the mechanism must respect
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")
+*   defined in: [MSML](schema-definitions-mechanism-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/constraints")
 
 ### constraints Type
 
@@ -93,7 +93,7 @@ The logic of how the mechanism should work
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")
+*   defined in: [MSML](schema-definitions-mechanism-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/logic")
 
 ### logic Type
 
@@ -111,7 +111,7 @@ The spaces which are the input into the mechanism
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")
+*   defined in: [MSML](schema-definitions-mechanism-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain")
 
 ### domain Type
 
@@ -129,7 +129,7 @@ The string keys of parameters which have an effect on the mechanism
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-mechanism-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/parameters_used")
 
 ### parameters\_used Type
 
@@ -147,7 +147,7 @@ The states updates that the mechanism causes in the form of (Entity, State Varia
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")
+*   defined in: [MSML](schema-definitions-mechanism-properties-updates.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/updates")
 
 ### updates Type
 
@@ -165,7 +165,7 @@ Any metadata that is added onto the mechanism
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")
+*   defined in: [MSML](schema-definitions-mechanism-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata")
 
 ### metadata Type
 

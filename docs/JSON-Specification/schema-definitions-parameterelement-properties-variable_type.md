@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type
 ```
 
 The type of that the parameter takes.

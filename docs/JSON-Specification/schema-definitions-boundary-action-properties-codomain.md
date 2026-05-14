@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/codomain
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryAction/properties/codomain
 ```
 
 List of outputs that come out of this block

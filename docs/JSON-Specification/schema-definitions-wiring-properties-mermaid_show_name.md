@@ -1,7 +1,7 @@
 # Untitled boolean in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name
 ```
 
 

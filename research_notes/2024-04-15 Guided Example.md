@@ -10,7 +10,7 @@ This research note shows how to start building out a first mathematical specific
 
 MSML is a library for standardizing the creation of mathematical specifications as JSON objects as well as aiding in the automation of report and visualization creation from these standardized JSON. 
 
-It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
+It uses block diagram wirings and spaces to represent the actions in complex systems in line with current DynamicalSystemsGroup research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
 
 One good example is the [wiring report](https://github.com/SeanMcOwen/Root-Finding-Simulation/blob/main/MSML/reports/Simulation%20Block.md) for the Root Finding Simulation canonical example.
 
@@ -42,7 +42,7 @@ A[JSON Object \n\n Each spec has a repo for tracking changes \n Must conform to 
 
 ### Generalized Dynamical Systems Basics
 
-For more information with regards to the GDS fundamentals, one can look at this [repository](https://github.com/BlockScience/GDS-MSML-cadCAD). Below is abbreviated documentation describing the fundamentals of Generalized Dynamical Systems (GDS).
+For more information with regards to the GDS fundamentals, one can look at this [repository](https://github.com/DynamicalSystemsGroup/GDS-MSML-cadCAD). Below is abbreviated documentation describing the fundamentals of Generalized Dynamical Systems (GDS).
 
 #### Blocks
 
@@ -102,7 +102,7 @@ Investing for retirement is often modeled with monte carlo simulations because o
 
 ## Getting Started with a Base Directory
 
-- We can begin by forking the [starter repo](https://github.com/BlockScience/MSML/tree/main/examples/StarterRepo) into a directory and removing the "model" folder since we are just doing a spec today.
+- We can begin by forking the [starter repo](https://github.com/DynamicalSystemsGroup/MSML/tree/main/examples/StarterRepo) into a directory and removing the "model" folder since we are just doing a spec today.
 - We will also clear out the reports folder to start fresh.
 
 ### The Initialization File
@@ -127,7 +127,7 @@ from math_spec_mapping import (load_from_json, write_all_markdown_reports, write
 
 # Development library loading
 import sys
-sys.path.append("/Users/seanmcowen/Dropbox/BlockScience")
+sys.path.append("/Users/seanmcowen/Dropbox/DynamicalSystemsGroup")
 from MSML.src.math_spec_mapping import (load_from_json, write_all_markdown_reports, write_spec_tree)
 
 from src import math_spec_json

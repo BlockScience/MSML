@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/parameters
 ```
 
 All parameters that are a part of this parameter set

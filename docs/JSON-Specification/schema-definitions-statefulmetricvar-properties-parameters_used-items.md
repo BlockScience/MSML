@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used/items
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/parameters_used/items
 ```
 
 The string keys of parameters which are used in the metric calculation

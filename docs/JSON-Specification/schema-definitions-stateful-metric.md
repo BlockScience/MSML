@@ -1,7 +1,7 @@
 # Stateful Metric Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric
 ```
 
 Variables that are not held directly in the state but can computed from the state & parameters.
@@ -18,9 +18,9 @@ Variables that are not held directly in the state but can computed from the stat
 
 | Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                                    |
 | :-------------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/name")       |
-| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/notes")     |
-| [metrics](#metrics)   | `array`  | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/metrics") |
+| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/name")       |
+| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/notes")     |
+| [metrics](#metrics)   | `array`  | Required | cannot be null | [MSML](schema-definitions-stateful-metric-properties-metrics.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/metrics") |
 | Additional Properties | Any      | Optional | can be null    |                                                                                                                                                                               |
 
 ## name
@@ -35,7 +35,7 @@ The name of the stateful metric set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-stateful-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/name")
+*   defined in: [MSML](schema-definitions-stateful-metric-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/name")
 
 ### name Type
 
@@ -53,7 +53,7 @@ Any notes about the stateful metric set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-stateful-metric-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/notes")
+*   defined in: [MSML](schema-definitions-stateful-metric-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/notes")
 
 ### notes Type
 
@@ -71,7 +71,7 @@ Any notes about the stateful metric set
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-stateful-metric-properties-metrics.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/metrics")
+*   defined in: [MSML](schema-definitions-stateful-metric-properties-metrics.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetric/properties/metrics")
 
 ### metrics Type
 

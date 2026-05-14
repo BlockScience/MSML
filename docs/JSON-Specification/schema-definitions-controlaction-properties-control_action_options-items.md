@@ -1,7 +1,7 @@
 # Untitled undefined type in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options/items
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/control_action_options/items
 ```
 
 

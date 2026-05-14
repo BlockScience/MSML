@@ -1,6 +1,6 @@
 # Annual Presentation
 
-Presented during BlockScience Town Hall on 6/26/2024
+Presented during DynamicalSystemsGroup Town Hall on 6/26/2024
 Author: Sean McOwen
 
 ## Executive Summary
@@ -80,7 +80,7 @@ B --> F[Bridge Models \n\n Automatic porting of MSML specs to other frameworks s
     - Improving documentation and boilerplate "Introduction to MSML" materials for those not familiar with GDS or MSML
 
 ## Research Notes Roster
-- All research notes are available [here](https://github.com/BlockScience/MSML/tree/main/research_notes)
+- All research notes are available [here](https://github.com/DynamicalSystemsGroup/MSML/tree/main/research_notes)
 - The notes are split across new ideas, proposal plans for new features & updates on recent progress
 
 ### Roster of New Notes from the Last Year

@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used
 ```
 
 All parameters used in the implementations of policies

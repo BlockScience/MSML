@@ -1,7 +1,7 @@
 # Entity Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity
 ```
 
 Entities are any class of user or infrastructure that should have their own state and potentially ability to call boundary actions. Examples could be a customer or a company (for which a simulation might assume it is acting as one cohesive unit)
@@ -18,10 +18,10 @@ Entities are any class of user or infrastructure that should have their own stat
 
 | Property              | Type     | Required | Nullable       | Defined by                                                                                                                                                     |
 | :-------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")         |
-| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")       |
-| [state](#state)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state")       |
-| [metadata](#metadata) | `object` | Optional | cannot be null | [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata") |
+| [name](#name)         | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/name")         |
+| [notes](#notes)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")       |
+| [state](#state)       | `string` | Required | cannot be null | [MSML](schema-definitions-entity-properties-state.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/state")       |
+| [metadata](#metadata) | `object` | Optional | cannot be null | [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata") |
 
 ## name
 
@@ -35,7 +35,7 @@ The name of the entity
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-entity-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/name")
+*   defined in: [MSML](schema-definitions-entity-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/name")
 
 ### name Type
 
@@ -53,7 +53,7 @@ Any notes on the entity
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-entity-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")
+*   defined in: [MSML](schema-definitions-entity-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/notes")
 
 ### notes Type
 
@@ -71,7 +71,7 @@ The string key for the state associated with the entity
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-entity-properties-state.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/state")
+*   defined in: [MSML](schema-definitions-entity-properties-state.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/state")
 
 ### state Type
 
@@ -89,7 +89,7 @@ The string key for the state associated with the entity
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata")
+*   defined in: [MSML](schema-definitions-entity-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Entity/properties/metadata")
 
 ### metadata Type
 

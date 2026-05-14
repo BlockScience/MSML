@@ -40,7 +40,7 @@ def write_scaffold_to_github_issues(
 def find_open_issues():
     load_dotenv()
     g = Github(auth=Auth.Token(os.getenv("GITHUB_TOKEN")))
-    repo = g.get_repo("BlockScience/MSML")
+    repo = g.get_repo("DynamicalSystemsGroup/MSML")
     open_issues = repo.get_issues(state="open")
     open_issues = list(open_issues)
 

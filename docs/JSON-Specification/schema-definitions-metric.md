@@ -1,7 +1,7 @@
 # Metric Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric
 ```
 
 This component takes a variety of potential inputs and creates a metric from it. This can be used for defining out system success metrics or trying to modularize certain calculations that are needed across many other system components.
@@ -18,15 +18,15 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 | Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                   |
 | :----------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)                        | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/type")                       |
-| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/description")         |
-| [variables\_used](#variables_used)   | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")   |
-| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used") |
-| [metrics\_used](#metrics_used)       | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")       |
-| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")                   |
-| [logic](#logic)                      | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")                     |
-| [symbol](#symbol)                    | `string` | Required | can be null    | [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")                   |
+| [type](#type)                        | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/type")                       |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/description")         |
+| [variables\_used](#variables_used)   | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")   |
+| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used") |
+| [metrics\_used](#metrics_used)       | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")       |
+| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-metric-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")                   |
+| [logic](#logic)                      | `string` | Required | cannot be null | [MSML](schema-definitions-metric-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")                     |
+| [symbol](#symbol)                    | `string` | Required | can be null    | [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")                   |
 
 ## type
 
@@ -40,7 +40,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/type")
+*   defined in: [MSML](schema-definitions-metric-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/type")
 
 ### type Type
 
@@ -58,7 +58,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/name")
+*   defined in: [MSML](schema-definitions-metric-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/name")
 
 ### name Type
 
@@ -76,7 +76,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/description")
+*   defined in: [MSML](schema-definitions-metric-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/description")
 
 ### description Type
 
@@ -94,7 +94,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")
+*   defined in: [MSML](schema-definitions-metric-properties-variables_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/variables_used")
 
 ### variables\_used Type
 
@@ -112,7 +112,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-metric-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/parameters_used")
 
 ### parameters\_used Type
 
@@ -130,7 +130,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")
+*   defined in: [MSML](schema-definitions-metric-properties-metrics_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/metrics_used")
 
 ### metrics\_used Type
 
@@ -148,7 +148,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")
+*   defined in: [MSML](schema-definitions-metric-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/domain")
 
 ### domain Type
 
@@ -166,7 +166,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")
+*   defined in: [MSML](schema-definitions-metric-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/logic")
 
 ### logic Type
 
@@ -184,7 +184,7 @@ This component takes a variety of potential inputs and creates a metric from it.
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")
+*   defined in: [MSML](schema-definitions-metric-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Metric/properties/symbol")
 
 ### symbol Type
 

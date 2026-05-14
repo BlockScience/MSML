@@ -1,7 +1,7 @@
 # Untitled object in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata
 ```
 
 

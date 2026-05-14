@@ -1,7 +1,7 @@
 # State Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State
 ```
 
 The definition of states in the system. There is one global system state and then the rest of the definitions are local states, generally for recording what entity states there are.
@@ -18,9 +18,9 @@ The definition of states in the system. There is one global system state and the
 
 | Property                | Type     | Required | Nullable       | Defined by                                                                                                                                                     |
 | :---------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)           | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")           |
-| [notes](#notes)         | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")         |
-| [variables](#variables) | `array`  | Required | cannot be null | [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables") |
+| [name](#name)           | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/name")           |
+| [notes](#notes)         | `string` | Required | cannot be null | [MSML](schema-definitions-state-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/notes")         |
+| [variables](#variables) | `array`  | Required | cannot be null | [MSML](schema-definitions-state-properties-variables.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/variables") |
 
 ## name
 
@@ -34,7 +34,7 @@ Any notes about the state or its implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-state-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/name")
+*   defined in: [MSML](schema-definitions-state-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/name")
 
 ### name Type
 
@@ -52,7 +52,7 @@ The name of the state
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-state-properties-notes.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/notes")
+*   defined in: [MSML](schema-definitions-state-properties-notes.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/notes")
 
 ### notes Type
 
@@ -70,7 +70,7 @@ All the attatched state variables for the component
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-state-properties-variables.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/State/properties/variables")
+*   defined in: [MSML](schema-definitions-state-properties-variables.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/State/properties/variables")
 
 ### variables Type
 

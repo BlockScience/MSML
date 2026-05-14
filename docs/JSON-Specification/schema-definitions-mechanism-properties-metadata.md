@@ -1,7 +1,7 @@
 # Untitled object in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/metadata
 ```
 
 Any metadata that is added onto the mechanism

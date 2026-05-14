@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Mechanism/properties/domain
 ```
 
 The spaces which are the input into the mechanism

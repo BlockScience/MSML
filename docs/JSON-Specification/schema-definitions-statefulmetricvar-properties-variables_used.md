@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/StatefulMetricVar/properties/variables_used
 ```
 
 The variables used for computation of the form (state, variable)

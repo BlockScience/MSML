@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ControlAction/properties/parameters_used
 ```
 
 The parameters which the control action uses in its implenetations

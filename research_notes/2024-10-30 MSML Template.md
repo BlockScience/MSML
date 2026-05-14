@@ -15,7 +15,7 @@
 
 ## MSML Template Repository Presentation
 
-- We can jump over to the MSML template repository [here](https://github.com/BlockScience/MSML-Template) to learn more about the specifics
+- We can jump over to the MSML template repository [here](https://github.com/DynamicalSystemsGroup/MSML-Template) to learn more about the specifics
 
 ## Next Steps
 

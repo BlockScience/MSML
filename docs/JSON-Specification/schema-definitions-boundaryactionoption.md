@@ -1,7 +1,7 @@
 # BoundaryActionOption Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption
 ```
 
 Specific implementations of a control action which are in the same form of the underlying control action definition.
@@ -18,10 +18,10 @@ Specific implementations of a control action which are in the same form of the u
 
 | Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
 | :-------------------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/name")               |
-| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/description") |
-| [logic](#logic)             | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic")             |
-| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/metadata")       |
+| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/name")               |
+| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/description") |
+| [logic](#logic)             | `string` | Required | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic")             |
+| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-boundaryactionoption-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/metadata")       |
 
 ## name
 
@@ -35,7 +35,7 @@ The name of the boundary action option
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/name")
+*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/name")
 
 ### name Type
 
@@ -53,7 +53,7 @@ A description of what this implementation does
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/description")
+*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/description")
 
 ### description Type
 
@@ -71,7 +71,7 @@ The logic related to the implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic")
+*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/logic")
 
 ### logic Type
 
@@ -89,7 +89,7 @@ The logic related to the implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/metadata")
+*   defined in: [MSML](schema-definitions-boundaryactionoption-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/BoundaryActionOption/properties/metadata")
 
 ### metadata Type
 

@@ -1,7 +1,7 @@
 # Wiring Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring
 ```
 
 A wiring is a block composed of other blocks with specific behaviors or orders of execution. For instance, there can be wirings that have blocks run one after another, passing their codomains to the next block's domain. There can also be wirings for blocks that all should run in parallel.
@@ -18,15 +18,15 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 
 | Property                                  | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
 | :---------------------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
-| [components](#components)                 | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")               |
-| [description](#description)               | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
-| [constraints](#constraints)               | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")             |
-| [type](#type)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
-| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
-| [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
-| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
-| [metadata](#metadata)                     | `object`  | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")                   |
+| [name](#name)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")                           |
+| [components](#components)                 | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-components.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")               |
+| [description](#description)               | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")             |
+| [constraints](#constraints)               | `array`   | Required | cannot be null | [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")             |
+| [type](#type)                             | `string`  | Required | cannot be null | [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")                       |
+| [mermaid\_show\_name](#mermaid_show_name) | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name") |
+| [loop](#loop)                             | `boolean` | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")                           |
+| [optional\_indices](#optional_indices)    | `array`   | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")   |
+| [metadata](#metadata)                     | `object`  | Optional | cannot be null | [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")                   |
 
 ## name
 
@@ -40,7 +40,7 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")
+*   defined in: [MSML](schema-definitions-wiring-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/name")
 
 ### name Type
 
@@ -58,7 +58,7 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-components.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")
+*   defined in: [MSML](schema-definitions-wiring-properties-components.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/components")
 
 ### components Type
 
@@ -76,7 +76,7 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")
+*   defined in: [MSML](schema-definitions-wiring-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/description")
 
 ### description Type
 
@@ -94,7 +94,7 @@ A wiring is a block composed of other blocks with specific behaviors or orders o
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")
+*   defined in: [MSML](schema-definitions-wiring-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints")
 
 ### constraints Type
 
@@ -112,7 +112,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")
+*   defined in: [MSML](schema-definitions-wiring-properties-typeenum.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/type")
 
 ### type Type
 
@@ -139,7 +139,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name")
+*   defined in: [MSML](schema-definitions-wiring-properties-mermaid_show_name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/mermaid_show_name")
 
 ### mermaid\_show\_name Type
 
@@ -157,7 +157,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")
+*   defined in: [MSML](schema-definitions-wiring-properties-loop.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/loop")
 
 ### loop Type
 
@@ -175,7 +175,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")
+*   defined in: [MSML](schema-definitions-wiring-properties-optional_indices.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/optional_indices")
 
 ### optional\_indices Type
 
@@ -193,7 +193,7 @@ unknown\[]
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")
+*   defined in: [MSML](schema-definitions-wiring-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/metadata")
 
 ### metadata Type
 

@@ -1,7 +1,7 @@
 # Untitled string in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Parameter/properties/notes
 ```
 
 Any notes about the parameter set

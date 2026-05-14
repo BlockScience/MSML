@@ -1,7 +1,7 @@
 # Untitled undefined type in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol
 ```
 
 The symbol associated with the parameter (optional)

@@ -13,21 +13,21 @@
 
 ## Desired Future Reporting Architecture
 
-- [Switching to atomized functions](https://github.com/BlockScience/MSML/issues/165) will help to improve the ongoing maintenance of code
+- [Switching to atomized functions](https://github.com/DynamicalSystemsGroup/MSML/issues/165) will help to improve the ongoing maintenance of code
 - There is an aim to have a "plug and play" feel to the reporting modules that allow for flexibility and choosing exactly how you want reports
-    - Creating [style dictionaries](https://github.com/BlockScience/MSML/issues/251) is one way that reports can become flexible
+    - Creating [style dictionaries](https://github.com/DynamicalSystemsGroup/MSML/issues/251) is one way that reports can become flexible
 - There will be a desire to have multiple output avenues
     - Standard markdown
     - Markdown with wikilinks for use in Obsidian
-    - [PDFs of markdown](https://github.com/BlockScience/MSML/issues/600)
-- I want to also [create a mermaid graph](https://github.com/BlockScience/MSML/issues/601) or similar of the reporting architecture for both developer documentation as well as organizing thoughts on the best way to structure the codebase
+    - [PDFs of markdown](https://github.com/DynamicalSystemsGroup/MSML/issues/600)
+- I want to also [create a mermaid graph](https://github.com/DynamicalSystemsGroup/MSML/issues/601) or similar of the reporting architecture for both developer documentation as well as organizing thoughts on the best way to structure the codebase
 
 ## Outputs
 
 1. Obsidian vault of markdown files (currently implemented)
-2. [Individual markdown reports](https://github.com/BlockScience/MSML/issues/602) of components based on style dictionary (for things such as how deep to go in terms of just saying what domain is versus actually listing out the domain objects such as {"name": "Space 1", "schema": {....}} for giving stakeholders the entire picture)
+2. [Individual markdown reports](https://github.com/DynamicalSystemsGroup/MSML/issues/602) of components based on style dictionary (for things such as how deep to go in terms of just saying what domain is versus actually listing out the domain objects such as {"name": "Space 1", "schema": {....}} for giving stakeholders the entire picture)
     - And the option to PDF it
-3. [Specialized reports](https://github.com/BlockScience/MSML/issues/603) such as the parameter effects style whereby you can see every single block that is impacted downstream by parameters
+3. [Specialized reports](https://github.com/DynamicalSystemsGroup/MSML/issues/603) such as the parameter effects style whereby you can see every single block that is impacted downstream by parameters
 4. Potential for future engine extensions to support things such as stock & flow diagrams (although it can be shifted in terms of the priority)
 
 ## Issue Log
@@ -38,38 +38,38 @@
 
 |                 | Reporting                                                                                                                                                                 |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| High Priority   | [Create plan for specialized reports](https://github.com/BlockScience/MSML/issues/603)                                                                                    |
-|                 | [Create plan for individual markdown reports](https://github.com/BlockScience/MSML/issues/602)                                                                            |
-|                 | [Create a mermaid graph or similar of the reporting architecture](https://github.com/BlockScience/MSML/issues/601)                                                        |
-|                 | [Revive PDF Writing Abilities for Reporting](https://github.com/BlockScience/MSML/issues/600)                                                                             |
-|                 | [Add something for displaying source code for wiring](https://github.com/BlockScience/MSML/issues/570)                                                                    |
-|                 | [For policies/mechanisms/etc add in a section for markdown reporting that says wirings that it is involved in](https://github.com/BlockScience/MSML/issues/258)           |
-|                 | [Switch legacy reporting to be using mermaid + markdown](https://github.com/BlockScience/MSML/issues/155)                                                                 |
-|                 | [Add Table comparing policy options, boundary options, etc](https://github.com/BlockScience/MSML/issues/148)                                                              |
-| Medium Priority | [Obsidian Canvas Creator for Wirings](https://github.com/BlockScience/MSML/issues/541)                                                                                    |
-|                 | [Add Metrics and Stateful Metrics used to Mermaid Charts](https://github.com/BlockScience/MSML/issues/540)                                                                |
-|                 | [Stock and Flow generator](https://github.com/BlockScience/MSML/issues/498)                                                                                               |
-|                 | [Idea: Auto-displays](https://github.com/BlockScience/MSML/issues/280)                                                                                                    |
-|                 | [Convert action chain report to markdown](https://github.com/BlockScience/MSML/issues/254)                                                                                |
-|                 | [Convert entity report to markdown](https://github.com/BlockScience/MSML/issues/253)                                                                                      |
-|                 | [Make write basic report markdown](https://github.com/BlockScience/MSML/issues/252)                                                                                       |
-|                 | [Atomize Writing Functions](https://github.com/BlockScience/MSML/issues/165)                                                                                              |
-|                 | [Add Policy Report](https://github.com/BlockScience/MSML/issues/159)                                                                                                      |
-|                 | [Add parameters impacting to policy, behaviors, etc. in report write out](https://github.com/BlockScience/MSML/issues/89)                                                 |
-|                 | [Make a type of report that is a parameter report](https://github.com/BlockScience/MSML/issues/74)                                                                        |
-|                 | [Replicate Something like write_full_state_section from the alpha version](https://github.com/BlockScience/MSML/issues/58)                                                |
-| Low Priority    | [Add obsidian plugins to starter repos and have a function that also can populate them](https://github.com/BlockScience/MSML/issues/387)                                  |
-|                 | [Add ability to de-emphasize certain wirings by marking them with a flag that puts their reports into an "extra" wiring](https://github.com/BlockScience/MSML/issues/381) |
-|                 | [Figure out how to force CSS snippets used](https://github.com/BlockScience/MSML/issues/322)                                                                              |
-|                 | [Idea: Top level tag for wirings](https://github.com/BlockScience/MSML/issues/281)                                                                                        |
-|                 | [Add images assets functionality](https://github.com/BlockScience/MSML/issues/260)                                                                                        |
-|                 | [Mermaid graph assets functionality](https://github.com/BlockScience/MSML/issues/259)                                                                                     |
-|                 | [Style Dictionary options](https://github.com/BlockScience/MSML/issues/251)                                                                                               |
-|                 | [Consider a format dictionary for MSML that allows you to override certain formatting options](https://github.com/BlockScience/MSML/issues/246)                           |
-|                 | [Add metric linkages to the reporting for components](https://github.com/BlockScience/MSML/issues/233)                                                                    |
-|                 | [Metric report](https://github.com/BlockScience/MSML/issues/231)                                                                                                          |
-|                 | [Exclude Dictionary Feature](https://github.com/BlockScience/MSML/issues/79)                                                                                              |
-|                 | [Add Parameters to Graph Option](https://github.com/BlockScience/MSML/issues/53)                                                                                          |
+| High Priority   | [Create plan for specialized reports](https://github.com/DynamicalSystemsGroup/MSML/issues/603)                                                                                    |
+|                 | [Create plan for individual markdown reports](https://github.com/DynamicalSystemsGroup/MSML/issues/602)                                                                            |
+|                 | [Create a mermaid graph or similar of the reporting architecture](https://github.com/DynamicalSystemsGroup/MSML/issues/601)                                                        |
+|                 | [Revive PDF Writing Abilities for Reporting](https://github.com/DynamicalSystemsGroup/MSML/issues/600)                                                                             |
+|                 | [Add something for displaying source code for wiring](https://github.com/DynamicalSystemsGroup/MSML/issues/570)                                                                    |
+|                 | [For policies/mechanisms/etc add in a section for markdown reporting that says wirings that it is involved in](https://github.com/DynamicalSystemsGroup/MSML/issues/258)           |
+|                 | [Switch legacy reporting to be using mermaid + markdown](https://github.com/DynamicalSystemsGroup/MSML/issues/155)                                                                 |
+|                 | [Add Table comparing policy options, boundary options, etc](https://github.com/DynamicalSystemsGroup/MSML/issues/148)                                                              |
+| Medium Priority | [Obsidian Canvas Creator for Wirings](https://github.com/DynamicalSystemsGroup/MSML/issues/541)                                                                                    |
+|                 | [Add Metrics and Stateful Metrics used to Mermaid Charts](https://github.com/DynamicalSystemsGroup/MSML/issues/540)                                                                |
+|                 | [Stock and Flow generator](https://github.com/DynamicalSystemsGroup/MSML/issues/498)                                                                                               |
+|                 | [Idea: Auto-displays](https://github.com/DynamicalSystemsGroup/MSML/issues/280)                                                                                                    |
+|                 | [Convert action chain report to markdown](https://github.com/DynamicalSystemsGroup/MSML/issues/254)                                                                                |
+|                 | [Convert entity report to markdown](https://github.com/DynamicalSystemsGroup/MSML/issues/253)                                                                                      |
+|                 | [Make write basic report markdown](https://github.com/DynamicalSystemsGroup/MSML/issues/252)                                                                                       |
+|                 | [Atomize Writing Functions](https://github.com/DynamicalSystemsGroup/MSML/issues/165)                                                                                              |
+|                 | [Add Policy Report](https://github.com/DynamicalSystemsGroup/MSML/issues/159)                                                                                                      |
+|                 | [Add parameters impacting to policy, behaviors, etc. in report write out](https://github.com/DynamicalSystemsGroup/MSML/issues/89)                                                 |
+|                 | [Make a type of report that is a parameter report](https://github.com/DynamicalSystemsGroup/MSML/issues/74)                                                                        |
+|                 | [Replicate Something like write_full_state_section from the alpha version](https://github.com/DynamicalSystemsGroup/MSML/issues/58)                                                |
+| Low Priority    | [Add obsidian plugins to starter repos and have a function that also can populate them](https://github.com/DynamicalSystemsGroup/MSML/issues/387)                                  |
+|                 | [Add ability to de-emphasize certain wirings by marking them with a flag that puts their reports into an "extra" wiring](https://github.com/DynamicalSystemsGroup/MSML/issues/381) |
+|                 | [Figure out how to force CSS snippets used](https://github.com/DynamicalSystemsGroup/MSML/issues/322)                                                                              |
+|                 | [Idea: Top level tag for wirings](https://github.com/DynamicalSystemsGroup/MSML/issues/281)                                                                                        |
+|                 | [Add images assets functionality](https://github.com/DynamicalSystemsGroup/MSML/issues/260)                                                                                        |
+|                 | [Mermaid graph assets functionality](https://github.com/DynamicalSystemsGroup/MSML/issues/259)                                                                                     |
+|                 | [Style Dictionary options](https://github.com/DynamicalSystemsGroup/MSML/issues/251)                                                                                               |
+|                 | [Consider a format dictionary for MSML that allows you to override certain formatting options](https://github.com/DynamicalSystemsGroup/MSML/issues/246)                           |
+|                 | [Add metric linkages to the reporting for components](https://github.com/DynamicalSystemsGroup/MSML/issues/233)                                                                    |
+|                 | [Metric report](https://github.com/DynamicalSystemsGroup/MSML/issues/231)                                                                                                          |
+|                 | [Exclude Dictionary Feature](https://github.com/DynamicalSystemsGroup/MSML/issues/79)                                                                                              |
+|                 | [Add Parameters to Graph Option](https://github.com/DynamicalSystemsGroup/MSML/issues/53)                                                                                          |
 
 ## Oustanding Questions
 

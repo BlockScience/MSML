@@ -1,7 +1,7 @@
 # Untitled array in MSML Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Wiring/properties/constraints
 ```
 
 

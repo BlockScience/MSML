@@ -1,7 +1,7 @@
 # ParameterElement Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement
 ```
 
 
@@ -18,12 +18,12 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Paramet
 
 | Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
 | :----------------------------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [variable\_type](#variable_type)     | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")     |
-| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")         |
-| [symbol](#symbol)                    | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")                   |
-| [domain](#domain)                    | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")                   |
-| [parameter\_class](#parameter_class) | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class") |
+| [variable\_type](#variable_type)     | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")     |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")         |
+| [symbol](#symbol)                    | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")                   |
+| [domain](#domain)                    | `string` | Required | can be null    | [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")                   |
+| [parameter\_class](#parameter_class) | `string` | Required | cannot be null | [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class") |
 
 ## variable\_type
 
@@ -37,7 +37,7 @@ The type of that the parameter takes.
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-variable_type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/variable_type")
 
 ### variable\_type Type
 
@@ -55,7 +55,7 @@ The unique name of the parameter
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/name")
 
 ### name Type
 
@@ -73,7 +73,7 @@ The description of the parameter
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/description")
 
 ### description Type
 
@@ -91,7 +91,7 @@ The symbol associated with the parameter (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/symbol")
 
 ### symbol Type
 
@@ -109,7 +109,7 @@ The mathematical domain of the parameter (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/domain")
 
 ### domain Type
 
@@ -127,7 +127,7 @@ The type of paramter this is, of which the options are system (what you would fi
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class")
+*   defined in: [MSML](schema-definitions-parameterelement-properties-parameter_class.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/ParameterElement/properties/parameter_class")
 
 ### parameter\_class Type
 

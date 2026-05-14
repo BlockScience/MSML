@@ -1,7 +1,7 @@
 # Variable Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable
 ```
 
 
@@ -18,12 +18,12 @@ https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variabl
 
 | Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                               |
 | :-------------------------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [type](#type)               | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")               |
-| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")               |
-| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description") |
-| [symbol](#symbol)           | `string` | Required | can be null    | [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")           |
-| [domain](#domain)           | `string` | Required | can be null    | [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")           |
-| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-variable-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/metadata")       |
+| [type](#type)               | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/type")               |
+| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/name")               |
+| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-variable-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/description") |
+| [symbol](#symbol)           | `string` | Required | can be null    | [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")           |
+| [domain](#domain)           | `string` | Required | can be null    | [MSML](schema-definitions-variable-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")           |
+| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-variable-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/metadata")       |
 
 ## type
 
@@ -37,7 +37,7 @@ The type of the variable
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-type.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/type")
+*   defined in: [MSML](schema-definitions-variable-properties-type.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/type")
 
 ### type Type
 
@@ -55,7 +55,7 @@ Variable name
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/name")
+*   defined in: [MSML](schema-definitions-variable-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/name")
 
 ### name Type
 
@@ -73,7 +73,7 @@ Description of what the variable is
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/description")
+*   defined in: [MSML](schema-definitions-variable-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/description")
 
 ### description Type
 
@@ -91,7 +91,7 @@ The symbol associated with the parameter (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")
+*   defined in: [MSML](schema-definitions-variable-properties-symbol.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/symbol")
 
 ### symbol Type
 
@@ -109,7 +109,7 @@ The mathematical domain of the parameter (optional)
 
 *   can be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")
+*   defined in: [MSML](schema-definitions-variable-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/domain")
 
 ### domain Type
 
@@ -127,7 +127,7 @@ The mathematical domain of the parameter (optional)
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-variable-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Variable/properties/metadata")
+*   defined in: [MSML](schema-definitions-variable-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Variable/properties/metadata")
 
 ### metadata Type
 

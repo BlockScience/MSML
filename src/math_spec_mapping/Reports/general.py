@@ -38,7 +38,7 @@ def load_svg_graphviz(graph: Digraph, overwrite: bool = False) -> str:
 
 
 def write_header() -> str:
-    out = '<p>For explanations of generalized dynamical systems as well as how the mathematical specification library works in detail, please consult the documentation <a href="https://github.com/BlockScience/MSML/tree/main/docs">here</a></p>'
+    out = '<p>For explanations of generalized dynamical systems as well as how the mathematical specification library works in detail, please consult the documentation <a href="https://github.com/DynamicalSystemsGroup/MSML/tree/main/docs">here</a></p>'
     out += "Graph Legend:<br/>"
     out += "Cylinder: Entity<br/>"
     out += "Orange Diamond: Boundary Action<br/>"

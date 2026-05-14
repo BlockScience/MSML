@@ -1,7 +1,7 @@
 # PolicyOption Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption
 ```
 
 The concrete possible implementations that a given policy block can reference or select
@@ -18,10 +18,10 @@ The concrete possible implementations that a given policy block can reference or
 
 | Property                    | Type     | Required | Nullable       | Defined by                                                                                                                                                                       |
 | :-------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")               |
-| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description") |
-| [logic](#logic)             | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")             |
-| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-policyoption-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata")       |
+| [name](#name)               | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")               |
+| [description](#description) | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description") |
+| [logic](#logic)             | `string` | Required | cannot be null | [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")             |
+| [metadata](#metadata)       | `object` | Optional | cannot be null | [MSML](schema-definitions-policyoption-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata")       |
 
 ## name
 
@@ -35,7 +35,7 @@ The name of the policy option
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")
+*   defined in: [MSML](schema-definitions-policyoption-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/name")
 
 ### name Type
 
@@ -53,7 +53,7 @@ A description of the implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description")
+*   defined in: [MSML](schema-definitions-policyoption-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/description")
 
 ### description Type
 
@@ -71,7 +71,7 @@ Any logic associated with the implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")
+*   defined in: [MSML](schema-definitions-policyoption-properties-logic.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/logic")
 
 ### logic Type
 
@@ -89,7 +89,7 @@ Any logic associated with the implementation
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policyoption-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata")
+*   defined in: [MSML](schema-definitions-policyoption-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/PolicyOption/properties/metadata")
 
 ### metadata Type
 

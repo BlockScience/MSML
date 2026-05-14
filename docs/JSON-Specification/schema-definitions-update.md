@@ -1,7 +1,7 @@
 # Update Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Update
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Update
 ```
 
 

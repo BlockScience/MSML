@@ -46,8 +46,7 @@ B --> E[Python Wirings & Simulations \n\n MSML can be used to run blocks \n Wiri
 
 ## MSML in the Engineering Lifecycle
 
-The engineering lifecycle as defined and visualized in ["Block by Block: Managing Complexity with Model-Based Systems Engineering"
-](https://blog.block.science/block-by-block-managing-complexity-with-model-based-systems-engineering/) is depicted below.
+The engineering lifecycle as defined and visualized in "Block by Block: Managing Complexity with Model-Based Systems Engineering" is depicted below.
 
 ![Systems Engineering Diagram](SystemsEngineering.png)
 

@@ -34,9 +34,9 @@ The following are the three tags to be used:
 - MSML has built in functions for the metaprogramming that allow for combining through all policies, boundary actions, and other components that contain "options" and creating the functional parameters for those which have more than one option, ensuring users know which functions are modifiable and need to be specified for specific implementations
 
 
-## BlockScience KMS Conversation
+## DynamicalSystemsGroup KMS Conversation
 
-The following is a conversation between Sean McOwen, the BlockScience KMS LLM and Michael Zargham.
+The following is a conversation between Sean McOwen, the DynamicalSystemsGroup KMS LLM and Michael Zargham.
 
 Sean: @KMS What different classes of parameters might exist in a systems engineering context?
 

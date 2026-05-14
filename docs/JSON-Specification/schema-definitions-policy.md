@@ -1,7 +1,7 @@
 # Policy Schema
 
 ```txt
-https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy
+https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy
 ```
 
 A definition of the policies that handle all logical things. This could be, for example, a policy which determines what price is paid given a boundary action of someone putting in a market buy order for a stock.
@@ -18,15 +18,15 @@ A definition of the policies that handle all logical things. This could be, for 
 
 | Property                             | Type     | Required | Nullable       | Defined by                                                                                                                                                                   |
 | :----------------------------------- | :------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")                       |
-| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")         |
-| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")         |
-| [policy\_options](#policy_options)   | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")   |
-| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")                   |
-| [codomain](#codomain)                | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")               |
-| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used") |
-| [metrics\_used](#metrics_used)       | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/metrics_used")       |
-| [metadata](#metadata)                | `object` | Optional | cannot be null | [MSML](schema-definitions-policy-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/metadata")               |
+| [name](#name)                        | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/name")                       |
+| [description](#description)          | `string` | Required | cannot be null | [MSML](schema-definitions-policy-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/description")         |
+| [constraints](#constraints)          | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")         |
+| [policy\_options](#policy_options)   | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")   |
+| [domain](#domain)                    | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")                   |
+| [codomain](#codomain)                | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")               |
+| [parameters\_used](#parameters_used) | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used") |
+| [metrics\_used](#metrics_used)       | `array`  | Required | cannot be null | [MSML](schema-definitions-policy-properties-metrics_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/metrics_used")       |
+| [metadata](#metadata)                | `object` | Optional | cannot be null | [MSML](schema-definitions-policy-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/metadata")               |
 
 ## name
 
@@ -40,7 +40,7 @@ The name of the policy
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-name.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/name")
+*   defined in: [MSML](schema-definitions-policy-properties-name.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/name")
 
 ### name Type
 
@@ -58,7 +58,7 @@ Description of the policy
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-description.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/description")
+*   defined in: [MSML](schema-definitions-policy-properties-description.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/description")
 
 ### description Type
 
@@ -76,7 +76,7 @@ Any constraints which the policy must respect
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")
+*   defined in: [MSML](schema-definitions-policy-properties-constraints.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/constraints")
 
 ### constraints Type
 
@@ -94,7 +94,7 @@ Possible implementations of the policy
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")
+*   defined in: [MSML](schema-definitions-policy-properties-policy_options.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/policy_options")
 
 ### policy\_options Type
 
@@ -112,7 +112,7 @@ The spaces which are passed in as inputs to the policy
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-domain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")
+*   defined in: [MSML](schema-definitions-policy-properties-domain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/domain")
 
 ### domain Type
 
@@ -130,7 +130,7 @@ The spaces which are returned as results of the policy
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")
+*   defined in: [MSML](schema-definitions-policy-properties-codomain.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/codomain")
 
 ### codomain Type
 
@@ -148,7 +148,7 @@ All parameters used in the implementations of policies
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used")
+*   defined in: [MSML](schema-definitions-policy-properties-parameters_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/parameters_used")
 
 ### parameters\_used Type
 
@@ -166,7 +166,7 @@ All metrics used in implementation of policies
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-metrics_used.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/metrics_used")
+*   defined in: [MSML](schema-definitions-policy-properties-metrics_used.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/metrics_used")
 
 ### metrics\_used Type
 
@@ -184,7 +184,7 @@ All metrics used in implementation of policies
 
 *   cannot be null
 
-*   defined in: [MSML](schema-definitions-policy-properties-metadata.md "https://github.com/BlockScience/MSML/src/schema.schema.json#/definitions/Policy/properties/metadata")
+*   defined in: [MSML](schema-definitions-policy-properties-metadata.md "https://github.com/DynamicalSystemsGroup/MSML/src/schema.schema.json#/definitions/Policy/properties/metadata")
 
 ### metadata Type
 
