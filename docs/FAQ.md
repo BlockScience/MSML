@@ -8,7 +8,7 @@ The following are frequently asked questions with regards to MSML.
 
 ## What structure or paradigm is MSML based off of?
 
-- The structure is based off of Generalzied Dynamical Systems but with some semantic additions mainly coming out of past specs that were built at BlockScience
+- The structure is based off of Generalzied Dynamical Systems but with some semantic additions mainly coming out of past specs that were built at Dynamical Systems Group
 - This, however, may soon change to be an ontology based version where there is the super class of "Block" and then users bring their own ontologies instead of having blocks defined out as boundary actions, control actions, policies, mechanisms and wirings
 
 ## What are the capabilities of MSML?
@@ -20,7 +20,7 @@ The following are frequently asked questions with regards to MSML.
 
 ## What deliverables can MSML produce?
 
-- The short answer is the main deliverables can be seen in the [MSML template](https://github.com/BlockScience/MSML-Template), otherwise below are some of the main deliverables
+- The short answer is the main deliverables can be seen in the [MSML template](https://github.com/DynamicalSystemsGroup/MSML-Template), otherwise below are some of the main deliverables
 - Obsidian vault creation for internal development in the beginning and then eventually easily interfacing with clients, markdown files are created for every component for easily zooming in and out of the system
 - Notebooks and paradigms for internal dev of testing and playgrounds for testing out bound code on specs
 - Single simulation and simulation sweep notebooks for creating interfaces that clients can easily modify for running their own experiments as well as setting up experiment notebooks for client deliverables

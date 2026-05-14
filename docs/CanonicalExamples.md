@@ -9,7 +9,7 @@ As part of MSML, there are multiple canonical examples which are meant to showca
 
 ## Comparison of Canonical Examples
 
-| Feature/Attribute | [MSML Template](https://github.com/BlockScience/MSML-Template) | [Predator Prey](https://github.com/BlockScience/Predator-Prey-MSML) | [Root Finding](https://github.com/SeanMcOwen/Root-Finding-Simulation) | [Retirement Planning](https://github.com/BlockScience/Retirement-Planning-MSML) |
+| Feature/Attribute | [MSML Template](https://github.com/DynamicalSystemsGroup/MSML-Template) | [Predator Prey](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML) | [Root Finding](https://github.com/SeanMcOwen/Root-Finding-Simulation) | [Retirement Planning](https://github.com/DynamicalSystemsGroup/Retirement-Planning-MSML) |
 | --- | --- | --- | --- | --- |
 | Description | A template for using MSML. It implements very basic functionality. | An example of building out an agent based simulation for modeling predators and prey based on multiple actions. | A simulation of different root finding techniques and their relative speed/accuracy | A canonical example to showcase how to simulate changing behavioral patterns and their impacts on final results|
 | Complexity (1-5) | 1 | 4 | 3 | 2 |

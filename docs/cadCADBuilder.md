@@ -27,13 +27,13 @@ The following is outputted by the creation function:
 
 ## Creating a cadCAD Model in a Notebook
 
-The [template notebook on building cadCAD models](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Build%20cadCAD.ipynb) shows how to create a cadCAD model from an MSML model.
+The [template notebook on building cadCAD models](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/notebooks/Build%20cadCAD.ipynb) shows how to create a cadCAD model from an MSML model.
 
 ## Using cadCAD Model Repositories
 
-A recommended design pattern is to have MSML developers create a batch of cadCAD models to be run within a cadCADModels folder [similar to the template](https://github.com/BlockScience/MSML-Template/tree/main/cadCADModels).
+A recommended design pattern is to have MSML developers create a batch of cadCAD models to be run within a cadCADModels folder [similar to the template](https://github.com/DynamicalSystemsGroup/MSML-Template/tree/main/cadCADModels).
 
-The template also has an example of running the pre-built cadCAD models [here](https://github.com/BlockScience/MSML-Template/blob/main/notebooks/Pre-built%20cadCAD.ipynb).
+The template also has an example of running the pre-built cadCAD models [here](https://github.com/DynamicalSystemsGroup/MSML-Template/blob/main/notebooks/Pre-built%20cadCAD.ipynb).
 
 
 ## Model Functionality

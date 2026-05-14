@@ -20,7 +20,7 @@ If you want to view the in-depth JSON specification you can find it here [here](
 
 ## 3. Fork the MSML Template
 
-- The [MSML Template](https://github.com/BlockScience/MSML-Template) can be forked by pushing the green button labeled "Use this template"
+- The [MSML Template](https://github.com/DynamicalSystemsGroup/MSML-Template) can be forked by pushing the green button labeled "Use this template"
 - The template comes with starter "DUMMY" components to show the format of a repository
 
 ## 4. Write New Components

@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 name = "math-spec-mapping"
 version = "0.4.4"
 authors = [
-  { name="Sean McOwen", email="Sean@Block.Science" },
+  { name="Sean McOwen", email="msml@dynamicalsystemsgroup.com" },
 ]
 description = "A library for easy mapping of mathematical specifications."
 dependencies = [

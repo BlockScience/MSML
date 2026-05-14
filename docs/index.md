@@ -8,9 +8,9 @@ nav_order: 1
 
 MSML is a library for standardizing the creation of mathematical specifications as JSON objects as well as aiding in the automation of report and visualization creation from these standardized JSON. 
 
-It uses block diagram wirings and spaces to represent the actions in complex systems in line with current BlockScience research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
+It uses block diagram wirings and spaces to represent the actions in complex systems in line with current Dynamical Systems Group research on Generalized Dynamical Systems. It also adds some enhancements to the primitive blocks to represent richer sets of behaviors.
 
-One good example is the [wiring report](https://github.com/BlockScience/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Hunt%20Prey%20Wiring.md) for hunt prey wiring in the predator prey example (although it is best viewed in Obsidian where all the linking will work).
+One good example is the [wiring report](https://github.com/DynamicalSystemsGroup/Predator-Prey-MSML/blob/main/reports/obsidian/Wiring/Hunt%20Prey%20Wiring.md) for hunt prey wiring in the predator prey example (although it is best viewed in Obsidian where all the linking will work).
 
 ## Installing the library
 
@@ -77,4 +77,4 @@ The ability to fork the repository of an MSML spec as well as the ability to use
 
 ##  Other Related Repositories
 
-[GDS-MSML-cadCAD Repository](https://github.com/BlockScience/GDS-MSML-cadCAD)
+[GDS-MSML-cadCAD Repository](https://github.com/DynamicalSystemsGroup/GDS-MSML-cadCAD)
